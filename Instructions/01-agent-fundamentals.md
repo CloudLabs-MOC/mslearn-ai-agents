@@ -6,7 +6,7 @@
 
 In this exercise, you use the Azure AI Agent service in the Microsoft Foundry portal to create a simple AI agent that assists employees with expense claims.
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Lab Objectives
 
@@ -23,8 +23,6 @@ In this lab, you'll perform the following tasks:
 Let's start by creating a Foundry project.
 
 1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
-
-    > **Important**: For this lab, you're using the **New** Foundry experience.
 
 1. Click on **Sign in**.
  
@@ -59,11 +57,11 @@ Let's start by creating a Foundry project.
     * Azure AI Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
-     ![](./Media/lab1-s7.png)
+      ![](./Media/lab1-s7.png)
 
-     >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
-1. When your project is created, select **Start building**, and select **Create agent** from the drop-down menu.
+1. When your project is created, select **Start building (1)**, and select **Create agent (2)** from the drop-down menu.
 
     ![](./Media/lab1-s8.png)
 
@@ -81,7 +79,7 @@ Now that you have an agent crated, you're ready to configure it. In this exercis
 
 1. Return to the browser tab where you have the playground open for your expense agent.
 
-1. Set the **Instructions** to:
+1. In **Instructions (1)**, enter the provided prompt text
 
     ```prompt
    You are an AI assistant for corporate expenses.
@@ -89,15 +87,13 @@ Now that you have an agent crated, you're ready to configure it. In this exercis
    If a user wants to submit an expense claim, you get their email address, a description of the claim, and the amount to be claimed and write the claim details to a text file that the user can download.
     ```
 
-    ![Screenshot of the AI agent setup page in Foundry portal.](./Media/ai-agent-setup-new.png)
-
 1. Below the **Instructions**, expand the **Tools** section. Select **Upload files**
 
     ![](./Media/lab1-s10.png)
 
 1. Keep the default values for the **Index option** and **Vector index name**.
 
-1. Use the **browse for files** option to upload the **Expenses_policy.docx** local file that you downloaded previously.
+1. Select the **browse for files** option to upload the **Expenses_policy.docx** local file that you downloaded previously.
 
       ![](./Media/lab1-s11.png)
 
@@ -125,7 +121,7 @@ Your agent will use the document you uploaded as its knowledge source to *ground
 
 Now that you've created an agent, you can test it in the playground chat.
 
-1. In the **Playground** chat box, enter `What's the maximum I can claim for meals?` (1), and then select **Send (2)**.
+1. In the **Playground** chat box, enter `What's the maximum I can claim for meals?` **(1)**, and then select **Send (2)**.
 
     ![](./Media/lab1-s17.png)
 
