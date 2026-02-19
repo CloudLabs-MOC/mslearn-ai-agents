@@ -1,0 +1,17 @@
+
+[
+    {
+      "Name": "AI-3026",
+      "Language": "English",
+      "Files": [
+          {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AI-102-AIEngineer/refs/heads/new-AI102/Instructions/AI-102/AI102-gettingstartedpages/Lab07-Gettingstarted.md",
+          "Order": 1
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/main/Instructions/01-agent-fundamentals.md",
+          "Order": 2
+        }
+      ]
+    }
+  ]
