@@ -71,6 +71,15 @@ Let's start by creating a Foundry project.
 
 The playground will open for your newly created agent. You'll see that an available deployed model is already selected for you.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="74c732c7-ce7d-4057-aa11-9eb0f6b77ac8" />
+
+
 ## Task 2: Configure your agent
 
 Now that you have an agent crated, you're ready to configure it. In this exercise, you'll configure a simple agent that answers questions based on a corporate expense policy. You'll download the expenses policy document, and use it as *grounding* data for the agent.
