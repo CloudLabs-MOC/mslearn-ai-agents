@@ -1,15 +1,15 @@
 
-# AI-102: Azure AI Engineer Associate Workshop
+# AI-102: Develop AI agents on Azure Workshop Workshop
 
-Welcome to your AI-102: Azure AI Engineer Associate workshop! We’re excited to guide you through hands-on learning with Azure AI services using Azure AI Foundry, the Azure portal, and tools like Document Intelligence, Custom Vision, the Language Service, etc., to create, deploy, and test intelligent solutions.
+Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
-# Lab 07: Explore AI Agent development
+# Lab 01: Explore AI Agent development
 
 ### Overall Estimated Duration: 60 Minutes
 
 ## Overview
 
-In this hands-on lab, you’ll gain practical experience with **Azure AI Foundry** by creating a project and deploying the **gpt-4.1** model. You’ll then build an AI agent, configure its system instructions, and upload a corporate expenses policy document as grounding data. Next, you’ll enable actions such as the code interpreter and test the agent in the playground by asking questions and submitting an expense claim. Finally, you’ll download and review the generated claim file to observe how AI agents can automate real business processes and streamline workflows.
+In this hands-on lab, you’ll gain practical experience with the Microsoft Foundry portal by creating a project and building an AI agent. You’ll configure the agent with system instructions and upload a corporate expenses policy document as a knowledge source. Next, you’ll enable the code interpreter tool and test the agent in the playground by asking questions and submitting an expense claim. Finally, you’ll download and review the generated claim file to see how AI agents can support real business processes.
 
 ## Objectives
 

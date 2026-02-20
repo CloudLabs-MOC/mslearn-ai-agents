@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this exercise, you use the Azure AI Agent service in the Microsoft Foundry portal to create a simple AI agent that assists employees with expense claims.
+In this lab, you will create and configure an AI agent using the Microsoft Foundry portal to assist employees with expense claims. You will build a project, define agent instructions, and ground responses using an expense policy document. Finally, you will test the agent in the playground by asking policy questions and generating an expense claim file that you can download and review.
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
@@ -20,7 +20,7 @@ In this lab, you'll perform the following tasks:
 
 ## Task 1: Create a Foundry project and agent
 
-Let's start by creating a Foundry project.
+In this task, you will sign in to the Microsoft Foundry portal, create a new Foundry project, and create an AI agent in the playground. By completing this task, you will have a ready-to-use project and agent with a deployed model available for configuration.
 
 1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
 
@@ -54,7 +54,7 @@ Let's start by creating a Foundry project.
 
     * Subscription: **Choose Default Subscription (3)**
     * Resource group: **AI-102-RG08 (4)**
-    * Azure AI Foundry resource: **Keep as Default (5)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
       ![](./Media/lab1-s7.png)
@@ -69,7 +69,7 @@ Let's start by creating a Foundry project.
 
      ![](./Media/lab1-s9.png)
 
-The playground will open for your newly created agent. You'll see that an available deployed model is already selected for you.
+    - The playground will open for your newly created agent. You'll see that an available deployed model is already selected for you.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >
@@ -82,7 +82,7 @@ The playground will open for your newly created agent. You'll see that an availa
 
 ## Task 2: Configure your agent
 
-Now that you have an agent crated, you're ready to configure it. In this exercise, you'll configure a simple agent that answers questions based on a corporate expense policy. You'll download the expenses policy document, and use it as *grounding* data for the agent.
+In this task, you will configure your agent by adding instructions, uploading an expense policy document for grounding, and enabling the required tools.
 
 1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from `https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx` and save it locally. This document contains details of the expenses policy for the fictional Contoso corporation.
 
@@ -124,11 +124,11 @@ Now that you have an agent crated, you're ready to configure it. In this exercis
 
     ![](./Media/lab1-s15.png)
 
-Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
+    - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
 
 ## Task 3: Test your agent
 
-Now that you've created an agent, you can test it in the playground chat.
+In this task, you will test your configured agent in the playground by asking policy-related questions and submitting an expense claim to verify its responses and actions.
 
 1. In the **Playground** chat box, enter `What's the maximum I can claim for meals?` **(1)**, and then select **Send (2)**.
 
@@ -180,5 +180,7 @@ After experimenting with your agent in the playground, you may want to integrate
     > **Note:** It may take a few minutes for the workspace to be prepared. Follow the instructions provided in the workspace to successfully run the code.
 
 ## Summary
+
+In this lab, you created a new project in the Microsoft Foundry portal and built an AI agent to assist with expense claims. You configured the agent with system instructions and added an expense policy document as grounding data. You also enabled the code interpreter tool so the agent could perform actions. Finally, you tested the agent in the playground by asking policy questions and generating an expense claim file to download and review.
 
 ### You have successfully completed the Hands-on Lab!

@@ -14,10 +14,13 @@ In this lab, you create and configure an Azure AI Foundry project, deploy a mode
 
 - **Task 1:** Create a Foundry project
 
-- **Task 2:** Create an Agent Client App
+- **Task 2:** Create an agent client app
 
-- **Task 3:** Build and Run Your Agent App
+- **Task 3:** Configure the application settings
 
+- **Task 4:** Write code for an agent app
+
+- **Task 5:** Sign into Azure and run the app
 
 ## Task 1: Create a Foundry project
 
@@ -55,7 +58,7 @@ Let's start by creating a Foundry project.
 
     * Subscription: **Choose Default Subscription (3)**
     * Resource group: **AI-102-RG08 (4)**
-    * Azure AI Foundry resource: **Keep as Default (5)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
       ![](./Media/lab2-s1.png)
