@@ -26,7 +26,7 @@ In this lab, you create and configure an Azure AI Foundry project, deploy a mode
 
 Let's start by creating a Foundry project.
 
-1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
+1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
 
 1. Click on **Sign in**.
  
@@ -170,12 +170,12 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Azure AI Foundry project endpoint**
+    * PROJECT\_ENDPOINT : **Foundry project endpoint**
     * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
 
         ![](./Media/lab2-s13.png)
 
-        > **Note:** Paste the Azure AI Foundry project endpoint you copied in the previous task.
+        > **Note:** Paste the project endpoint you copied in the previous task.
 
 1. After replacing the placeholders, save your changes in the code editor using **CTRL+S** or **Right-click > Save**. Then close the editor with **CTRL+Q** or **Right-click > Quit**, leaving the Cloud Shell command line open.
 
