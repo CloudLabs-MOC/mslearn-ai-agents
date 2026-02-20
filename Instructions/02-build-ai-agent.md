@@ -1,93 +1,153 @@
----
-lab:
-    title: 'Develop an AI agent'
-    description: 'Use the Azure AI Agent Service to develop an agent that uses built-in tools.'
----
+# Lab 02: Develop an AI agent
 
-# Develop an AI agent
+### Estimated Duration: 30 Minutes
 
-In this exercise, you'll use Azure AI Agent Service to create a simple agent that analyzes data and creates charts. The agent can use the built-in *Code Interpreter* tool to dynamically generate any code required to analyze data.
+## Overview
 
-> **Tip**: The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
+In this lab, you create and configure an Azure AI Foundry project, deploy a model, and then build a client application to interact with it. You start by creating a new project in Azure AI Foundry and deploying the gpt-4.1 model. Next, you set up a client application in Azure Cloud Shell by cloning a GitHub repository, installing dependencies, and configuring the project settings. Finally, you complete the application code to connect to the project, upload data, and define an agent that can analyze the data with the built-in code interpreter, enabling you to chat interactively with your model.
 
-This exercise should take approximately **30** minutes to complete.
+> **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-## Create a Foundry project
+## Lab Objectives
+
+- **Task 1:** Create a Foundry project
+
+- **Task 2:** Create an Agent Client App
+
+- **Task 3:** Build and Run Your Agent App
+
+
+## Task 1: Create a Foundry project
 
 Let's start by creating a Foundry project.
 
-1. In a web browser, open the [Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
+1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
 
-    ![Screenshot of Foundry portal.](./Media/ai-foundry-home-new.png)
+1. Click on **Sign in**.
+ 
+    ![](./Media/lab1-s2.png)
 
-    > **Important**: For this lab, you're using the **New** Foundry experience.
-1. In the top banner, select **Start building** to try the new Microsoft Foundry Experience.
-1. When prompted, create a **new** project, and enter a valid name for your project.
-1. Expand **Advanced options** and specify the following settings:
-    - **Foundry resource**: *A valid name for your Foundry resource*
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Select your resource group, or create a new one*
-    - **Region**: *Select any **AI Foundry recommended***\**
+1. If prompted, provide the credentials below:
+ 
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    
+     ![](./Media/lab1-s3.png)
 
-    > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+     ![](./Media/lab1-s4.png)
 
-1. Select **Create** and wait for your project to be created.
+1. When the **Stay signed in?** window appears, select **No**.
 
-1. After your project is created, select **Build** from the navigation bar.
+    ![](./Media/lab1-s5.png)
+    
+    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
 
-1. Select **Models** from the left-hand menu, and then select **Deploy a base model**.
+1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
 
-1. Enter **gpt-4.1** in the search box, and then select the **gpt-4.1** model from the search results.
+1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
 
-1. Select **Deploy** with the default settings to create a deployment of the model.
+     ![](./Media/lab1-s6.png)
 
-    After the model is deployed, the playground for the model is displayed.
+1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+
+    * Subscription: **Choose Default Subscription (3)**
+    * Resource group: **AI-102-RG08 (4)**
+    * Azure AI Foundry resource: **Keep as Default (5)**
+    * Region: **<inject key="Region"></inject> (6)**
+
+      ![](./Media/lab2-s1.png)
+
+      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+
+1. Wait for your project created. It may take a few minutes.
+
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+
+     ![](./Media/lab2-s2.png)
+
+1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+
+     ![](./Media/lab2-s3.png)
+
+1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+
+    ![](./Media/lab2-s4.png)
 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
+     ![](./Media/lab2-s5.png)
+
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
-## Create an agent client app
+     ![](./Media/lab2-s6.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="a5b3a25b-5fde-4fec-9e3e-487d2c4e5803" />
+
+## Task 2: Create an agent client app
 
 Now you're ready to create a client app that uses an agent. Some code has been provided for you in a GitHub repository.
 
-### Clone the repo containing the application code
+1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
-1. Open a new browser tab (keeping the Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
+1. If prompted, provide the credentials below:
 
-    Close any welcome notifications to see the Azure portal home page.
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a ***PowerShell*** environment with no storage in your subscription.
+    - **Password:** <inject key="AzureAdUserPassword"></inject> 
 
-    The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+      >**Note:** Close any welcome notifications to see the Azure portal home page.
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, switch it to ***PowerShell***.
+1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
 
-1. In the cloud shell toolbar, in the **Settings** menu, select **Go to Classic version** (this is required to use the code editor).
+    ![](./Media/lab2-s7.png)
 
-    **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
 
-1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
+    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+
+1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+
+    ![](./Media/lab2-s8.png)
+
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+
+1. In the Cloud Shell pane, run the following commands to clone the GitHub repository with the code files for this exercise. You can type the command directly, or copy it to the clipboard, then right-click in the command line and paste it as plain text.
 
     ```
    rm -r ai-agents -f
    git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
     ```
 
-    > **Tip**: As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    ![](./Media/lab2-s10.png)
 
-1. Enter the following command to change the working directory to the folder containing the code files and list them all.
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+
+1. Once the repository is cloned, go to the folder with the chat application code files and open them to view their contents.
 
     ```
    cd ai-agents/Labfiles/02-build-ai-agent/Python
    ls -a -l
     ```
+    
+    ![](./Media/lab2-s11.png)
 
-    The provided files include application code, configuration settings, and data.
+1. The folder contains application code, configuration settings, and data.
 
-### Configure the application settings
+
+## Task 3: Configure the application settings
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -97,21 +157,28 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    pip install -r requirements.txt
     ```
 
+    ![](./Media/lab2-s12.png)
+
 1. Enter the following command to edit the configuration file that has been provided:
 
     ```
    code .env
     ```
 
-    The file is opened in a code editor.
+1. In the code file, replace the placeholder values with the correct details for your project:
 
-1. In the code file, replace the **your_project_endpoint** placeholder with the endpoint for your project (copied from the project overview page in the Foundry portal) and ensure that the MODEL_DEPLOYMENT_NAME variable is set to your model deployment name (which should be *gpt-4.1*).
+    * PROJECT\_ENDPOINT : **Azure AI Foundry project endpoint**
+    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
 
-1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
+        ![](./Media/lab2-s13.png)
 
-### Write code for an agent app
+        > **Note:** Paste the Azure AI Foundry project endpoint you copied in the previous task.
 
-> **Tip**: As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+1. After replacing the placeholders, save your changes in the code editor using **CTRL+S** or **Right-click > Save**. Then close the editor with **CTRL+Q** or **Right-click > Quit**, leaving the Cloud Shell command line open.
+
+## Task 4: Write code for an agent app
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the code file that has been provided:
 
@@ -119,7 +186,10 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    code agent.py
     ```
 
+    ![](./Media/lab2-s14.png)
+
 1. Review the existing code, which retrieves the application configuration settings and loads data from *data.txt* to be analyzed. The rest of the file includes comments where you'll add the necessary code to implement your data analysis agent.
+
 1. Find the comment **Add references** and add the following code to import the classes you'll need to build an Azure AI agent that uses the built-in code interpreter tool:
 
     ```python
@@ -130,9 +200,11 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
     ```
 
+    ![](./Media/lab2-s15.png)
+
 1. Find the comment **Connect to the AI Project and OpenAI clients** and add the following code to connect to the Azure AI project.
 
-    > **Tip**: Be careful to maintain the correct indentation level.
+    > **Tip:** Be careful to maintain the correct indentation level.
 
     ```python
    # Connect to the AI Project and OpenAI clients
@@ -144,8 +216,10 @@ Now you're ready to create a client app that uses an agent. Some code has been p
         project_client.get_openai_client() as openai_client
    ):
     ```
+    
+    ![](./Media/lab2-s18.png)
 
-    The code connects to the Foundry project using the current Azure credentials. The final *with agent_client* statement starts a code block that defines the scope of the client, ensuring it's cleaned up when the code within the block is finished.
+    - The code connects to the Foundry project using the current Azure credentials. The final *with agent_client* statement starts a code block that defines the scope of the client, ensuring it's cleaned up when the code within the block is finished.
 
 1. Find the comment **Upload the data file and create a CodeInterpreterTool**, within the *with agent_client* block, and add the following code to upload the data file to the project and create a CodeInterpreterTool that can access the data in it:
 
@@ -161,6 +235,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    )
 
     ```
+
+    ![](./Media/lab2-s19.png)
     
 1. Find the comment **Define an agent that uses the CodeInterpreterTool** and add the following code to define an AI agent that analyzes data and can use the code interpreter tool you defined previously:
 
@@ -177,12 +253,16 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    print(f"Using agent: {agent.name}")
     ```
 
+    ![](./Media/lab2-s20.png)
+
 1. Find the comment **Create a conversation for the chat session** and add the following code to start a thread on which the chat session with the agent will run:
 
     ```python
    # Create a conversation for the chat session
    conversation = openai_client.conversations.create()
     ```
+
+    ![](./Media/lab2-s22.png)
     
 1. Note that the next section of code sets up a loop for a user to enter a prompt, ending when the user enters "quit".
 
@@ -202,6 +282,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    )
     ```
 
+    ![](./Media/lab2-s23.png)
+
 1. Find the comment **Check the response status for failures** and add the following code to check for any errors.
 
     ```python
@@ -217,6 +299,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    print(f"Agent: {response.output_text}")
     ```
 
+    ![](./Media/lab2-s24.png)
+
 1. Find the comment **Get the conversation history**, which is after the loop ends, and add the following code to print out the messages from the conversation thread; reversing the order to show them in chronological sequence
 
     ```python
@@ -231,6 +315,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
             print(f"{role}: {content}\n")
     ```
 
+    ![](./Media/lab2-s25.png)
+
 1. Find the comment **Clean up** and add the following code to delete the agent and thread when no longer needed.
 
     ```python
@@ -242,6 +328,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    print("Agent deleted")
     ```
 
+    ![](./Media/lab2-s26.png)
+
 1. Review the code, using the comments to understand how it:
     - Connects to the AI Foundry project.
     - Uploads the data file and creates a code interpreter tool that can access it.
@@ -252,28 +340,49 @@ Now you're ready to create a client app that uses an agent. Some code has been p
     - Displays the conversation history
     - Deletes the agent and thread when they're no longer required.
 
-1. Save the code file (*CTRL+S*) when you have finished. You can also close the code editor (*CTRL+Q*); though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
+1. Save the code file **CTRL+S** when you have finished. You can also close the code editor **CTRL+Q** though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
 
-### Sign into Azure and run the app
+## Task 5: Sign into Azure and run the app
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure.
+1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
     az login
     ```
 
-    **<font color="red">You must sign into Azure - even though the cloud shell session is already authenticated.</font>**
+    ![](./Media/lab2-s32.png)
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-    
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials. Then complete the sign in process in the command line, selecting the subscription containing your Foundry hub if prompted.
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+
+1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+
+    ![](./Media/lab2-s33.png)
+
+1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+
+    ![](./Media/lab2-s34.png)
+
+1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
+
+    ![](./Media/lab2-s35.png)
+
+1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
+
+    ![](./Media/lab2-s36.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab2-s37.png)
+
 1. After you have signed in, enter the following command to run the application:
 
     ```
     python agent.py
     ```
+
+    ![](./Media/lab2-s38.png)
     
-    The application runs using the credentials for your authenticated Azure session to connect to your project and create and run the agent.
+    - The application runs using the credentials for your authenticated Azure session to connect to your project and create and run the agent.
 
 1. When prompted, view the data that the app has loaded from the *data.txt* text file. Then enter a prompt such as:
 
@@ -281,7 +390,9 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    What's the category with the highest cost?
     ```
 
-    > **Tip**: If the app fails because the rate limit is exceeded. Wait a few seconds and try again. If there is insufficient quota available in your subscription, the model may not be able to respond.
+    ![](./Media/lab2-s28.png)
+
+    > **Tip:** If the app fails because the rate limit is exceeded. Wait a few seconds and try again. If there is insufficient quota available in your subscription, the model may not be able to respond.
 
 1. View the response. Then enter another prompt, this time requesting a visualization:
 
@@ -289,25 +400,20 @@ Now you're ready to create a client app that uses an agent. Some code has been p
    Create a text-based bar chart showing cost by category
     ```
 
+    ![](./Media/lab2-s30.png)
+
 1. View the response. Then enter another prompt, this time requesting a statistical metric:
 
     ```
    What's the standard deviation of cost?
     ```
 
-    View the response.
+    ![](./Media/lab2-s39.png)
 
 1. You can continue the conversation if you like. The thread is *stateful*, so it retains the conversation history - meaning that the agent has the full context for each response. Enter `quit` when you're done.
+
 1. Review the conversation messages that were retrieved from the thread - which may include messages the agent generated to explain its steps when using the code interpreter tool.
 
 ## Summary
 
 In this exercise, you used the Azure AI Agent Service SDK to create a client application that uses an AI agent. The agent can use the built-in Code Interpreter tool to run dynamic Python code to perform statistical analyses.
-
-## Clean up
-
-If you've finished exploring Azure AI Agent Service, you should delete the resources you have created in this exercise to avoid incurring unnecessary Azure costs.
-
-1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com) at `https://portal.azure.com` in a new browser tab) and view the contents of the resource group where you deployed the resources used in this exercise.
-1. On the toolbar, select **Delete resource group**.
-1. Enter the resource group name and confirm that you want to delete it.
