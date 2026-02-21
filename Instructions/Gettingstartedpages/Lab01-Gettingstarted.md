@@ -15,48 +15,44 @@ In this hands-on lab, you’ll gain practical experience with the Microsoft Foun
 
 By the end of this lab, you will be able to:
 
-1. **Create a project and deploy a model in Azure AI Foundry**: Set up a new project, deploy the gpt-4.1 model, and prepare it for agent development.
+1. **Create a project and agent in Microsoft Foundry:** Set up a new Foundry project and create an AI agent with a deployed model ready for configuration.
 
-2. **Build and configure an AI agent**: Define system instructions, upload a corporate expenses policy document as grounding data, and enable the code interpreter for actions.
+2. **Configure an AI agent with knowledge and tools:** Define system instructions, upload an expense policy document for grounding, and enable tools such as file search and code interpreter.
 
-3. **Test and validate the agent in the playground**: Interact with the agent by asking policy-related questions, guide it through creating an expense claim, and review the generated claim file.
+3. **Test and validate the agent in the playground:** Interact with the agent by asking policy-related questions, submit an expense claim, and download and review the generated claim file.
 
 ## Pre-requisites
 
 * Basic knowledge of the Azure portal.
 * Familiarity with AI concepts such as agents, grounding data, and actions.
-* An active Azure subscription with access to **Azure AI Foundry**.
+* An active Azure subscription with access to **Microsoft Foundry**.
 * Permission to create and manage resources in the assigned resource group (for example, Azure AI User role).
 
 ## Architecture
 
-The lab architecture demonstrates how an Azure AI Foundry project supports AI agent development and automation:
+The lab architecture demonstrates how a Microsoft Foundry project enables AI agent development for expense management:
 
-1. **Azure AI Foundry Resource**: Created in the Azure portal, this resource connects to Azure AI services and hosts deployed models such as **gpt-4.1**.
+1. **Microsoft Foundry Project and Deployed Model:** A workspace created in the Microsoft Foundry portal where a foundation model is deployed to power the AI agent’s conversational and task-based responses.
 
-2. **Azure AI Foundry Project**: A workspace where you deploy and manage the gpt-4.1 model, create agents, configure system instructions, and upload grounding data for agent knowledge.
+2. **AI Agent Configuration:** An agent created in the playground with defined system instructions that control its behavior and response logic.
 
-3. **AI Agent**: A configurable assistant within the project that uses the deployed model and uploaded documents to answer questions, perform actions, and generate outputs (like expense claim files).
+3. **Grounding Data and Tools:** An uploaded expense policy document attached using File Search for contextual grounding, along with the Code Interpreter tool to enable dynamic actions such as generating downloadable expense claim files.
 
-4. **Agents Playground Interface**: A built-in testing environment where you interact with the agent, validate its behavior, send queries, and review responses before applying the agent in real-world scenarios.
+4. **Agents Playground Interface:** An interactive testing environment where users send prompts, validate grounded responses, trigger tool-based actions, and review generated outputs before integrating the agent into applications.
 
 ## Architecture Diagram
 
-![](../Images/lab08archdiagram.png)
+![](../Media/Lab1-arch.png)
 
 ## Explanation of Components
 
-1. **Azure AI Foundry Project**: The main workspace where you create and manage AI agents. It serves as the hub for deploying models, configuring agent instructions, uploading grounding data, and controlling access to resources.
+1. **Microsoft Foundry Project and Deployed Model:** The project serves as the central workspace in the Microsoft Foundry portal where AI resources are managed. Within this project, a foundation model is deployed to process user prompts and generate responses that power the AI agent.
 
-2. **Deployed Model (gpt-4.1)**: The AI model used by your agent to generate responses. It is hosted within the Foundry project and accessed via endpoints to process queries and perform tasks.
+2. **AI Agent Configuration:** The agent encapsulates the deployed model along with system instructions that define its purpose assisting employees with expense-related queries. These instructions control tone, scope, and task-handling logic during interactions.
 
-3. **AI Agent**: A configurable assistant that leverages the deployed model and grounding data to answer questions, perform actions (like creating expense claims), and interact with users based on system instructions.
+3. **Knowledge Source (Expense Policy Document):** The uploaded expense policy document acts as the agent’s knowledge base. Using File Search, the agent retrieves relevant policy information to provide accurate, context-aware responses grounded in company guidelines.
 
-4. **Grounding Data / Knowledge Base**: Documents or files uploaded to the agent (e.g., the expenses policy) that provide the factual context for the agent’s responses.
-
-5. **Code Interpreter / Actions**: Tools enabled for the agent to perform specific tasks programmatically, such as generating text files or processing data.
-
-6. **Agents Playground**: An interactive interface within the Foundry project where you can test the agent, run queries, validate behavior, and review outputs before integrating it into applications.
+4. **Code Interpreter and Playground Interaction:** The Code Interpreter tool enables the agent to generate and execute Python code for performing actions such as creating downloadable expense claim files. The Agents Playground provides the interactive interface where users test prompts, trigger actions, and validate outputs in real time.
 
 # Getting Started with lab
 
@@ -64,7 +60,7 @@ Welcome to your AI-102: Azure AI Engineer Associate workshop! We’ve prepared a
 
 ## Accessing Your Lab Environment
  
-Once you're ready to dive in, your virtual machine and **lab guide** will be right at your fingertips within your web browser.
+Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
  
 ![Access Your VM and Lab Guide](../Images/lab08labvm.png)
 

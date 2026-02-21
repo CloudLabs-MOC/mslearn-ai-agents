@@ -9,58 +9,56 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 ## Overview
 
-In this hands-on lab, you’ll gain practical experience with **Azure AI Foundry** by creating a project and deploying the **gpt-4.1** model. You’ll set up a Python client application in **Azure Cloud Shell**, configure it with your project details, and upload a data file for analysis. Next, you’ll build an AI agent that leverages the **code interpreter** to analyze the data, run interactive conversation threads, and generate responses, visualizations, and statistical metrics. Finally, you’ll test the agent by sending prompts, reviewing outputs, and exploring conversation history to see how AI agents can be integrated into custom applications for real-time data analysis.
+In this hands-on lab, you will gain practical experience with the **Microsoft Foundry portal** by creating a project and deploying the **gpt-4.1** model. You will set up a Python client application in **Azure Cloud Shell**, configure it with your project endpoint and deployment details, and implement code to connect to your Foundry project. Next, you will build an AI agent that leverages the built-in **Code Interpreter** tool to perform dynamic analysis and run stateful conversation threads. Finally, you will authenticate to Azure, execute the application, and interact with the agent to explore how AI agents can be integrated into custom applications for real-time analytical scenarios.
 
 ## Objectives
 
 By the end of this lab, you will be able to:
 
-1. **Create a project and deploy a model in Azure AI Foundry**: Set up a new project, deploy the gpt-4.1 model, and prepare it for agent development.
+1. **Create a project and deploy a model in the Microsoft Foundry portal:** Set up a new project, deploy the gpt-4.1 model, and prepare it for agent development.
 
-2. **Build and configure an AI agent**: Upload a data file for analysis, define system instructions, and enable the code interpreter tool to perform actions.
+2. **Set up and configure a Python client application:** Prepare the Azure Cloud Shell environment, install dependencies, and update application settings with project details.
 
-3. **Test and run the agent using a client application**: Interact with the agent by sending prompts, requesting calculations or visualizations, and reviewing the conversation history to validate its behavior.
+3. **Build and configure an AI agent using the SDK:** Implement code to connect to the Foundry project, define agent instructions, and enable the built-in Code Interpreter tool.
+
+4. **Authenticate and test the agent:** Sign in to Azure, run the application, interact with the agent through prompts, and validate its analytical and conversational capabilities.
 
 ## Pre-requisites
 
 * Basic knowledge of the Azure portal.
 * Familiarity with AI concepts such as agents, grounding data, and code interpreter actions.
-* An active Azure subscription with access to **Azure AI Foundry**.
+* An active Azure subscription with access to **Microsoft Foundry portal**.
 * Permission to create and manage resources in the assigned resource group (for example, Azure AI User role).
 
 ## Architecture
 
-The lab architecture demonstrates how an Azure AI Foundry project supports AI agent development and automation:
+This lab demonstrates how a Microsoft Foundry project enables AI agent development through SDK-based integration and tool-enabled execution.
 
-1. **Azure AI Foundry Resource**: Created in the Azure portal, this resource connects to Azure AI services and hosts deployed models such as **gpt-4.1**.
+1. **Microsoft Foundry Project:** A workspace created in the Microsoft Foundry portal where you deploy models and manage agent configurations.
 
-2. **Azure AI Foundry Project**: A workspace where you deploy and manage the gpt-4.1 model, create agents, configure system instructions, and upload grounding data for agent knowledge.
+2. **Deployed Foundation Model (gpt-4.1):** A model deployed within the project that processes prompts and powers the AI agent’s analytical and conversational responses.
 
-3. **AI Agent**: A configurable assistant within the project that uses the deployed model and uploaded documents to answer questions, perform actions, and generate outputs (like analyzed data or expense claim files).
+3. **AI Agent with Code Interpreter Tool:** An agent defined programmatically using the Microsoft Foundry SDK, configured with instructions and the built-in Code Interpreter tool to execute dynamic Python code.
 
-4. **Client Application**: A Python-based app that connects to the project endpoint, sends prompts, and interacts with the agent programmatically, allowing for automated data analysis and conversation.
+4. **Python Client Application (Azure Cloud Shell):** A client application that connects to the project endpoint, authenticates using Azure credentials, sends prompts, manages stateful conversations, and retrieves responses.
 
-5. **Agents Playground Interface**: A built-in testing environment where you interact with the agent, validate its behavior, send queries, and review responses before applying the agent in real-world scenarios.
+5. **Azure CLI Authentication:** Provides secure access to the Foundry project and allows the application to interact with deployed models and agents programmatically.
 
 ## Architecture Diagram
 
-![](../Images/AI-102-arch-lab2a.png)
+![](../Media/lab2-arch.png)
 
 ## Explanation of Components
 
-1. **Azure AI Foundry Project**: The main workspace where you create and manage AI agents. It serves as the hub for deploying models, configuring agent instructions, uploading grounding data, and controlling access to resources.
+1. **Microsoft Foundry Project:** The central workspace created in the Microsoft Foundry portal where you deploy models and manage agent configurations for SDK-based integration.
 
-2. **Deployed Model (gpt-4.1)**: The AI model used by your agent to generate responses. It is hosted within the Foundry project and accessed via endpoints to process queries and perform tasks.
+2. **Deployed Model (gpt-4.1):** The foundation model deployed within the project that processes prompts and generates analytical and conversational responses.
 
-3. **AI Agent**: A configurable assistant that leverages the deployed model and grounding data to answer questions, perform actions (like generating expense claim files or analyzing data), and interact with users based on system instructions.
+3. **AI Agent (SDK-defined):** An agent created programmatically using the Microsoft Foundry SDK, configured with instructions and linked to the deployed model for task-specific behavior.
 
-4. **Grounding Data / Knowledge Base**: Documents or files uploaded to the agent (e.g., the corporate expenses policy or data.txt) that provide factual context for the agent’s responses and actions.
+4. **Code Interpreter Tool:** A built-in tool enabled for the agent that allows execution of dynamic Python code to perform calculations, statistical analysis, and generate structured outputs.
 
-5. **Code Interpreter / Actions**: Tools enabled for the agent to perform programmatic tasks, such as uploading data, generating outputs, performing calculations, or creating visualizations.
-
-6. **Client Application**: A Python-based application that connects to the Azure AI Foundry project endpoint, sends prompts to the agent, receives responses, and handles interactive conversations programmatically.
-
-7. **Agents Playground**: An interactive interface within the Foundry project where you can test the agent, run queries, validate behavior, and review outputs before integrating it into real-world workflows.
+5. **Python Client Application with Azure Authentication:** A Cloud Shell–based application that authenticates using Azure CLI, connects to the project endpoint, manages stateful conversations, and interacts with the agent programmatically.
 
 # Getting Started with lab
 
@@ -68,7 +66,7 @@ Welcome to your AI-102: Azure AI Engineer Associate workshop! We’ve prepared a
 
 ## Accessing Your Lab Environment
  
-Once you're ready to dive in, your virtual machine and **lab guide** will be right at your fingertips within your web browser.
+Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
  
 ![Access Your VM and Lab Guide](../Images/lab08labvm.png)
 

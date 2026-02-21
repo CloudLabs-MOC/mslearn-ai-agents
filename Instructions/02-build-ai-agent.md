@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you create and configure an Azure AI Foundry project, deploy a model, and then build a client application to interact with it. You start by creating a new project in Azure AI Foundry and deploying the gpt-4.1 model. Next, you set up a client application in Azure Cloud Shell by cloning a GitHub repository, installing dependencies, and configuring the project settings. Finally, you complete the application code to connect to the project, upload data, and define an agent that can analyze the data with the built-in code interpreter, enabling you to chat interactively with your model.
+In this lab, you will create and configure a project in the **Microsoft Foundry portal**, deploy a foundation model, and build an AI agent using the Microsoft Foundry SDK for Python. You will set up a client application in Azure Cloud Shell, configure project settings, and write code to connect to your Foundry project. The agent will upload and analyze data using the built-in Code Interpreter tool, enabling interactive, stateful conversations. Finally, you will authenticate to Azure, run the application, and validate the agent’s ability to perform statistical analysis and generate responses based on the uploaded dataset.
 
 > **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
@@ -24,7 +24,7 @@ In this lab, you create and configure an Azure AI Foundry project, deploy a mode
 
 ## Task 1: Create a Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you will create a new project in the Microsoft Foundry portal, set up its configuration, and deploy the gpt-4.1 model. By the end of this task, you will have a project endpoint and model deployment ready to be used by a client application.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
 
@@ -97,7 +97,7 @@ Let's start by creating a Foundry project.
 
 ## Task 2: Create an agent client app
 
-Now you're ready to create a client app that uses an agent. Some code has been provided for you in a GitHub repository.
+In this task, you will prepare a client application environment in Azure Cloud Shell by cloning the provided GitHub repository and reviewing the project files. By the end of this task, you will have the application code and supporting files ready for configuration.
 
 1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -152,6 +152,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
 ## Task 3: Configure the application settings
 
+In this task, you will install the required Python dependencies, update the configuration file with your Foundry project endpoint and model deployment name, and save the changes. By the end of this task, your application will be properly configured to connect to your Foundry project.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -180,6 +182,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 1. After replacing the placeholders, save your changes in the code editor using **CTRL+S** or **Right-click > Save**. Then close the editor with **CTRL+Q** or **Right-click > Quit**, leaving the Cloud Shell command line open.
 
 ## Task 4: Write code for an agent app
+
+In this task, you will complete the application code to connect to your Microsoft Foundry project, upload a data file, create a Code Interpreter tool, and define an AI agent. By the end of this task, the application will be capable of running a stateful conversation with the agent and performing data analysis.
 
 > **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
@@ -347,6 +351,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
 ## Task 5: Sign into Azure and run the app
 
+In this task, you will authenticate to Azure using the Azure CLI and run the client application. You will interact with the agent by submitting prompts, reviewing responses, and validating its ability to analyze data and generate results dynamically.
+
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
@@ -419,4 +425,6 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
 ## Summary
 
-In this exercise, you used the Azure AI Agent Service SDK to create a client application that uses an AI agent. The agent can use the built-in Code Interpreter tool to run dynamic Python code to perform statistical analyses.
+In this lab, you created a new project in the Microsoft Foundry portal and deployed a foundation model for an AI agent solution. You configured a Python client application in Azure Cloud Shell, updated the project settings, and implemented code to connect to your Foundry project and enable the built-in Code Interpreter tool. Finally, you authenticated to Azure, ran the application, and interacted with the agent through a stateful conversation to validate its analytical capabilities.
+
+### You have successfully completed the Hands-on Lab!
