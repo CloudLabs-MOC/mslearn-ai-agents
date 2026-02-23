@@ -57,7 +57,7 @@ In this task, you will create a new project in the Microsoft Foundry portal, set
 1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
     * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG08 (4)**
+    * Resource group: **AI-102-RG09 (4)**
     * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 

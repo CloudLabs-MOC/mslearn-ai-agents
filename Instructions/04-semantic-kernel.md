@@ -18,7 +18,7 @@ In this exercise, you'll use Azure AI Agent Service and Microsoft Agent Framewor
 
 - **Task 5:** Sign into Azure and run the app
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 
 ## Task 1: Deploy a model in a Microsoft Foundry project
@@ -189,7 +189,7 @@ Now you're ready to create a client app that defines an agent and a custom funct
 
 ## Task 4: Write code for an agent app
 
-> **Tip**: As you add code, be sure to maintain the correct indentation. Use the existing comments as a guide, entering the new code at the same level of indentation.
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the existing comments as a guide, entering the new code at the same level of indentation.
 
 1. Enter the following command to edit the agent code file that has been provided:
 
@@ -257,7 +257,7 @@ Now you're ready to create a client app that defines an agent and a custom funct
     ):
     ```
 
-    ![](./Media/lab4-s8.png)
+    ![](./Media/lab4-s13.png)
 
     - Note that the **AzureCliCredential** object will allow your code to authenticate to your Azure account. The **AzureOpenAIResponsesClient** object includes the Foundry project settings from the .env configuration. The **Agent** object is initialized with the client, instructions for the agent, and the tool function you defined to send emails.
 
