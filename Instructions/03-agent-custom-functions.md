@@ -22,7 +22,7 @@ In this lab, you'll explore creating an agent that can use custom functions as a
 
 Let's start by creating a Foundry project.
 
-1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
 1. Click on **Sign in**.
  
@@ -93,7 +93,7 @@ Let's start by creating a Foundry project.
 
 Now that you've created your project in AI Foundry, let's develop an app that implements an agent using custom function tools.
 
-1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
 1. If prompted, provide the credentials below:
 

@@ -99,7 +99,7 @@ In this task, you will create a new project in the Microsoft Foundry portal, set
 
 In this task, you will prepare a client application environment in Azure Cloud Shell by cloning the provided GitHub repository and reviewing the project files. By the end of this task, you will have the application code and supporting files ready for configuration.
 
-1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
 1. If prompted, provide the credentials below:
 

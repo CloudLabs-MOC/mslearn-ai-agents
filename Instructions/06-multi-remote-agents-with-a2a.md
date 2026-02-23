@@ -4,7 +4,7 @@
 
 ## Lab Objectives
 
-- **Task 1:** Create an Azure AI Foundry project
+- **Task 1:** Create a Foundry project
 
 - **Task 2:** Create an A2A application
 
@@ -20,7 +20,7 @@ In this exercise, you'll use Azure AI Agent Service with the A2A protocol to cre
 
 Let's start by creating a Foundry project.
 
-1. Open a new tab in the browser, right-click on the following link [Azure AI Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
+1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
 1. Click on **Sign in**.
 
@@ -59,7 +59,7 @@ Let's start by creating a Foundry project.
 
 1. Wait for your project to be created.      
 
-    >**Note:** In some cases, Azure AI Foundry will automatically deploy a default model usually **gpt-4o**. If this happens, flollow the below step and deploy gpt-4.1 model.
+    >**Note:** In some cases, Microsoft Foundry will automatically deploy a default model usually **gpt-4o**. If this happens, follow the below step and deploy gpt-4.1 model.
 
     1. In the left-hand menu, select **Models + endpoints**, then select **+ Deploy model** and choose **Deploy base model** from the drop-down list.
 
@@ -96,7 +96,7 @@ Now you're ready to create a client app that uses an agent. Some code has been p
 
 ### Task 2.1: Clone the repo containing the application code
 
-1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
 1. If prompted, provide the credentials below:
 

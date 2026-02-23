@@ -106,7 +106,7 @@ Let's start by creating a Foundry project.
 
 Now you're ready to create a client app that uses the Microsoft Agent Framework SDK to implement your multi-agent solution.
 
-1. Open a new browser tab (keeping the Azure AI Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
 1. If prompted, provide the credentials below:
 
