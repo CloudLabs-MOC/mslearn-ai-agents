@@ -26,7 +26,7 @@ In this lab, you will create and configure a project in the **Microsoft Foundry 
 
 In this task, you will create a new project in the Microsoft Foundry portal, set up its configuration, and deploy the gpt-4.1 model. By the end of this task, you will have a project endpoint and model deployment ready to be used by a client application.
 
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Azure AI Foundry portal**.
+1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
 1. Click on **Sign in**.
  
