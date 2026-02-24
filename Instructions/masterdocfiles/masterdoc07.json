@@ -1,0 +1,17 @@
+
+[
+    {
+      "Name": "AI-3026",
+      "Language": "English",
+      "Files": [
+          {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/main/Instructions/Gettingstartedpages/Lab01-Gettingstarted.md",
+          "Order": 1
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/main/Instructions/07-build-agent-in-vs-code.md",
+          "Order": 2
+        }
+      ]
+    }
+  ]

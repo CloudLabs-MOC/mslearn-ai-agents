@@ -533,7 +533,7 @@ In this task, you will sign into Azure, run the multi-agent application, and int
 
     > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
 
     ![](./Media/lab6-s27.2.png)
 
@@ -544,6 +544,10 @@ In this task, you will sign into Azure, run the multi-agent application, and int
 1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
 
     ![](./Media/lab2-s35.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab5-s12.png)
 
 1. After you have signed in, enter the following command to run the application:
 

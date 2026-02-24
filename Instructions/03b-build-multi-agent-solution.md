@@ -1,71 +1,121 @@
----
-lab:
-    title: 'Develop a multi-agent solution with Microsoft Foundry'
-    description: 'Learn to configure multiple agents to collaborate using Microsoft Foundry Agent Service'
----
+# Lab 3b: Develop a multi-agent solution with Microsoft Foundry
+    
+### Estimated Duration: 30 Minutes
 
-# Develop a multi-agent solution
+## Overview
 
 In this exercise, you'll create a project that orchestrates multiple AI agents using Microsoft Foundry Agent Service. You'll design an AI solution that assists with ticket triage. The connected agents will assess the ticket's priority, suggest a team assignment, and determine the level of effort required to complete the ticket. Let's get started!
 
-> **Tip**: The code used in this exercise is based on the for Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
+> **Tip:** The code used in this exercise is based on the for Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
-This exercise should take approximately **30** minutes to complete.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+## Lab Objectives
 
-## Create a Foundry project
+- **Task 1:** Create a Foundry project
+
+- **Task 2:** Create an A2A application
+
+## Task 1: Create a Foundry project
 
 Let's start by creating a Foundry project.
 
-1. In a web browser, open the [Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
+1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
-    ![Screenshot of Foundry portal.](./Media/ai-foundry-home.png)
+1. Click on **Sign in**.
 
-    > **Important**: Make sure the **New Foundry** toggle is *Off* for this lab.
+   ![](./Media/lab1-s2.png)
 
-1. In the home page, select **Create an agent**.
-1. When prompted to create a project, enter a valid name for your project and expand **Advanced options**.
-1. Confirm the following settings for your project:
-    - **Foundry resource**: *A valid name for your Foundry resource*
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Create or select a resource group*
-    - **Region**: *Select any **AI Foundry recommended***\*
+1. If prompted, provide the credentials below:
 
-    > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-1. Select **Create** and wait for your project to be created.
-1. If prompted, deploy a **gpt-4o** model using either the *Global Standard* or *Standard* deployment option (depending on your quota availability).
+     ![](./Media/lab1-s3.png)
 
-    >**Note**: If quota is available, a GPT-4o base model may be deployed automatically when creating your Agent and project.
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
 
-1. When your project is created, the Agents playground will be opened.
+      ![](./Media/lab1-s4.png)
 
-1. In the navigation pane on the left, select **Overview** to see the main page for your project; which looks like this:
+1. When the **Stay signed in?** window appears, select **No**.
 
-    ![Screenshot of a Foundry project overview page.](./Media/ai-foundry-project.png)
+    ![](./Media/lab1-s5.png)
 
-1. Copy the **Foundry project endpoint** values to a notepad, as you'll use them to connect to your project in a client application.
+     > **Important:** Make sure the **New Foundry** toggle is **Off** for this lab.
 
-## Create an AI Agent client app
+1. In the home page, select **Create an agent**.   
+
+    ![](./Media/lab6-s1.png)
+
+1. In the **Create a new project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+
+    * Subscription: **Choose Default Subscription (3)**
+    * Resource group: **AI-102-RG13 (4)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
+    * Region: **<inject key="Region"></inject> (6)**
+
+      ![](./Media/lab3b-s1.png)
+
+       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.       
+
+1. Wait for your project to be created.      
+
+    >**Note:** In some cases, Microsoft Foundry will automatically deploy a default model usually **gpt-4o**. If this happens, follow the below step and deploy gpt-4.1 model.
+
+    1. In the left-hand menu, select **Models + endpoints**, then select **+ Deploy model** and choose **Deploy base model** from the drop-down list.
+
+       ![](./Media/lab6-s4.png)
+
+1. When prompted, search for `gpt-4.1` **(1)**, then select **gpt-4.1 (2)** model and then **Confirm (3)**.
+
+    ![](./Media/lab3b-s2.png)
+
+1. On the **Deploy gpt-4.1** page, select **Standard (1)** as the Deployment type and then click on **Deploy (2)**.
+
+   ![](./Media/lab3b-s3.png)
+
+1. From the left navigation pane, select **Playgrounds (1)**, then in the **Agents playground** verify that **gpt-4.1 (2)** is selected under *Deployment*; if not, choose **gpt-4.1** from the drop-down.
+
+    ![](./Media/lab3b-s4.png)
+
+    > **Note:** After selecting **Playgrounds**, if the welcome page appears with the **Let’s go** button, select **Let’s go** to open the **Agents playground**, and then verify that **gpt-4.1** is selected under *Deployment*.
+
+1. In the navigation pane on the left, select **Overview (1)** to see the main page for your project. Copy the **Microsoft Foundry project endpoint (2)** values to a notepad, as you'll use them to connect to your project in a client application.
+
+    ![](./Media/lab3b-s5.1.png)
+
+## Task 2: Create an AI Agent client app
 
 Now you're ready to create a client app that defines the agents and instructions. Some code is provided for you in a GitHub repository.
 
-### Prepare the environment
+### Task 2.1 : Prepare the environment
 
-1. Open a new browser tab (keeping the Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
-    Close any welcome notifications to see the Azure portal home page.
+1. If prompted, provide the credentials below:
 
-1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a ***PowerShell*** environment with no storage in your subscription.
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-    The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    - **Password:** <inject key="AzureAdUserPassword"></inject> 
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, switch it to ***PowerShell***.
+      >**Note:** Close any welcome notifications to see the Azure portal home page.
 
-1. In the cloud shell toolbar, in the **Settings** menu, select **Go to Classic version** (this is required to use the code editor).
+1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
 
-    **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    ![](./Media/lab2-s7.png)
+
+    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+
+    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+
+1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+
+    ![](./Media/lab2-s8.png)
+
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -73,8 +123,9 @@ Now you're ready to create a client app that defines the agents and instructions
    rm -r ai-agents -f
    git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
     ```
+    ![](./Media/lab3b-s5.png)
 
-    > **Tip**: As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. When the repo has been cloned, enter the following command to change the working directory to the folder containing the code files and list them all.
 
@@ -83,9 +134,11 @@ Now you're ready to create a client app that defines the agents and instructions
    ls -a -l
     ```
 
-    The provided files include application code and a file for configuration settings.
+    ![](./Media/lab3b-s6.png)
 
-### Configure the application settings
+    - The provided files include application code and a file for configuration settings.
+
+### Task 2.2: Configure the application settings
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -101,13 +154,20 @@ Now you're ready to create a client app that defines the agents and instructions
    code .env
     ```
 
-    The file is opened in a code editor.
+    ![](./Media/lab3b-s7.png)
 
-1. In the code file, replace the **your_project_endpoint** placeholder with the endpoint for your project (copied from the project **Overview** page in the Foundry portal), and the **your_model_deployment** placeholder with the name you assigned to your gpt-4o model deployment (which by default is `gpt-4o`).
+1. In the code file, replace the placeholder values with the correct details for your project:
+
+    * PROJECT\_ENDPOINT : **Microsoft Foundry project endpoint (1)**
+    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+
+    ![](./Media/lab3b-s8.png)
+
+    > **Note:** Paste the project endpoint you copied in the previous task.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Create AI agents
+### Task 2.3: Create AI agents
 
 Now you're ready to create the agents for your multi-agent solution! Let's get started!
 
@@ -116,6 +176,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
     ```
    code agent_triage.py
     ```
+
+    ![](./Media/lab3b-s9.png)
 
 1. Review the code in the file, noting that it contains strings for each agent name and instructions.
 
@@ -127,6 +189,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    from azure.ai.agents.models import ConnectedAgentTool, MessageRole, ListSortOrder, ToolSet, FunctionTool
    from azure.identity import DefaultAzureCredential
     ```
+
+    ![](./Media/lab3b-s10.png)
 
 1. Note that code to load the project endpoint and model name from your environment variables has been provided.
 
@@ -143,9 +207,11 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    )
     ```
 
-    Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
+    ![](./Media/lab3b-s11.png)
 
-    > **Tip**: When adding subsequent code, be sure to maintain the right level of indentation under the `using agents_client:` statement.
+    - Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
+
+      > **Tip:** When adding subsequent code, be sure to maintain the right level of indentation under the `using agents_client:` statement.
 
 1. Find the comment **Create an agent to prioritize support tickets**, and enter the following code (being careful to retain the right level of indentation):
 
@@ -169,6 +235,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
         instructions=priority_agent_instructions
    )
     ```
+
+    ![](./Media/lab3b-s12.png)
 
 1. Find the comment **Create an agent to assign tickets to the appropriate team**, and enter the following code:
 
@@ -194,6 +262,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    )
     ```
 
+    ![](./Media/lab3b-s13.png)
+
 1. Find the comment **Create an agent to estimate effort for a support ticket**, and enter the following code:
 
     ```python
@@ -217,7 +287,9 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    )
     ```
 
-    So far, you've created three agents; each of which has a specific role in triaging a support ticket. Now let's create ConnectedAgentTool objects for each of these agents so they can be used by other agents.
+    ![](./Media/lab3b-s14.png)
+
+    - So far, you've created three agents; each of which has a specific role in triaging a support ticket. Now let's create ConnectedAgentTool objects for each of these agents so they can be used by other agents.
 
 1. Find the comment **Create connected agent tools for the support agents**, and enter the following code:
 
@@ -242,7 +314,9 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    )
     ```
 
-    Now you're ready to create a primary agent that will coordinate the ticket triage process, using the connected agents as required.
+    ![](./Media/lab3b-s15.png)
+
+    - Now you're ready to create a primary agent that will coordinate the ticket triage process, using the connected agents as required.
 
 1. Find the comment **Create an agent to triage support ticket processing by using connected agents**, and enter the following code:
 
@@ -266,7 +340,9 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    )
     ```
 
-    Now that you have defined a primary agent, you can submit a prompt to it and have it use the other agents to triage a support issue.
+    ![](./Media/lab3b-s16.png)
+
+    - Now that you have defined a primary agent, you can submit a prompt to it and have it use the other agents to triage a support issue.
 
 1. Find the comment **Use the agents to triage a support issue**, and enter the following code:
 
@@ -301,6 +377,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    
     ```
 
+    ![](./Media/lab3b-s17.1.png)
+
 1. Find the comment **Clean up**, and enter the following code to delete the agents when they are no longer required:
 
     ```python
@@ -315,25 +393,39 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
    agents_client.delete_agent(effort_agent.id)
    print("Deleted effort agent.")
     ```
-    
+    ![](./Media/lab3b-s18.png)
 
 1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Sign into Azure and run the app
+### Task 2.4: Sign into Azure and run the app
 
 Now you're ready to run your code and watch your AI agents collaborate.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure.
+1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
-   az login
+    az login
     ```
 
-    **<font color="red">You must sign into Azure - even though the cloud shell session is already authenticated.</font>**
+    ![](./Media/lab3b-s19.png)
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials. Then complete the sign in process in the command line, selecting the subscription containing your Foundry hub if prompted.
+1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
+
+    ![](./Media/lab3b-s20.png)
+
+1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+
+    ![](./Media/lab2-s34.png)
+
+1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
+
+    ![](./Media/lab2-s35.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab3b-s21.png)
 
 1. After you have signed in, enter the following command to run the application:
 
@@ -343,7 +435,11 @@ Now you're ready to run your code and watch your AI agents collaborate.
 
 1. Enter a prompt, such as `Users can't reset their password from the mobile app.`
 
-    After the agents process the prompt, you should see some output similar to the following:
+    ![](./Media/lab3b-s22.png)
+
+1. After the agents process the prompt, you should see some output similar to the following:
+
+    ![](./Media/lab3b-s23.png)
 
     ```output
     Creating agent thread.
@@ -366,14 +462,6 @@ Now you're ready to run your code and watch your AI agents collaborate.
     Deleted effort agent.
     ```
 
-    You can try modifying the prompt using a different ticket scenario to see how the agents collaborate. For example, "Investigate occasional 502 errors from the search endpoint."
+    - You can try modifying the prompt using a different ticket scenario to see how the agents collaborate. For example, "Investigate occasional 502 errors from the search endpoint."
 
-## Clean up
-
-If you've finished exploring Azure AI Agent Service, you should delete the resources you have created in this exercise to avoid incurring unnecessary Azure costs.
-
-1. Return to the browser tab containing the Azure portal (or re-open the [Azure portal](https://portal.azure.com) at `https://portal.azure.com` in a new browser tab) and view the contents of the resource group where you deployed the resources used in this exercise.
-
-1. On the toolbar, select **Delete resource group**.
-
-1. Enter the resource group name and confirm that you want to delete it.
+## Summary
