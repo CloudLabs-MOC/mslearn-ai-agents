@@ -14,7 +14,7 @@ In this exercise, you'll create a project that orchestrates multiple AI agents u
 
 - **Task 1:** Create a Foundry project
 
-- **Task 2:** Create an A2A application
+- **Task 2:** Create an AI Agent client app
 
 ## Task 1: Create a Foundry project
 
@@ -49,7 +49,7 @@ Let's start by creating a Foundry project.
 1. In the **Create a new project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
     * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG13 (4)**
+    * Resource group: **AI-3026-RG3b (4)**
     * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
@@ -161,9 +161,9 @@ Now you're ready to create a client app that defines the agents and instructions
     * PROJECT\_ENDPOINT : **Microsoft Foundry project endpoint (1)**
     * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
 
-    ![](./Media/lab3b-s8.png)
+      ![](./Media/lab3b-s8.png)
 
-    > **Note:** Paste the project endpoint you copied in the previous task.
+      > **Note:** Paste the project endpoint you copied in the previous task.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 

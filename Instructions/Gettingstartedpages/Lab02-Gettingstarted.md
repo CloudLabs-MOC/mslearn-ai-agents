@@ -68,7 +68,7 @@ Welcome to your AI-102: Azure AI Engineer Associate workshop! We’ve prepared a
  
 Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../Images/lab08labvm.png)
+![Access Your VM and Lab Guide](../Media/ai-3026-labvm.png)
 
 ### Virtual Machine & Lab Guide
  
@@ -78,56 +78,55 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![Explore Lab Resources](../Images/envtab.png)
-
-## Managing Your Virtual Machine
- 
-Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
- 
-![Manage Your Virtual Machine](../Images/resourcetab.png)
-
-## Lab Progress
-
-You can use the **Progress** tab to track your progress while working on the lab. A score will be provided after successful validation.
-
-![](../Images/progresstab.png)
+![Explore Lab Resources](../Media/ai-3026-g1.png)
 
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
-![Use the Split Window Feature](../Images/splitwindow.png)
+![Use the Split Window Feature](../Media/ai-3026-g2.png)
 
 ## Lab Guide Zoom In/Zoom Out
  
 To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
 
-![](../Images/zoominai102.png)
+![](../Media/ai-3026-g5.png)
+
+## Lab Progress
+
+You can use the **Progress** tab to track your progress while working on the lab. A score will be provided after successful validation.
+
+![](../Media/ai-3026-g3.png)
+
+## Managing Your Virtual Machine
+ 
+Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
+ 
+![Manage Your Virtual Machine](../Media/ai-3026-g4.png)
 
 ## Let's Get Started with Azure Portal
  
-1. On your virtual machine, click on the Azure Portal icon as shown below:
+1. On your virtual machine, click on the **Azure Portal** icon as shown below:
  
-   ![Launch Azure Portal](../Images/azureportalicon.png)
+   ![Launch Azure Portal](../Media/ai-3026-g6.png)
 
 1. In the sign-in window, kindly sign in using the provided Azure credentials
 
     - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-        ![](../Images/AI-l16-0.png)
+        ![](../Media/ai-3026-g7.png)
 
-    - **Password:** <inject key="AzureAdUserPassword"></inject>
+    - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject>
 
-        ![](../Images/AIl16-1.png)
+        ![](../Media/ai-3026-g8.png)
 
 1. If prompted to **Stay signed in?**, you can click **No**.
 
-    ![](../Images/AIl16-2.png)
+    ![](../Media/ai-3026-g9.png)
 
-1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **Cancel** to skip the tour.
+1. If a **Welcome to Microsoft Azure** pop-up window appears, simply click **Maybe later** to skip the tour.
 
-    ![](../Images/AIl16-3.png)
-
+    ![](../Media/ai-3026-g10.png)
 
 ## Support Contact
  
@@ -140,7 +139,7 @@ Learner Support Contacts:
 
 Click on **Next** from the lower right corner to move on to the next page.
 
-   ![Start Your Azure Journey](../Images/nextpage.png)
+   ![](../Media/ai-3026-next.png)
 
 ## Happy Learning !!
 
