@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you'll explore creating an agent that can use custom functions as a tool to complete tasks. You'll build a simple technical support agent that can collect details of a technical problem and generate a support ticket.
+In this lab, you will build an end-to-end solution using the Microsoft Foundry platform by creating a project, deploying a model, and extending it with custom function tools. You will develop an application in Azure Cloud Shell that enables an AI agent to collect user information and automatically generate support tickets. Finally, you will run and test the agent to understand how function tools can be used to perform real-world actions and automate technical support scenarios.
 
 > **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
@@ -20,9 +20,9 @@ In this lab, you'll explore creating an agent that can use custom functions as a
 
 ## Task 1: Create a Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you will sign in to the Microsoft Foundry portal and create a new project. You will then deploy the **gpt-4.1** model.
 
-1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com)[https://ai.azure.com/], then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
 1. Click on **Sign in**.
  
@@ -91,7 +91,7 @@ Let's start by creating a Foundry project.
 
 ## Task 2: Develop an agent that uses function tools
 
-Now that you've created your project in AI Foundry, let's develop an app that implements an agent using custom function tools.
+In this task, you will use the Microsoft Azure portal to access Azure Cloud Shell and prepare the development environment. You will clone the provided GitHub repository and configure the application files required to build an AI agent that uses custom function tools.
 
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -145,6 +145,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
 
 ### Task 2.1: Configure the application settings
 
+In this task, you will set up the Python environment and install required libraries. You will also update the configuration file with your Microsoft Foundry project details.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -173,6 +175,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
 ### Task 2.2: Create a function for the agent to use
+
+In this task, you will edit the agent code to define a custom function that generates and saves support tickets. This function will be used by the AI agent to handle user requests.
 
 1. Enter the following command to begin editing the agent code.
 
@@ -223,6 +227,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
 
 ### Task 2.3: Connect to the Foundry project
 
+In this task, you will connect your application to the Microsoft Foundry project using the AI Project client.
+
 1. Find the comment **Connect to the AI Project client** and add the following code to connect to the Azure AI project.
 
     > **Tip:** Be careful to maintain the correct indentation level.
@@ -241,6 +247,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
     ![](./Media/lab3-s8.png)
 
 ### Task 2.4: Define the function tool
+
+In this task, you will define a FunctionTool that allows the AI agent to call your custom support ticket function.
 
 1. Find the comment **Create a FunctionTool definition** and add the following code to define a function tool that uses your custom function:
 
@@ -268,6 +276,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
 
 ### Task 2.5: Create the agent that uses the function tool
 
+In this task, you will create an AI agent and configure it to use the FunctionTool for handling support requests.
+
 1. Find the comment **Initialize the agent with the FunctionTool** section, and add the following code to create an agent that can use the function tool you defined:
 
     ```python
@@ -290,6 +300,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
     ![](./Media/lab3-s10.png)
 
 ### Task 2.6: Send a message to the agent and process the response
+
+In this task, you will create a conversation thread, send user prompts to the agent, and retrieve its responses while handling any errors.
 
 1. Find the comment **Create a thread for the chat session** and add the following code:
 
@@ -333,6 +345,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
     ![](./Media/lab3-s14.png)
 
 ### Task 2.7: Process function calls and display the agent's response
+
+In this task, you will handle any function calls made by the agent, return the results, display the responses, and clean up the conversation and agent resources.
 
 1. Find the comment **Process function calls** and add the following code to handle any function calls made by the agent:
 
@@ -406,6 +420,8 @@ Now that you've created your project in AI Foundry, let's develop an app that im
 
 ## Task 3: Sign into Azure and run the app
 
+In this task, you will sign into Azure from Cloud Shell and run the agent application. You will interact with the agent, provide issue details, and verify that support tickets are generated correctly.
+
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ![](./Media/lab3-s18.png)
@@ -467,3 +483,7 @@ Now that you've created your project in AI Foundry, let's develop an app that im
     ```
 
 ## Summary
+
+In this lab, you created a new project in the Microsoft Foundry portal and developed an AI agent for technical support. You implemented a custom function to generate and save support tickets and integrated it with the agent. Finally, you tested the agent to ensure it could handle user requests and successfully create support ticket files.
+
+### You have successfully completed the Hands-on Lab!

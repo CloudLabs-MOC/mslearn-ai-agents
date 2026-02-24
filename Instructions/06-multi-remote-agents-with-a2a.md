@@ -2,23 +2,23 @@
    
 ### Estimated Duration: 30 Minutes
 
+## Overview
+
+In this lab, you'll use Azure AI Agent Service with the A2A protocol to create remote agents that communicate with each other. You will build a title agent to generate article headlines and an outline agent to create structured outlines from the titles. A routing agent will orchestrate communication between them, allowing you to test multi-agent collaboration through a client application.
+
+> **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
+
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+
 ## Lab Objectives
 
 - **Task 1:** Create a Foundry project
 
 - **Task 2:** Create an A2A application
 
-## Overview
-
-In this exercise, you'll use Azure AI Agent Service with the A2A protocol to create simple remote agents that interact with one another. These agents will assist technical writers with preparing their developer blog posts. A title agent will generate a headline, and an outline agent will use the title to develop a concise outline for the article. Let's get started
-
-> **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
-
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
-
 ## Task 1: Create a Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you will create a new project in the Microsoft Foundry portal, configure it with a resource group and region, and deploy the gpt-4.1 model. You will also locate and copy the project endpoint to use in your client application.
 
 1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -90,11 +90,23 @@ Let's start by creating a Foundry project.
 
     ![](./Media/lab6-s7.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="c1fb6715-624a-418f-b152-45427c8de4d8" />
+ 
+---     
+
 ## Task 2: Create an A2A application
 
 Now you're ready to create a client app that uses an agent. Some code has been provided for you in a GitHub repository.
 
 ### Task 2.1: Clone the repo containing the application code
+
+In this task, you will set up a client application by cloning the provided GitHub repository containing the code for the title, outline, and routing agents, and prepare the environment for running the multi-agent A2A application.
 
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -166,6 +178,8 @@ Now you're ready to create a client app that uses an agent. Some code has been p
     - Each agent folder contains the Azure AI agent code and a server to host the agent. The **routing agen**t is responsible for discovering and communicating with the **title** and **outline** agents. The **client** allows users to submit prompts to the routing agent. `run_all.py` launches all the servers and runs the client.
 
 ### Task 2.2: Configure the application settings
+
+In this task, you will configure the application by installing required libraries and updating the .env file with your Foundry project endpoint and model deployment details.
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -507,6 +521,8 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
 
 ### Task 2.5: Sign into Azure and run the app
 
+In this task, you will sign into Azure, run the multi-agent application, and interact with the agents to generate outputs such as article titles and outlines.
+
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
@@ -556,6 +572,6 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
     
 ## Summary
 
-In this exercise, you used the Azure AI Agent Service SDK and the A2A Python SDK to create a remote multi-agent solution. You created a discoverable A2A-compatible agent and set up a routing agent to access the agent's skills. You also implemented an agent executor to process incoming A2A messages and manage tasks. Great work!
+In this lab, you used the Azure AI Agent Service SDK and the A2A Python SDK to create a remote multi-agent solution. You created a discoverable A2A-compatible agent and set up a routing agent to access the agent's skills. You also implemented an agent executor to process incoming A2A messages and manage tasks. Great work!
 
 ### You have successfully completed the Hands-on Lab!

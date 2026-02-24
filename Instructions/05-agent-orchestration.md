@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this exercise, you'll practice using the sequential orchestration pattern in the Microsoft Agent Framework SDK. You'll create a simple pipeline of three agents that work together to process customer feedback and suggest next steps. You'll create the following agents:
+In this lab, you'll learn how to build a multi-agent solution using the Microsoft Agent Framework SDK. You'll implement the sequential orchestration pattern, where multiple agents work together in a pipeline to process input and generate meaningful outputs. You'll create the following agents:
 
 - The Summarizer agent will condense raw feedback into a short, neutral sentence.
 - The Classifier agent will categorize the feedback as Positive, Negative, or a Feature request.
@@ -28,7 +28,7 @@ In this exercise, you'll practice using the sequential orchestration pattern in 
 
 ## Task 1: Deploy a model in a Microsoft Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you will create a new Microsoft Foundry project, deploy the gpt-4.1 model, and copy the project endpoint to use in your client application.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -104,7 +104,7 @@ Let's start by creating a Foundry project.
 
 ## Task 2: Create an AI Agent client app
 
-Now you're ready to create a client app that uses the Microsoft Agent Framework SDK to implement your multi-agent solution.
+In this task, you will set up the client environment by opening Azure Cloud Shell and cloning the GitHub repo. This prepares your system to configure and run the multi-agent solution.
 
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -158,6 +158,8 @@ Now you're ready to create a client app that uses the Microsoft Agent Framework 
 
 ## Task 3: Configure the application settings
 
+In this task, you will install required Python libraries and configure the .env file with your Foundry project details to enable agent connectivity.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -193,7 +195,7 @@ Now you're ready to create a client app that uses the Microsoft Agent Framework 
 
 ## Task 4: Create AI agents
 
-Now you're ready to create the agents for your multi-agent solution! Let's get started!
+In this task, you will define and initialize the summarizer, classifier, and action agents to form the core of your multi-agent workflow.
 
 1. Enter the following command to edit the **agents.py** file:
 
@@ -258,6 +260,8 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
 
 ## Task 5: Create a sequential orchestration
 
+In this task, you will build a sequential workflow to process customer feedback through the summarizer, classifier, and action agents, then collect and display their outputs.
+
 1. In the **main** function, find the comment **Initialize the current feedback** and add the following code:
     
     (Be sure to maintain the indentation level)
@@ -314,7 +318,7 @@ Now you're ready to create the agents for your multi-agent solution! Let's get s
 
 ## Task 6: Sign into Azure and run the app
 
-Now you're ready to run your code and watch your AI agents collaborate.
+In this task, you will sign into Azure, run your multi-agent application, and observe how the agents process and respond to customer feedback.
 
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
@@ -399,6 +403,6 @@ Now you're ready to run your code and watch your AI agents collaborate.
 
 ## Summary
 
-In this exercise, you practiced sequential orchestration with the Microsoft Agent Framework SDK, combining multiple agents into a single, streamlined workflow. Great work!
+In this lab, you created a new project in the Microsoft Foundry portal and built a multi-agent solution using the Microsoft Agent Framework. You configured the agents with instructions, created a sequential orchestration, and tested the workflow by processing customer feedback to generate summaries, classifications, and recommended actions.
 
 ### You have successfully completed the Hands-on Lab!

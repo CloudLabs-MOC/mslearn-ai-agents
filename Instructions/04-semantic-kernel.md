@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this exercise, you'll use Azure AI Agent Service and Microsoft Agent Framework to create an AI agent that processes expense claims.
+In this lab, you'll use the Microsoft Agent Framework SDK and Azure AI Agent Service to create an AI agent that processes expense claims. You will deploy a model in a Microsoft Foundry project, develop a client app, configure the application, define a custom tool for sending emails, and run the agent to handle expense claim requests.
 
 ## Lab Objectives
 
@@ -20,10 +20,9 @@ In this exercise, you'll use Azure AI Agent Service and Microsoft Agent Framewor
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-
 ## Task 1: Deploy a model in a Microsoft Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you will sign in to the Microsoft Foundry portal, create a new project, and deploy the gpt-4.1 model for use in your agent application.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -100,7 +99,7 @@ Let's start by creating a Foundry project.
 
 ## Task 2: Create an agent client app
 
-Now you're ready to create a client app that defines an agent and a custom function. Some code has been provided for you in a GitHub repository.
+In this task, you will set up a client app in Azure Cloud Shell, clone the provided GitHub repository, and prepare the code files for creating your agent.
 
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -154,6 +153,8 @@ Now you're ready to create a client app that defines an agent and a custom funct
 
 ## Task 3: Configure the application settings
 
+In this task, you will install required libraries and configure the .env file with your Foundry project details.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -188,6 +189,8 @@ Now you're ready to create a client app that defines an agent and a custom funct
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
 ## Task 4: Write code for an agent app
+
+In this task, you will edit the agent code to add references, define a custom email tool, initialize the agent with instructions, and configure it to process expenses data.
 
 > **Tip:** As you add code, be sure to maintain the correct indentation. Use the existing comments as a guide, entering the new code at the same level of indentation.
 
@@ -287,6 +290,8 @@ Now you're ready to create a client app that defines an agent and a custom funct
 
 ## Task 5: Sign into Azure and run the app
 
+In this task, you signed into Azure using the CLI, authenticated your session, and ran the agent application. You then tested the agent by submitting an expense claim and verified that it generated the expected email output.
+
 1. In the cloud shell command-line pane beneath the code editor, enter the following command to sign into Azure **(1)**. Copy and paste the Sign in URL in the web browser **(2)**. Copy the device code as well to authenticate **(3)**.
 
     ```
@@ -295,9 +300,9 @@ Now you're ready to create a client app that defines an agent and a custom funct
 
     ![](./Media/lab4-s10.png)
 
-    >**Note**: You must sign into Azure - even though the cloud shell session is already authenticated
+    >**Note:** You must sign into Azure - even though the cloud shell session is already authenticated
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
 1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
 
@@ -343,6 +348,6 @@ Now you're ready to create a client app that defines an agent and a custom funct
 
 ## Summary
 
-In this exercise, you used the Microsoft Agent Framework SDK to create an agent with a custom tool.
+In this lab, you used the Microsoft Agent Framework SDK to build an AI agent for expense claim processing. You created a custom tool to simulate sending emails, configured the agent with system instructions, and connected it to a Foundry project. Finally, you ran and tested the agent, verifying that it processed expenses data and generated the expected email output.
 
 ### You have successfully completed the Hands-on Lab!
