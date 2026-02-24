@@ -1,76 +1,123 @@
----
-lab:
-    title: 'Connect AI Agents to a remote MCP server'
-    description: 'Learn how to integrate Model Context Protocol tools with AI agents'
----
+# Lab 03c: Connect AI agents to tools using Model Context Protocol (MCP)
 
-# Connect AI agents to tools using Model Context Protocol (MCP)
+### Estimated Duration: 30 Minutes
+
+## Overview
 
 In this exercise, you'll build an agent that connects to a cloud-hosted MCP server. The agent will use AI-powered search to help developers find accurate, real-time answers from Microsoft's official documentation. This is useful for building assistants that support developers with up-to-date guidance on tools like Azure, .NET, and Microsoft 365. The agent will use the available MCP tools to query the documentation and return relevant results.
 
 > **Tip**: The code used in this exercise is based on the Azure AI Agent service MCP support sample repository. Refer to [Azure OpenAI demos](https://github.com/retkowsky/Azure-OpenAI-demos/blob/main/Azure%20Agent%20Service/9%20Azure%20AI%20Agent%20service%20-%20MCP%20support.ipynb) or visit [Connect to Model Context Protocol servers](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/model-context-protocol) for more details.
 
-This exercise should take approximately **30** minutes to complete.
-
 > **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-## Create a Microsoft Foundry project
+## Lab Objectives
+
+- **Task 1:** Create a Microsoft Foundry project
+
+- **Task 2:** Develop an agent that uses MCP function tools
+
+## Task 1: Create a Microsoft Foundry project
 
 Let's start by creating a Foundry project.
 
-1. In a web browser, open the [Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
+1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
-    ![Screenshot of Foundry portal.](./Media/ai-foundry-home-new.png)
+1. Click on **Sign in**.
+ 
+    ![](./Media/lab1-s2.png)
 
-    > **Important**: For this lab, you're using the **New** Foundry experience.
+1. If prompted, provide the credentials below:
+ 
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    
+     ![](./Media/lab1-s3.png)
 
-1. In the top banner, select **Start building** to try the new Microsoft Foundry Experience.
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+     ![](./Media/lab1-s4.png)
 
-1. When prompted, select **Create a new project** and enter a valid name for your project.
+1. When the **Stay signed in?** window appears, select **No**.
 
-1. Expand **Advanced options** and specify the following settings:
-    - **Foundry resource**: *A valid name for your Foundry resource*
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Select your resource group, or create a new one*
-    - **Region**: *Select any **AI Foundry recommended***\**
+    ![](./Media/lab1-s5.png)
+    
+    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
 
-    > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
 
-1. Select **Create** and wait for your project to be created.
+1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
 
-1. After your project is created, select **Build** from the navigation bar.
+     ![](./Media/lab1-s6.png)
 
-1. Select **Models** from the left-hand menu, and then select **Deploy a base model**.
+    > **Important:** For this lab, you're using the **New** Foundry experience.
 
-1. Enter **gpt-4.1** in the search box, and then select the **gpt-4.1** model from the search results.
+1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
-1. Select **Deploy** with the default settings to create a deployment of the model.
+    * Subscription: **Choose Default Subscription (3)**
+    * Resource group: **AI-3026-RG3c (4)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
+    * Region: **<inject key="Region"></inject> (6)**
 
-    After the model is deployed, the playground for the model is displayed.
+      ![](./Media/lab3c-s1.png)
+
+      >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+
+1. Wait for your project created. It may take a few minutes.
+
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+
+     ![](./Media/lab2-s2.png)
+
+1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+
+     ![](./Media/lab2-s3.png)
+
+1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+
+    ![](./Media/lab2-s4.png)
+
+    - After the model is deployed, the playground for the model is displayed.
 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
+     ![](./Media/lab3c-s2.png)
+
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
-## Develop an agent that uses MCP function tools
+    ![](./Media/lab2-s6.png)
+
+## Task 2: Develop an agent that uses MCP function tools
 
 Now that you've created your project in AI Foundry, let's develop an app that integrates an AI agent with an MCP server.
 
-### Clone the repo containing the application code
+### Task 2.1: Clone the repo containing the application code
 
-1. Open a new browser tab (keeping the Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
-    Close any welcome notifications to see the Azure portal home page.
+1. If prompted, provide the credentials below:
 
-1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a ***PowerShell*** environment with no storage in your subscription.
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-    The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    - **Password:** <inject key="AzureAdUserPassword"></inject> 
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, switch it to ***PowerShell***.
+      >**Note:** Close any welcome notifications to see the Azure portal home page.
 
-1. In the cloud shell toolbar, in the **Settings** menu, select **Go to Classic version** (this is required to use the code editor).
+1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
 
-    **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    ![](./Media/lab2-s7.png)
+
+    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+
+    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+
+1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+
+    ![](./Media/lab2-s8.png)
+
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -78,8 +125,9 @@ Now that you've created your project in AI Foundry, let's develop an app that in
    rm -r ai-agents -f
    git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
     ```
+    ![](./Media/lab3c-s3.png)
 
-    > **Tip**: As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. Enter the following command to change the working directory to the folder containing the code files and list them all.
 
@@ -88,7 +136,9 @@ Now that you've created your project in AI Foundry, let's develop an app that in
    ls -a -l
     ```
 
-### Configure the application settings
+    ![](./Media/lab3c-s4.png)
+
+### Task 2.2: Configure the application settings
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -106,13 +156,20 @@ Now that you've created your project in AI Foundry, let's develop an app that in
    code .env
     ```
 
-    The file is opened in a code editor.
+    ![](./Media/lab3c-s5.png)
 
-1. In the code file, replace the **your_project_endpoint** placeholder with the endpoint for your project (copied from the project **Overview** page in the Foundry portal) and ensure that the MODEL_DEPLOYMENT_NAME variable is set to your model deployment name (which should be *gpt-4.1*).
+1. In the code file, replace the placeholder values with the correct details for your project:
+
+    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
+    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+
+        ![](./Media/lab3c-s6.png)
+
+        > **Note:** Paste the project endpoint you copied in the previous task.
 
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Connect an Azure AI Agent to a remote MCP server
+### Task 2.3: Connect an Azure AI Agent to a remote MCP server
 
 In this task, you'll connect to a remote MCP server, prepare the AI agent, and run a user prompt.
 
@@ -122,7 +179,7 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    code client.py
     ```
 
-    The file is opened in the code editor.
+    ![](./Media/lab3c-s7.png)
 
 1. Find the comment **Add references** and add the following code to import the classes:
 
@@ -133,6 +190,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    from azure.ai.projects.models import PromptAgentDefinition, MCPTool
    from openai.types.responses.response_input_param import McpApprovalResponse, ResponseInputParam
     ```
+
+    ![](./Media/lab3c-s8.png)
 
 1. Find the comment **Connect to the agents client** and add the following code to connect to the Azure AI project using the current Azure credentials.
 
@@ -147,6 +206,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
     ):
     ```
 
+    ![](./Media/lab3c-s9.png)
+
 1. Under the comment **Initialize agent MCP tool**, add the following code:
 
     ```python
@@ -158,7 +219,9 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    )
     ```
 
-    This code will connect to the Microsft Learn Docs remote MCP server. This is a cloud-hosted service that enables clients to access trusted and up-to-date information directly from Microsoft's official documentation.
+    ![](./Media/lab3c-s10.png)
+
+    - This code will connect to the Microsft Learn Docs remote MCP server. This is a cloud-hosted service that enables clients to access trusted and up-to-date information directly from Microsoft's official documentation.
 
 1. Under the comment **Create a new agent with the MCP tool** and add the following code:
 
@@ -175,7 +238,9 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    print(f"Agent created (id: {agent.id}, name: {agent.name}, version: {agent.version})")
     ```
 
-    In this code, you provide instructions for the agent and provide it with the MCP tool definitions.
+    ![](./Media/lab3c-s11.png)
+
+    - In this code, you provide instructions for the agent and provide it with the MCP tool definitions.
 
 1. Find the comment **Create a conversation thread** and add the following code:
 
@@ -195,6 +260,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
        extra_body={"agent": {"name": agent.name, "type": "agent_reference"}},
    )
     ```
+
+    ![](./Media/lab3c-s12.png)
 
 1. Find the comment **Process any MCP approval requests that were generated** and add the following code:
 
@@ -217,6 +284,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    print(input_list)
     ```
 
+    ![](./Media/lab3c-s13.png)
+
 1. Find the comment **Send the approval response back and retrieve a response** and add the following code:
 
     ```python
@@ -230,6 +299,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    print(f"\nAgent response: {response.output_text}")
     ```
 
+    ![](./Media/lab3c-s14.png)
+
 1. Find the comment **Clean up resources by deleting the agent version** and add the following code:
 
     ```python
@@ -238,21 +309,41 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
    print("Agent deleted")
     ```
 
-1. Save the code file (*CTRL+S*) when you have finished. You can also close the code editor (*CTRL+Q*); though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
+    ![](./Media/lab3c-s14.1.png)
 
-### Sign into Azure and run the app
+1. Save the code file **CTRL+S** when you have finished. You can also close the code editor **CTRL+Q**; though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure.
+### Task 2.4: Sign into Azure and run the app
+
+1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
-   az login
+    az login
     ```
 
-    **<font color="red">You must sign into Azure - even though the cloud shell session is already authenticated.</font>**
+    ![](./Media/lab3c-s15.png)
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-    
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials. Then complete the sign in process in the command line, selecting the subscription containing your Foundry hub if prompted.
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+
+1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
+
+    ![](./Media/lab3c-s16.png)
+
+1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+
+    ![](./Media/lab2-s34.png)
+
+1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
+
+    ![](./Media/lab2-s35.png)
+
+1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
+
+    ![](./Media/lab2-s36.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab3c-s17.png)
 
 1. After you have signed in, enter the following command to run the application:
 
@@ -261,6 +352,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
     ```
 
 1. Wait for the agent to process the prompt, using the MCP server to find a suitable tool to retrieve the requested information. You should see some output similar to the following:
+
+    ![](./Media/lab3c-s19.png)
 
     ```
     Agent created (id: MyAgent:2, name: MyAgent, version: 2)
@@ -289,10 +382,4 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
 
 1. You can update the input in the request to ask for different information. In each case, the agent will attempt to find technical documentation by using the MCP tool.
 
-## Clean up
-
-Now that you've finished the exercise, you should delete the cloud resources you've created to avoid unnecessary resource usage.
-
-1. Open the [Azure portal](https://portal.azure.com) at `https://portal.azure.com` and view the contents of the resource group where you deployed the hub resources used in this exercise.
-1. On the toolbar, select **Delete resource group**.
-1. Enter the resource group name and confirm that you want to delete it.
+## Summary

@@ -545,6 +545,10 @@ In this task, you will sign into Azure, run the multi-agent application, and int
 
     ![](./Media/lab2-s35.png)
 
+1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
+
+    ![](./Media/lab2-s36.png)
+
 1. In the Cloud Shell console, press **Enter** to select the only available subscription.
 
     ![](./Media/lab5-s12.png)
