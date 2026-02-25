@@ -114,6 +114,7 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
 
     ![](./Media/lab2-s6.png)
 
+
 ## Task 2: Create a customer support triage workflow
 
 In this section, you'll create a workflow that helps triage and respond to customer support requests for a fictional company called ContosoPay. The workflow uses two AI agents that classify and respond to support tickets.
