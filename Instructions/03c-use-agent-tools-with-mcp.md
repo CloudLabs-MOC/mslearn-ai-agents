@@ -4,11 +4,11 @@
 
 ## Overview
 
-In this exercise, you'll build an agent that connects to a cloud-hosted MCP server. The agent will use AI-powered search to help developers find accurate, real-time answers from Microsoft's official documentation. This is useful for building assistants that support developers with up-to-date guidance on tools like Azure, .NET, and Microsoft 365. The agent will use the available MCP tools to query the documentation and return relevant results.
+In this lab, you will build an AI agent using Microsoft Foundry that connects to a remote Model Context Protocol (MCP) server to access trusted and up-to-date technical documentation. You will configure the agent with MCP function tools and enable it to retrieve real-time information from official Microsoft Learn resources. Finally, you will run and test the agent to observe how it uses MCP tools to answer developer queries accurately.
 
-> **Tip**: The code used in this exercise is based on the Azure AI Agent service MCP support sample repository. Refer to [Azure OpenAI demos](https://github.com/retkowsky/Azure-OpenAI-demos/blob/main/Azure%20Agent%20Service/9%20Azure%20AI%20Agent%20service%20-%20MCP%20support.ipynb) or visit [Connect to Model Context Protocol servers](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/model-context-protocol) for more details.
+> **Tip:** The code used in this exercise is based on the Azure AI Agent service MCP support sample repository. Refer to [Azure OpenAI demos](https://github.com/retkowsky/Azure-OpenAI-demos/blob/main/Azure%20Agent%20Service/9%20Azure%20AI%20Agent%20service%20-%20MCP%20support.ipynb) or visit [Connect to Model Context Protocol servers](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/model-context-protocol) for more details.
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Lab Objectives
 
@@ -18,7 +18,7 @@ In this exercise, you'll build an agent that connects to a cloud-hosted MCP serv
 
 ## Task 1: Create a Microsoft Foundry project
 
-Let's start by creating a Foundry project.
+In this task, you’ll create a new project in the Microsoft Foundry portal and deploy the gpt-4.1 model using the required subscription and region settings. Finally, you’ll copy the project endpoint to use later for connecting your AI client application.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -91,6 +91,8 @@ Now that you've created your project in AI Foundry, let's develop an app that in
 
 ### Task 2.1: Clone the repo containing the application code
 
+In this task, you’ll use Azure Cloud Shell (PowerShell) to clone the GitHub repository and navigate to the project folder containing the MCP-based AI agent application code.
+
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
 1. If prompted, provide the credentials below:
@@ -140,6 +142,8 @@ Now that you've created your project in AI Foundry, let's develop an app that in
 
 ### Task 2.2: Configure the application settings
 
+In this task, you’ll create a virtual environment, install required libraries, and update the project endpoint and model deployment name in the configuration file.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -171,7 +175,7 @@ Now that you've created your project in AI Foundry, let's develop an app that in
 
 ### Task 2.3: Connect an Azure AI Agent to a remote MCP server
 
-In this task, you'll connect to a remote MCP server, prepare the AI agent, and run a user prompt.
+In this task, you’ll connect the Azure AI agent to a remote MCP server, configure it with tools and instructions, run a prompt, handle approval requests, and retrieve the final response.
 
 1. Enter the following command to edit the code file that has been provided:
 
@@ -315,6 +319,8 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
 
 ### Task 2.4: Sign into Azure and run the app
 
+In this task, you’ll sign in to Azure using the CLI, run the application, and verify that the agent successfully processes the prompt by using the MCP server to retrieve and return the required information.
+
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
     ```
@@ -383,3 +389,9 @@ In this task, you'll connect to a remote MCP server, prepare the AI agent, and r
 1. You can update the input in the request to ask for different information. In each case, the agent will attempt to find technical documentation by using the MCP tool.
 
 ## Summary
+
+In this lab, you created a Microsoft Foundry project, deployed the Microsoft Azure AI Foundry model, and configured the project endpoint for your application.
+You set up a Python development environment, installed dependencies, and built an AI agent integrated with a remote MCP server using the Azure AI Agents SDK.
+Finally, you authenticated with Azure, ran the application, and verified that the agent used MCP tools to retrieve trusted documentation and generate accurate responses.
+
+### You have successfully completed the Hands-on Lab!

@@ -1,58 +1,60 @@
-
-# AI-102: Develop AI agents on Azure Workshop Workshop
+# AI-3026: Develop AI agents on Azure Workshop
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
-# Lab 01: Explore AI Agent development
+# Lab 04: Develop an Azure AI chat agent with the Microsoft Agent Framework SDK
 
 ### Overall Estimated Duration: 30 Minutes
 
 ## Overview
 
-In this hands-on lab, you’ll gain practical experience with the Microsoft Foundry portal by creating a project and building an AI agent. You’ll configure the agent with system instructions and upload a corporate expenses policy document as a knowledge source. Next, you’ll enable the code interpreter tool and test the agent in the playground by asking questions and submitting an expense claim. Finally, you’ll download and review the generated claim file to see how AI agents can support real business processes.
+In this hands-on lab, you will gain practical experience with the Microsoft Agent Framework SDK by creating an AI agent for processing expense claims. You will deploy the gpt-4.1 model in a Microsoft Foundry project, set up a Python client application in Azure Cloud Shell, and configure it with your project endpoint and deployment details. Next, you will define a custom tool to simulate sending emails and integrate it into the agent’s workflow. Finally, you will run the agent, interact with it to submit expense claims, and verify that it generates the expected email outputs based on the provided data.
 
 ## Objectives
 
 By the end of this lab, you will be able to:
 
-1. **Create a project and agent in Microsoft Foundry:** Set up a new Foundry project and create an AI agent with a deployed model ready for configuration.
+1. **Deploy a model in Microsoft Foundry:** Create a project in **Microsoft Foundry** and deploy the gpt-4.1 model with default or customized settings.
 
-2. **Configure an AI agent with knowledge and tools:** Define system instructions, upload an expense policy document for grounding, and enable tools such as file search and code interpreter.
+2. **Build an agent application:** Set up a Python client app using the **Microsoft Agent Framework SDK** to process expense claims.
 
-3. **Test and validate the agent in the playground:** Interact with the agent by asking policy-related questions, submit an expense claim, and download and review the generated claim file.
+3. **Configure and extend the app:** Connect the application to your project endpoint and model deployment using environment variables, and implement a custom tool to simulate sending expense-claim emails.
+
+4. **Run and validate the agent:** Authenticate with Azure, execute the agent against expense data, and confirm the structured response and simulated email output.
 
 ## Pre-requisites
 
 * Basic knowledge of the Azure portal.
-* Familiarity with AI concepts such as agents, grounding data, and actions.
-* An active Azure subscription with access to **Microsoft Foundry**.
-* Permission to create and manage resources in the assigned resource group (for example, Azure AI User role).
+* Familiarity with Microsoft Agent Framework SDK concepts such as tools and orchestration.
+* Basic knowledge of Python programming.
 
 ## Architecture
 
-The lab architecture demonstrates how a Microsoft Foundry project enables AI agent development for expense management:
+The lab architecture demonstrates how an AI agent is deployed and executed inside a **Microsoft Foundry** project:.
 
-1. **Microsoft Foundry Project and Deployed Model:** A workspace created in the Microsoft Foundry portal where a foundation model is deployed to power the AI agent’s conversational and task-based responses.
+1. **Microsoft Foundry Project**: Provides the environment to deploy the gpt-4.1 model, host the project endpoint, and manage agent experiments.
 
-2. **AI Agent Configuration:** An agent created in the playground with defined system instructions that control its behavior and response logic.
+2. **Model Deployment (gpt-4.1):** The large language model endpoint used by the agent to interpret expense data, generate structured claims, and provide responses.
 
-3. **Grounding Data and Tools:** An uploaded expense policy document attached using File Search for contextual grounding, along with the Code Interpreter tool to enable dynamic actions such as generating downloadable expense claim files.
+3. **Agent Framework SDK Agent with Tool:** An agent created in Python using the **Microsoft Agent Framework SDK**, extended with a custom tool that simulates sending expense-claim emails.
 
-4. **Agents Playground Interface:** An interactive testing environment where users send prompts, validate grounded responses, trigger tool-based actions, and review generated outputs before integrating the agent into applications.
+4. **Client Application (Python in Cloud Shell):** A script that connects to the Foundry project, loads expense data, and runs the agent, producing structured output and simulated email results.
 
 ## Architecture Diagram
 
-![](../Media/Lab1-arch.png)
+![](../Media/lab4-arch.png)
 
 ## Explanation of Components
 
-1. **Microsoft Foundry Project and Deployed Model:** The project serves as the central workspace in the Microsoft Foundry portal where AI resources are managed. Within this project, a foundation model is deployed to process user prompts and generate responses that power the AI agent.
+1. **Microsoft Foundry Project**: Central workspace that hosts the gpt-4.1 deployment, exposes the Project Endpoint, and tracks deployments and experiments your client app connects to.
 
-2. **AI Agent Configuration:** The agent encapsulates the deployed model along with system instructions that define its purpose assisting employees with expense-related queries. These instructions control tone, scope, and task-handling logic during interactions.
+2. **Model Deployment (gpt-4.1)**: The language model endpoint used by the agent to analyze expense data and generate structured claims.
 
-3. **Knowledge Source (Expense Policy Document):** The uploaded expense policy document acts as the agent’s knowledge base. Using File Search, the agent retrieves relevant policy information to provide accurate, context-aware responses grounded in company guidelines.
+3. **Agent Framework SDK Agent with Tool:** The Python agent defined with the **Microsoft Agent Framework SDK**, extended with a custom tool to simulate sending expense-claim emails.
 
-4. **Code Interpreter and Playground Interaction:** The Code Interpreter tool enables the agent to generate and execute Python code for performing actions such as creating downloadable expense claim files. The Agents Playground provides the interactive interface where users test prompts, trigger actions, and validate outputs in real time.
+4. **Azure Identity & Client App:** A Python script running in Cloud Shell, authenticated with AzureCliCredential, that loads expense data, calls the agent, and displays results.
+
+5. **Expense Data Input:** Sample file containing expenses, used by the agent to build and output the structured claim for validation.
 
 # Getting Started with lab
 
