@@ -78,7 +78,7 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
     * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
-      ![](./Media/lab5-s1.png)
+      ![](./Media/lab8-s1.png)
 
       >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
@@ -109,7 +109,6 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
      ![](./Media/lab8-s02.png)
-
 
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
