@@ -129,8 +129,8 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
 
 1. Create a storage account with the following settings:
     - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Use the same resource group as your project*
-    - **Storage account name**: *A unique storage account name*
+    - **Resource group**: **AI-3026-RG09**
+    - **Storage account name**: **storage<inject key="DeploymentID"></inject>**
     - **Region**: *The same location as your project*
     - **Preferred storage type**: *Azure Blob Storage or Azure Data Lake Storage Gen 2*
     - **Performance**: *Standard*
