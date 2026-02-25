@@ -1,10 +1,8 @@
----
-lab:
-    title: 'Build a workflow in Microsoft Foundry'
-    description: 'Use the Microsoft Foundry portal to create workflows for AI agents.'
----
+# Lab 08: Build a workflow in Microsoft Foundry
 
-# Build a workflow in Microsoft Foundry
+### Estimated Duration: 30 Minutes
+
+## Overview
 
 In this exercise, you'll use the Microsoft Foundry portal to create a workflow. Workflows are UI-based tools that allow you to define sequences of actions involving AI agents. For this exercise, you'll create a workflow that helps resolve customer support requests.
 
@@ -35,57 +33,123 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
     
     For non-billing tickets, the workflow invokes a Resolution Agent to draft a category-appropriate support response.
 
-This exercise should take approximately **30** minutes to complete.
+    > **Note:** The workflow builder in Microsoft Foundry is currently in preview. You may experience some unexpected behavior, warnings, or errors.
 
-> **Note**: The workflow builder in Microsoft Foundry is currently in preview. You may experience some unexpected behavior, warnings, or errors.
+## Lab Objectives
 
-## Create a Foundry project
+- **Task 1:** Create a Foundry project
 
-Let's start by creating a Foundry project.
+- **Task 2:** Create a customer support triage workflow
 
-1. In a web browser, open the [Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials.
+## Task 1: Create a Foundry project
 
-1. Ensure the **New Foundry** toggle is set to *On*.
+1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
-    <img src="./Media/ai-foundry-toggle.png" alt="Screenshot of the New Foundry toggle" width="300">
+1. Click on **Sign in**.
+ 
+    ![](./Media/lab1-s2.png)
 
-1. You may be prompted to create a new project before continuing to the New Foundry experience. Select **Create a new project**.
+1. If prompted, provide the credentials below:
+ 
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    
+     ![](./Media/lab1-s3.png)
 
-    <img src="./Media/ai-foundry-new-project.png" alt="Screenshot of the Create project pane." width="600">
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+     ![](./Media/lab1-s4.png)
 
-    If you're not prompted, select the projects drop down menu on the upper left, and then select **Create new project**.
+1. When the **Stay signed in?** window appears, select **No**.
 
-1. Enter a name for your Foundry project in the textbox and select **Create**.
+    ![](./Media/lab1-s5.png)
+    
+    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
 
-    Wait a few moments for the project to be created. The new Foundry portal home page should appear with your project selected.
+1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
 
-## Create a customer support triage workflow
+1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
+
+     ![](./Media/lab1-s6.png)
+
+1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+
+    * Subscription: **Choose Default Subscription (3)**
+    * Resource group: **AI-3026-RG8 (4)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
+    * Region: **<inject key="Region"></inject> (6)**
+
+      ![](./Media/lab5-s1.png)
+
+      >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+
+1. Wait for your project created. It may take a few minutes.
+
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+
+     ![](./Media/lab2-s2.png)
+
+1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+
+     ![](./Media/lab2-s3.png)
+
+1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+
+    ![](./Media/lab2-s4.png)
+
+    - After the model is deployed, the playground for the model is displayed.
+
+1. Select **Save as agent (1)**, enter **Triage-Agent (2)** as the *Agent name*, and then select **Create (3)**.
+
+    ![](./Media/lab8-s03.png)
+
+1. Select **Agents (1)**, choose **Create agent (2)**, enter **Resolution-Agent (3)** as the *Agent name*, and then select **Create (4)**.
+
+    ![](./Media/lab8-s01.png)
+
+1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
+
+     ![](./Media/lab8-s02.png)
+
+
+1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
+
+    ![](./Media/lab2-s6.png)
+
+## Task 2: Create a customer support triage workflow
 
 In this section, you'll create a workflow that helps triage and respond to customer support requests for a fictional company called ContosoPay. The workflow uses two AI agents that classify and respond to support tickets.
 
-1. On the Foundry portal home page, select **Build** from the toolbar menu.
+1. On the Foundry portal home page, select **Build (1)** from the toolbar menu.
 
-1. On the left-hand menu, select **Workflows**.
+1. On the left-hand menu, select **Workflows (2)**.
 
-1. In the upper right corner, select **Create** > **Blank workflow** to create a new blank workflow.
+     ![](./Media/lab8-s2.png)
 
-    The type of workflow you'll create in this exercise is a sequential workflow. However, starting with a blank workflow will simplify the process of adding the necessary nodes.
+1. In the upper right corner, select **Create (1)** > **Blank workflow (2)** to create a new blank workflow.
 
-1. Select **Save** in the visualizer to save your new workflow. In the dialog box, enter a name for your workflow, such as *ContosoPay-Customer-Support-Triage*, and then select **Save**.
+    ![](./Media/lab8-s3.png)
 
-### Create a ticket array variable
+    - The type of workflow you'll create in this exercise is a sequential workflow. However, starting with a blank workflow will simplify the process of adding the necessary nodes.
 
-1. In the workflow visualizer, select the **+** (plus) icon to add a new node.
+1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, enter a name for your workflow, such as **ContosoPay-Customer-Support-Triage (2)**, and then select **Save (3)**.
 
-1. In the workflow actions menu, under **Data transformation**, select **Set variable** to add a node that initializes an array of support tickets.
+    ![](./Media/lab8-s4.png)
 
-1. In the **Set variable** node editor, create a new variable by selecting **Create new variable**. Enter a name such as *SupportTickets*.
+### Task 2.1: Create a ticket array variable
 
-    <img src="./Media/node-new-variable.png" alt="Screenshot of creating a new variable in the Set variable node." width="500">
+1. In the workflow visualizer, select the **+** (plus) **(1)** icon to add a new node.
 
-    The new variable should appear as `Local.SupportTickets`.
+1. In the workflow actions menu, under **Data transformation**, select **Set variable (2)** to add a node that initializes an array of support tickets.
 
-1. In the **To value** field, enter the following array that contains sample support tickets:
+    ![](./Media/lab8-s5.png)
+
+1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable** from drop down.
+
+    ![](./Media/lab8-s6.png)
+
+    - The new variable should appear as `Local.SupportTickets`.
+
+1. In the **To value (1)** field, enter the following array that contains sample support tickets:
 
     ```output
    [ 
@@ -94,17 +158,23 @@ In this section, you'll create a workflow that helps triage and respond to custo
     "I was charged twice for the same invoice last Friday and my customer is also seeing two receipts. Can someone fix this?"]
     ```
 
-1. Select **Done** to save the node.
+1. Select **Done (2)** to save the node.
+
+    ![](./Media/lab8-s7.png)
 
 ### Add a for-each loop to process tickets
 
-1. Select the **+** (plus) icon below the **Set variable** and create a **For each** node to process each support ticket in the array.
+1. Select the **+** (plus) **(1)** icon below the **Set variable** and create a **For each (2)** node to process each support ticket in the array.
 
-1. In the **For each** node editor, set the **Select the items to loop for each** field to the variable you created earlier: `Local.SupportTickets`.
+     ![](./Media/lab8-s8.png)
 
-1. In the **Loop Value Variable** field, create a new variable named `CurrentTicket`.
+1. In the **For each** node editor, set **Select the items to loop for each (1)** to `Local.SupportTickets`, enter **CurrentTicket (2)** in the **Loop Value Variable** field, and then select **Create new variable "CurrentTicket" (3)**.
+
+    ![](./Media/lab8-s9.png)
 
 1. Select **Done** to save the node.
+
+    ![](./Media/lab8-s10.png)
 
 ### Invoke an agent to classify the ticket
 
