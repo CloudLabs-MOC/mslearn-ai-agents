@@ -18,36 +18,71 @@ This exercise should take approximately **45** minutes to complete.
 
 Let's start by creating a Foundry project with the new Foundry experience.
 
-1. In a web browser, open the [Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in.
+1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
-    > **Important**: Make sure the **New Foundry** toggle is *On* for this lab to use the updated user interface.
+1. Click on **Sign in**.
+ 
+    ![](./Media/lab1-s2.png)
 
-1. Once you toggle to the **New Foundry**, you'll be asked to select a project. In the dropdown, select **Create a new project**.
-1. In the **Create a project** dialog, enter a valid name for your project (for example, *agent-iq-lab*).
-1. Confirm or configure the following settings for your project:
-    - **Foundry resource**: *Create a new Foundry resource or select an existing one*
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Create or select a resource group*
-    - **Location**: *Select any available region*\*
+1. If prompted, provide the credentials below:
+ 
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    
+     ![](./Media/lab1-s3.png)
 
-    > \* Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+   - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+     ![](./Media/lab1-s4.png)
 
-1. Select **Create** and wait for your project to be created. This may take a few minutes.
-1. When your project is created, you'll see the project home page.
+1. When the **Stay signed in?** window appears, select **No**.
 
-## Create an agent
+    ![](./Media/lab1-s5.png)
+    
+    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
 
-1. On the home page, under **Start building**, select **Create an agent**.
-1. Give your agent a name, such as `product-expert-agent`.
-1. Select **Create**.
+1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
 
-When creating an agent, it will deploy the default model (like `gpt-4.1`). Once your agent is created, you'll see the agent playground with that default model automatically selected for you.
+1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
 
-## Configure your data and Foundry IQ
+     ![](./Media/lab1-s6.png)
+
+1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+
+    * Subscription: **Choose Default Subscription (3)**
+    * Resource group: **AI-3026-RG09 (4)**
+    * Microsoft Foundry resource: **Keep as Default (5)**
+    * Region: **<inject key="Region"></inject> (6)**
+
+      ![](./Media/lab9-s1.png)
+
+      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+
+1. Wait for your project created. It may take a few minutes.
+
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+
+     ![](./Media/lab2-s2.png)
+
+1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+
+     ![](./Media/lab2-s3.png)
+
+1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+
+    ![](./Media/lab2-s4.png)
+
+    - After the model is deployed, the playground for the model is displayed.
+
+1. Select **Save as agent (1)**, enter **product-expert-agent (2)** as the *Agent name*, and then select **Create (3)**.
+
+    ![](./Media/lab9-s6.png)
+
+## Task 2: Configure your data and Foundry IQ
 
 Now you'll configure your agent that uses Foundry IQ to search the knowledge base.
 
-1. First, give your agent the following instructions:
+1. First, give your agent the following instructions **(1)**:
+    
     ```
     You are a helpful AI assistant for Contoso, specializing in outdoor camping and hiking products. 
     You must ALWAYS search the knowledge base to answer questions about our products or product 
@@ -55,21 +90,43 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
     If you don't find relevant information in the knowledge base, say so clearly.
     ```
 
-1. Select **Save** to save your current agent configuration.
-1. Then, in the **Knowledge** section, expand the **Add** dropdown, and select **Connect to Foundry IQ**.
-1. In the Foundry IQ setup window, select **Connect to an AI Search resource** and then **Create new resource** which should open up the Azure portal in a new tab.
-1. Create a search resource with the following settings:
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: *Use the same resource group as your project*
-    - **Service name**: *A globally unique name*
-    - **Location**: *The same location as your project*
-    - **Pricing tier**: *Free* if available, otherwise choose *Basic*
+1. Select **Save (2)** to save your current agent configuration.
 
-Now you'll upload sample product information documents to connect to with Foundry IQ.
+    ![](./Media/lab9-s7.png)
+
+1. Then, in the **Knowledge** section, expand **(1)** the **Add (2)** dropdown, and select **Connect to Foundry IQ (3)**.
+
+    ![](./Media/lab9-s8.png)
+
+1. In the Foundry IQ setup window, select **Connect to an AI Search resource** and then **Create new resource** which should open up the Azure portal in a new tab.
+
+    ![](./Media/lab9-s9.png)
+
+    ![](./Media/lab9-s10.png)
+
+1. Create a search resource with the following settings and click **Review + create (6)**
+    - **Subscription**: Select default subscription **(1)**
+    - **Resource group**: select **AI-3026-RG09 (2)**
+    - **Service name**: Enter **aiservice-<inject key="DeploymentID"></inject> (3)**
+    - **Location**: Select **<inject key="Region"></inject> (4)**
+    - **Pricing tier**: Select *Free* if available, otherwise choose *Basic* **(5)**
+
+      ![](./Media/lab9-s11.png)
+
+      - Now you'll upload sample product information documents to connect to with Foundry IQ.
+
+1. On the **Create a search service** page, review the configuration to ensure the **Pricing tier** is set to **Free**, and then select **Create**.
 
 1. Download the sample product information files by opening a new browser tab and navigating to `https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip`
+
 1. Extract the files from the zip, which should be 3 PDFs detailing the products from Contoso.
-1. In the Azure Portal tab, in the top search bar, search fo **Storage accounts** and select **Storage accounts** from the services section.
+
+1. In the Azure Portal tab, in the top search bar, search fo **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
+
+    ![](./Media/lab9-s29.png)
+
+1. In the **Storage center | Blob Storage** page, select **Create** to start creating a new storage account.
+
 1. Create a storage account with the following settings:
     - **Subscription**: *Your Azure subscription*
     - **Resource group**: *Use the same resource group as your project*
@@ -78,12 +135,43 @@ Now you'll upload sample product information documents to connect to with Foundr
     - **Preferred storage type**: *Azure Blob Storage or Azure Data Lake Storage Gen 2*
     - **Performance**: *Standard*
     - **Redundancy**: *Locally-redundant storage (LRS)*
+
+      ![](./Media/lab9-s14.png)
+
+1. On the **Review + create** tab, verify that **Performance** is set to **Standard** and **Replication** is set to **Locally-redundant storage (LRS)**, and then select **Create**.
+
+    ![](./Media/lab9-s15.png)
+
+1. When the deployment is complete and the **Your deployment is complete** message appears, select **Go to resource**.
+
+    ![](./Media/lab9-s16.png)
+
 1. Once created, go to the storage account you created and select **Upload** from the top bar.
+
+    ![](./Media/lab9-s17.png)
+
 1. In the **Upload blob** blade, create a new container named `contosoproducts`.
+
+    ![](./Media/lab9-s18.png)
+
+    ![](./Media/lab9-s19.png)
+
 1. Browse for the files extracted from the zip file, select all 3 PDF files, and select **Upload**.
+
+    ![](./Media/lab9-s20.png)
+
 1. Once your files are uploaded, close the Azure Portal tab and navigate back to the Foundry IQ page in Microsoft Foundry and refresh the page.
+
 1. Select your search service, and click **Connect**.
+
+    ![](./Media/lab9-s21.png)
+
 1. On the Foundry IQ page, select **Create a knowledge base**, choosing **Azure Blob Storage** as your knowledge source, then select **Connect**.
+
+    ![](./Media/lab9-s22.png)
+
+    ![](./Media/lab9-s23.png)
+
 1. Configure your knowledge source with the following settings:
     - **Name**: `ks-contosoproducts`
     - **Description**: `Contoso product catalog items`
@@ -95,8 +183,15 @@ Now you'll upload sample product information documents to connect to with Foundr
     - **Embedding model**: *Select the available deployed model, likely text-embedding-3-small*
     - **Chat completions model**: *Select the available deployed model, likely gpt-4.1*
 1. Select **Create**.
+
+    ![](./Media/lab9-s24.png)
+
 1. On the knowledge base creation page, select the `gpt-4.1` model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
+
 1. Select **Save knowledge base**, and then refresh your browser to verify the knowledge source status is *active*. If it isn't yet, wait a minute and refresh your page until it is.
+
+    ![](./Media/lab9-s25.png)
+
 1. On the top right, expand the **Use in an agent** dropdown, and select your `product-expert-agent`.
 
 ## Test the Agent in the playground
