@@ -1,10 +1,8 @@
----
-lab:
-    title: 'Integrate an AI agent with Foundry IQ'
-    description: 'Use Azure AI Agent Service to develop an agent that uses Foundry IQ to search knowledge bases.'
----
+# Lab 09: Integrate an AI agent with Foundry IQ
 
-# Integrate an AI agent with Foundry IQ
+### Estimated Duration: 30 Minutes
+
+## Overview
 
 In this exercise, you'll use Azure AI Foundry portal to create an agent that integrates with Foundry IQ to search and retrieve information from knowledge bases. You'll create a search resource, configure a knowledge base with sample data, build an agent in the portal, and then connect to it from Visual Studio Code to interact programmatically.
 
@@ -14,7 +12,7 @@ This exercise should take approximately **45** minutes to complete.
 
 > **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-## Create a Foundry project
+## Task1: Create a Foundry project
 
 Let's start by creating a Foundry project with the new Foundry experience.
 
@@ -117,6 +115,8 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
 
 1. On the **Create a search service** page, review the configuration to ensure the **Pricing tier** is set to **Free**, and then select **Create**.
 
+    ![](./Media/lab9-s12.png)
+
 1. Download the sample product information files by opening a new browser tab and navigating to `https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip`
 
 1. Extract the files from the zip, which should be 3 PDFs detailing the products from Contoso.
@@ -127,14 +127,14 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
 
 1. In the **Storage center | Blob Storage** page, select **Create** to start creating a new storage account.
 
-1. Create a storage account with the following settings:
-    - **Subscription**: *Your Azure subscription*
-    - **Resource group**: **AI-3026-RG09**
-    - **Storage account name**: **storage<inject key="DeploymentID"></inject>**
-    - **Region**: *The same location as your project*
-    - **Preferred storage type**: *Azure Blob Storage or Azure Data Lake Storage Gen 2*
-    - **Performance**: *Standard*
-    - **Redundancy**: *Locally-redundant storage (LRS)*
+1. Create a storage account with the following settings and click **Review + create (8)**
+    - **Subscription:** Select default subscription **(1)**
+    - **Resource group:** **AI-3026-RG09 (2)**
+    - **Storage account name**: **storage<inject key="DeploymentID"></inject> (3)**
+    - **Region**: Select **<inject key="Region"></inject> (4)**
+    - **Preferred storage type**: *Azure Blob Storage or Azure Data Lake Storage Gen 2* **(5)**
+    - **Performance**: *Standard* **(6)**
+    - **Redundancy**: *Locally-redundant storage (LRS)* **(7)**
 
       ![](./Media/lab9-s14.png)
 
@@ -173,28 +173,28 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
     ![](./Media/lab9-s23.png)
 
 1. Configure your knowledge source with the following settings:
-    - **Name**: `ks-contosoproducts`
-    - **Description**: `Contoso product catalog items`
-    - **Storage account name**: *Select your storage account*
-    - **Container name**: `contosoproducts`
-    - **Content extraction mode**: *minimal*
-    - **Authentication type**: *API Key*
-    - **Include embedding model**: *Selected*
-    - **Embedding model**: *Select the available deployed model, likely text-embedding-3-small*
-    - **Chat completions model**: *Select the available deployed model, likely gpt-4.1*
-1. Select **Create**.
+    - **Name**: `ks-contosoproducts` **(1)**
+    - **Description**: `Contoso product catalog items` **(2)**
+    - **Storage account name**: **storage<inject key="DeploymentID"></inject> (3)**
+    - **Container name**: `contosoproducts` **(4)**
+    - **Authentication type**: *API Key* **(5)**
+    - **Content extraction mode**: *minimal* **(6)** 
+    - **Include embedding model**: *Selected* **(7)**
+    - **Embedding model**: *Select the available deployed model, likely text-embedding-3-small* **(8)**
+    - **Chat completions model**: *Select the available deployed model, likely gpt-4.1* **(9)**
+1. Select **Create (10)**.
 
     ![](./Media/lab9-s24.png)
 
-1. On the knowledge base creation page, select the `gpt-4.1` model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
+1. On the knowledge base creation page, select the `gpt-4.1` **(1)** model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
 
-1. Select **Save knowledge base**, and then refresh your browser to verify the knowledge source status is *active*. If it isn't yet, wait a minute and refresh your page until it is.
+1. Select **Save knowledge base (2)**, and then refresh your browser to verify the knowledge source status is *active*. If it isn't yet, wait a minute and refresh your page until it is.
 
     ![](./Media/lab9-s25.png)
 
 1. On the top right, expand the **Use in an agent** dropdown, and select your `product-expert-agent`.
 
-## Test the Agent in the playground
+## Task3: Test the Agent in the playground
 
 Before connecting from code, test your agent in the portal playground.
 
