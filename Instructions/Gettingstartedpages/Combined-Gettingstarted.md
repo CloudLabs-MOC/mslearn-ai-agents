@@ -59,7 +59,7 @@ The lab architecture demonstrates how a Microsoft Foundry project enables AI age
 
 ## Architecture Diagram
 
-![](../Media/Lab1-arch.png)
+![](../Media/combarc.png)
 
 ## Explanation of Components
 
