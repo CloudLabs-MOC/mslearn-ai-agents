@@ -48,7 +48,7 @@ The lab architecture demonstrates how three AI agents collaborate using the **Mi
 
 ## Architecture Diagram
 
-![](../Media/lab5-arch.png)
+![](../Media/lab5arc.png)
 
 ## Explanation of Components
 
@@ -146,5 +146,6 @@ Learner Support Contacts:
 Click on **Next** from the lower right corner to move on to the next page.
 
    ![](../Media/ai-3026-next.png)
+
 
 ## Happy Learning !!

@@ -31,13 +31,13 @@ By the end of this lab, you will be able to:
 
 1. **Microsoft Foundry Project:** The core service that provides access to model deployments, agent capabilities, and extensibility features such as custom function tools and integrations.
 
-2. **Microsoft Foundry Project:** A centralized workspace where the GPT-4.1 model is deployed and managed, serving as the foundation for building and running your AI agent solution.
+2. **Deployed Foundation Model (gpt-4.1):** A centralized workspace where the GPT-4.1 model is deployed and managed, serving as the foundation for building and running your AI agent solution.
 
 3. **Agent and Client Application:** The AI agent uses the deployed model to handle user requests and call custom functions automatically, while the Python client connects to the project endpoint, manages chats, and generates support ticket files.
 
 ## Architecture Diagram
 
-![](../Media/lab3-arch.png)
+![](../Media/lab3arc.png)
 
 ## Explanation of Components
 
@@ -130,4 +130,7 @@ Click on **Next** from the lower right corner to move on to the next page.
 
    ![](../Media/ai-3026-next.png)
 
+
 ## Happy Learning !!
+
+
