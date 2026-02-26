@@ -1,16 +1,24 @@
 # Lab 09: Integrate an AI agent with Foundry IQ
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 60 Minutes
 
 ## Overview
 
 In this exercise, you'll use Azure AI Foundry portal to create an agent that integrates with Foundry IQ to search and retrieve information from knowledge bases. You'll create a search resource, configure a knowledge base with sample data, build an agent in the portal, and then connect to it from Visual Studio Code to interact programmatically.
 
-> **Tip**: The code used in this exercise is based on the Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
+> **Tip:** The code used in this exercise is based on the Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
-This exercise should take approximately **45** minutes to complete.
+> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+## Lab Objectives
+
+- **Task 1:** Create a Foundry project
+
+- **Task 2:** Develop an agent that uses function tools
+
+- **Task 3:** Test the Agent in the playground
+
+- **Task 4:** Connect to Your Agent from a Client Application
 
 ## Task1: Create a Foundry project
 
@@ -71,7 +79,7 @@ Let's start by creating a Foundry project with the new Foundry experience.
 
     - After the model is deployed, the playground for the model is displayed.
 
-1. Select **Save as agent (1)**, enter **product-expert-agent (2)** as the *Agent name*, and then select **Create (3)**.
+1. Select **Save as agent (1)**, enter **product-expert-agent (2)** as the **Agent name**, and then select **Create (3)**.
 
     ![](./Media/lab9-s6.png)
 
@@ -79,7 +87,7 @@ Let's start by creating a Foundry project with the new Foundry experience.
 
 Now you'll configure your agent that uses Foundry IQ to search the knowledge base.
 
-1. First, give your agent the following instructions **(1)**:
+1. In the **Instructions (1)** section, update the following instructions.
     
     ```
     You are a helpful AI assistant for Contoso, specializing in outdoor camping and hiking products. 
@@ -96,49 +104,63 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
 
     ![](./Media/lab9-s8.png)
 
-1. In the Foundry IQ setup window, select **Connect to an AI Search resource** and then **Create new resource** which should open up the Azure portal in a new tab.
+1. In the **Connect to Foundry IQ** window, select **Connect to an AI Search resource**.
 
     ![](./Media/lab9-s9.png)
+
+1. On the **Ground your agent in enterprise knowledge** page, select **Create new resource**, which opens the Azure portal in a new tab.
 
     ![](./Media/lab9-s10.png)
 
 1. Create a search resource with the following settings and click **Review + create (6)**
-    - **Subscription**: Select default subscription **(1)**
-    - **Resource group**: select **AI-3026-RG09 (2)**
-    - **Service name**: Enter **aiservice-<inject key="DeploymentID"></inject> (3)**
-    - **Location**: Select **<inject key="Region"></inject> (4)**
-    - **Pricing tier**: Select *Free* if available, otherwise choose *Basic* **(5)**
+    - **Subscription:** Select default subscription **(1)**
+    - **Resource group:** select **AI-3026-RG09 (2)**
+    - **Service name:** Enter **aiservice-<inject key="DeploymentID"></inject> (3)**
+    - **Location:** Select **<inject key="Region"></inject> (4)**
+    - **Pricing tier:** Select **Free** if available, otherwise choose **Basic** **(5)**
 
       ![](./Media/lab9-s11.png)
 
       - Now you'll upload sample product information documents to connect to with Foundry IQ.
 
-1. On the **Create a search service** page, review the configuration to ensure the **Pricing tier** is set to **Free**, and then select **Create**.
+1. On the **Create a search service** page, review the configuration and then select **Create**.
 
     ![](./Media/lab9-s12.png)
 
 1. Download the sample product information files by opening a new browser tab and navigating to `https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip`
 
-1. Extract the files from the zip, which should be 3 PDFs detailing the products from Contoso.
+1. Select the **Downloads (1)** icon in the browser toolbar, and then choose **Open file (2)** for the downloaded `contoso-products.zip` file.
+
+    ![](./Media/lab9-s52.png)
+
+1. In the File Explorer window, select **Extract (1)**, and then choose **Extract all (2)** to unzip the `contoso-products` folder.
+
+    ![](./Media/lab9-s53.png)
+
+1. In the **Extract Compressed (Zipped) Folders** dialog, extract the files from the zip, which should be 3 PDFs detailing the products from Contoso and then select **Extract**.
+
+    ![](./Media/lab9-s54.png)
 
 1. In the Azure Portal tab, in the top search bar, search fo **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
 
     ![](./Media/lab9-s29.png)
 
-1. In the **Storage center | Blob Storage** page, select **Create** to start creating a new storage account.
+1. In the **Storage center | Blob Storage** page, select **+ Create** to start creating a new storage account.
+
+    ![](./Media/lab9-s13.png)
 
 1. Create a storage account with the following settings and click **Review + create (8)**
     - **Subscription:** Select default subscription **(1)**
-    - **Resource group:** **AI-3026-RG09 (2)**
-    - **Storage account name**: **storage<inject key="DeploymentID"></inject> (3)**
-    - **Region**: Select **<inject key="Region"></inject> (4)**
-    - **Preferred storage type**: *Azure Blob Storage or Azure Data Lake Storage Gen 2* **(5)**
-    - **Performance**: *Standard* **(6)**
-    - **Redundancy**: *Locally-redundant storage (LRS)* **(7)**
+    - **Resource group:** Select **AI-3026-RG09 (2)**
+    - **Storage account name:** **storage<inject key="DeploymentID"></inject> (3)**
+    - **Region:** Select **<inject key="Region"></inject> (4)**
+    - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
+    - **Performance:** Standard **(6)**
+    - **Redundancy:** Locally-redundant storage (LRS) **(7)**
 
       ![](./Media/lab9-s14.png)
 
-1. On the **Review + create** tab, verify that **Performance** is set to **Standard** and **Replication** is set to **Locally-redundant storage (LRS)**, and then select **Create**.
+1. On the **Review + create** tab, select **Create**.
 
     ![](./Media/lab9-s15.png)
 
@@ -146,64 +168,89 @@ Now you'll configure your agent that uses Foundry IQ to search the knowledge bas
 
     ![](./Media/lab9-s16.png)
 
-1. Once created, go to the storage account you created and select **Upload** from the top bar.
+1. In the storage account **Overview** page, select **Upload** from the top bar.
 
     ![](./Media/lab9-s17.png)
 
-1. In the **Upload blob** blade, create a new container named `contosoproducts`.
+1. In the **Upload blob** pane, select **Create new** under Select an existing container.
 
     ![](./Media/lab9-s18.png)
 
+1. In the **New container** pane, enter `contosoproducts` in the **Name (1)** field, and then select **Ok (2)**.
+
     ![](./Media/lab9-s19.png)
 
-1. Browse for the files extracted from the zip file, select all 3 PDF files, and select **Upload**.
+1. In the **Upload blob** pane, select **Browse for files**.
 
-    ![](./Media/lab9-s20.png)
+    ![](./Media/lab9-s55.png)
+
+1. In the **Open** dialog box, select **Downloads (1)**, double-click the **contoso-products** folder, select all three PDF files **(2)**, and then click **Open (3)**.
+
+    ![](./Media/lab9-s56.png)
+
+1. In the **Upload blob** pane, verify that all three PDF files are selected and `contosoproducts` is chosen, and then select **Upload**.
+
+    ![](./Media/lab9-s57.png)
 
 1. Once your files are uploaded, close the Azure Portal tab and navigate back to the Foundry IQ page in Microsoft Foundry and refresh the page.
 
-1. Select your search service, and click **Connect**.
+1. In the **Ground your agent in enterprise knowledge** page, select the **Azure AI Search resource (1)**, and then click **Connect (2)**.
 
     ![](./Media/lab9-s21.png)
 
-1. On the Foundry IQ page, select **Create a knowledge base**, choosing **Azure Blob Storage** as your knowledge source, then select **Connect**.
+1. On the **Foundry IQ** page, select **Create a knowledge base**.
 
     ![](./Media/lab9-s22.png)
+
+1. In the **Choose a knowledge type** window, select **Azure Blob Storage (1)**, and then click **Connect (2)**.
 
     ![](./Media/lab9-s23.png)
 
 1. Configure your knowledge source with the following settings:
-    - **Name**: `ks-contosoproducts` **(1)**
-    - **Description**: `Contoso product catalog items` **(2)**
-    - **Storage account name**: **storage<inject key="DeploymentID"></inject> (3)**
-    - **Container name**: `contosoproducts` **(4)**
-    - **Authentication type**: *API Key* **(5)**
-    - **Content extraction mode**: *minimal* **(6)** 
-    - **Include embedding model**: *Selected* **(7)**
-    - **Embedding model**: *Select the available deployed model, likely text-embedding-3-small* **(8)**
-    - **Chat completions model**: *Select the available deployed model, likely gpt-4.1* **(9)**
+    - **Name:** `ks-contosoproducts` **(1)**
+    - **Description:** `Contoso product catalog items` **(2)**
+    - **Storage account name:** **storage<inject key="DeploymentID"></inject> (3)**
+    - **Container name:** `contosoproducts` **(4)**
+    - **Authentication type:** API Key **(5)**
+    - **Content extraction mode:** minimal **(6)** 
+    - **Include embedding model:** Selected **(7)**
+    - **Embedding model:** Select the available deployed model, likely **text-embedding-3-small (8)**
+    - **Chat completions model:** Select the available deployed model, likely **gpt-4.1 (9)**
 1. Select **Create (10)**.
 
     ![](./Media/lab9-s24.png)
 
 1. On the knowledge base creation page, select the `gpt-4.1` **(1)** model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
 
-1. Select **Save knowledge base (2)**, and then refresh your browser to verify the knowledge source status is *active*. If it isn't yet, wait a minute and refresh your page until it is.
+1. Select **Save knowledge base (2)**, and then refresh your browser to verify the knowledge source status is **active**. If it isn't yet, wait a minute and refresh your page until it is.
 
     ![](./Media/lab9-s25.png)
 
-1. On the top right, expand the **Use in an agent** dropdown, and select your `product-expert-agent`.
+    ![](./Media/lab9-s27.png)
 
-## Task3: Test the Agent in the playground
+1. On the top right, expand the **Use in an agent (1)** dropdown, and select your `product-expert-agent` **(2)**.
+
+    ![](./Media/lab9-s28.png)
+
+## Task 3: Test the Agent in the playground
 
 Before connecting from code, test your agent in the portal playground.
 
-1. In the agent page, you should see a playground tab selected and your knowledge base listed in the knowledge section.
+1. On the **Playground** tab, verify that your knowledge base is listed under **Knowledge**, enter `What types of tents does Contoso offer?` in the chat box, and then send the message.
+
+    ![](./Media/lab9-s31.png)
+
+1. Review the response and notice that the agent provides specific information retrieved from the connected knowledge base.
+
+     ![](./Media/lab9-s58.png)
+
+     > **Note:** If prompted to approve the knowledge base tool, select Approve, and then choose any appropriate approval option.
+
 1. Try the following test queries to verify the agent can retrieve information from the knowledge base:
-    - `What types of tents does Contoso offer?`
+
     - `Tell me about which backpacks are available in XL.`
     - `What camping accessories are available?`
-    
+
 1. Review the responses and notice:
     - The agent provides specific information from the knowledge base
     - Citations or references to the source documents may be included
@@ -212,28 +259,47 @@ Before connecting from code, test your agent in the portal playground.
 1. You can also try interacting with your agent in the **Preview agent** for a more refined webapp experience.
 
 1. In the agent details page, locate and copy the following information to a notepad (you'll need these later):
-    - **Agent name**: This is the name you created (`product-expert-agent`)
-    - **Project endpoint**: Found in the project settings or overview page
+    - **Agent name:** This is the name you created (`product-expert-agent`)
 
-## Connect to Your Agent from a Client Application
+      ![](./Media/lab9-s59.png)
+
+    - **Project endpoint:** In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page and Copy the **Project endpoint**.
+
+      ![](./Media/lab2-s6.png)
+
+## Task 4: Connect to Your Agent from a Client Application
 
 Now you'll create a Python application to interact with your agent programmatically. Starter files have been provided in the GitHub repository to help you get started quickly.
 
-### Clone the repo containing the application code
+### Task 4.1 Clone the repo containing the application code
 
-1. Open a new browser tab (keeping the Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
-    Close any welcome notifications to see the Azure portal home page.
+1. If prompted, provide the credentials below:
 
-1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a ***PowerShell*** environment with no storage in your subscription.
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-    The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    - **Password:** <inject key="AzureAdUserPassword"></inject> 
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, switch it to ***PowerShell***.
+      >**Note:** Close any welcome notifications to see the Azure portal home page.
 
-1. In the cloud shell toolbar, in the **Settings** menu, select **Go to Classic version** (this is required to use the code editor).
+1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
 
-    **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    ![](./Media/lab2-s7.png)
+
+    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+
+    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+
+1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+
+    ![](./Media/lab2-s8.png)
+
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -242,7 +308,9 @@ Now you'll create a Python application to interact with your agent programmatica
    git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
     ```
 
-    > **Tip**: As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    ![](./Media/lab9-s36.png)
+ 
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. Enter the following command to change the working directory to the folder containing the code files and list them all.
 
@@ -251,9 +319,11 @@ Now you'll create a Python application to interact with your agent programmatica
    ls -a -l
     ```
 
-    The provided files include application code, configuration settings, and the agent client starter code.
+    ![](./Media/lab9-s37.png)
 
-### Configure the application settings
+    - The provided files include application code, configuration settings, and the agent client starter code.
+
+### Task 4.2: Configure the application settings
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -271,20 +341,30 @@ Now you'll create a Python application to interact with your agent programmatica
    code .env
     ```
 
-    The file is opened in a code editor.
+    ![](./Media/lab9-s38.png)
 
-1. In the code file, replace the **your_project_endpoint** placeholder with the endpoint for your project (copied from the project **Overview** page in the Foundry portal) and ensure that the AGENT_NAME variable is set to your agent name (which should be *product-expert-agent*).
+1. In the code file, replace the placeholder values with the correct details for your project:
+
+    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
+    * AGENT_NAME : **product-expert-agent (2)**
+
+         ![](./Media/lab9-s39.png)
+
+         > **Note:** Paste the project endpoint you copied in the previous task.
+
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Complete the agent client code
+### Task 4.3: Complete the agent client code
 
-> **Tip**: As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the agent code file:
 
     ```
    code agent_client.py
     ```
+
+    ![](./Media/lab9-s40.png)
 
 1. Review the starter code that has been provided, including:
     - Import statements and configuration loading
@@ -294,7 +374,7 @@ Now you'll create a Python application to interact with your agent programmatica
 
 1. Find the first **TODO** comment and add the following code to connect to the project, get the OpenAI client, retrieve the agent, and create a new conversation:
 
-    > **Tip**: Be careful to maintain the correct indentation level.
+    > **Tip:** Be careful to maintain the correct indentation level.
 
     ```python
     # Connect to the project and agent
@@ -319,6 +399,8 @@ Now you'll create a Python application to interact with your agent programmatica
     print(f"Created conversation (id: {conversation.id})\n")
     ```
 
+    ![](./Media/lab9-s41.png)
+
 1. Find the second **TODO** comment inside the `send_message_to_agent()` function and add the following code to send messages and handle responses, including MCP approval requests:
 
     ```python
@@ -337,7 +419,12 @@ Now you'll create a Python application to interact with your agent programmatica
     # Create a response using the agent
     response = openai_client.responses.create(
         conversation=conversation.id,
-        extra_body={"agent": {"name": agent.name, "type": "agent_reference"}},
+        extra_body={
+            "agent_reference": {
+                "type": "agent_reference",
+                "name": agent.name
+            }
+        },
         input=""
     )
 
@@ -393,11 +480,19 @@ Now you'll create a Python application to interact with your agent programmatica
         # Get the actual response after approval/denial
         response = openai_client.responses.create(
             conversation=conversation.id,
-            extra_body={"agent": {"name": agent.name, "type": "agent_reference"}},
+            extra_body={
+                "agent_reference": {
+                    "type": "agent_reference",
+                    "name": agent.name
+                }
+            },
             input=""
         )
+
     
     ```
+
+    ![](./Media/lab9-s60.png)
 
 1. After you've added the code, use the **CTRL+S** command to save your changes. 
 
@@ -412,21 +507,35 @@ Now you'll create a Python application to interact with your agent programmatica
 
 1. Use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-## Test the Integration
+### Task 4.4: Test the Integration
 
 Now you'll run your application and test the agent's ability to retrieve information from the knowledge base.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure.
+1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
-    ```
-    az login
-    ```
+    ![](./Media/lab9-s43.png)
 
-    **<font color="red">You must sign into Azure - even though the cloud shell session is already authenticated.</font>**
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
 
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials. Then complete the sign in process in the command line, selecting the subscription containing your Foundry resource if prompted.
+    ![](./Media/lab3-s19.png)
+
+1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+
+    ![](./Media/lab2-s34.png)
+
+1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
+
+    ![](./Media/lab2-s35.png)
+
+1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
+
+    ![](./Media/lab2-s36.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab9-s44.png)
 
 1. In the cloud shell command-line pane, run your application:
 
@@ -441,50 +550,42 @@ Now you'll run your application and test the agent's ability to retrieve informa
     What types of outdoor products does Contoso offer?
     ```
     
-    When prompted for approval, type **yes** to allow the agent to search the knowledge base. Observe how the agent retrieves information from multiple documents in the knowledge base.
+    ![](./Media/lab9-s61.png)
+
+    **Note:** IF prompted for approval, type **yes** to allow the agent to search the knowledge base. Observe how the agent retrieves information from multiple documents in the knowledge base.
 
     **Query 2 - Specific Product Details:**
     ```
     Tell me about the weatherproof features of your tents.
     ```
     
-    Approve the request and notice how the agent provides specific details from the tents catalog.
+    ![](./Media/lab9-s62.png)
 
     **Query 3 - Product Comparisons:**
     ```
     What's the difference between your daypacks and expedition backpacks?
     ```
-    
-    Approve the request and see how the agent can synthesize information from the backpacks guide.
+    ![](./Media/lab9-s63.png)
 
     **Query 4 - Accessories and Add-ons:**
     ```
     What camping accessories would you recommend for a weekend hiking trip?
     ```
-    
-    Approve the request and observe the agent's ability to provide recommendations based on the knowledge base.
+    ![](./Media/lab9-s64.png)
 
     **Query 5 - Follow-up Question:**
     ```
     How much do those items typically cost?
     ```
-    
-    Notice how the agent maintains conversation context from your previous query.
+    ![](./Media/lab9-s65.png)
+
+    - Notice how the agent maintains conversation context from your previous query.
 
 1. Type `history` to view the complete conversation history.
 
+    ![](./Media/lab9-s66.png)
+
 1. Type `quit` when you're done testing.
-
-### Review the results
-
-Consider the following aspects of the agent's responses:
-
-- **MCP Approval Flow**: Each time the agent needs to access the knowledge base, it requests approval, giving you control over external tool usage
-- **Accuracy**: The agent provides information directly from the knowledge base documents
-- **Citations**: The agent may include source references or document IDs
-- **Context awareness**: The agent remembers previous messages in the conversation
-- **Grounding**: The agent indicates when it cannot find relevant information in the knowledge base
-- **Error handling**: The application gracefully handles errors and connection issues
 
 ## Summary
 
