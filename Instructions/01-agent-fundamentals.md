@@ -141,7 +141,7 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. On the **expense-agent** page, select **Save**.
 
-    ![](./Media/lab2-s7.png)
+    ![](./Media/lab1-02-7.png)
 
 ## Task 3: Test your agent
 

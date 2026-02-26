@@ -1,4 +1,4 @@
-# Lab 3b: Develop a multi-agent solution with Microsoft Foundry
+# Lab 5: Develop a multi-agent solution with Microsoft Foundry
     
 ### Estimated Duration: 30 Minutes
 

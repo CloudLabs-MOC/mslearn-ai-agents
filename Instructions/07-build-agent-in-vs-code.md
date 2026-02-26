@@ -1,4 +1,4 @@
-# Lab 07: Develop an AI agent with VS Code extension
+# Lab 03: Develop an AI agent with VS Code extension
 
 ### Estimated Duration: 30 Minutes
 

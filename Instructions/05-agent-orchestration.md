@@ -1,4 +1,4 @@
-# Lab 05: Develop a multi-agent solution with Microsoft Agent Framework
+# Lab 08: Develop a multi-agent solution with Microsoft Agent Framework
 
 ### Estimated Duration: 30 Minutes
 

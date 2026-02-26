@@ -1,4 +1,4 @@
-# Lab 03c: Connect AI agents to tools using Model Context Protocol (MCP)
+# Lab 6: Connect AI agents to tools using Model Context Protocol (MCP)
 
 ### Estimated Duration: 30 Minutes
 
