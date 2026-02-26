@@ -16,7 +16,11 @@ Let's start by installing and setting up the VS Code extension.
 
 1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
 
+   ![](./Media/lab7-s1.png)
+
 1. After installation is complete, verify the extension appears in the primary navigation bar on the left side of Visual Studio Code.
+
+   ![](./Media/lab7-s2.png)
 
    > **Tip:** If you already have the extension installed, make sure the version is at least **v0.16.0** to follow along with the instructions in this exercise.
 
@@ -28,27 +32,37 @@ Now you'll connect to your Azure resources and create a new AI Foundry project.
 
 1. In the Resources view, choose **Create Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
 
-   > **Note**: You won't see this option if you're already signed in.
+   ![](./Media/lab7-s4.png)
 
 1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
+
+   ![](./Media/lab7-s5.png)
 
 1. On the **Sign in** page, provide the credentials below:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
-     ![](./Media/lab1-s3.png)
+     ![](./Media/lab7-s6.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
     
-     ![](./Media/lab1-s4.png)
+     ![](./Media/lab7-s7.png)
 
 1. On the **Sign in to all apps, websites, and services on this device?** page, select **Yes**.
 
+   ![](./Media/lab7-s8.png)
+
 1. On the **Account added to this device** page, select **Done**.
+
+   ![](./Media/lab7-s9.png)
 
 1. In the **Choose a resource group** dialog, select **AI-3026-RG07** from the list.
 
+   ![](./Media/lab7-s10.png)
+
 1. In the **Enter project name** dialog, enter **Myproject<inject key="DeploymentID"></inject>**, and then press **Enter** to confirm.
+
+   ![](./Media/lab7-s11.png)
 
 1. Wait for the project deployment to complete. A popup will appear with the message "Project deployed successfully."
 
@@ -58,9 +72,13 @@ You'll need a deployed model to use with your agent.
 
 1. In the **RESOURCES** pane, expand **Models**, and then select the **+** icon to add a new model deployment.
 
+   ![](./Media/lab7-s12.png)
+
    > **Tip:** You can also access the Model Catalog pressing **F1** and running the command **Microsoft Foundry: Open Model Catalog**.
 
 1. In the Model Catalog, scroll down, search for **gpt-4.1 (1)** in the search bar, and then select **Deploy (2)** under **OpenAI GPT-4.1**.
+
+   ![](./Media/lab7-s13.png)
 
 1. Configure the deployment settings:
    
@@ -69,11 +87,15 @@ You'll need a deployed model to use with your agent.
    - **Model version:** Leave as default
    - **Tokens per minute:** Leave as default
 
-1. Select **Deploy in Microsoft Foundry** in the bottom-left corner.
+1. Select **Deploy in Microsoft Foundry (3)** in the bottom-left corner.
+
+   ![](./Media/lab7-s14.png)
 
 1. In the confirmation dialog, select **Deploy** to deploy the model.
 
 1. Wait for the deployment to complete. Your deployed model will appear under the **Models** section in the Resources view.
+
+   ![](./Media/lab7-s15.png)
 
 ## Task 4: Create an AI agent with the designer view
 
@@ -85,11 +107,13 @@ Now you'll create an AI agent using the visual designer interface. Rather than w
 
 1. Select the **+** (plus) **(2)** icon next to the **Classic Agents** subsection to create a new AI Agent.
 
-    ![Screenshot of an creating an agent in the Microsoft Foundry VS Code extension.](Media/vs-code-new-agent.png)
+    ![](./Media/lab7-s16.png)
 
 1. Choose a location to save your agent files if prompted.
 
 1. A **New Agent** tab will open to an "Agent Preferences" editor, along with a `.yaml` configuration file.
+
+   ![](./Media/lab7-s17.png)
 
 ### Task 4.1 Configure your agent in the designer
 
@@ -101,7 +125,11 @@ Now you'll create an AI agent using the visual designer interface. Rather than w
      You are an AI agent that helps users research information from various sources. Use the available tools to access up-to-date information and provide comprehensive responses based on external data sources.
      ```
 
-1. Save the configuration by selecting **File > Save** from the VS Code menu bar.
+      ![](./Media/lab7-s18.png)
+
+1. Save the configuration by selecting **File (1) > Save (2)** from the VS Code menu bar.
+
+   ![](./Media/lab7-s19.png)
 
 ## Task 5: Add an MCP Server tool to your agent
 
@@ -111,6 +139,8 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
 
 1. From the dropdown menu, choose **MCP Server (2)**.
 
+   ![](./Media/lab7-s20.png)
+
 1. Configure the MCP Server tool with the following information:
    - **Server URL:** Enter the URL of an MCP server `https://gitmcp.io/Azure/azure-rest-api-specs` **(1)**
    - **Server Label:** Enter a unique identifier **github_docs_server (2)**
@@ -119,19 +149,27 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
 
 1. Select the **Create tool (3)** button to add the tool to your agent.
 
+   ![](./Media/lab7-s21.png)
+
 ## Task 6: Deploy your agent to Microsoft Foundry
 
 1. In the agent designer view, select the **Create Agent on Microsoft Foundry** button in the bottom-left corner.
 
+   ![](./Media/lab7-s22.png)
+
 1. Wait for the deployment to complete.
 
 1. In the VS Code navbar, refresh **(1)** the **Resources** view.  **data-research-agent (2)** should now appear under the **Classic Agents** subsection.
+
+   ![](./Media/lab7-s23.png)
 
 ## Test your agent in the playground
 
 1. Right-click on **data-research-agent (1)** in the **Classic Agents** subsection.
 
 1. Select **Open Playground (2)** from the context menu.
+
+   ![](./Media/lab7-s24.png)
 
 1. The Agents Playground will open in a new tab within VS Code.
 
@@ -141,11 +179,17 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
    Can you help me find documentation about Azure Container Apps and provide an example of how to create one?
    ```
 
+   ![](./Media/lab7-s25.png)
+
 1. Send the message and observe the authentication and approval prompts for the MCP Server tool:
     
     - In the **MCP Tools Authentication Setup** dialog, select **No Authentication**.
+
+      ![](./Media/lab7-s26.png)
     
     - In the **MCP Tools Approval Preference** dialog, select **Always approve**.
+
+      ![](./Media/lab7-s27.png)
 
 1. Review the agent's response and note how it uses the MCP server tool to retrieve external information.
 

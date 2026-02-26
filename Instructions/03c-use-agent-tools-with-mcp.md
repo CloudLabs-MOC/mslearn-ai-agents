@@ -16,75 +16,6 @@ In this lab, you will build an AI agent using Microsoft Foundry that connects to
 
 - **Task 2:** Develop an agent that uses MCP function tools
 
-## Task 1: Create a Microsoft Foundry project
-
-In this task, you’ll create a new project in the Microsoft Foundry portal and deploy the gpt-4.1 model using the required subscription and region settings. Finally, you’ll copy the project endpoint to use later for connecting your AI client application.
-
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
-
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
-
-1. If prompted, provide the credentials below:
- 
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-    
-     ![](./Media/lab1-s3.png)
-
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
-    
-     ![](./Media/lab1-s4.png)
-
-1. When the **Stay signed in?** window appears, select **No**.
-
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
-
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
-
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
-
-     ![](./Media/lab1-s6.png)
-
-    > **Important:** For this lab, you're using the **New** Foundry experience.
-
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
-
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-3026-RG3c (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
-
-      ![](./Media/lab3c-s1.png)
-
-      >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
-
-1. Wait for your project created. It may take a few minutes.
-
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
-
-     ![](./Media/lab2-s2.png)
-
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
-
-     ![](./Media/lab2-s3.png)
-
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
-
-    ![](./Media/lab2-s4.png)
-
-    - After the model is deployed, the playground for the model is displayed.
-
-1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
-
-     ![](./Media/lab3c-s2.png)
-
-1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
-
-    ![](./Media/lab2-s6.png)
-
 ## Task 2: Develop an agent that uses MCP function tools
 
 Now that you've created your project in AI Foundry, let's develop an app that integrates an AI agent with an MCP server.
@@ -387,6 +318,10 @@ In this task, you’ll sign in to Azure using the CLI, run the application, and 
     Notice that the agent was able to invoke the MCP tool to automatically fulfill the request.
 
 1. You can update the input in the request to ask for different information. In each case, the agent will attempt to find technical documentation by using the MCP tool.
+
+1. In the Cloud Shell window, select the **Close (X)** icon to exit Cloud Shell before proceeding to the next lab.
+
+    ![](./Media/lab1-02-16.png)
 
 ## Summary
 

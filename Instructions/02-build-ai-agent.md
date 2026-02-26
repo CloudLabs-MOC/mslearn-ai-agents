@@ -12,90 +12,16 @@ In this lab, you will create and configure a project in the **Microsoft Foundry 
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
 
-- **Task 2:** Create an agent client app
+- **Task 1:** Create an agent client app
 
-- **Task 3:** Configure the application settings
+- **Task 2:** Configure the application settings
 
-- **Task 4:** Write code for an agent app
+- **Task 3:** Write code for an agent app
 
-- **Task 5:** Sign into Azure and run the app
+- **Task 4:** Sign into Azure and run the app
 
-## Task 1: Create a Foundry project
-
-In this task, you will create a new project in the Microsoft Foundry portal, set up its configuration, and deploy the gpt-4.1 model. By the end of this task, you will have a project endpoint and model deployment ready to be used by a client application.
-
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
-
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
-
-1. If prompted, provide the credentials below:
- 
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-    
-     ![](./Media/lab1-s3.png)
-
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
-    
-     ![](./Media/lab1-s4.png)
-
-1. When the **Stay signed in?** window appears, select **No**.
-
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
-
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
-
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
-
-     ![](./Media/lab1-s6.png)
-
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
-
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG09 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
-
-      ![](./Media/lab2-s1.png)
-
-      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
-
-1. Wait for your project created. It may take a few minutes.
-
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
-
-     ![](./Media/lab2-s2.png)
-
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
-
-     ![](./Media/lab2-s3.png)
-
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
-
-    ![](./Media/lab2-s4.png)
-
-1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
-
-     ![](./Media/lab2-s5.png)
-
-1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
-
-     ![](./Media/lab2-s6.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
->
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
- 
-<validation step="a5b3a25b-5fde-4fec-9e3e-487d2c4e5803" />
-
-## Task 2: Create an agent client app
+## Task 1: Create an agent client app
 
 In this task, you will prepare a client application environment in Azure Cloud Shell by cloning the provided GitHub repository and reviewing the project files. By the end of this task, you will have the application code and supporting files ready for configuration.
 
@@ -164,6 +90,8 @@ In this task, you will install the required Python dependencies, update the conf
 
     ![](./Media/lab2-s12.png)
 
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+
 1. Enter the following command to edit the configuration file that has been provided:
 
     ```
@@ -177,7 +105,7 @@ In this task, you will install the required Python dependencies, update the conf
 
         ![](./Media/lab2-s13.png)
 
-        > **Note:** Paste the project endpoint you copied in the previous task.
+        > **Note:** Paste the project endpoint you copied in Lab 1 – Task 1.
 
 1. After replacing the placeholders, save your changes in the code editor using **CTRL+S** or **Right-click > Save**. Then close the editor with **CTRL+Q** or **Right-click > Quit**, leaving the Cloud Shell command line open.
 
@@ -359,13 +287,13 @@ In this task, you will authenticate to Azure using the Azure CLI and run the cli
     az login
     ```
 
-    ![](./Media/lab2-s32.png)
+    ![](./Media/lab1-02-8.png)
 
     > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
 
-    ![](./Media/lab2-s33.png)
+    ![](./Media/lab1-02-9.png)
 
 1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
 
@@ -381,7 +309,7 @@ In this task, you will authenticate to Azure using the Azure CLI and run the cli
 
 1. In the Cloud Shell console, press **Enter** to select the only available subscription.
 
-    ![](./Media/lab2-s37.png)
+    ![](./Media/lab1-02-10.png)
 
 1. After you have signed in, enter the following command to run the application:
 
@@ -422,6 +350,10 @@ In this task, you will authenticate to Azure using the Azure CLI and run the cli
 1. You can continue the conversation if you like. The thread is *stateful*, so it retains the conversation history - meaning that the agent has the full context for each response. Enter `quit` when you're done.
 
 1. Review the conversation messages that were retrieved from the thread - which may include messages the agent generated to explain its steps when using the code interpreter tool.
+
+1. In the Cloud Shell window, select the **Close (X)** icon to exit Cloud Shell before proceeding to the next lab.
+
+    ![](./Media/lab1-02-11.png)
 
 ## Summary
 

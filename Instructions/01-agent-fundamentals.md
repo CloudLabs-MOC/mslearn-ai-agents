@@ -53,7 +53,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
     * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG08 (4)**
+    * Resource group: **AI-3026-RG (4)**
     * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
@@ -61,15 +61,37 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
-1. When your project is created, select **Start building (1)**, and select **Create agent (2)** from the drop-down menu.
+1. Wait for your project created. It may take a few minutes.
 
-    ![](./Media/lab1-s8.png)
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
 
-1. On the **Create an agent** page, enter **expense-agent (1)** in the **Agent name** field, and then select **Create (2)**.
+     ![](./Media/lab2-s2.png)
 
-     ![](./Media/lab1-s9.png)
+1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
 
-    - The playground will open for your newly created agent. You'll see that an available deployed model is already selected for you.
+     ![](./Media/lab2-s3.png)
+
+1. On the **gpt-4.1** model page, select **Deploy (1)**, and then choose **Custom settings (2)**.
+
+    ![](./Media/lab1-02-2.png)
+
+1. In the **Deploy gpt-4.1** pane, verify **Standard (1)** is selected under **Deployment type**, and then click **Deploy (2)**.
+
+    ![](./Media/lab1-02-3.png)
+
+1. Select **Save as agent (1)**, enter **expense-agent (2)** as the *Agent name*, and then select **Create (3)**.
+
+    ![](./Media/lab1-02-4.png)
+
+1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
+
+     ![](./Media/lab1-02-5.png)
+
+1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
+
+    ![](./Media/lab2-s6.png)
+
+    > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming labs.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >
@@ -118,13 +140,17 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. In the **Tools** section, select **Add (2)**.
 
-    ![](./Media/lab1-s14.png)
+    ![](./Media/lab1-02-6.png)
 
 1. In the **Select a tool** dialog box, select **Code interpreter (1)** and then select **Add tool (2)** (you do not need to upload any files for the code interpreter).
 
     ![](./Media/lab1-s15.png)
 
     - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
+
+1. On the **expense-agent** page, select **Save**.
+
+    ![](./Media/lab2-s7.png)
 
 ## Task 3: Test your agent
 

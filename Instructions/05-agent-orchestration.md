@@ -165,6 +165,7 @@ In this task, you will install required Python libraries and configure the .env 
     ```
    python -m venv labenv
    ./labenv/bin/Activate.ps1
+   pip install --upgrade pip
    pip install agent-framework==1.0.0b260128 --pre
     ```
 
