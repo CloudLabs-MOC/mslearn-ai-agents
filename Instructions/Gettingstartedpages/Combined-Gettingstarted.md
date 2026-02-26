@@ -49,13 +49,15 @@ By the end of this lab, you will be able to:
 
 The lab architecture demonstrates how a Microsoft Foundry project enables AI agent development for expense management:
 
-1. **Microsoft Foundry Project and Deployed Model:** A workspace created in the Microsoft Foundry portal where a foundation model is deployed to power the AI agent’s conversational and task-based responses.
+1. **Microsoft Foundry Portal & Project Workspace:** Central hub for creating projects, deploying models, configuring agents, and testing in the playground with system instructions, tools, and AI-enhanced search.
+   
+2. **Knowledge Base Layer:** Grounds agent responses using uploaded documents (e.g., expense policies) via File Search / Azure AI Search indexing, ensuring accurate, policy-compliant replies stored in Azure Blob Storage.
 
-2. **AI Agent Configuration:** An agent created in the playground with defined system instructions that control its behavior and response logic.
-
-3. **Grounding Data and Tools:** An uploaded expense policy document attached using File Search for contextual grounding, along with the Code Interpreter tool to enable dynamic actions such as generating downloadable expense claim files.
-
-4. **Agents Playground Interface:** An interactive testing environment where users send prompts, validate grounded responses, trigger tool-based actions, and review generated outputs before integrating the agent into applications.
+3. **Multi-Agent Orchestration Layer:** Manages complex workflows with multi-agent systems, specialized agents, agent-to-agent (A2A) communication, and grounded response generation via the Agent Control Plane (ACP).
+ 
+4. **Tools and Security Layer:** Handles secure tool invocation through the Model Context Protocol (MCP), approval workflows, and dynamic Python code execution (via Code Interpreter) for tasks like generating expense claims.
+   
+5. **Client Application Integration Layer:**  Enables embedding the agent into client apps using Python SDK, MCP for context management, and persistent storage in Azure Blob.
 
 ## Architecture Diagram
 
@@ -63,13 +65,20 @@ The lab architecture demonstrates how a Microsoft Foundry project enables AI age
 
 ## Explanation of Components
 
-1. **Microsoft Foundry Project and Deployed Model:** The project serves as the central workspace in the Microsoft Foundry portal where AI resources are managed. Within this project, a foundation model is deployed to process user prompts and generate responses that power the AI agent.
+1. **Microsoft Foundry Portal & Project Workspace:**
+The primary interface (formerly Azure AI Studio) where developers create Foundry projects, deploy foundation models, configure AI agents, define system instructions, attach tools, and test interactions in the Agents Playground. It supports AI-enhanced queries and serves as the entry point for building expense management agents.
 
-2. **AI Agent Configuration:** The agent encapsulates the deployed model along with system instructions that define its purpose assisting employees with expense-related queries. These instructions control tone, scope, and task-handling logic during interactions.
+2. **Knowledge Base Layer / Knowledge Grounding:**
+User queries and uploaded documents (e.g., company expense policy PDFs) are processed via Knowledge Grounding and Microsoft Foundry IQ (evolution of Azure AI Search). Relevant content is retrieved and indexed in Azure Blob Storage, enabling the agent to provide accurate, cited, and policy-grounded responses instead of hallucinated information.
 
-3. **Knowledge Source (Expense Policy Document):** The uploaded expense policy document acts as the agent’s knowledge base. Using File Search, the agent retrieves relevant policy information to provide accurate, context-aware responses grounded in company guidelines.
+3. **Multi-Agent Orchestration Layer:**
+Handles coordination of multiple agents: a Multi-Agent System delegates tasks to Specialized Agents (e.g., one for policy lookup, another for calculations). Agent-to-Agent (A2A) communication enables collaboration, while the Agent Control Plane (ACP) ensures grounded, reliable final responses for expense-related tasks like validation or claim preparation.
 
-4. **Code Interpreter and Playground Interaction:** The Code Interpreter tool enables the agent to generate and execute Python code for performing actions such as creating downloadable expense claim files. The Agents Playground provides the interactive interface where users test prompts, trigger actions, and validate outputs in real time.
+4. **Tools and Security Layer:**
+Tools are invoked securely via the Model Context Protocol (MCP), which standardizes tool calling and context passing. This includes MCP Approval workflows for governance (e.g., human-in-the-loop or policy checks), leading to approved tool execution. The Dynamic Python code execution (Code Interpreter tool) allows the agent to generate/run Python scripts on-the-fly — for example, to calculate totals, format data, or create downloadable expense claim files (CSV/PDF).
+
+5. **Client Application Integration Layer:**
+Once tested in the playground, the agent integrates into production applications via the Python SDK and MCP for context management. This enables seamless embedding (e.g., in web apps, Teams, or custom tools), with conversation state and data persisted in Azure Blob Storage for continuity and auditability.
 
 # Getting Started with lab
 
