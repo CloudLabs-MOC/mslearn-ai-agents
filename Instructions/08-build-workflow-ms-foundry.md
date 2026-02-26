@@ -1,10 +1,10 @@
 # Lab 08: Build a workflow in Microsoft Foundry
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 60 Minutes
 
 ## Overview
 
-In this exercise, you'll use the Microsoft Foundry portal to create a workflow. Workflows are UI-based tools that allow you to define sequences of actions involving AI agents. For this exercise, you'll create a workflow that helps resolve customer support requests.
+In this lab, you will build an intelligent customer support workflow using Microsoft Foundry and Microsoft Azure. You will create a project, deploy the GPT-4.1 model, and configure AI agents to classify and respond to support tickets. The workflow will use conditional logic to handle low-confidence cases, escalate billing issues, and automate responses for technical and general queries. Finally, you will integrate and run the workflow programmatically using Python to understand real-world AI automation scenarios.
 
 **Workflow overview**
 
@@ -44,6 +44,8 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
 - **Task 3:** Use your workflow in code
 
 ## Task 1: Create a Foundry project
+
+In this task, you will sign in to the Microsoft Foundry portal and create a new project in Microsoft Azure. You will then deploy the GPT-4.1 model and configure AI agents that will be used in the workflow.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -119,7 +121,7 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
 
 ## Task 2: Create a customer support triage workflow
 
-In this section, you'll create a workflow that helps triage and respond to customer support requests for a fictional company called ContosoPay. The workflow uses two AI agents that classify and respond to support tickets.
+In this task, you will create a sequential customer support triage workflow in Microsoft Foundry that uses AI agents to classify and respond to support tickets for ContosoPay.
 
 1. On the Foundry portal home page, select **Build (1)** from the toolbar menu.
 
@@ -138,6 +140,8 @@ In this section, you'll create a workflow that helps triage and respond to custo
     ![](./Media/lab8-s4.png)
 
 ### Task 2.1: Create a ticket array variable
+
+In this task, you will initialize a support ticket array variable in the workflow to simulate incoming customer requests for automated processing in Microsoft Foundry.
 
 1. In the workflow visualizer, select the **+** (plus) **(1)** icon to add a new node.
 
@@ -166,6 +170,8 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
 ### Task 2.2: Add a for-each loop to process tickets
 
+In this task, you will configure a for-each loop to iterate through each support ticket and process them individually within the workflow.
+
 1. Select the **+ (1)** icon next to **Set variable**, scroll under **Flow**, and then choose **For each (2)** to add a loop for processing each support ticket.
 
      ![](./Media/lab8-s8.png)
@@ -179,6 +185,8 @@ In this section, you'll create a workflow that helps triage and respond to custo
     ![](./Media/lab8-s10.png)
 
 ### Task 2.3: Invoke an agent to classify the ticket
+
+In this task, you will invoke the Triage Agent to classify each support ticket into a category and generate a confidence score using structured JSON output.
 
 1. Select the **+** (plus) **(1)** icon within the **For each** node to add a new node that classifies the current support ticket.
 
@@ -275,6 +283,8 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
 ## Task 2.4: Handle low-confidence classifications
 
+In this task, you will add conditional logic to evaluate the confidence score and determine whether the ticket classification is reliable for further automated processing.
+
 1. Select the **+** (plus) icon below the **Invoke agent** node to add a new node that handles low-confidence classifications.
 
 1. In the workflow actions menu, under **Flow**, select **If/Else** to add a conditional logic node.
@@ -297,6 +307,8 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
 ## Task 2.5: Recommend additional info for low-confidence tickets
 
+In this task, you will configure the workflow to request additional details from the customer when the ticket classification confidence is low.
+
 1. In the visualizer, under the **Else** branch of the **If/Else condition** node, select the **+** (plus) **(1)** icon to add a new node that recommends additional information for low-confidence tickets.
 
 1. In the workflow actions menu, under **Basics**, select **Deliver message (3)** to add a send message activity.
@@ -313,7 +325,7 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
 ### Task 2.6: Route the ticket based on category
 
-In this section, you'll add conditional logic to route the ticket based on its classified category if the confidence score is high enough.
+In this task, you will add routing logic to identify billing issues and escalate them to the human support team while allowing other categories to continue through automation.
 
 1. In the visualizer, under the **If** branch of the **If/Else condition** node, select the **+** (plus) **(1)** icon to add a new node that routes the ticket based on its category.
 
@@ -346,6 +358,8 @@ In this section, you'll add conditional logic to route the ticket based on its c
     ![](./Media/lab8-n8.png)
 
 ### Task 2.7: Generate a recommended response
+
+In this task, you will invoke the Resolution Agent to automatically generate a professional support response for non-billing tickets based on the classified category.
 
 1. In the visualizer, select the **+** (plus) **(1)** icon under the **Else** branch of the second **If/Else** node to add a new node that drafts a response for non-billing tickets.
 
@@ -401,6 +415,8 @@ In this section, you'll add conditional logic to route the ticket based on its c
 
 ### Task 2.8: Preview the workflow
 
+In this task, you will test and validate the workflow by running a preview to observe how support tickets are processed, classified, escalated, and resolved automatically in Microsoft Foundry.
+
 1. Select the **Save** button to save all changes to your workflow.
 
     ![](./Media/lab8-n15.png)
@@ -435,6 +451,8 @@ In this section, you'll add conditional logic to route the ticket based on its c
 Now that you've built and tested your workflow in the Foundry portal, you can also invoke it from your own code using the Azure AI Projects SDK. This allows you to integrate the workflow into your applications or automate its execution.
 
 ### Task 3.1: Prepare the environment
+
+In this task, you will prepare the environment in Microsoft Azure by setting up Cloud Shell, cloning the repository, and accessing the Python files required to invoke the workflow programmatically.
 
 1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
@@ -488,6 +506,8 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
 
 ### Task 3.2: Configure the application settings
 
+In this task, you will configure the application settings by installing dependencies and updating the project endpoint and model deployment details to connect your code with Microsoft Foundry.
+
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
     ```
@@ -514,6 +534,8 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
 ### Task 3.3: Connect to the workflow and run it
+
+In this task, you will connect your Python application to the workflow and run it programmatically using the Azure AI Projects SDK to automate customer support processing.
 
 1. Enter the following command to edit the **workflow.py** file:
 
@@ -621,7 +643,7 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
 
 ### Task 3.4: Sign into Azure and run the app
 
-Now you're ready to run your code and watch your AI agents collaborate.
+In this task, you will authenticate with Microsoft Azure and execute the Python application to run and validate the AI-powered workflow end-to-end.
 
 1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
@@ -678,6 +700,6 @@ Now you're ready to run your code and watch your AI agents collaborate.
 
 ## Summary
 
-In this lab, you created a sequential workflow in Microsoft Foundry that processes customer support tickets. You used conditional logic and configured AI agents to produce JSON-formatted outputs. Your workflow classified each ticket using an AI agent, handled low-confidence classifications with conditional logic, and generated recommended responses for non-billing issues. Great job!
+In this lab, you created a sequential workflow in Microsoft Foundry to process customer support tickets. You implemented conditional logic and configured AI agents to generate structured, JSON-formatted outputs. The workflow classified each ticket using an AI agent, handled low-confidence classifications by requesting additional information, and generated recommended responses for non-billing issues. Finally, you validated the workflow to ensure it correctly processed and responded to support requests.
 
 ### You have successfully completed the Hands-on Lab!
