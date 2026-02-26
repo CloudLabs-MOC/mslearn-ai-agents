@@ -37,7 +37,7 @@ By the end of this lab, you will be able to:
 
 ## Architecture Diagram
 
-![](../Media/lab3-arch.jpg)
+![](../Media/lab3arc.png)
 
 ## Explanation of Components
 
@@ -132,4 +132,5 @@ Click on **Next** from the lower right corner to move on to the next page.
 
 
 ## Happy Learning !!
+
 
