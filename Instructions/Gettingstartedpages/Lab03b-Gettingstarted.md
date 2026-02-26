@@ -50,7 +50,7 @@ The lab architecture demonstrates how multiple AI agents collaborate to triage s
 
 ## Architecture Diagram
 
-![](../Media/lab3b-arch.jpg)
+![](../Media/lab3barc.png)
 
 ## Explanation of Components
 
@@ -151,3 +151,4 @@ Click on **Next** from the lower right corner to move on to the next page.
 
 
 ## Happy Learning !!
+
