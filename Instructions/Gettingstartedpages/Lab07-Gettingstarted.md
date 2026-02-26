@@ -47,7 +47,7 @@ The lab architecture demonstrates how the Microsoft Foundry VS Code extension en
 
 ## Architecture Diagram
 
-![](../Media/lab6arc.png)
+![](../Media/lab7arc.png)
 
 ## Explanation of Components
 
