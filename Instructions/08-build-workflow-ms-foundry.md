@@ -41,6 +41,8 @@ In this exercise, you'll use the Microsoft Foundry portal to create a workflow. 
 
 - **Task 2:** Create a customer support triage workflow
 
+- **Task 3:** Use your workflow in code
+
 ## Task 1: Create a Foundry project
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
@@ -162,9 +164,9 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
     ![](./Media/lab8-s7.png)
 
-### Add a for-each loop to process tickets
+### Task 2.2: Add a for-each loop to process tickets
 
-1. Select the **+** (plus) **(1)** icon below the **Set variable** and create a **For each (2)** node to process each support ticket in the array.
+1. Select the **+ (1)** icon next to **Set variable**, scroll under **Flow**, and then choose **For each (2)** to add a loop for processing each support ticket.
 
      ![](./Media/lab8-s8.png)
 
@@ -176,25 +178,27 @@ In this section, you'll create a workflow that helps triage and respond to custo
 
     ![](./Media/lab8-s10.png)
 
-### Invoke an agent to classify the ticket
+### Task 2.3: Invoke an agent to classify the ticket
 
-1. Select the **+** (plus) icon within the **For each** node to add a new node that classifies the current support ticket.
+1. Select the **+** (plus) **(1)** icon within the **For each** node to add a new node that classifies the current support ticket.
 
-1. In the workflow actions menu, under **Invoke**, select **Invoke Agent** to add an agent node.
+1. In the workflow actions menu, under **Invoke**, select **Agent (2)** to add an agent node.
 
-1. In the **Invoke agent** node editor, under **Select an agent**, select **Create new agent**.
+    ![](./Media/lab8-s11.png)
 
-1. Enter an agent name such as *Triage-Agent* and select **Create**.
+1. In the **Agent** node pane, open the **Select an agent (1)** dropdown, and then choose **Triage-Agent (2)**.
 
-#### Configure the agent settings
+    ![](./Media/lab8-s14.png)
 
-1. In the editor, under **Details**, select the **Parameters** button near the model name.
+1. In the **Details (1)** tab, select the **Parameters (2)** icon next to the model name.
 
-    <img src="./Media/agent-parameters.png" alt="Screenshot of the Parameters button in the agent editor." width="400">
+    ![](./Media/lab8--s15.png)
 
-1. In the **Parameters** pane, next to **Text format**, select **JSON Schema**.
+1. In the **Parameters** pane, open the **Text format (1)** dropdown, and then select **JSON Schema (2)**.
 
-1. In the **Add response format** pane, enter the following definition and select **Save**:
+    ![](./Media/lab8--s16.png)
+
+1. In the **Add response format** pane, enter the following definition **(1)** and select **Save (2)**:
 
     ```json
     {
@@ -223,7 +227,9 @@ In this section, you'll create a workflow that helps triage and respond to custo
     }
     ```
 
-1. In the Invoke Agent Details pane, set the **Instructions** field to the following prompt:
+    ![](./Media/lab8--s17.png)
+
+1. In the Agent **Details** pane, set the **Instructions (1)** field to the following prompt:
 
     ```output
     Classify the user's problem description into exactly ONE category from the list below. Provide a confidence score from 0 to 1.
@@ -247,81 +253,111 @@ In this section, you'll create a workflow that helps triage and respond to custo
     - Billing ONLY applies when money was charged, refunded, or paid incorrectly
     ```
 
-1. Select **Action settings** to configure the input and output of the agent.
+1. Select **Node settings (2)** to configure the input and output of the agent.
 
-1. Set the **Input message** field to the  `Local.CurrentTicket` variable.
+    ![](./Media/lab8--s18.png)
 
-1. Under **Save agent output message as**, create a new variable named `TriageOutputText`.
+1. Set the **Input message** field to the  `Local.CurrentTicket` **(2)** variable.
 
-1. Under **Save the output json_object as**, create a new variable named `TriageOutputJson`.
+    ![](./Media/lab8--s19.png)
+
+1. Under **Save agent output message as**, create a new variable by entering `TriageOutputText` **(1)** and select **Create new variable (2)** from drop down.
+
+    ![](./Media/lab8--s20.png)
+
+1. Under **Save the output json_object as**, create a new variable by entering `TriageOutputJson` **(1)** and select **Create new variable (2)** from drop down.
+
+    ![](./Media/lab8--s21.png)
 
 1. Select **Done** to save the node.
 
-### Handle low-confidence classifications
+    ![](./Media/lab8--s22.png)
+
+## Task 2.4: Handle low-confidence classifications
 
 1. Select the **+** (plus) icon below the **Invoke agent** node to add a new node that handles low-confidence classifications.
 
 1. In the workflow actions menu, under **Flow**, select **If/Else** to add a conditional logic node.
 
-1. In the **If/Else** node editor, select the pencil icon to edit the **If** branch condition.
+1. Select the **+ (1)** icon next to **Triage-Agent**, and then choose **If / else (2)** under **Flow** to add a conditional logic node for handling low-confidence classifications.
 
-1. Set the **Condition** field to the following expression to check if the confidence score is above 0.6:
+    ![](./Media/lab8-n1.png)
+
+1. In the **If/Else** node editor, select the **If (1)** branch condition.
+
+1. Set the **Condition (2)** field to the following expression to check if the confidence score is above 0.6:
 
     ```output
    Local.TriageOutputJson.confidence > 0.6
     ```
 
-1. Select **Done** to save the node.
+1. Select **Done (3)** to save the node.
 
-### Recommend additional info for low-confidence tickets
+    ![](./Media/lab8-n2.png)
 
-1. In the visualizer, under the **Else** branch of the **If/Else condition** node, select the **+** (plus) icon to add a new node that recommends additional information for low-confidence tickets.
+## Task 2.5: Recommend additional info for low-confidence tickets
 
-1. In the workflow actions menu, under **Basics**, select **Send message** to add a send message activity.
+1. In the visualizer, under the **Else** branch of the **If/Else condition** node, select the **+** (plus) **(1)** icon to add a new node that recommends additional information for low-confidence tickets.
 
-1. In the **Send message** node editor, set the **Message to send** field to the following response:
+1. In the workflow actions menu, under **Basics**, select **Deliver message (3)** to add a send message activity.
+
+    ![](./Media/lab8-n3.png)
+
+1. In the **Deliver message** node editor, set the **Message to send (1)** field to the following response and slect **Done (2)**:
 
     ```output
    The support ticket classification has low confidence. Requesting more details about the issue: "{Local.CurrentTicket}"
     ```
 
-### Route the ticket based on category
+    ![](./Media/lab8-n4.png)
+
+### Task 2.6: Route the ticket based on category
 
 In this section, you'll add conditional logic to route the ticket based on its classified category if the confidence score is high enough.
 
-1. In the visualizer, under the **If** branch of the **If/Else condition** node, select the **+** (plus) icon to add a new node that routes the ticket based on its category.
+1. In the visualizer, under the **If** branch of the **If/Else condition** node, select the **+** (plus) **(1)** icon to add a new node that routes the ticket based on its category.
 
-1. In the workflow actions menu, under **Flow**, select **If/Else** to add another conditional logic node.
+1. In the workflow actions menu, under **Flow**, select **If/Else (2)** to add another conditional logic node.
 
-1. In the **If/Else** node editor, set the **If Condition** to the following expression to check if the ticket category is "Billing":
+    ![](./Media/lab8-n5.png)
+
+1. In the **If/Else** node editor, select the **If (1)** branch, set the **Condition (2)** field to the following expression to check if the ticket category is "Billing", and then select **Done (3)**:
 
     ```output
     Local.TriageOutputJson.category = "Billing"
     ```
 
-1. Select the **+** (plus) icon under the **If** branch of the **If/Else** node to add a new node that drafts a response for non-billing tickets.
+    ![](./Media/lab8-n6.png)
 
-1. In the workflow actions menu, under **Basics**, select **Send message** to add a send message activity.
+1. Select the **+** (plus) **(1)** icon under the **If** branch of the **If/Else** node to add a new node that drafts a response for non-billing tickets.
 
-1. In the **Send message** node editor, set the **Message to send** to the following response:
+1. In the workflow actions menu, under **Basics**, select **Deliver message (2)** to add a send message activity.
+
+    ![](./Media/lab8-n7.png)
+
+1. In the **Deliver message** node editor, set the **Message to send (1)** to the following response:
 
     ```output
    Escalate billing issue to human support team.
     ```
 
-1. Select **Done** to save the node.
+1. Select **Done (2)** to save the node.
 
-### Generate a recommended response
+    ![](./Media/lab8-n8.png)
 
-1. In the visualizer, select the **+** (plus) icon under the **Else** branch of the second **If/Else** node to add a new node that drafts a response for non-billing tickets.
+### Task 2.7: Generate a recommended response
 
-1. In the workflow actions menu, under **Agent**, select **Invoke agent** to add an agent node.
+1. In the visualizer, select the **+** (plus) **(1)** icon under the **Else** branch of the second **If/Else** node to add a new node that drafts a response for non-billing tickets.
 
-1. In the **Invoke agent** node editor, select **Create new agent**.
+1. In the workflow actions menu, under **Invoke**, select **Agent (2)** to add an agent node.
 
-1. Enter an agent name such as *Resolution-Agent* and select **Create**.
+    ![](./Media/lab8-n9.png)
 
-1. In the agent editor, set the **Instructions** field to the following prompt:
+1. In the **Agent** node pane, select **Resolution-Agent (1)**, and then choose the **Details (2)** tab.
+
+    ![](./Media/lab8-n10.png)
+
+1. In the agent editor, set the **Instructions (1)** field to the following prompt:
 
     ```output
     You are a customer support resolution assistant for ContosoPay, a B2B payments and invoicing platform.
@@ -349,21 +385,33 @@ In this section, you'll add conditional logic to route the ticket based on its c
     Do not include internal reasoning or analysis.
     ```
 
-1. Select **Action settings** to configure the input and output of the agent.
+1. Select **Node settings (2)** to configure the input and output of the agent.
+
+    ![](./Media/lab8-n11.png)
 
 1. Set the **Input message** field to the `Local.TriageOutputText` variable.
 
-1. Under **Save agent output message as**, create a new variable named `ResolutionOutputText`.
+    ![](./Media/lab8-n12.png)
 
-1. Select **Done** to save the node.
+1. Under **Save agent output message as**, create a new variable by entering `ResolutionOutputText` **(1)** and select **Create new variable (2)** from drop down.
 
-## Preview the workflow
+1. Select **Done (3)** to save the node.
+
+    ![](./Media/lab8-n13.png)
+
+### Task 2.8: Preview the workflow
 
 1. Select the **Save** button to save all changes to your workflow.
 
+    ![](./Media/lab8-n15.png)
+
 1. Select the **Preview** button to start the workflow.
 
-1. In the chat window that appears, enter some text to trigger the workflow, such as `Start processing support tickets.`
+    ![](./Media/lab8-n16.png)
+
+1. In the **Preview** pane,  enter some text to trigger the workflow `Start processing support tickets.` in the message box (1), and then select the **Send (2)** icon.
+
+    ![](./Media/lab8-n21.png)
 
 1. Observe the workflow as it processes each support ticket in sequence. Review the messages generated by the workflow in the chat window.
 
@@ -380,25 +428,41 @@ In this section, you'll add conditional logic to route the ticket based on its c
     If the issue persists, try regenerating your API key and updating it in your integration to see if that resolves the problem.
     ```
 
-## Use your workflow in code
+    ![](./Media/lab8-n22.png)
+
+## Task 3: Use your workflow in code
 
 Now that you've built and tested your workflow in the Foundry portal, you can also invoke it from your own code using the Azure AI Projects SDK. This allows you to integrate the workflow into your applications or automate its execution.
 
-### Prepare the environment
+### Task 3.1: Prepare the environment
 
-1. Open a new browser tab (keeping the Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`; signing in with your Azure credentials if prompted.
+1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
 
-    Close any welcome notifications to see the Azure portal home page.
+1. If prompted, provide the credentials below:
 
-1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, selecting a ***PowerShell*** environment with no storage in your subscription.
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-    The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    - **Password:** <inject key="AzureAdUserPassword"></inject> 
 
-    > **Note**: If you have previously created a cloud shell that uses a *Bash* environment, switch it to ***PowerShell***.
+      >**Note:** Close any welcome notifications to see the Azure portal home page.
 
-1. In the cloud shell toolbar, in the **Settings** menu, select **Go to Classic version** (this is required to use the code editor).
+1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
 
-    **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    ![](./Media/lab2-s7.png)
+
+    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+
+    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+
+1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+
+    ![](./Media/lab2-s8.png)
+
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -407,7 +471,9 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
    git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
     ```
 
-    > **Tip**: As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+    ![](./Media/lab8--s41.png)
+
+    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. When the repo has been cloned, enter the following command to change the working directory to the folder containing the code files and list them all.
 
@@ -416,9 +482,11 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
    ls -a -l
     ```
 
-    The provided files include application code and a file for configuration settings.
+    ![](./Media/lab8--s42.png)
 
-### Configure the application settings
+    - The provided files include application code and a file for configuration settings.
+
+### Task 3.2: Configure the application settings
 
 1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
 
@@ -434,13 +502,18 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
    code .env
     ```
 
-    The file is opened in a code editor.
+1. In the code file, replace the placeholder values with the correct details for your project:
 
-1. In the code file, replace the **your_project_endpoint** placeholder with the endpoint for your project (copied from the project **Overview** page in the Foundry portal), and the **your_model_deployment** placeholder with the name you assigned to your gpt-4.1 model deployment (which by default is `gpt-4.1`).
+    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
+    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+
+         ![](./Media/lab8--s43.png)
+
+         > **Note:** Paste the project endpoint you copied in the previous task.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Connect to the workflow and run it
+### Task 3.3: Connect to the workflow and run it
 
 1. Enter the following command to edit the **workflow.py** file:
 
@@ -448,33 +521,39 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
    code workflow.py
     ```
 
+    ![](./Media/lab8--s44.png)
+
 1. Review the code in the file, noting that it contains strings for each agent name and instructions.
 
 1. Find the comment **Add references** and add the following code to import the classes you'll need:
 
     ```python
    # Add references
-   from azure.identity import DefaultAzureCredential
+   from azure.identity import AzureCliCredential
    from azure.ai.projects import AIProjectClient
    from azure.ai.projects.models import ItemType
     ```
+
+    ![](./Media/lab8-n18.png)
 
 1. Note that code to load the project endpoint and model name from your environment variables has been provided.
 
 1. Find the comment **Connect to the agents client**, and add the following code to create an AgentsClient connected to your project:
 
+    > **Tip:** When adding subsequent code, be sure to maintain the right level of indentation.
+
     ```python
    # Connect to the AI Project client
    with (
-       DefaultAzureCredential() as credential,
+       AzureCliCredential() as credential,
        AIProjectClient(endpoint=endpoint, credential=credential) as project_client,
        project_client.get_openai_client() as openai_client,
    ):
     ```
 
-    Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
+    ![](./Media/lab8-n19.png)
 
-    > **Tip**: When adding subsequent code, be sure to maintain the right level of indentation.
+    - Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
 
 1. Find the comment **Specify the workflow** and the following code:
 
@@ -486,7 +565,9 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
     }
     ```
 
-    Be sure to use the name and version of the workflow you created in the Foundry portal.
+    ![](./Media/lab8--s47.png)
+
+    - Be sure to use the name and version of the workflow you created in the Foundry portal.
 
 1. Find the comment **Create a conversation and run the workflow**, and add the following code to create a conversation and invoke your workflow:
 
@@ -504,7 +585,9 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
     )
     ```
 
-    This code will stream the output of the workflow execution to the console, allowing you to see the flow of messages as the workflow processes each ticket.
+    ![](./Media/lab8--s48.png)
+
+    - This code will stream the output of the workflow execution to the console, allowing you to see the flow of messages as the workflow processes each ticket.
 
 1. Find the comment **Process events from the workflow run**, and add the following code to process the streamed output and print messages to the console:
 
@@ -522,6 +605,8 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
             print(f"item action ID '{event.item.action_id}' is '{event.item.status}' (previous action ID: '{event.item.previous_action_id}')")
     ```
 
+    ![](./Media/lab8--s49.png)
+
 1. Find the comment **Clean up resources**, and enter the following code to delete the conversation when it is longer required:
 
     ```python
@@ -530,23 +615,39 @@ Now that you've built and tested your workflow in the Foundry portal, you can al
    print("\nConversation deleted")
     ```
 
+    ![](./Media/lab8--s50.png)
+
 1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Sign into Azure and run the app
+### Task 3.4: Sign into Azure and run the app
 
 Now you're ready to run your code and watch your AI agents collaborate.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure.
+1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
 
-    ```
-   az login
-    ```
+    ![](./Media/lab8--s51.png)
 
-    **<font color="red">You must sign into Azure - even though the cloud shell session is already authenticated.</font>**
+    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
 
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials. Then complete the sign in process in the command line, selecting the subscription containing your Foundry hub if prompted.
+    ![](./Media/lab3-s19.png)
+
+1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+
+    ![](./Media/lab2-s34.png)
+
+1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
+
+    ![](./Media/lab2-s35.png)
+
+1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
+
+    ![](./Media/lab2-s36.png)
+
+1. In the Cloud Shell console, press **Enter** to select the only available subscription.
+
+    ![](./Media/lab8--s52.png)
 
 1. After you have signed in, enter the following command to run the application:
 
@@ -572,18 +673,11 @@ Now you're ready to run your code and watch your AI agents collaborate.
     {"customer_issue":"I was charged twice for the same invoice last Friday and my customer is also seeing two receipts. Can someone fix this?","category":"Billing","confidence":1}
     Escalation required
     ```
-
-    In the output, you can see the how the workflow completes each step, including the classification of each ticket and the recommended response or escalation. Great work!
+    
+    ![](./Media/lab8-n20.png)
 
 ## Summary
 
-In this exercise, you created a sequential workflow in Microsoft Foundry that processes customer support tickets. You used conditional logic and configured AI agents to produce JSON-formatted outputs. Your workflow classified each ticket using an AI agent, handled low-confidence classifications with conditional logic, and generated recommended responses for non-billing issues. Great job!
+In this lab, you created a sequential workflow in Microsoft Foundry that processes customer support tickets. You used conditional logic and configured AI agents to produce JSON-formatted outputs. Your workflow classified each ticket using an AI agent, handled low-confidence classifications with conditional logic, and generated recommended responses for non-billing issues. Great job!
 
-## Clean up
-
-If you've finished exploring workflows in Microsoft Foundry, you should delete the resources you have created in this exercise to avoid incurring unnecessary Azure costs.
-
-1. Navigate to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com` and view the contents of the resource group where your Foundry project was deployed.
-
-1. On the toolbar, select **Delete resource group**.
-1. Enter the resource group name and confirm that you want to delete it.
+### You have successfully completed the Hands-on Lab!
