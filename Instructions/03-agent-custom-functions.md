@@ -12,14 +12,11 @@ In this lab, you will build an end-to-end solution using the Microsoft Foundry p
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
+- **Task 1:** Develop an agent that uses function tools
 
-- **Task 2:** Develop an agent that uses function tools
+- **Task 2:** Sign into Azure and run the app
 
-- **Task 3:** Sign into Azure and run the app
-
-
-## Task 2: Develop an agent that uses function tools
+## Task 1: Develop an agent that uses function tools
 
 In this task, you will use the Microsoft Azure portal to access Azure Cloud Shell and prepare the development environment. You will clone the provided GitHub repository and configure the application files required to build an AI agent that uses custom function tools.
 
@@ -55,7 +52,7 @@ In this task, you will use the Microsoft Azure portal to access Azure Cloud Shel
 
     - The provided files include application code and a file for configuration settings.
 
-### Task 2.1: Configure the application settings
+### Task 1.1: Configure the application settings
 
 In this task, you will set up the Python environment and install required libraries. You will also update the configuration file with your Microsoft Foundry project details.
 
@@ -88,7 +85,7 @@ In this task, you will set up the Python environment and install required librar
 
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 2.2: Create a function for the agent to use
+### Task 1.2: Create a function for the agent to use
 
 In this task, you will edit the agent code to define a custom function that generates and saves support tickets. This function will be used by the AI agent to handle user requests.
 
@@ -141,7 +138,7 @@ In this task, you will edit the agent code to define a custom function that gene
 
     - This code defines a function that generates a ticket number, saves the support ticket as a text file, and returns a message indicating that the ticket was submitted.
 
-### Task 2.3: Connect to the Foundry project
+### Task 1.3: Connect to the Foundry project
 
 In this task, you will connect your application to the Microsoft Foundry project using the AI Project client.
 
@@ -162,7 +159,7 @@ In this task, you will connect your application to the Microsoft Foundry project
 
     ![](./Media/lab3-s8.png)
 
-### Task 2.4: Define the function tool
+### Task 1.4: Define the function tool
 
 In this task, you will define a FunctionTool that allows the AI agent to call your custom support ticket function.
 
@@ -190,7 +187,7 @@ In this task, you will define a FunctionTool that allows the AI agent to call yo
 
     - The **FunctionTool** object uses a JSON schema to define the parameters that the function accepts, and a description of what the function does.
 
-### Task 2.5: Create the agent that uses the function tool
+### Task 1.5: Create the agent that uses the function tool
 
 In this task, you will create an AI agent and configure it to use the FunctionTool for handling support requests.
 
@@ -215,7 +212,7 @@ In this task, you will create an AI agent and configure it to use the FunctionTo
 
     ![](./Media/lab3-s10.png)
 
-### Task 2.6: Send a message to the agent and process the response
+### Task 1.6: Send a message to the agent and process the response
 
 In this task, you will create a conversation thread, send user prompts to the agent, and retrieve its responses while handling any errors.
 
@@ -260,7 +257,7 @@ In this task, you will create a conversation thread, send user prompts to the ag
 
     ![](./Media/lab3-s14.png)
 
-### Task 2.7: Process function calls and display the agent's response
+### Task 1.7: Process function calls and display the agent's response
 
 In this task, you will handle any function calls made by the agent, return the results, display the responses, and clean up the conversation and agent resources.
 
@@ -334,7 +331,7 @@ In this task, you will handle any function calls made by the agent, return the r
 
 1. Save the code file **CTRL+S** when you have finished. You can also close the code editor **CTRL+Q** though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
 
-## Task 3: Sign into Azure and run the app
+## Task 2: Sign into Azure and run the app
 
 In this task, you will sign into Azure from Cloud Shell and run the agent application. You will interact with the agent, provide issue details, and verify that support tickets are generated correctly.
 

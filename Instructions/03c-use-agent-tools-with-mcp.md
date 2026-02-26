@@ -12,39 +12,19 @@ In this lab, you will build an AI agent using Microsoft Foundry that connects to
 
 ## Lab Objectives
 
-- **Task 1:** Create a Microsoft Foundry project
+- **Task 1:** Develop an agent that uses MCP function tools
 
-- **Task 2:** Develop an agent that uses MCP function tools
-
-## Task 2: Develop an agent that uses MCP function tools
+## Task 1: Develop an agent that uses MCP function tools
 
 Now that you've created your project in AI Foundry, let's develop an app that integrates an AI agent with an MCP server.
 
-### Task 2.1: Clone the repo containing the application code
+### Task 1.1: Clone the repo containing the application code
 
 In this task, you’ll use Azure Cloud Shell (PowerShell) to clone the GitHub repository and navigate to the project folder containing the MCP-based AI agent application code.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In the **Azure portal**, select the **Cloud Shell** icon in the top navigation bar to open a new Cloud Shell session.
 
-1. If prompted, provide the credentials below:
-
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
-
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
-
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
-
-    ![](./Media/lab2-s7.png)
-
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
-
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
-
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
-
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab1-02-12.png)
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
@@ -71,7 +51,7 @@ In this task, you’ll use Azure Cloud Shell (PowerShell) to clone the GitHub re
 
     ![](./Media/lab3c-s4.png)
 
-### Task 2.2: Configure the application settings
+### Task 1.2: Configure the application settings
 
 In this task, you’ll create a virtual environment, install required libraries, and update the project endpoint and model deployment name in the configuration file.
 
@@ -104,7 +84,7 @@ In this task, you’ll create a virtual environment, install required libraries,
 
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 2.3: Connect an Azure AI Agent to a remote MCP server
+### Task 1.3: Connect an Azure AI Agent to a remote MCP server
 
 In this task, you’ll connect the Azure AI agent to a remote MCP server, configure it with tools and instructions, run a prompt, handle approval requests, and retrieve the final response.
 
@@ -248,41 +228,11 @@ In this task, you’ll connect the Azure AI agent to a remote MCP server, config
 
 1. Save the code file **CTRL+S** when you have finished. You can also close the code editor **CTRL+Q**; though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
 
-### Task 2.4: Sign into Azure and run the app
+### Task 1.4: Run the app
 
 In this task, you’ll sign in to Azure using the CLI, run the application, and verify that the agent successfully processes the prompt by using the MCP server to retrieve and return the required information.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
-
-    ```
-    az login
-    ```
-
-    ![](./Media/lab3c-s15.png)
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
-
-    ![](./Media/lab3c-s16.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab3c-s17.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the Cloud Shell console, enter the following command to run the application:
 
     ```
    python client.py

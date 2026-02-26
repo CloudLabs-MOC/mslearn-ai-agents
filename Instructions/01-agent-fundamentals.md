@@ -50,14 +50,14 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
      ![](./Media/lab1-s6.png)
 
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+1. In the **Create a project** window, enter **Myprojects-<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
     * Subscription: **Choose Default Subscription (3)**
     * Resource group: **AI-3026-RG (4)**
     * Microsoft Foundry resource: **Keep as Default (5)**
     * Region: **<inject key="Region"></inject> (6)**
 
-      ![](./Media/lab1-s7.png)
+      ![](./Media/lab1-02-1.png)
 
       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
@@ -92,15 +92,6 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     ![](./Media/lab2-s6.png)
 
     > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming labs.
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
->
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
- 
-<validation step="74c732c7-ce7d-4057-aa11-9eb0f6b77ac8" />
-
 
 ## Task 2: Configure your agent
 

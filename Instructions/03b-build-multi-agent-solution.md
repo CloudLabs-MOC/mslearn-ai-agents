@@ -12,16 +12,13 @@ In this lab, you will build a multi-agent AI solution using the Microsoft Foundr
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
+- **Task 1:** Create an AI Agent client app
 
-- **Task 2:** Create an AI Agent client app
-
-
-## Task 2: Create an AI Agent client app
+## Task 1: Create an AI Agent client app
 
 Now you're ready to create a client app that defines the agents and instructions. Some code is provided for you in a GitHub repository.
 
-### Task 2.1 : Prepare the environment
+### Task 1.1 : Prepare the environment
 
 In this task, you will open the Microsoft Azure portal and use Cloud Shell to prepare your development environment. You will also clone the GitHub repository and access the project files needed to build the AI agent client application.
 
@@ -56,7 +53,7 @@ In this task, you will open the Microsoft Azure portal and use Cloud Shell to pr
 
     - The provided files include application code and a file for configuration settings.
 
-### Task 2.2: Configure the application settings
+### Task 1.2: Configure the application settings
 
 In this task, you will install the required libraries and configure the application settings by updating the project endpoint and model deployment details from your Microsoft Foundry project.
 
@@ -89,7 +86,7 @@ In this task, you will install the required libraries and configure the applicat
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 2.3: Create AI agents
+### Task 1.3: Create AI agents
 
 In this task, you will modify the Python application to create multiple AI agents using the Microsoft Foundry Agents SDK, each responsible for priority, team assignment, and effort estimation. You will then connect these agents through a primary triage agent that orchestrates them to process and respond to support tickets collaboratively.
 
@@ -319,41 +316,11 @@ In this task, you will modify the Python application to create multiple AI agent
 
 1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 2.4: Sign into Azure and run the app
+### Task 1.4: Run the app
 
 In this task, you will sign in to Microsoft Azure using Azure CLI and run the Python application to test how your multi-agent solution processes and triages support tickets.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
-
-    ```
-    az login
-    ```
-
-    ![](./Media/lab3b-s19.png)
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
-
-    ![](./Media/lab3b-s20.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab3b-s21.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the Cloud Shell console, enter the following command to run the application:
 
     ```
    python agent_triage.py

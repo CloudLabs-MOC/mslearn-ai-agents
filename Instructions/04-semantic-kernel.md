@@ -8,43 +8,23 @@ In this lab, you'll use the Microsoft Agent Framework SDK and Azure AI Agent Ser
 
 ## Lab Objectives
 
-- **Task 1:** Deploy a model in a Microsoft Foundry project
+- **Task 1:** Create an agent client app
 
-- **Task 2:** Create an agent client app
+- **Task 2:** Configure the application settings
 
-- **Task 3:** Configure the application settings
+- **Task 3:** Write code for an agent app
 
-- **Task 4:** Write code for an agent app
-
-- **Task 5:** Sign into Azure and run the app
+- **Task 4:** Sign into Azure and run the app
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
-## Task 2: Create an agent client app
+## Task 1: Create an agent client app
 
 In this task, you will set up a client app in Azure Cloud Shell, clone the provided GitHub repository, and prepare the code files for creating your agent.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In the **Azure portal**, select the **Cloud Shell** icon in the top navigation bar to open a new Cloud Shell session.
 
-1. If prompted, provide the credentials below:
-
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
-
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
-
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
-
-    ![](./Media/lab2-s7.png)
-
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
-
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
-
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
-
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab1-02-12.png)
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
@@ -74,7 +54,7 @@ In this task, you will set up a client app in Azure Cloud Shell, clone the provi
 
     - The provided files include application code a file for configuration settings, and a file containing expenses data.
 
-## Task 3: Configure the application settings
+## Task 2: Configure the application settings
 
 In this task, you will install required libraries and configure the .env file with your Foundry project details.
 
@@ -110,7 +90,7 @@ In this task, you will install required libraries and configure the .env file wi
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-## Task 4: Write code for an agent app
+## Task 3: Write code for an agent app
 
 In this task, you will edit the agent code to add references, define a custom email tool, initialize the agent with instructions, and configure it to process expenses data.
 
@@ -210,43 +190,11 @@ In this task, you will edit the agent code to add references, define a custom em
 
 1. Keep the code editor open in case you need to correct any typo's in the code, but resize the panes so you can see more of the command line console.
 
-## Task 5: Sign into Azure and run the app
+## Task 4: Run the app
 
 In this task, you signed into Azure using the CLI, authenticated your session, and ran the agent application. You then tested the agent by submitting an expense claim and verified that it generated the expected email output.
 
-1. In the cloud shell command-line pane beneath the code editor, enter the following command to sign into Azure **(1)**. Copy and paste the Sign in URL in the web browser **(2)**. Copy the device code as well to authenticate **(3)**.
-
-    ```
-    az login
-    ```
-
-    ![](./Media/lab4-s10.png)
-
-    >**Note:** You must sign into Azure - even though the cloud shell session is already authenticated
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
-
-    ![](./Media/lab2-s33.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab4-s11.png)
-
-1. After you have signed in, enter the following command to run the application:  
+1. In the Cloud Shell console, enter the following command to run the application:  
 
     ```
    python agent-framework.py

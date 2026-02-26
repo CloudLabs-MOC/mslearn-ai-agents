@@ -12,80 +12,23 @@ In this lab, you use Microsoft Azure AI Foundry to build an intelligent agent in
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
+- **Task 1:** Create and Configure Your Agent with Data and Foundry IQ
 
-- **Task 2:** Develop an agent that uses function tools
+- **Task 2:** Test the Agent in the playground
 
-- **Task 3:** Test the Agent in the playground
+- **Task 3:** Connect to Your Agent from a Client Application
 
-- **Task 4:** Connect to Your Agent from a Client Application
-
-## Task1: Create a Foundry project
-
-In this task, you create a new project in Microsoft Azure AI Foundry, deploy the gpt-4.1 model, and save it as an agent for further configuration.
-
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
-
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
-
-1. If prompted, provide the credentials below:
- 
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-    
-     ![](./Media/lab1-s3.png)
-
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
-    
-     ![](./Media/lab1-s4.png)
-
-1. When the **Stay signed in?** window appears, select **No**.
-
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
-
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
-
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
-
-     ![](./Media/lab1-s6.png)
-
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
-
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-3026-RG09 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
-
-      ![](./Media/lab9-s1.png)
-
-      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
-
-1. Wait for your project created. It may take a few minutes.
-
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
-
-     ![](./Media/lab2-s2.png)
-
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
-
-     ![](./Media/lab2-s3.png)
-
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
-
-    ![](./Media/lab2-s4.png)
-
-    - After the model is deployed, the playground for the model is displayed.
-
-1. Select **Save as agent (1)**, enter **product-expert-agent (2)** as the **Agent name**, and then select **Create (3)**.
-
-    ![](./Media/lab9-s6.png)
-
-## Task 2: Configure your data and Foundry IQ
+## Task 1: Create and Configure Your Agent with Data and Foundry IQ
 
 In this task, you will configure the agent in Microsoft Azure AI Foundry to use Foundry IQ by connecting it to an Azure AI Search resource. You also create a knowledge base using product documents stored in Azure Blob Storage to enable accurate and grounded responses.
+
+1. In Microsoft Foundry, select **Agents (1)** from the left navigation pane, and then click **Create agent (2)**.
+
+    ![](./Media/lab1-02-25.png)
+
+1. In the **Create an agent** pane, enter **product-expert-agent (1)** as the agent name, and then select **Create (2)**.
+
+    ![](./Media/lab1-02-28.png)
 
 1. In the **Instructions (1)** section, update the following instructions.
     
@@ -114,18 +57,18 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 
 1. Create a search resource with the following settings and click **Review + create (6)**
     - **Subscription:** Select default subscription **(1)**
-    - **Resource group:** select **AI-3026-RG09 (2)**
+    - **Resource group:** select **AI-3026-RG (2)**
     - **Service name:** Enter **aiservice-<inject key="DeploymentID"></inject> (3)**
     - **Location:** Select **<inject key="Region"></inject> (4)**
     - **Pricing tier:** Select **Free** if available, otherwise choose **Basic** **(5)**
 
-      ![](./Media/lab9-s11.png)
+      ![](./Media/lab1-02-29.png)
 
       - Now you'll upload sample product information documents to connect to with Foundry IQ.
 
 1. On the **Create a search service** page, review the configuration and then select **Create**.
 
-    ![](./Media/lab9-s12.png)
+    ![](./Media/lab1-02-30.png)
 
 1. Download the sample product information files by opening a new browser tab and navigating to `https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip`
 
@@ -151,14 +94,14 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 
 1. Create a storage account with the following settings and click **Review + create (8)**
     - **Subscription:** Select default subscription **(1)**
-    - **Resource group:** Select **AI-3026-RG09 (2)**
+    - **Resource group:** Select **AI-3026-RG (2)**
     - **Storage account name:** **storage<inject key="DeploymentID"></inject> (3)**
     - **Region:** Select **<inject key="Region"></inject> (4)**
     - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
     - **Performance:** Standard **(6)**
     - **Redundancy:** Locally-redundant storage (LRS) **(7)**
 
-      ![](./Media/lab9-s14.png)
+      ![](./Media/lab1-02-31.png)
 
 1. On the **Review + create** tab, select **Create**.
 
@@ -230,9 +173,9 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 
 1. On the top right, expand the **Use in an agent (1)** dropdown, and select your `product-expert-agent` **(2)**.
 
-    ![](./Media/lab9-s28.png)
+    ![](./Media/lab1-02-27.png)
 
-## Task 3: Test the Agent in the playground
+## Task 2: Test the Agent in the playground
 
 In this task, you test the agent in the Microsoft Azure AI Foundry playground to verify that it retrieves accurate product information from the connected knowledge base and maintains context during interactions.
 
@@ -267,35 +210,17 @@ In this task, you test the agent in the Microsoft Azure AI Foundry playground to
 
       ![](./Media/lab2-s6.png)
 
-## Task 4: Connect to Your Agent from a Client Application
+## Task 3: Connect to Your Agent from a Client Application
 
 Now you'll create a Python application to interact with your agent programmatically. Starter files have been provided in the GitHub repository to help you get started quickly.
 
-### Task 4.1 Clone the repo containing the application code
+### Task 3.1 Clone the repo containing the application code
 
 In this task, you access Microsoft Azure Portal, open Azure Cloud Shell, and clone the GitHub repository to set up the Python client application for interacting with your agent programmatically.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In the **Azure portal**, select the **Cloud Shell** icon in the top navigation bar to open a new Cloud Shell session.
 
-1. If prompted, provide the credentials below:
-
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
-
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
-
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
-
-    ![](./Media/lab2-s7.png)
-
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
-
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
-
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
-
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab1-02-12.png)
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
@@ -325,7 +250,7 @@ In this task, you access Microsoft Azure Portal, open Azure Cloud Shell, and clo
 
     - The provided files include application code, configuration settings, and the agent client starter code.
 
-### Task 4.2: Configure the application settings
+### Task 3.2: Configure the application settings
 
 In this task, you will set up the Python environment and update the configuration file with your project endpoint and agent name to connect the application to your deployed agent.
 
@@ -358,7 +283,7 @@ In this task, you will set up the Python environment and update the configuratio
 
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 4.3: Complete the agent client code
+### Task 3.3: Complete the agent client code
 
 In this task, you will connect the client application to your agent, implement message handling, manage conversations, and add logic to approve or deny the agent’s access to enterprise knowledge sources.
 
@@ -513,35 +438,9 @@ In this task, you will connect the client application to your agent, implement m
 
 1. Use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 4.4: Test the Integration
+### Task 3.4: Test the Integration
 
 In this task, you sign in to Azure, run the client application, and test the agent’s ability to retrieve and use knowledge base information while maintaining conversational context.
-
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
-
-    ![](./Media/lab9-s43.png)
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
-
-    ![](./Media/lab3-s19.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab9-s44.png)
 
 1. In the cloud shell command-line pane, run your application:
 

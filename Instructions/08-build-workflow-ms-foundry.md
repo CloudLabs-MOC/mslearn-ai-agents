@@ -37,89 +37,12 @@ In this lab, you will build an intelligent customer support workflow using Micro
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
 
-- **Task 2:** Create a customer support triage workflow
+- **Task 1:** Create a customer support triage workflow
 
-- **Task 3:** Use your workflow in code
+- **Task 2:** Use your workflow in code
 
-## Task 1: Create a Foundry project
-
-In this task, you will sign in to the Microsoft Foundry portal and create a new project in Microsoft Azure. You will then deploy the GPT-4.1 model and configure AI agents that will be used in the workflow.
-
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
-
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
-
-1. If prompted, provide the credentials below:
- 
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-    
-     ![](./Media/lab1-s3.png)
-
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
-    
-     ![](./Media/lab1-s4.png)
-
-1. When the **Stay signed in?** window appears, select **No**.
-
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
-
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
-
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
-
-     ![](./Media/lab1-s6.png)
-
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
-
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-3026-RG8 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
-
-      ![](./Media/lab8-s1.png)
-
-      >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
-
-1. Wait for your project created. It may take a few minutes.
-
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
-
-     ![](./Media/lab2-s2.png)
-
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
-
-     ![](./Media/lab2-s3.png)
-
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
-
-    ![](./Media/lab2-s4.png)
-
-    - After the model is deployed, the playground for the model is displayed.
-
-1. Select **Save as agent (1)**, enter **Triage-Agent (2)** as the *Agent name*, and then select **Create (3)**.
-
-    ![](./Media/lab8-s03.png)
-
-1. Select **Agents (1)**, choose **Create agent (2)**, enter **Resolution-Agent (3)** as the *Agent name*, and then select **Create (4)**.
-
-    ![](./Media/lab8-s01.png)
-
-1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
-
-     ![](./Media/lab8-s02.png)
-
-1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
-
-    ![](./Media/lab2-s6.png)
-
-
-## Task 2: Create a customer support triage workflow
+## Task 1: Create a customer support triage workflow
 
 In this task, you will create a sequential customer support triage workflow in Microsoft Foundry that uses AI agents to classify and respond to support tickets for ContosoPay.
 
@@ -139,7 +62,7 @@ In this task, you will create a sequential customer support triage workflow in M
 
     ![](./Media/lab8-s4.png)
 
-### Task 2.1: Create a ticket array variable
+### Task 1.1: Create a ticket array variable
 
 In this task, you will initialize a support ticket array variable in the workflow to simulate incoming customer requests for automated processing in Microsoft Foundry.
 
@@ -168,7 +91,7 @@ In this task, you will initialize a support ticket array variable in the workflo
 
     ![](./Media/lab8-s7.png)
 
-### Task 2.2: Add a for-each loop to process tickets
+### Task 1.2: Add a for-each loop to process tickets
 
 In this task, you will configure a for-each loop to iterate through each support ticket and process them individually within the workflow.
 
@@ -184,7 +107,7 @@ In this task, you will configure a for-each loop to iterate through each support
 
     ![](./Media/lab8-s10.png)
 
-### Task 2.3: Invoke an agent to classify the ticket
+### Task 1.3: Invoke an agent to classify the ticket
 
 In this task, you will invoke the Triage Agent to classify each support ticket into a category and generate a confidence score using structured JSON output.
 
@@ -194,9 +117,13 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8-s11.png)
 
-1. In the **Agent** node pane, open the **Select an agent (1)** dropdown, and then choose **Triage-Agent (2)**.
+1. In the **Agent** pane, open the **Select an agent (1)** dropdown, and then choose **Create a new agent (2)**.
 
-    ![](./Media/lab8-s14.png)
+    ![](./Media/lab1-02-22.png)
+
+1. In the **Create an agent** pane, enter **Triage-Agent (1)** as the agent name, and then select **Create (2)**.
+
+    ![](./Media/lab1-02-20.png)
 
 1. In the **Details (1)** tab, select the **Parameters (2)** icon next to the model name.
 
@@ -281,7 +208,7 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8--s22.png)
 
-## Task 2.4: Handle low-confidence classifications
+## Task 1.4: Handle low-confidence classifications
 
 In this task, you will add conditional logic to evaluate the confidence score and determine whether the ticket classification is reliable for further automated processing.
 
@@ -305,7 +232,7 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
     ![](./Media/lab8-n2.png)
 
-## Task 2.5: Recommend additional info for low-confidence tickets
+## Task 1.5: Recommend additional info for low-confidence tickets
 
 In this task, you will configure the workflow to request additional details from the customer when the ticket classification confidence is low.
 
@@ -323,7 +250,7 @@ In this task, you will configure the workflow to request additional details from
 
     ![](./Media/lab8-n4.png)
 
-### Task 2.6: Route the ticket based on category
+### Task 1.6: Route the ticket based on category
 
 In this task, you will add routing logic to identify billing issues and escalate them to the human support team while allowing other categories to continue through automation.
 
@@ -357,7 +284,7 @@ In this task, you will add routing logic to identify billing issues and escalate
 
     ![](./Media/lab8-n8.png)
 
-### Task 2.7: Generate a recommended response
+### Task 1.7: Generate a recommended response
 
 In this task, you will invoke the Resolution Agent to automatically generate a professional support response for non-billing tickets based on the classified category.
 
@@ -367,9 +294,13 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 
     ![](./Media/lab8-n9.png)
 
-1. In the **Agent** node pane, select **Resolution-Agent (1)**, and then choose the **Details (2)** tab.
+1. In the **Agent** pane, open the **Select an agent (1)** dropdown, and then select **Create a new agent** from the list.
 
-    ![](./Media/lab8-n10.png)
+    ![](./Media/lab1-02-23.png)
+
+1. In the **Create an agent** pane, enter **Resolution-Agent (1)** as the agent name, and then select **Create (2)**.
+
+    ![](./Media/lab1-02-24.png)
 
 1. In the agent editor, set the **Instructions (1)** field to the following prompt:
 
@@ -413,7 +344,7 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 
     ![](./Media/lab8-n13.png)
 
-### Task 2.8: Preview the workflow
+### Task 1.8: Preview the workflow
 
 In this task, you will test and validate the workflow by running a preview to observe how support tickets are processed, classified, escalated, and resolved automatically in Microsoft Foundry.
 
@@ -446,35 +377,17 @@ In this task, you will test and validate the workflow by running a preview to ob
 
     ![](./Media/lab8-n22.png)
 
-## Task 3: Use your workflow in code
+## Task 2: Use your workflow in code
 
 Now that you've built and tested your workflow in the Foundry portal, you can also invoke it from your own code using the Azure AI Projects SDK. This allows you to integrate the workflow into your applications or automate its execution.
 
-### Task 3.1: Prepare the environment
+### Task 2.1: Prepare the environment
 
 In this task, you will prepare the environment in Microsoft Azure by setting up Cloud Shell, cloning the repository, and accessing the Python files required to invoke the workflow programmatically.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In the **Azure portal**, select the **Cloud Shell** icon in the top navigation bar to open a new Cloud Shell session.
 
-1. If prompted, provide the credentials below:
-
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
-
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
-
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
-
-    ![](./Media/lab2-s7.png)
-
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
-
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
-
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
-
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab1-02-12.png)
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
@@ -504,7 +417,7 @@ In this task, you will prepare the environment in Microsoft Azure by setting up 
 
     - The provided files include application code and a file for configuration settings.
 
-### Task 3.2: Configure the application settings
+### Task 2.2: Configure the application settings
 
 In this task, you will configure the application settings by installing dependencies and updating the project endpoint and model deployment details to connect your code with Microsoft Foundry.
 
@@ -533,7 +446,7 @@ In this task, you will configure the application settings by installing dependen
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 3.3: Connect to the workflow and run it
+### Task 2.3: Connect to the workflow and run it
 
 In this task, you will connect your Python application to the workflow and run it programmatically using the Azure AI Projects SDK to automate customer support processing.
 
@@ -641,37 +554,11 @@ In this task, you will connect your Python application to the workflow and run i
 
 1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 3.4: Sign into Azure and run the app
+### Task 2.4: Run the app
 
 In this task, you will authenticate with Microsoft Azure and execute the Python application to run and validate the AI-powered workflow end-to-end.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
-
-    ![](./Media/lab8--s51.png)
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
-
-    ![](./Media/lab3-s19.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab8--s52.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the Cloud Shell console, enter the following command to run the application:
 
     ```
    python workflow.py

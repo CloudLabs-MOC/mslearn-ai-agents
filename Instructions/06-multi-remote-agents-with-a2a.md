@@ -12,123 +12,19 @@ In this lab, you'll use Azure AI Agent Service with the A2A protocol to create r
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
+- **Task 1:** Create an A2A application
 
-- **Task 2:** Create an A2A application
-
-## Task 1: Create a Foundry project
-
-In this task, you will create a new project in the Microsoft Foundry portal, configure it with a resource group and region, and deploy the gpt-4.1 model. You will also locate and copy the project endpoint to use in your client application.
-
-1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
-
-1. Click on **Sign in**.
-
-   ![](./Media/lab1-s2.png)
-
-1. If prompted, provide the credentials below:
-
-   - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-     ![](./Media/lab1-s3.png)
-
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
-
-      ![](./Media/lab1-s4.png)
-
-1. When the **Stay signed in?** window appears, select **No**.
-
-    ![](./Media/lab1-s5.png)
-
-     > **Important:** Make sure the **New Foundry** toggle is **Off** for this lab.
-
-1. In the home page, select **Create an agent**.   
-
-    ![](./Media/lab6-s1.png)
-
-1. In the **Create a new project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
-
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG13 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
-
-      ![](./Media/lab6-s2.png)
-
-       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.       
-
-1. Wait for your project to be created.      
-
-    >**Note:** In some cases, Microsoft Foundry will automatically deploy a default model usually **gpt-4o**. If this happens, follow the below step and deploy gpt-4.1 model.
-
-    1. In the left-hand menu, select **Models + endpoints**, then select **+ Deploy model** and choose **Deploy base model** from the drop-down list.
-
-       ![](./Media/lab6-s4.png)
-
-1. When prompted, search for `gpt-4.1` **(1)**, then select **gpt-4.1 (2)** model and then **Confirm (3)**.
-
-    ![](./Media/lab6-s5.png)
-
-1. On the **Deploy gpt-4.1** page, select **Global Standard (1)** as the Deployment type and then click on **Customize (2)**.
-
-   ![](./Media/lab6-s5.1.png)
-
-1. On the **Deploy gpt-4.1** page,
-
-    - Tokens per Minute Rate Limit (thousands): `60K` **(1)** (or the maximum available in your subscription if less than 50K)
-    - Then select **Deploy (2)**
-
-      ![](./Media/lab6-s5.2.png)
-
-1. From the left navigation pane, select **Playgrounds (1)**, then in the **Agents playground** verify that **gpt-4.1 (2)** is selected under *Deployment*; if not, choose **gpt-4.1** from the drop-down.
-
-    ![](./Media/lab6-s6.png)
-
-    > **Note:** After selecting **Playgrounds**, if the welcome page appears with the **Let’s go** button, select **Let’s go** to open the **Agents playground**, and then verify that **gpt-4.1** is selected under *Deployment*.
-
-1. In the navigation pane on the left, select **Overview (1)** to see the main page for your project. Copy the **Microsoft Foundry project endpoint (2)** values to a notepad, as you'll use them to connect to your project in a client application.
-
-    ![](./Media/lab6-s7.png)
-
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
->
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
- 
-<validation step="c1fb6715-624a-418f-b152-45427c8de4d8" />
- 
----     
-
-## Task 2: Create an A2A application
+## Task 1: Create an A2A application
 
 Now you're ready to create a client app that uses an agent. Some code has been provided for you in a GitHub repository.
 
-### Task 2.1: Clone the repo containing the application code
+### Task 1.1: Clone the repo containing the application code
 
 In this task, you will set up a client application by cloning the provided GitHub repository containing the code for the title, outline, and routing agents, and prepare the environment for running the multi-agent A2A application.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In the **Azure portal**, select the **Cloud Shell** icon in the top navigation bar to open a new Cloud Shell session.
 
-1. If prompted, provide the credentials below:
-
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
-
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
-
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
-
-    ![](./Media/lab2-s7.png)
-
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
-
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
-
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
-
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab1-02-12.png)
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
@@ -177,7 +73,7 @@ In this task, you will set up a client application by cloning the provided GitHu
 
     - Each agent folder contains the Azure AI agent code and a server to host the agent. The **routing agen**t is responsible for discovering and communicating with the **title** and **outline** agents. The **client** allows users to submit prompts to the routing agent. `run_all.py` launches all the servers and runs the client.
 
-### Task 2.2: Configure the application settings
+### Task 1.2: Configure the application settings
 
 In this task, you will configure the application by installing required libraries and updating the .env file with your Foundry project endpoint and model deployment details.
 
@@ -210,7 +106,7 @@ In this task, you will configure the application by installing required librarie
 
 1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
-### Task 2.3: Create a discoverable agent
+### Task 1.3: Create a discoverable agent
 
 In this task, you create the title agent that helps writers create trendy headlines for their articles. You also define the agent's skills and card required by the A2A protocol to make the agent discoverable.
 
@@ -369,7 +265,7 @@ In this task, you create the title agent that helps writers create trendy headli
 
 1. Save the code file **CTRL+S** when you have finished.
 
-### Task 2.4: Enable messages between the agents
+### Task 1.4: Enable messages between the agents
 
 In this task, you use the A2A protocol to enable the routing agent to send messages to the other agents. You also allow the title agent to receive messages by implementing the agent executor class.
 
@@ -519,41 +415,11 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
 
     - Now your title agent has been wrapped with an agent executor that the A2A protocol will use to handle messages. Great work!
 
-### Task 2.5: Sign into Azure and run the app
+### Task 1.5: Sign into Azure and run the app
 
 In this task, you will sign into Azure, run the multi-agent application, and interact with the agents to generate outputs such as article titles and outlines.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
-
-    ```
-    az login
-    ```
-
-    ![](./Media/lab6-s27.1.png)
-
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
-
-1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
-
-    ![](./Media/lab6-s27.2.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab5-s12.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the Cloud Shell console, enter the following command to run the application:
 
     ```
     cd ..
