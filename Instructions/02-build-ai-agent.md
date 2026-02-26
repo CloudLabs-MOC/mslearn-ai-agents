@@ -4,14 +4,13 @@
 
 ## Overview
 
-In this lab, you will create and configure a project in the **Microsoft Foundry portal**, deploy a foundation model, and build an AI agent using the Microsoft Foundry SDK for Python. You will set up a client application in Azure Cloud Shell, configure project settings, and write code to connect to your Foundry project. The agent will upload and analyze data using the built-in Code Interpreter tool, enabling interactive, stateful conversations. Finally, you will authenticate to Azure, run the application, and validate the agent’s ability to perform statistical analysis and generate responses based on the uploaded dataset.
+In this lab, you'll use the Microsoft Foundry SDK for Python to build a client app that connects to your existing Foundry project and interacts with an AI data analysis agent. You’ll upload a dataset and configure an agent that uses the Code Interpreter tool to perform statistical analysis, generate insights, and create visualizations. By the end, you’ll run a stateful conversation with the agent, enabling dynamic data analysis through multiple user prompts.
 
 > **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Lab Objectives
-
 
 - **Task 1:** Create an agent client app
 
@@ -76,7 +75,7 @@ In this task, you will prepare a client application environment in Azure Cloud S
 1. The folder contains application code, configuration settings, and data.
 
 
-## Task 3: Configure the application settings
+## Task 2: Configure the application settings
 
 In this task, you will install the required Python dependencies, update the configuration file with your Foundry project endpoint and model deployment name, and save the changes. By the end of this task, your application will be properly configured to connect to your Foundry project.
 
@@ -109,7 +108,7 @@ In this task, you will install the required Python dependencies, update the conf
 
 1. After replacing the placeholders, save your changes in the code editor using **CTRL+S** or **Right-click > Save**. Then close the editor with **CTRL+Q** or **Right-click > Quit**, leaving the Cloud Shell command line open.
 
-## Task 4: Write code for an agent app
+## Task 3: Write code for an agent app
 
 In this task, you will complete the application code to connect to your Microsoft Foundry project, upload a data file, create a Code Interpreter tool, and define an AI agent. By the end of this task, the application will be capable of running a stateful conversation with the agent and performing data analysis.
 
@@ -277,7 +276,7 @@ In this task, you will complete the application code to connect to your Microsof
 
 1. Save the code file **CTRL+S** when you have finished. You can also close the code editor **CTRL+Q** though you may want to keep it open in case you need to make any edits to the code you added. In either case, keep the cloud shell command-line pane open.
 
-## Task 5: Sign into Azure and run the app
+## Task 4: Sign into Azure and run the app
 
 In this task, you will authenticate to Azure using the Azure CLI and run the client application. You will interact with the agent by submitting prompts, reviewing responses, and validating its ability to analyze data and generate results dynamically.
 
@@ -357,6 +356,6 @@ In this task, you will authenticate to Azure using the Azure CLI and run the cli
 
 ## Summary
 
-In this lab, you created a new project in the Microsoft Foundry portal and deployed a foundation model for an AI agent solution. You configured a Python client application in Azure Cloud Shell, updated the project settings, and implemented code to connect to your Foundry project and enable the built-in Code Interpreter tool. Finally, you authenticated to Azure, ran the application, and interacted with the agent through a stateful conversation to validate its analytical capabilities.
+In this lab, you used the Microsoft Foundry SDK for Python to build a client application that connects to your existing Foundry project and runs an AI data analysis agent. You configured the application, uploaded a dataset, and created an agent with the Code Interpreter tool to analyze data, generate insights, and support stateful conversations. You then authenticated to Azure, executed the application, and interacted with the agent to produce visualizations and statistical results from the dataset.
 
 ### You have successfully completed the Hands-on Lab!

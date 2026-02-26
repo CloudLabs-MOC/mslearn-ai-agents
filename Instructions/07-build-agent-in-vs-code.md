@@ -4,13 +4,13 @@
 
 ## Overview
 
-In this exercise, you'll use the Microsoft Foundry VS Code extension to create an agent that can use Model Context Protocol (MCP) server tools to access external data sources and APIs. The agent will be able to retrieve up-to-date information and interact with various services through MCP tools.
+In this lab, you will use the Microsoft Foundry VS Code extension to build an AI agent that integrates with a Model Context Protocol (MCP) server to access external APIs and up-to-date documentation. You will configure the agent’s instructions, model, and MCP tool to enable it to retrieve trusted information from external sources such as Azure REST API specifications. Finally, you will deploy and test the agent in the playground and generate sample code to interact with it programmatically.
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Task 1: Install the Microsoft Foundry VS Code extension
 
-Let's start by installing and setting up the VS Code extension.
+In this task, you’ll install and verify the Microsoft Foundry VS Code extension to enable creating and managing AI agents directly within Visual Studio Code.
 
 1. Open Visual Studio Code.
 
@@ -26,7 +26,7 @@ Let's start by installing and setting up the VS Code extension.
 
 ## Task 2: Sign in to Azure and Select a project
 
-Now you'll connect to your Azure resources and create a new AI Foundry project.
+In this task, you’ll sign in to Azure through the Microsoft Foundry VS Code extension and select your existing Foundry project to use as the default resource for building and managing your AI agent.
 
 1. In the VS Code sidebar, select the **Microsoft Foundry (1)** extension icon.
 
@@ -66,7 +66,7 @@ Now you'll connect to your Azure resources and create a new AI Foundry project.
 
 ## Task 3: Create an AI agent with the designer view
 
-Now you'll create an AI agent using the visual designer interface. Rather than writing code, you'll configure the agent's instructions, settings, and tools through the user interface.
+In this task, you’ll use the Microsoft Foundry VS Code extension designer to create a new AI agent and open its configuration for editing through the visual interface.
 
 1. In the Microsoft Foundry extension view, find the **Resources** section.
 
@@ -84,6 +84,8 @@ Now you'll create an AI agent using the visual designer interface. Rather than w
 
 ### Task 3.1 Configure your agent in the designer
 
+In this task, you’ll configure the agent’s name, select the gpt-4.1 model, and define instructions that guide it to retrieve and analyze information from external sources.
+
 1. In the agent preferences, configure the following fields:
    - **Name:** Enter a descriptive name for your agent **data-research-agent (1)**
    
@@ -98,7 +100,7 @@ Now you'll create an AI agent using the visual designer interface. Rather than w
 
 ### Task 3.3 Add an MCP Server tool to your agent
 
-You'll now add a Model Context Protocol (MCP) server tool that allows your agent to access external APIs and data sources.
+In this task, you’ll add an MCP Server tool to your agent to enable it to access external APIs and retrieve up-to-date data from external sources.
 
 1. In the **TOOL** section of the designer, select the **Add tool (1)** button in the top-right corner.
 
@@ -120,6 +122,8 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
 
 ## Task 3.4: Deploy your agent to Microsoft Foundry
 
+In this task, you’ll deploy your configured AI agent to Microsoft Foundry and verify it appears in your project resources.
+
 1. In the agent designer view, select the **Create Agent on Microsoft Foundry** button in the bottom-left corner.
 
    ![](./Media/lab3-06.png)
@@ -131,6 +135,8 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
    ![](./Media/lab3-07.png)
 
 ### Task 3.5: Test your agent in the playground
+
+In this task, you’ll open the agent in the playground and test it by sending prompts to verify it retrieves and uses external data through the MCP server tool.
 
 1. Right-click on **data-research-agent (1)** in the **Classic Agents** subsection.
 
@@ -166,6 +172,8 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
 
 ### Task 3.6: Generate sample code for your agent
 
+In this task, you’ll generate and review sample SDK code to interact with your AI agent programmatically using the Microsoft Foundry Projects client library.
+
 1. Right-click on **data-research-agent (1)** and select **View Code** button in the Agent Preferences page.
 
    ![](./Media/lab3-12.png)
@@ -190,6 +198,8 @@ You can use this code as a starting point for building applications that leverag
 
 ### Task 3.7: View conversation history and threads
 
+In this task, you’ll review conversation threads and run details in the Microsoft Foundry extension to analyze agent interactions, messages, and tool usage history.
+
 1. In the **Azure Resources** view, expand the **Threads** subsection to see conversations created during your agent interactions.
 
    ![](./Media/lab3-17.png)
@@ -206,4 +216,4 @@ You can use this code as a starting point for building applications that leverag
 
 ## Summary
 
-In this exercise, you used the Foundry VS Code extension to create an AI agent with MCP server tools. The agent can access external data sources and APIs through the Model Context Protocol, enabling it to provide up-to-date information and interact with various services. You also learned how to test the agent in the playground and generate sample code for programmatic interaction.
+In this lab, you used the Microsoft Foundry VS Code extension to create and configure an AI agent using the visual designer and MCP server tools. You connected the agent to external APIs and documentation sources, enabling it to retrieve up-to-date information and respond to user queries with accurate, enriched results. You then deployed, tested the agent in the playground, generated sample SDK code, and explored conversation threads to understand agent interactions and execution details.
