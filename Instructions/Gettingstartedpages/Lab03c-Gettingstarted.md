@@ -44,7 +44,7 @@ The lab architecture demonstrates how an AI agent interacts with a remote MCP se
 
 ## Architecture Diagram
 
-![](../Media/lab3c-arch.png)
+![](../Media/lab3carc.png)
 
 ## Explanation of Components
 
@@ -140,5 +140,6 @@ Learner Support Contacts:
 Click on **Next** from the lower right corner to move on to the next page.
 
    ![](../Media/ai-3026-next.png)
+
 
 ## Happy Learning !!
