@@ -47,7 +47,7 @@ The lab architecture demonstrates how a Microsoft Foundry project integrates GPT
 
 ## Architecture Diagram
 
-![](../Media/lab9arc.png)
+![](../Media/lab9.1arc.png)
 
 ## Explanation of Components
 
