@@ -93,6 +93,14 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
     > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming labs.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="87f3da8f-5149-49a6-9189-901881587c0c" />
+
 ## Task 2: Configure your agent
 
 In this task, you will configure your agent by adding instructions, uploading an expense policy document for grounding, and enabling the required tools.

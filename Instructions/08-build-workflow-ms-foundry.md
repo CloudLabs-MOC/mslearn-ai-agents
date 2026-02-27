@@ -62,6 +62,14 @@ In this task, you will create a sequential customer support triage workflow in M
 
     ![](./Media/lab8-s4.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="1f26d4d8-b25f-43cf-8f1c-49f7345160d6" />
+
 ### Task 1.1: Create a ticket array variable
 
 In this task, you will initialize a support ticket array variable in the workflow to simulate incoming customer requests for automated processing in Microsoft Foundry.
@@ -208,6 +216,14 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8--s22.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="3fa62825-2aad-4ec5-8512-a97c98d07032" />
+
 ## Task 1.4: Handle low-confidence classifications
 
 In this task, you will add conditional logic to evaluate the confidence score and determine whether the ticket classification is reliable for further automated processing.
@@ -339,6 +355,14 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 1. Select **Done (3)** to save the node.
 
     ![](./Media/lab8-n13.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="098c74c3-c5e2-4bfd-815b-f4941b9fb57a" />
 
 ### Task 1.8: Preview the workflow
 
