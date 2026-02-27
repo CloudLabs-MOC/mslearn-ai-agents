@@ -5,7 +5,7 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 # Lab 07:  Develop an AI agent with VS Code extension
 
-### Overall Estimated Duration: 60 Minutes
+### Overall Estimated Duration: 30 Minutes
 
 ## Overview
 
