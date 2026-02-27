@@ -5,11 +5,11 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 # Lab 07:  Develop an AI agent with VS Code extension
 
-### Overall Estimated Duration: 30 Minutes
+### Overall Estimated Duration: 60 Minutes
 
 ## Overview
 
-In this hands-on lab, you will gain hands-on experience with the Microsoft Foundry portal by creating a project and deploying the gpt-4.1 model.You will configure a Python client application in Azure Cloud Shell, connect it to your project endpoint, and set up the required model deployment details. You will also clone a provided GitHub repository containing the agent implementation code.
+In this hands-on lab, you will gain hands-on experience with the Microsoft Foundry portal by creating a project and deploying the gpt-4.1 model. You will configure a Python client application in Azure Cloud Shell, connect it to your project endpoint, and set up the required model deployment details. You will also clone a provided GitHub repository containing the agent implementation code.
 
 ## Objectives
 
