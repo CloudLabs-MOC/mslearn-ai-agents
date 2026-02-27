@@ -78,6 +78,7 @@ In this task, you will install required Python libraries and configure the .env 
 
    ```
    pip install opentelemetry-semantic-conventions-ai==0.4.13
+   pip install azure-ai-projects==2.0.0b3
    ```
 
     ![](./Media/lab5-s14.png)
