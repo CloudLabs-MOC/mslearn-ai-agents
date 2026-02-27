@@ -85,7 +85,7 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’ve prepared a
  
 Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../Media/ai-3026-labvm.png)
+![Access Your VM and Lab Guide](../Media/labvm-1.png)
 
 ### Virtual Machine & Lab Guide
  
