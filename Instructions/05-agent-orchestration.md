@@ -290,4 +290,4 @@ In this lab, you used the Microsoft Agent Framework SDK to build a multi-agent P
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next.png)
+   ![](./Media/ai-3026next1.png)

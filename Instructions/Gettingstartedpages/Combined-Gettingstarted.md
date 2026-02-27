@@ -2,11 +2,11 @@
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
-### Overall Estimated Duration: 7 Hours
+### Overall Estimated Duration: 6 Hours
 
 ## Overview
 
-In this hands-on lab, you will build intelligent AI solutions using Microsoft Azure AI Foundry, Azure AI Agent Service, and the Microsoft Agent Framework SDK. You will create Foundry projects, deploy foundation models like GPT-4.1, and develop AI agents using the portal and Python SDK in Azure Cloud Shell. You will design agents for expense processing, customer support, ticket triage, and feedback analysis. The labs include grounding agents with enterprise data using Azure AI Search and Blob Storage. You will connect agents to external systems using the Model Context Protocol (MCP) and implement custom function tools for real-world automation. You will also build multi-agent solutions using sequential orchestration and A2A communication. By the end, you will understand how to develop, integrate, and automate enterprise AI workflows end-to-end.
+In this hands-on lab, you will build intelligent AI solutions using Microsoft Foundry and Azure AI Agent Service. You will create Foundry projects, deploy foundation models such as GPT-4.1, and develop AI agents using the portal and Python SDK in Azure Cloud Shell. You will design conversational and tool-enabled agents capable of automating real-world tasks and workflows. The labs include grounding agents with enterprise data using Azure AI Search and Azure Blob Storage for accurate, context-aware responses. You will also integrate agents with external systems using the Model Context Protocol (MCP) and implement custom function tools for automation. Finally, you will build multi-agent and distributed solutions using orchestration patterns and the A2A protocol to enable collaboration between agents. By the end of this lab, you will understand how to design, integrate, and automate enterprise-grade AI workflows end to end.
 
 ## Objectives
 
@@ -22,17 +22,15 @@ By the end of this lab, you will be able to:
 
 5. **Develop and configure custom function tools:** Build functions such as generating support tickets and register them for use by the agent.
 
-6. **Build AI agents for support ticket triage:** Create specialized agents to evaluate ticket priority, assign tickets to the appropriate team, and estimate the effort required.
+6. **Connect an AI agent to an MCP server:** Integrate a Microsoft Foundry agent with a remote **Model Context Protocol (MCP) server** and configure MCP function tools for accessing trusted documentation.
 
-7. **Connect an AI agent to an MCP server:** Integrate a Microsoft Foundry agent with a remote **Model Context Protocol (MCP) server** and configure MCP function tools for accessing trusted documentation.
+7. **Build a sequential orchestration**: Define a workflow where each agent’s output feeds into the next, forming a multi-agent pipeline.
 
-8. **Build a sequential orchestration**: Define a workflow where each agent’s output feeds into the next, forming a multi-agent pipeline.
+8. **Implement discoverable A2A agents:** Define skills, agent cards, and executors to enable message handling and make agents interoperable through the A2A protocol.
 
-9. **Implement discoverable A2A agents:** Define skills, agent cards, and executors to enable message handling and make agents interoperable through the A2A protocol.
+9. **Implement intelligent routing logic**: Classify tickets with structured JSON output, handle low-confidence cases, escalate billing issues, and automate responses for other categories.
 
-10. **Implement intelligent routing logic**: Classify tickets with structured JSON output, handle low-confidence cases, escalate billing issues, and automate responses for other categories.
-
-11. **Ground an agent with enterprise knowledge**: Connect the agent to Azure AI Search and configure a knowledge base using documents stored in Azure Blob Storage.
+10. **Ground an agent with enterprise knowledge**: Connect the agent to Azure AI Search and configure a knowledge base using documents stored in Azure Blob Storage.
 
 ## Pre-requisites
 
@@ -48,13 +46,15 @@ The lab architecture demonstrates how a Microsoft Foundry project enables AI age
 
 1. **Microsoft Foundry Portal & Project Workspace:** Central hub for creating projects, deploying models, configuring agents, and testing in the playground with system instructions, tools, and AI-enhanced search.
    
-2. **Knowledge Base Layer:** Grounds agent responses using uploaded documents (e.g., expense policies) via File Search / Azure AI Search indexing, ensuring accurate, policy-compliant replies stored in Azure Blob Storage.
+2. **Custom Functions and Tooling Layer:** Enhances agents with custom function tools to automate business logic, process structured inputs, and execute real-world tasks, enabling agents to go beyond conversational capabilities.
 
-3. **Multi-Agent Orchestration Layer:** Manages complex workflows with multi-agent systems, specialized agents, agent-to-agent (A2A) communication, and grounded response generation via the Agent Control Plane (ACP).
+3. **External Tool Connectivity Layer (MCP)** Connects AI agents securely to external systems and services using the Model Context Protocol (MCP), enabling structured tool invocation and controlled interaction with enterprise applications.
  
-4. **Tools and Security Layer:** Handles secure tool invocation through the Model Context Protocol (MCP), approval workflows, and dynamic Python code execution (via Code Interpreter) for tasks like generating expense claims.
+4. **Multi-Agent and Workflow Orchestration Layer:** Supports collaboration between multiple specialized agents using orchestration patterns, workflow automation, and Agent-to-Agent (A2A) communication for distributed and scalable solutions.
    
-5. **Client Application Integration Layer:**  Enables embedding the agent into client apps using Python SDK, MCP for context management, and persistent storage in Azure Blob.
+5. **Enterprise Knowledge and Grounding Layer:** Grounds agent responses using enterprise data through Azure AI Search and document storage in Azure Blob Storage, ensuring accurate, context-aware, and trusted responses.
+
+6. **Client Application and SDK Integration Layer:** Enables embedding agents into client applications using the Microsoft Agent Framework Python SDK, supporting programmatic configuration, remote communication, and persistent context management.
 
 ## Architecture Diagram
 
@@ -62,20 +62,17 @@ The lab architecture demonstrates how a Microsoft Foundry project enables AI age
 
 ## Explanation of Components
 
-1. **Microsoft Foundry Portal & Project Workspace:**
-The primary interface (formerly Azure AI Studio) where developers create Foundry projects, deploy foundation models, configure AI agents, define system instructions, attach tools, and test interactions in the Agents Playground. It supports AI-enhanced queries and serves as the entry point for building expense management agents.
+1. **Microsoft Foundry Portal:** The central environment used to explore AI agent development, create projects, deploy foundation models such as GPT-4.1, configure system instructions, and test agents in the playground. It serves as the starting point for building and managing intelligent conversational and task-oriented agents.
 
-2. **Knowledge Base Layer / Knowledge Grounding:**
-User queries and uploaded documents (e.g., company expense policy PDFs) are processed via Knowledge Grounding and Microsoft Foundry IQ (evolution of Azure AI Search). Relevant content is retrieved and indexed in Azure Blob Storage, enabling the agent to provide accurate, cited, and policy-grounded responses instead of hallucinated information.
+2. **Custom Functions and Tool Integration:** Agents are extended with custom function tools that allow structured input handling, automation of business logic, and execution of real-world operations. This enables agents to move beyond conversations and perform actionable tasks such as processing requests and generating structured outputs.
 
-3. **Multi-Agent Orchestration Layer:**
-Handles coordination of multiple agents: a Multi-Agent System delegates tasks to Specialized Agents (e.g., one for policy lookup, another for calculations). Agent-to-Agent (A2A) communication enables collaboration, while the Agent Control Plane (ACP) ensures grounded, reliable final responses for expense-related tasks like validation or claim preparation.
+3. **Model Context Protocol (MCP):** The Model Context Protocol enables secure and standardized connectivity between AI agents and external systems. It supports context sharing, structured tool invocation, and controlled access to enterprise services and trusted data sources.
 
-4. **Tools and Security Layer:**
-Tools are invoked securely via the Model Context Protocol (MCP), which standardizes tool calling and context passing. This includes MCP Approval workflows for governance (e.g., human-in-the-loop or policy checks), leading to approved tool execution. The Dynamic Python code execution (Code Interpreter tool) allows the agent to generate/run Python scripts on-the-fly — for example, to calculate totals, format data, or create downloadable expense claim files (CSV/PDF).
+4. **Microsoft Agent Framework SDK and Python:** The Microsoft Agent Framework with Python enables programmatic agent development, configuration, and integration into applications. Developers use it to build scalable agents, manage workflows, and automate interactions within enterprise solutions.
 
-5. **Client Application Integration Layer:**
-Once tested in the playground, the agent integrates into production applications via the Python SDK and MCP for context management. This enables seamless embedding (e.g., in web apps, Teams, or custom tools), with conversation state and data persisted in Azure Blob Storage for continuity and auditability.
+5. **Multi-Agent Collaboration and Workflow Automation:** Multiple specialized agents collaborate using orchestration patterns, sequential pipelines, and distributed communication such as A2A. Workflow automation enables structured multi-step processes where outputs from one agent or step feed into the next.
+
+6. **Enterprise Knowledge Grounding and Responsible AI:** Agents are grounded using enterprise data through Azure AI Search and Azure Blob Storage via Foundry IQ. This ensures accurate, context-aware responses while supporting responsible AI, governance, and secure enterprise deployment.
 
 # Getting Started with lab
 
@@ -156,6 +153,6 @@ Learner Support Contacts:
 
 Click on **Next** from the lower right corner to move on to the next page.
 
-   ![](../Media/ai-3026next.png)
+   ![](../Media/ai-3026next1.png)
 
 ## Happy Learning !!

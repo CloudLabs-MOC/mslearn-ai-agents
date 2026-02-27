@@ -1,6 +1,6 @@
 # Lab 02: Develop an AI agent
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 45 Minutes
 
 ## Overview
 
@@ -360,4 +360,4 @@ In this lab, you used the Microsoft Foundry SDK for Python to build a client app
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next.png)
+   ![](./Media/ai-3026next1.png)

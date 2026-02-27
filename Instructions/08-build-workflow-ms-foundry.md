@@ -616,4 +616,4 @@ In this lab, you created a sequential workflow in Microsoft Foundry to process c
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next.png)
+   ![](./Media/ai-3026next1.png)

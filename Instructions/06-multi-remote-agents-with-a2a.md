@@ -455,4 +455,4 @@ In this lab, you used the Azure AI Agent Service with the A2A protocol to build 
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next.png)
+   ![](./Media/ai-3026next1.png)

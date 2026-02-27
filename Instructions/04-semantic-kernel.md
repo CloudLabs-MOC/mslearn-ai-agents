@@ -228,4 +228,4 @@ In this lab, you created an Azure AI chat agent using the Microsoft Agent Framew
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next.png)
+   ![](./Media/ai-3026next1.png)
