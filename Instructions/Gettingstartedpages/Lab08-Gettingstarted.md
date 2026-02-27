@@ -51,7 +51,7 @@ The lab architecture demonstrateshow a Microsoft Foundry project enables AI-powe
 
 ## Architecture Diagram
 
-![](../Media/lab8arc.png)
+![](../Media/lab8.1arc.png)
 
 ## Explanation of Components
 
