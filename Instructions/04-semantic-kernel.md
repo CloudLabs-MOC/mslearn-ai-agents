@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you'll use the Microsoft Agent Framework SDK and Azure AI Agent Service to create an AI agent that processes expense claims. You will deploy a model in a Microsoft Foundry project, develop a client app, configure the application, define a custom tool for sending emails, and run the agent to handle expense claim requests.
+In this lab, you will develop an Azure AI chat agent using the Microsoft Agent Framework SDK and set up a client application in Azure Cloud Shell. You will configure the application, define a custom email tool, and write code to process expenses data and automate expense claim submission. Finally, you will authenticate to Azure, run the application, and observe how the agent uses tools to generate and send structured expense claim emails.
 
 ## Lab Objectives
 
@@ -16,7 +16,7 @@ In this lab, you'll use the Microsoft Agent Framework SDK and Azure AI Agent Ser
 
 - **Task 4:** Sign into Azure and run the app
 
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+    > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Task 1: Create an agent client app
 
@@ -30,7 +30,7 @@ In this task, you will set up a client app in Azure Cloud Shell, clone the provi
 
     ![](./Media/lab2-s9.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -65,6 +65,8 @@ In this task, you will install required libraries and configure the .env file wi
    ./labenv/bin/Activate.ps1
    pip install agent-framework==1.0.0b260212 --pre
     ```
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+
 1. In the Cloud Shell command-line pane, enter the following command to install the required package version:
 
     ```
@@ -86,7 +88,7 @@ In this task, you will install required libraries and configure the .env file wi
 
       ![](./Media/lab4-s4.png)
 
-      > **Note:** Paste the project endpoint you copied in the previous task.
+      > **Note:** Paste the project endpoint you copied in Lab 1 – Task 1.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
@@ -192,7 +194,7 @@ In this task, you will edit the agent code to add references, define a custom em
 
 ## Task 4: Run the app
 
-In this task, you signed into Azure using the CLI, authenticated your session, and ran the agent application. You then tested the agent by submitting an expense claim and verified that it generated the expected email output.
+In this task, you will run the agent application in Cloud Shell, submit an expense claim prompt, and verify that the AI agent generates and simulates sending the expense claim email successfully.
 
 1. In the Cloud Shell console, enter the following command to run the application:  
 
@@ -222,6 +224,8 @@ In this task, you signed into Azure using the CLI, authenticated your session, a
 
 ## Summary
 
-In this lab, you used the Microsoft Agent Framework SDK to build an AI agent for expense claim processing. You created a custom tool to simulate sending emails, configured the agent with system instructions, and connected it to a Foundry project. Finally, you ran and tested the agent, verifying that it processed expenses data and generated the expected email output.
+In this lab, you created an Azure AI chat agent using the Microsoft Agent Framework SDK. You configured the application, defined a custom email tool, and initialized the agent with instructions to process expenses data. Finally, you ran the application to submit an expense claim and verified the agent’s ability to generate and simulate sending the email.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

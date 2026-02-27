@@ -1,6 +1,6 @@
 # Lab 09 Connect to remote agents with A2A protocol
    
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 45 Minutes
 
 ## Overview
 
@@ -30,7 +30,7 @@ In this task, you will set up a client application by cloning the provided GitHu
 
     ![](./Media/lab2-s9.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -84,6 +84,7 @@ In this task, you will configure the application by installing required librarie
    ./labenv/bin/Activate.ps1
    pip install -r requirements.txt azure-ai-projects azure-ai-agents a2a-sdk
     ```
+    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
 
 1. Enter the following command to edit the configuration file that has been provided:
 
@@ -110,13 +111,13 @@ In this task, you will configure the application by installing required librarie
 
 In this task, you create the title agent that helps writers create trendy headlines for their articles. You also define the agent's skills and card required by the A2A protocol to make the agent discoverable.
 
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
 1. Navigate to the `title_agent` directory:
 
     ```
    cd title_agent
     ```
-
-    > **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the code file that has been provided:
 
@@ -269,6 +270,8 @@ In this task, you create the title agent that helps writers create trendy headli
 
 In this task, you use the A2A protocol to enable the routing agent to send messages to the other agents. You also allow the title agent to receive messages by implementing the agent executor class.
 
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
 1. Navigate to the `routing_agent` directory:
 
     ```
@@ -417,7 +420,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
 
 ### Task 1.5: Sign into Azure and run the app
 
-In this task, you will sign into Azure, run the multi-agent application, and interact with the agents to generate outputs such as article titles and outlines.
+In this task, you will run the multi-agent application, and interact with the agents to generate outputs such as article titles and outlines.
 
 1. In the Cloud Shell console, enter the following command to run the application:
 
@@ -444,8 +447,12 @@ In this task, you will sign into Azure, run the multi-agent application, and int
 
 1. Enter `quit` to exit the program and stop the servers.
     
+1. In the Cloud Shell window, select the **Close (X)** icon to exit Cloud Shell before proceeding to the next lab.
+
 ## Summary
 
-In this lab, you used the Azure AI Agent Service SDK and the A2A Python SDK to create a remote multi-agent solution. You created a discoverable A2A-compatible agent and set up a routing agent to access the agent's skills. You also implemented an agent executor to process incoming A2A messages and manage tasks. Great work!
+In this lab, you used the Azure AI Agent Service with the A2A protocol to build a multi-agent Python application that enables remote agents to communicate. You created a title agent, an outline agent, and a routing agent to orchestrate messages and process user prompts. Finally, you ran the application to generate article titles and structured outlines through coordinated agent collaboration.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

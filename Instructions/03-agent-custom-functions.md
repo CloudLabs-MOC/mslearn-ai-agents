@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you will build an end-to-end solution using the Microsoft Foundry platform by creating a project, deploying a model, and extending it with custom function tools. You will develop an application in Azure Cloud Shell that enables an AI agent to collect user information and automatically generate support tickets. Finally, you will run and test the agent to understand how function tools can be used to perform real-world actions and automate technical support scenarios.
+In this lab, you will build a technical support AI agent using the Microsoft Foundry SDK for Python and integrate a custom function tool to automate ticket creation. You will configure your project in Azure Cloud Shell, connect to your Foundry project, and implement function-calling logic within the agent. Finally, you will authenticate to Azure, run the application, and verify that the agent collects issue details and generates support ticket files automatically.
 
 > **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
@@ -28,7 +28,7 @@ In this task, you will use the Microsoft Azure portal to access Azure Cloud Shel
 
     ![](./Media/lab2-s9.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -163,6 +163,8 @@ In this task, you will connect your application to the Microsoft Foundry project
 
 In this task, you will define a FunctionTool that allows the AI agent to call your custom support ticket function.
 
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
 1. Find the comment **Create a FunctionTool definition** and add the following code to define a function tool that uses your custom function:
 
     ```python
@@ -191,6 +193,8 @@ In this task, you will define a FunctionTool that allows the AI agent to call yo
 
 In this task, you will create an AI agent and configure it to use the FunctionTool for handling support requests.
 
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
 1. Find the comment **Initialize the agent with the FunctionTool** section, and add the following code to create an agent that can use the function tool you defined:
 
     ```python
@@ -215,6 +219,8 @@ In this task, you will create an AI agent and configure it to use the FunctionTo
 ### Task 1.6: Send a message to the agent and process the response
 
 In this task, you will create a conversation thread, send user prompts to the agent, and retrieve its responses while handling any errors.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Find the comment **Create a thread for the chat session** and add the following code:
 
@@ -260,6 +266,8 @@ In this task, you will create a conversation thread, send user prompts to the ag
 ### Task 1.7: Process function calls and display the agent's response
 
 In this task, you will handle any function calls made by the agent, return the results, display the responses, and clean up the conversation and agent resources.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Find the comment **Process function calls** and add the following code to handle any function calls made by the agent:
 
@@ -409,6 +417,8 @@ In this task, you will sign into Azure from Cloud Shell and run the agent applic
 
 ## Summary
 
-In this lab, you created a new project in the Microsoft Foundry portal and developed an AI agent for technical support. You implemented a custom function to generate and save support tickets and integrated it with the agent. Finally, you tested the agent to ensure it could handle user requests and successfully create support ticket files.
+In this lab, you created a technical support agent using the Microsoft Foundry SDK for Python and connected it to your existing Foundry project. You defined and integrated a custom function tool that generated and saved support ticket files based on user input. You authenticated to Azure, ran the application, and validated that the agent successfully collected issue details and automated ticket creation.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

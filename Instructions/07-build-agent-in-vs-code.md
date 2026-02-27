@@ -1,6 +1,6 @@
 # Lab 03: Develop an AI agent with VS Code extension
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 45 Minutes
 
 ## Overview
 
@@ -12,7 +12,7 @@ In this lab, you will use the Microsoft Foundry VS Code extension to build an AI
 
 In this task, you’ll install and verify the Microsoft Foundry VS Code extension to enable creating and managing AI agents directly within Visual Studio Code.
 
-1. Open Visual Studio Code.
+1. Open the **Visual Studio Code** from the desktop.
 
 1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
 
@@ -32,7 +32,7 @@ In this task, you’ll sign in to Azure through the Microsoft Foundry VS Code ex
 
 1. In the Resources view, choose **Set Default Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
 
-   ![](./Media/lab7-s4.png)
+   ![](./Media/lab3-01.png)
 
 1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
 
@@ -82,6 +82,8 @@ In this task, you’ll use the Microsoft Foundry VS Code extension designer to c
 
    ![](./Media/lab7-s17.png)
 
+   > **Note:** You can adjust or drag the panes and sections based on your requirement to improve visibility and workspace layout.
+
 ### Task 3.1 Configure your agent in the designer
 
 In this task, you’ll configure the agent’s name, select the gpt-4.1 model, and define instructions that guide it to retrieve and analyze information from external sources.
@@ -130,7 +132,7 @@ In this task, you’ll deploy your configured AI agent to Microsoft Foundry and 
 
 1. Wait for the deployment to complete.
 
-1. In the VS Code navbar, refresh the **Resources** view.  **data-research-agent** should now appear under the **Classic Agents** subsection.
+1. In the VS Code navbar, refresh the **Resources** view, **data-research-agent** should now appear under the **Classic Agents** subsection.
 
    ![](./Media/lab3-07.png)
 
@@ -194,7 +196,7 @@ In this task, you’ll generate and review sample SDK code to interact with your
 
    ![](./Media/lab3-16.png)
 
-You can use this code as a starting point for building applications that leverage your AI agent.
+   - You can use this code as a starting point for building applications that leverage your AI agent.
 
 ### Task 3.7: View conversation history and threads
 
@@ -217,3 +219,7 @@ In this task, you’ll review conversation threads and run details in the Micros
 ## Summary
 
 In this lab, you used the Microsoft Foundry VS Code extension to create and configure an AI agent using the visual designer and MCP server tools. You connected the agent to external APIs and documentation sources, enabling it to retrieve up-to-date information and respond to user queries with accurate, enriched results. You then deployed, tested the agent in the playground, generated sample SDK code, and explored conversation threads to understand agent interactions and execution details.
+
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

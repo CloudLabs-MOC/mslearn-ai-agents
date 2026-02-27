@@ -50,7 +50,7 @@ In this task, you will prepare a client application environment in Azure Cloud S
 
     ![](./Media/lab2-s9.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the Cloud Shell pane, run the following commands to clone the GitHub repository with the code files for this exercise. You can type the command directly, or copy it to the clipboard, then right-click in the command line and paste it as plain text.
 
@@ -358,4 +358,6 @@ In this task, you will authenticate to Azure using the Azure CLI and run the cli
 
 In this lab, you used the Microsoft Foundry SDK for Python to build a client application that connects to your existing Foundry project and runs an AI data analysis agent. You configured the application, uploaded a dataset, and created an agent with the Code Interpreter tool to analyze data, generate insights, and support stateful conversations. You then authenticated to Azure, executed the application, and interacted with the agent to produce visualizations and statistical results from the dataset.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

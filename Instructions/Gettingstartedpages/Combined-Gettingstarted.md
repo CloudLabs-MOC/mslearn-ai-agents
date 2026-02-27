@@ -1,4 +1,4 @@
-# AI-102: Develop AI agents on Azure Workshop
+# AI-3026: Develop AI agents on Azure Workshop
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
@@ -37,15 +37,14 @@ By the end of this lab, you will be able to:
 ## Pre-requisites
 
 * Basic knowledge of the Azure portal.
-* Understanding of Model Context Protocol (MCP) concepts and function tools.
 * Familiarity with AI concepts such as agents, grounding data, and actions.
 * An active Azure subscription with access to **Microsoft Foundry**.
+* Understanding of Model Context Protocol (MCP) concepts and function tools.
 * Basic knowledge of Python programming.
-* Basic knowledge of Python and working in **Cloud Shell** or similar terminal environments.
 
 ## Architecture
 
-The lab architecture demonstrates how a Microsoft Foundry project enables AI agent development for expense management:
+The lab architecture demonstrates how a Microsoft Foundry project enables AI agent developments.
 
 1. **Microsoft Foundry Portal & Project Workspace:** Central hub for creating projects, deploying models, configuring agents, and testing in the playground with system instructions, tools, and AI-enhanced search.
    
@@ -157,7 +156,6 @@ Learner Support Contacts:
 
 Click on **Next** from the lower right corner to move on to the next page.
 
-   ![](../Media/ai-3026-next.png)
-
+   ![](../Media/ai-3026next.png)
 
 ## Happy Learning !!

@@ -109,7 +109,7 @@ In this task, you will configure your agent by adding instructions, uploading an
    If a user wants to submit an expense claim, you get their email address, a description of the claim, and the amount to be claimed and write the claim details to a text file that the user can download.
     ```
 
-1. Below the **Instructions**, expand the **Tools** section. Select **Upload files**
+1. Below the **Instructions**, expand the **Tools** section. Select **Upload files (2)**
 
     ![](./Media/lab1-s10.png)
 
@@ -200,4 +200,6 @@ After experimenting with your agent in the playground, you may want to integrate
 
 In this lab, you created a new project in the Microsoft Foundry portal and built an AI agent to assist with expense claims. You configured the agent with system instructions and added an expense policy document as grounding data. You also enabled the code interpreter tool so the agent could perform actions. Finally, you tested the agent in the playground by asking policy questions and generating an expense claim file to download and review.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

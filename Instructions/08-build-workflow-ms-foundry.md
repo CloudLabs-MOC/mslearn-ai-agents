@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you will build an intelligent customer support workflow using Microsoft Foundry and Microsoft Azure. You will create a project, deploy the GPT-4.1 model, and configure AI agents to classify and respond to support tickets. The workflow will use conditional logic to handle low-confidence cases, escalate billing issues, and automate responses for technical and general queries. Finally, you will integrate and run the workflow programmatically using Python to understand real-world AI automation scenarios.
+In this lab, you will use the Microsoft Foundry portal to build a sequential workflow for automating customer support ticket processing. You create AI agents to classify tickets, handle low-confidence cases, and generate recommended responses, applying conditional logic for routing and escalation. You then connect the workflow to Python code via the Azure AI Projects SDK to run and validate automated support ticket handling programmatically.
 
 **Workflow overview**
 
@@ -192,7 +192,7 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8--s18.png)
 
-1. Set the **Input message** field to the  `Local.CurrentTicket` **(2)** variable.
+1. Set the **Input message** field to the  `Local.CurrentTicket` variable.
 
     ![](./Media/lab8--s19.png)
 
@@ -294,7 +294,7 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 
     ![](./Media/lab8-n9.png)
 
-1. In the **Agent** pane, open the **Select an agent (1)** dropdown, and then select **Create a new agent** from the list.
+1. In the **Agent** pane, open the **Select an agent (1)** dropdown, and then select **Create a new agent (2)** from the list.
 
     ![](./Media/lab1-02-23.png)
 
@@ -368,7 +368,6 @@ In this task, you will test and validate the workflow by running a preview to ob
     Current Ticket:
     The API returns a 403 error when creating invoices, but our API key hasn't changed.
 
-
     Copilot said:
     Thank you for reaching out about the 403 error when creating invoices. This error typically indicates a permissions or access issue. 
     Please ensure that your API key has the necessary permissions for invoice creation and that your request is being sent to the correct endpoint. 
@@ -429,6 +428,8 @@ In this task, you will configure the application settings by installing dependen
    pip install -r requirements.txt
     ```
 
+    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+
 1. Enter the following command to edit the configuration file that is provided:
 
     ```
@@ -442,13 +443,15 @@ In this task, you will configure the application settings by installing dependen
 
          ![](./Media/lab8--s43.png)
 
-         > **Note:** Paste the project endpoint you copied in the previous task.
+         > **Note:** Paste the project endpoint you copied in Lab 1 – Task 1.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
 ### Task 2.3: Connect to the workflow and run it
 
 In this task, you will connect your Python application to the workflow and run it programmatically using the Azure AI Projects SDK to automate customer support processing.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the **workflow.py** file:
 
@@ -556,7 +559,7 @@ In this task, you will connect your Python application to the workflow and run i
 
 ### Task 2.4: Run the app
 
-In this task, you will authenticate with Microsoft Azure and execute the Python application to run and validate the AI-powered workflow end-to-end.
+In this task, you will execute the Python application to run and validate the AI-powered workflow end-to-end.
 
 1. In the Cloud Shell console, enter the following command to run the application:
 
@@ -585,8 +588,12 @@ In this task, you will authenticate with Microsoft Azure and execute the Python 
     
     ![](./Media/lab8-n20.png)
 
+1. In the Cloud Shell window, select the **Close (X)** icon to exit Cloud Shell before proceeding to the next lab.
+
 ## Summary
 
 In this lab, you created a sequential workflow in Microsoft Foundry to process customer support tickets. You implemented conditional logic and configured AI agents to generate structured, JSON-formatted outputs. The workflow classified each ticket using an AI agent, handled low-confidence classifications by requesting additional information, and generated recommended responses for non-billing issues. Finally, you validated the workflow to ensure it correctly processed and responded to support requests.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you will build a multi-agent AI solution using the Microsoft Foundry Agent Service to automate support ticket triage. You will create a Foundry project and develop a client application that connects multiple AI agents. These agents will collaborate to evaluate ticket priority, recommend the appropriate team, and estimate the required effort. Finally, you will run the application and observe how the agents work together to provide a structured ticket assessment.
+In this lab, you will build a multi-agent solution using the Microsoft Foundry Agents SDK and create a client application in Azure Cloud Shell. You will configure multiple specialized AI agents for ticket prioritization, team assignment, and effort estimation, and connect them through a primary triage agent to collaborate and process support requests. Finally, you will run the application, provide real-world scenarios, and observe how the agents work together to generate structured ticket triage results.
 
 > **Tip:** The code used in this exercise is based on the for Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
@@ -18,7 +18,7 @@ In this lab, you will build a multi-agent AI solution using the Microsoft Foundr
 
 Now you're ready to create a client app that defines the agents and instructions. Some code is provided for you in a GitHub repository.
 
-### Task 1.1 : Prepare the environment
+### Task 1.1: Prepare the environment
 
 In this task, you will open the Microsoft Azure portal and use Cloud Shell to prepare your development environment. You will also clone the GitHub repository and access the project files needed to build the AI agent client application.
 
@@ -89,6 +89,8 @@ In this task, you will install the required libraries and configure the applicat
 ### Task 1.3: Create AI agents
 
 In this task, you will modify the Python application to create multiple AI agents using the Microsoft Foundry Agents SDK, each responsible for priority, team assignment, and effort estimation. You will then connect these agents through a primary triage agent that orchestrates them to process and respond to support tickets collaboratively.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the **agent_triage.py** file:
 
@@ -295,8 +297,8 @@ In this task, you will modify the Python application to create multiple AI agent
             print(f"{message.role}:\n{last_msg.text.value}\n")
    
     ```
-
-    ![](./Media/lab3b-s17.1.png)
+    
+    ![](./Media/lab6-s17.1.png)
 
 1. Find the comment **Clean up**, and enter the following code to delete the agents when they are no longer required:
 
@@ -318,7 +320,7 @@ In this task, you will modify the Python application to create multiple AI agent
 
 ### Task 1.4: Run the app
 
-In this task, you will sign in to Microsoft Azure using Azure CLI and run the Python application to test how your multi-agent solution processes and triages support tickets.
+In this task, you will run the multi-agent application in Azure Cloud Shell, provide a support ticket scenario, and validate how the connected agents collaborate to analyze, prioritize, and generate structured triage results.
 
 1. In the Cloud Shell console, enter the following command to run the application:
 
@@ -363,6 +365,8 @@ In this task, you will sign in to Microsoft Azure using Azure CLI and run the Py
 
 ## Summary
 
-In this lab, you used the Microsoft Foundry Agent Service and SDK to build a multi-agent solution for support ticket triage. You created and configured multiple specialized AI agents, connected them through a primary orchestration agent, and integrated the solution with your Foundry project. Finally, you ran and tested the application to observe how the agents collaborated to evaluate ticket priority, assign the appropriate team, and estimate the required effort.
+In this lab, you built a multi-agent solution using the Microsoft Foundry Agents SDK and configured a client application in Azure Cloud Shell. You created specialized agents for priority assessment, team assignment, and effort estimation, and connected them through a primary triage agent to coordinate ticket processing. You then ran the application and validated how the agents collaborated to generate structured support ticket triage results.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)

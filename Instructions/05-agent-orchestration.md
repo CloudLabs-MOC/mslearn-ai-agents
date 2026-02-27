@@ -10,7 +10,7 @@ In this lab, you'll learn how to build a multi-agent solution using the Microsof
 - The Classifier agent will categorize the feedback as Positive, Negative, or a Feature request.
 - Finally, the Recommended Action agent will recommend an appropriate follow-up step.
 
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+    > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
 ## Lab Objectives
 
@@ -36,7 +36,7 @@ In this task, you will set up the client environment by opening Azure Cloud Shel
 
     ![](./Media/lab2-s9.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -73,6 +73,8 @@ In this task, you will install required Python libraries and configure the .env 
    pip install agent-framework==1.0.0b260128 --pre
     ```
 
+    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+
 1. In the Cloud Shell command-line pane, enter the following command to install the required package version:
 
    ```
@@ -94,13 +96,15 @@ In this task, you will install required Python libraries and configure the .env 
 
         ![](./Media/lab5-s4.png)
 
-        > **Note:** Paste the project endpoint you copied in the previous task.
+        > **Note:** Paste the project endpoint you copied in Lab 1 – Task 1.
 
 1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
 
 ## Task 3: Create AI agents
 
 In this task, you will define and initialize the summarizer, classifier, and action agents to form the core of your multi-agent workflow.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
 
 1. Enter the following command to edit the **agents.py** file:
 
@@ -167,6 +171,8 @@ In this task, you will define and initialize the summarizer, classifier, and act
 
 In this task, you will build a sequential workflow to process customer feedback through the summarizer, classifier, and action agents, then collect and display their outputs.
 
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
 1. In the **main** function, find the comment **Initialize the current feedback** and add the following code:
     
     (Be sure to maintain the indentation level)
@@ -223,7 +229,7 @@ In this task, you will build a sequential workflow to process customer feedback 
 
 ## Task 5: Run the app
 
-In this task, you will sign into Azure, run your multi-agent application, and observe how the agents process and respond to customer feedback.
+In this task, you will run multi-agent application, and observe how the agents process and respond to customer feedback.
 
 1. In the Cloud Shell console, enter the following command to run the application:
 
@@ -256,7 +262,7 @@ In this task, you will sign into Azure, run your multi-agent application, and ob
 
 1. Optionally, you can try running the code using different feedback inputs, such as:
 
-1. Enter the following command **(1)** to edit the **agents.py** file:
+1. Enter the following command to edit the **agents.py** file:
 
     ```
    code agents.py
@@ -276,8 +282,12 @@ In this task, you will sign into Azure, run your multi-agent application, and ob
     python agents.py
     ```
 
+1. In the Cloud Shell window, select the **Close (X)** icon to exit Cloud Shell before proceeding to the next lab.
+
 ## Summary
 
-In this lab, you created a new project in the Microsoft Foundry portal and built a multi-agent solution using the Microsoft Agent Framework. You configured the agents with instructions, created a sequential orchestration, and tested the workflow by processing customer feedback to generate summaries, classifications, and recommended actions.
+In this lab, you used the Microsoft Agent Framework SDK to build a multi-agent Python application that connects to your Foundry project. You configured the application, created summarizer, classifier, and action agents, and set up a sequential orchestration to process customer feedback. You then ran the application, observed the agents collaborating, and generated structured insights and recommendations from the input data.
 
-### You have successfully completed the Hands-on Lab!
+### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+   ![](../Media/ai-3026next.png)
