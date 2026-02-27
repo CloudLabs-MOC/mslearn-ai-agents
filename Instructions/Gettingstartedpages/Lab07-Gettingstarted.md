@@ -9,7 +9,7 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 ## Overview
 
-In this hands-on lab, you will gain hands-on experience with the Microsoft Foundry portal by creating a project and deploying the gpt-4.1 model. You will configure a Python client application in Azure Cloud Shell, connect it to your project endpoint, and set up the required model deployment details. You will also clone a provided GitHub repository containing the agent implementation code.
+In this hands-on lab, you will develop and deploy an AI agent using the VS Code extension. You will sign in to Azure, create a project, and deploy a GPT-4.1 model to power the agent. Using the designer view, you will configure the agent’s instructions and integrate an MCP server tool to access external APIs. Finally, you will test the agent in the Playground and generate sample SDK code for programmatic integration.e.
 
 ## Objectives
 
