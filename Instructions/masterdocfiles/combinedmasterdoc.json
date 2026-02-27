@@ -32,12 +32,16 @@
           "Order": 7
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/08-build-workflow-ms-foundry.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/06-multi-remote-agents-with-a2a.md",
           "Order": 8
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/09-integrate-agent-with-foundry-iq.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/08-build-workflow-ms-foundry.md",
           "Order": 9
+        },
+        {
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/09-integrate-agent-with-foundry-iq.md",
+          "Order": 10
         }
       ]
     }
