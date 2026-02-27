@@ -1,5 +1,4 @@
-
-# AI-102: Develop AI agents on Azure Workshop Workshop
+# AI-3026: Develop AI agents on Azure Workshop Workshop
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
@@ -134,5 +133,6 @@ Learner Support Contacts:
 Click on **Next** from the lower right corner to move on to the next page.
 
    ![](../Media/ai-3026-next.png)
+
 
 ## Happy Learning !!
