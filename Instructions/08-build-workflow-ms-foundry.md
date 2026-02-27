@@ -119,6 +119,14 @@ In this task, you will sign in to the Microsoft Foundry portal and create a new 
     ![](./Media/lab2-s6.png)
 
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="50166eb4-241b-47fd-bbc7-795014988b07" />
+
 ## Task 2: Create a customer support triage workflow
 
 In this task, you will create a sequential customer support triage workflow in Microsoft Foundry that uses AI agents to classify and respond to support tickets for ContosoPay.
@@ -138,6 +146,8 @@ In this task, you will create a sequential customer support triage workflow in M
 1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, enter a name for your workflow, such as **ContosoPay-Customer-Support-Triage (2)**, and then select **Save (3)**.
 
     ![](./Media/lab8-s4.png)
+
+
 
 ### Task 2.1: Create a ticket array variable
 
@@ -525,7 +535,7 @@ In this task, you will configure the application settings by installing dependen
 1. In the code file, replace the placeholder values with the correct details for your project:
 
     * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1 (2)**
 
          ![](./Media/lab8--s43.png)
 

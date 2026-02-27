@@ -202,7 +202,7 @@ In this task, you will configure the application by installing required librarie
 1. In the code file, replace the placeholder values with the correct details for your project:
 
     * PROJECT\_ENDPOINT : **Microsoft Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1 (2)**
 
     ![](./Media/lab6-s11.png)
 

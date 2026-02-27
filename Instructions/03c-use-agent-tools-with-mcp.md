@@ -85,6 +85,14 @@ In this task, you’ll create a new project in the Microsoft Foundry portal and 
 
     ![](./Media/lab2-s6.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="159626b2-71e1-4a6b-96db-ca27aa144d74" />
+
 ## Task 2: Develop an agent that uses MCP function tools
 
 Now that you've created your project in AI Foundry, let's develop an app that integrates an AI agent with an MCP server.
@@ -165,7 +173,7 @@ In this task, you’ll create a virtual environment, install required libraries,
 1. In the code file, replace the placeholder values with the correct details for your project:
 
     * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1 (2)**
 
         ![](./Media/lab3c-s6.png)
 

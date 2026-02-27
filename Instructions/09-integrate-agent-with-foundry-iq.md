@@ -83,6 +83,14 @@ In this task, you create a new project in Microsoft Azure AI Foundry, deploy the
 
     ![](./Media/lab9-s6.png)
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="bc1aa51c-f972-4544-afbd-2a30e26fdd3e" />
+
 ## Task 2: Configure your data and Foundry IQ
 
 In this task, you will configure the agent in Microsoft Azure AI Foundry to use Foundry IQ by connecting it to an Azure AI Search resource. You also create a knowledge base using product documents stored in Azure Blob Storage to enable accurate and grounded responses.
@@ -141,7 +149,7 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 
     ![](./Media/lab9-s54.png)
 
-1. In the Azure Portal tab, in the top search bar, search fo **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
+1. In the Azure Portal tab, in the top search bar, search for **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
 
     ![](./Media/lab9-s29.png)
 
@@ -231,6 +239,14 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 1. On the top right, expand the **Use in an agent (1)** dropdown, and select your `product-expert-agent` **(2)**.
 
     ![](./Media/lab9-s28.png)
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+>
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task.
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
+ 
+<validation step="fd40b286-a6cb-464c-bdb4-890351719d70" />
 
 ## Task 3: Test the Agent in the playground
 

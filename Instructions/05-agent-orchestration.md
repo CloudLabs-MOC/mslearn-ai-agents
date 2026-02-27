@@ -185,7 +185,7 @@ In this task, you will install required Python libraries and configure the .env 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
     * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
+    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1**
 
         ![](./Media/lab5-s4.png)
 

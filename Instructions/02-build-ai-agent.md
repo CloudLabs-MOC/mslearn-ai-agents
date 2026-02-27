@@ -173,7 +173,7 @@ In this task, you will install the required Python dependencies, update the conf
 1. In the code file, replace the placeholder values with the correct details for your project:
 
     * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
+    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1**
 
         ![](./Media/lab2-s13.png)
 
