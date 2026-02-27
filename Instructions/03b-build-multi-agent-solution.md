@@ -369,4 +369,4 @@ In this lab, you built a multi-agent solution using the Microsoft Foundry Agents
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+   ![](./Media/ai-3026next.png)

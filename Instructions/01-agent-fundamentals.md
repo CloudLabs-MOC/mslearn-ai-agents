@@ -202,4 +202,4 @@ In this lab, you created a new project in the Microsoft Foundry portal and built
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+   ![](./Media/ai-3026next.png)

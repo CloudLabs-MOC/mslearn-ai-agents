@@ -8,6 +8,14 @@ In this lab, you will use the Microsoft Foundry VS Code extension to build an AI
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
+## Lab Objectives
+
+- **Task 1:** Install the Microsoft Foundry VS Code extension
+
+- **Task 2:** Sign in to Azure and Select a project
+
+- **Task 3:** Create an AI agent with the designer view
+
 ## Task 1: Install the Microsoft Foundry VS Code extension
 
 In this task, you’ll install and verify the Microsoft Foundry VS Code extension to enable creating and managing AI agents directly within Visual Studio Code.
@@ -122,7 +130,7 @@ In this task, you’ll add an MCP Server tool to your agent to enable it to acce
 
    ![](./Media/lab7-s21.png)
 
-## Task 3.4: Deploy your agent to Microsoft Foundry
+### Task 3.4: Deploy your agent to Microsoft Foundry
 
 In this task, you’ll deploy your configured AI agent to Microsoft Foundry and verify it appears in your project resources.
 
@@ -222,4 +230,4 @@ In this lab, you used the Microsoft Foundry VS Code extension to create and conf
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+![](./Media/ai-3026next.png)

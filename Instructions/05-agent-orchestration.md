@@ -22,7 +22,7 @@ In this lab, you'll learn how to build a multi-agent solution using the Microsof
 
 - **Task 4:** Create a sequential orchestration
 
-- **Task 5:** Sign into Azure and run the app
+- **Task 5:** Run the app
 
 ## Task 1: Create an AI Agent client app
 
@@ -290,4 +290,4 @@ In this lab, you used the Microsoft Agent Framework SDK to build a multi-agent P
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+   ![](./Media/ai-3026next.png)

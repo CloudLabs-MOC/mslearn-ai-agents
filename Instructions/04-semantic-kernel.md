@@ -14,7 +14,7 @@ In this lab, you will develop an Azure AI chat agent using the Microsoft Agent F
 
 - **Task 3:** Write code for an agent app
 
-- **Task 4:** Sign into Azure and run the app
+- **Task 4:** Run the app
 
     > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
@@ -228,4 +228,4 @@ In this lab, you created an Azure AI chat agent using the Microsoft Agent Framew
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+   ![](./Media/ai-3026next.png)

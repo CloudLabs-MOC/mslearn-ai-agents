@@ -282,4 +282,4 @@ In this lab, you developed an AI agent using Microsoft Foundry and connected it 
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](../Media/ai-3026next.png)
+   ![](./Media/ai-3026next.png)
