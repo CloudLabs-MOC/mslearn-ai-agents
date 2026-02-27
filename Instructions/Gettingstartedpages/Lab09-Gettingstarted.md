@@ -1,72 +1,65 @@
-
-
-
 # AI-3026: Develop AI agents on Azure Workshop
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
 # Lab 08: Build a workflow in Microsoft Foundry
 
-### Overall Estimated Duration: 30 Minutes
+### Overall Estimated Duration: 60 Minutes
 
 ## Overview
 
-In this hands-on lab, you will gain hands-on experience with the end-to-end customer support automation workflow using Microsoft Foundry and Azure AI services. You will create a Foundry project, deploy the gpt-4.1 model, and configure AI agents to classify and respond to support tickets. Using the visual workflow builder, you will implement conditional logic to handle low-confidence classifications, escalate billing-related issues, and automatically generate responses for technical and general queries. Finally, you will integrate the workflow with a Python application using the Azure AI Projects SDK and execute it programmatically to simulate a real-world AI-powered support automation scenario.
+In this hands-on lab, you will use Microsoft Azure AI Foundry to build an intelligent agent integrated with Foundry IQ for enterprise knowledge retrieval. You will create and deploy a GPT–4.1–based agent, connect it to an Azure AI Search–powered knowledge base, and ground it with product documents stored in Azure Blob Storage. You will then test the agent in the Foundry playground and connect to it programmatically using the Python SDK from Azure Cloud Shell. This lab demonstrates how to build conversational AI solutions that can search and retrieve enterprise knowledge while maintaining context.
 
 ## Objectives
 
 By the end of this lab, you will be able to:
 
-1. **Create and configure a Microsoft Foundry project**: Set up a new Foundry project, deploy the *gpt-4.1* model, and create AI agents for ticket classification and resolution.
+1. **Create and configure a Foundry project**: Set up a new project in Microsoft Azure AI Foundry and deploy the *gpt-4.1* model as an intelligent agent.
 
-2. **Build a sequential AI workflow**: Design a customer support triage workflow using variables, loops, agent invocation, and conditional logic in the Foundry workflow builder.
+2. **Integrate Foundry IQ with enterprise data**: Connect the agent to Azure AI Search and ground it using product documents stored in Azure Blob Storage.
 
-3. **Implement intelligent routing and escalation logic**: Classify support tickets, evaluate confidence scores, escalate billing issues, and automate responses for technical and general queries.
+3. **Create and manage a knowledge base**: Configure a knowledge source, enable embeddings, and associate the knowledge base with the deployed agent.
 
-4. **Generate structured and dynamic responses using AI agents**: Configure agents to return structured JSON outputs and draft professional customer support responses.
+4. **Test and validate the agent in the playground**: Verify that the agent retrieves accurate, cited information from enterprise documents while maintaining conversation context.
 
-5. **Integrate and execute the workflow using Python**: Connect to the workflow programmatically using the Azure AI Projects SDK, run it from Azure Cloud Shell, and validate end-to-end execution.
+5. **Connect to the agent programmatically using Python**: Clone a GitHub repository, configure environment settings, implement agent client logic, handle MCP approval workflows, and execute the solution from Azure Cloud Shell.
 
 ## Pre-requisites
 
 * Basic knowledge of the Azure portal and Azure Cloud Shell.  
-* Familiarity with Microsoft Foundry concepts such as projects, agents, and workflows.  
-* Basic understanding of AI agent workflows and conditional logic.  
-* Basic knowledge of Python and running scripts from a command-line environment. 
+* Familiarity with Microsoft Azure AI Foundry concepts such as projects, agents, and model deployments.  
+* Basic understanding of Azure AI Search and Azure Blob Storage.  
+* Basic knowledge of Python and running scripts from a command-line environment.  
 
 ## Architecture
 
-The lab architecture demonstrateshow a Microsoft Foundry project enables AI-powered customer support automation through SDK-based agent orchestration, intelligent ticket classification, confidence-based routing, and automated response generation:
+The lab architecture demonstrates how a Microsoft Foundry project integrates GPT-4.1 with Foundry IQ and Azure Blob Storage to enable intelligent document retrieval and AI-powered search using SDK-based interaction:
 
-1. **Microsoft Foundry Project:** A workspace created in the Microsoft Foundry portal where you deploy foundation models and manage AI agent configurations for customer support automation.
+1. **Microsoft Foundry Project:** A workspace created in the Microsoft Foundry portal where models, agents, and AI Search configurations are deployed and managed.
 
-2. **Deployment Model (gpt- 4.1):** A model deployed within the project that processes support ticket prompts, performs classification, evaluates confidence levels, and generates conversational responses.
+2. **Deployment Model (gpt- 4.1):** A model deployed within the project that processes user queries and generates intelligent responses based on retrieved knowledge.
 
-3. **Triage Agent (SDK-Defined):** An agent defined programmatically using the Azure AI SDK, configured with instructions to analyze incoming tickets, classify issues, and determine routing decisions.
+3. **Foundry IQ:** A knowledge integration layer that connects the AI agent with indexed content stored in Azure Blob Storage for retrieval-based responses.
 
-4. **Resolution Agent:** An AI agent responsible for generating automated responses for high-confidence tickets using the deployed GPT-4.1 model.
+4. **Azure Blob Storage:** A cloud storage service used to store documents and data that are indexed and accessed by Foundry IQ for AI search.
 
-5. **Confidence-Based Decision Logic:** A routing mechanism that evaluates the model’s confidence score and determines whether to automate the response or escalate the ticket.
-
-6. **Human Support Escalation:** A fallback process that routes low-confidence tickets to human agents to ensure accuracy and quality control.
+5. **Python Client Application:** A client application that connects to the Foundry project endpoint, authenticates using Azure credentials, sends user queries, and retrieves AI-generated responses.
 
 ## Architecture Diagram
 
-![](../Media/lab8arc.png)
+![](../Media/lab9arc.png)
 
 ## Explanation of Components
 
 1. **Microsoft Foundry Project:** The central cloud workspace where foundation models are deployed, and AI agents are configured to handle the customer support workflow.
 
-2. **Deployment Model (gpt- 4.1):** The core language model that interprets ticket content, performs reasoning, assigns classifications, and generates contextual responses.
+2. **Deployment Model (gpt- 4.1):** The core AI agent that processes queries and uses AI Search capabilities to generate informed responses.
 
-3. **Triage Agent (SDK-Defined):** A programmatically created agent that reviews each incoming ticket, categorizes the issue type, and evaluates confidence for routing decisions.
+3. **Foundry IQ:** A retrieval mechanism that indexes and fetches relevant content from connected storage to support grounded responses..
 
-4. **Resolution Agent:** An AI agent that prepares customer-ready responses for tickets that meet the required confidence threshold.
+4. **Azure Blob Storage:** The data repository that stores documents and structured files used for knowledge retrieval.
 
-5. **Confidence-Based Decision Logic:** A control mechanism that determines whether a ticket should be automatically resolved or forwarded for human review.
-
-6. **Human Support Escalation:** A safeguard step that transfers uncertain or complex cases to human representatives for manual handling.
+5. **Python Client Application:** A Cloud Shell–based application that programmatically sends queries to the agent and receives generated outputs.
 
 # Getting Started with lab
 
