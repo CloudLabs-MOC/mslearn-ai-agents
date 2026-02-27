@@ -6,7 +6,7 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 # Lab 08: Build a workflow in Microsoft Foundry
 
-### Overall Estimated Duration: 30 Minutes
+### Overall Estimated Duration: 60 Minutes
 
 ## Overview
 
