@@ -16,40 +16,28 @@
           "Order": 3
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/07-build-agent-in-vs-code.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/03-agent-custom-functions.md",
           "Order": 4
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/03-agent-custom-functions.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/03c-use-agent-tools-with-mcp.md",
           "Order": 5
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/03b-build-multi-agent-solution.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/04-semantic-kernel.md",
           "Order": 6
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/03c-use-agent-tools-with-mcp.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/05-agent-orchestration.md",
           "Order": 7
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/04-semantic-kernel.md",
+          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/08-build-workflow-ms-foundry.md",
           "Order": 8
         },
         {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/05-agent-orchestration.md",
-          "Order": 9
-        },
-        {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/06-multi-remote-agents-with-a2a.md",
-          "Order": 10
-        },
-        {
-          "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/08-build-workflow-ms-foundry.md",
-          "Order": 11
-        },
-        {
           "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/mslearn-ai-agents/refs/heads/Combined-Labs/Instructions/09-integrate-agent-with-foundry-iq.md",
-          "Order": 11
+          "Order": 9
         }
       ]
     }
