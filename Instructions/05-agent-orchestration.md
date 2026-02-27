@@ -91,8 +91,8 @@ In this task, you will install required Python libraries and configure the .env 
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
+    * PROJECT\_ENDPOINT: **Foundry project endpoint**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1**
 
         ![](./Media/lab5-s4.png)
 
@@ -229,7 +229,7 @@ In this task, you will build a sequential workflow to process customer feedback 
 
 ## Task 5: Run the app
 
-In this task, you will run multi-agent application, and observe how the agents process and respond to customer feedback.
+In this task, you will run the multi-agent application, and observe how the agents process and respond to customer feedback.
 
 1. In the Cloud Shell console, enter the following command to run the application:
 

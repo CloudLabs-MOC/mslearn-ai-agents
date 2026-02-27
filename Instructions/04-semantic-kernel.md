@@ -83,8 +83,8 @@ In this task, you will install required libraries and configure the .env file wi
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
+    * PROJECT\_ENDPOINT: **Foundry project endpoint**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1**
 
       ![](./Media/lab4-s4.png)
 

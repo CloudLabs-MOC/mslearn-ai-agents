@@ -57,7 +57,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/lab9-s10.png)
 
-1. Create a search resource with the following settings and click **Review + create (6)**
+1. Create a search resource with the following settings and then click **Review + create (6)**
     - **Subscription:** Select default subscription **(1)**
     - **Resource group:** Select **AI-3026-RG (2)**
     - **Service name:** Enter **aiservice-<inject key="DeploymentID"></inject> (3)**
@@ -86,7 +86,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/lab9-s54.png)
 
-1. In the Azure Portal tab, in the top search bar, search fo **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
+1. In the Azure Portal tab, in the top search bar, search for **Storage accounts (1)** and select **Storage accounts (2)** from the services section.
 
     ![](./Media/lab9-s29.png)
 
@@ -505,6 +505,6 @@ In this task, you will run the client application, and test the agent’s abilit
 
 ## Summary
 
-In this lab, you created a AI agent in the Microsoft Foundry portal, configured it with instructions for handling product queries, and connected it to enterprise knowledge using Foundry IQ. You set up an Azure AI Search resource, uploaded product documents to Azure Blob Storage, and grounded the agent in this knowledge. Finally, you tested the agent in the Foundry playground and programmatically accessed it via a Python client, verifying its ability to maintain context and provide accurate, knowledge-based responses.
+In this lab, you created an AI agent in the Microsoft Foundry portal, configured it with instructions for handling product queries, and connected it to enterprise knowledge using Foundry IQ. You set up an Azure AI Search resource, uploaded product documents to Azure Blob Storage, and grounded the agent in this knowledge. Finally, you tested the agent in the Foundry playground and programmatically accessed it via a Python client, verifying its ability to maintain context and provide accurate, knowledge-based responses.
 
 ### You have successfully completed the Hands-on Lab!

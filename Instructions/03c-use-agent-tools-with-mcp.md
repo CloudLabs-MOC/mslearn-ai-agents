@@ -77,8 +77,8 @@ In this task, you’ll create a virtual environment, install required libraries,
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * PROJECT\_ENDPOINT: **Foundry project endpoint (1)**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1 (2)**
 
         ![](./Media/lab3c-s6.png)
 
@@ -140,7 +140,7 @@ In this task, you’ll connect the Azure AI agent to a remote MCP server, config
 
     ![](./Media/lab3c-s10.png)
 
-    - This code will connect to the Microsft Learn Docs remote MCP server. This is a cloud-hosted service that enables clients to access trusted and up-to-date information directly from Microsoft's official documentation.
+    - This code will connect to the Microsoft Learn Docs remote MCP server. This is a cloud-hosted service that enables clients to access trusted and up-to-date information directly from Microsoft's official documentation.
 
 1. Under the comment **Create a new agent with the MCP tool** and add the following code:
 

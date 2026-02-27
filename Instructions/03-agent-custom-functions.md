@@ -76,8 +76,8 @@ In this task, you will set up the Python environment and install required librar
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1**
+    * PROJECT\_ENDPOINT: **Foundry project endpoint**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1**
 
          ![](./Media/lab3-s4.png)
 

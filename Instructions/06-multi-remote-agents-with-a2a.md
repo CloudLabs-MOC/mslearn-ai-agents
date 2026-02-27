@@ -6,7 +6,7 @@
 
 In this lab, you'll use Azure AI Agent Service with the A2A protocol to create remote agents that communicate with each other. You will build a title agent to generate article headlines and an outline agent to create structured outlines from the titles. A routing agent will orchestrate communication between them, allowing you to test multi-agent collaboration through a client application.
 
-> **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
+> **Tip:** The code used in this exercise is based on the Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
 > **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
 
@@ -98,8 +98,8 @@ In this task, you will configure the application by installing required librarie
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Microsoft Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * PROJECT\_ENDPOINT: **Microsoft Foundry project endpoint (1)**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1 (2)**
 
     ![](./Media/lab6-s11.png)
 
@@ -354,7 +354,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
 
     ![](./Media/lab6-s23.png)
 
-    - The `AgentExecutor` class implemenation must contain the methods `execute` and `cancel`. The cancel method has been provided for you. The `execute` method includes a `TaskUpdater` object that manages events and signals to the caller when the task is complete. Let's add the logic for task execution.
+    - The `AgentExecutor` class implementation must contain the methods `execute` and `cancel`. The cancel method has been provided for you. The `execute` method includes a `TaskUpdater` object that manages events and signals to the caller when the task is complete. Let's add the logic for task execution.
 
 1. In the `execute` method, add the following code under the comment **Process the request**:
 

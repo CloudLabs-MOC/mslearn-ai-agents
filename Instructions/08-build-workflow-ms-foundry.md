@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you will use the Microsoft Foundry portal to build a sequential workflow for automating customer support ticket processing. You create AI agents to classify tickets, handle low-confidence cases, and generate recommended responses, applying conditional logic for routing and escalation. You then connect the workflow to Python code via the Azure AI Projects SDK to run and validate automated support ticket handling programmatically.
+In this lab, you will use the Microsoft Foundry portal to build a sequential workflow for automating customer support ticket processing. You will create AI agents to classify tickets, handle low-confidence cases, and generate recommended responses, applying conditional logic for routing and escalation. You then connect the workflow to Python code via the Azure AI Projects SDK to run and validate automated support ticket handling programmatically.
 
 **Workflow overview**
 
@@ -72,7 +72,7 @@ In this task, you will initialize a support ticket array variable in the workflo
 
     ![](./Media/lab8-s5.png)
 
-1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable** from drop down.
+1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable** from the drop-down.
 
     ![](./Media/lab8-s6.png)
 
@@ -196,11 +196,11 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8--s19.png)
 
-1. Under **Save agent output message as**, create a new variable by entering `TriageOutputText` **(1)** and select **Create new variable (2)** from drop down.
+1. Under **Save agent output message as**, create a new variable by entering `TriageOutputText` **(1)** and select **Create new variable (2)** from the drop down.
 
     ![](./Media/lab8--s20.png)
 
-1. Under **Save the output json_object as**, create a new variable by entering `TriageOutputJson` **(1)** and select **Create new variable (2)** from drop down.
+1. Under **Save the output json_object as**, create a new variable by entering `TriageOutputJson` **(1)** and select **Create new variable (2)** from the drop down.
 
     ![](./Media/lab8--s21.png)
 
@@ -211,10 +211,6 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 ## Task 1.4: Handle low-confidence classifications
 
 In this task, you will add conditional logic to evaluate the confidence score and determine whether the ticket classification is reliable for further automated processing.
-
-1. Select the **+** (plus) icon below the **Invoke agent** node to add a new node that handles low-confidence classifications.
-
-1. In the workflow actions menu, under **Flow**, select **If/Else** to add a conditional logic node.
 
 1. Select the **+ (1)** icon next to **Triage-Agent**, and then choose **If / else (2)** under **Flow** to add a conditional logic node for handling low-confidence classifications.
 
@@ -242,7 +238,7 @@ In this task, you will configure the workflow to request additional details from
 
     ![](./Media/lab8-n3.png)
 
-1. In the **Deliver message** node editor, set the **Message to send (1)** field to the following response and slect **Done (2)**:
+1. In the **Deliver message** node editor, set the **Message to send (1)** field to the following response and select **Done (2)**:
 
     ```output
    The support ticket classification has low confidence. Requesting more details about the issue: "{Local.CurrentTicket}"
@@ -268,7 +264,7 @@ In this task, you will add routing logic to identify billing issues and escalate
 
     ![](./Media/lab8-n6.png)
 
-1. Select the **+** (plus) **(1)** icon under the **If** branch of the **If/Else** node to add a new node that drafts a response for non-billing tickets.
+1. Select the **+** (plus) **(1)** icon under the **If** branch of the **If/Else** node to add a new node that drafts a response.
 
 1. In the workflow actions menu, under **Basics**, select **Deliver message (2)** to add a send message activity.
 
@@ -338,7 +334,7 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 
     ![](./Media/lab8-n12.png)
 
-1. Under **Save agent output message as**, create a new variable by entering `ResolutionOutputText` **(1)** and select **Create new variable (2)** from drop down.
+1. Under **Save agent output message as**, create a new variable by entering `ResolutionOutputText` **(1)** and select **Create new variable (2)** from the drop-down.
 
 1. Select **Done (3)** to save the node.
 
@@ -438,8 +434,8 @@ In this task, you will configure the application settings by installing dependen
 
 1. In the code file, replace the placeholder values with the correct details for your project:
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
-    * MODEL\_DEPLOYEMNT\_NAME : **gpt-4.1 (2)**
+    * PROJECT\_ENDPOINT: **Foundry project endpoint (1)**
+    * MODEL\_DEPLOYMENT\_NAME: **gpt-4.1 (2)**
 
          ![](./Media/lab8--s43.png)
 
