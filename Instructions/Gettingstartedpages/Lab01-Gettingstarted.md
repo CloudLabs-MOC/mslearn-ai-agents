@@ -9,7 +9,7 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 ## Overview
 
-In this hands-on lab, you’ll gain practical experience with the Microsoft Foundry portal by creating a project and building an AI agent. You’ll configure the agent with system instructions and upload a corporate expenses policy document as a knowledge source. Next, you’ll enable the code interpreter tool and test the agent in the playground by asking questions and submitting an expense claim. Finally, you’ll download and review the generated claim file to see how AI agents can support real business processes.
+In this hands-on lab, you will gain practical experience with the Microsoft Foundry portal by creating a project and building an AI agent. You will configure the agent with system instructions and upload a corporate expenses policy document as a knowledge source. Next, you’ll enable the code interpreter tool and test the agent in the playground by asking questions and submitting an expense claim. Finally, you’ll download and review the generated claim file to see how AI agents can support real business processes.
 
 ## Objectives
 
@@ -134,5 +134,6 @@ Learner Support Contacts:
 Click on **Next** from the lower right corner to move on to the next page.
 
    ![](../Media/ai-3026-next.png)
+
 
 ## Happy Learning !!
