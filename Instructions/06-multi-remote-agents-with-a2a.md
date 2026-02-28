@@ -1,4 +1,4 @@
-# Lab 06 Connect to remote agents with A2A protocol
+# Lab 09 Connect to remote agents with A2A protocol
    
 ### Estimated Duration: 30 Minutes
 

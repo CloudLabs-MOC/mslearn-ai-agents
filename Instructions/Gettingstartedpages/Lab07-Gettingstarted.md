@@ -1,15 +1,14 @@
-
 # AI-3026: Develop AI agents on Azure Workshop
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
-# Lab 07:  Develop an AI agent with VS Code extension
+# Lab 03:  Develop an AI agent with VS Code extension
 
-### Overall Estimated Duration: 30 Minutes
+### Overall Estimated Duration: 45 Minutes
 
 ## Overview
 
-In this hands-on lab, you will develop and deploy an AI agent using the VS Code extension. You will sign in to Azure, create a project, and deploy a GPT-4.1 model to power the agent. Using the designer view, you will configure the agent’s instructions and integrate an MCP server tool to access external APIs. Finally, you will test the agent in the Playground and generate sample SDK code for programmatic integration.e.
+In this hands-on lab, you will develop and deploy an AI agent using the VS Code extension. You will sign in to Azure, create a project, and deploy a GPT-4.1 model to power the agent. Using the designer view, you will configure the agent’s instructions and integrate an MCP server tool to access external APIs. Finally, you will test the agent in the Playground and generate sample SDK code for programmatic integration.
 
 ## Objectives
 

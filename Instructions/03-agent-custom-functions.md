@@ -1,4 +1,4 @@
-# Lab 03: Use a custom function in an AI agent
+# Lab 04: Use a custom function in an AI agent
 
 ### Estimated Duration : 30 Minutes
 
