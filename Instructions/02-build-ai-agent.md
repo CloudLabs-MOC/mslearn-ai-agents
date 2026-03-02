@@ -42,9 +42,13 @@ In this task, you will prepare a client application environment in Azure Cloud S
 
     > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
 
+    > **Note:** If the **Welcome to Azure Cloud Shell** dialog box does not appear and Cloud Shell opens in a different environment, select **Switch to PowerShell** from the toolbar to continue.
+
 1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
 
     ![](./Media/lab2-s8.png)
+
+    > **Note:** If the **No storage account required** option does not appear and Cloud Shell opens directly in PowerShell, skip this step and proceed to the next step.
 
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 

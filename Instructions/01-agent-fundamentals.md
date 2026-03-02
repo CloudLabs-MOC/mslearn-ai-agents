@@ -79,9 +79,13 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
     ![](./Media/lab1-02-3.png)
 
-1. Select **Save as agent (1)**, enter **expense-agent (2)** as the *Agent name*, and then select **Create (3)**.
+1. In the left navigation, select **Agents (1)**, and then choose **Create agent (2)** to create a new agent.
 
-    ![](./Media/lab1-02-4.png)
+    ![](./Media/lab1-02-01.png)
+
+1. In the **Create an agent** pane, enter **expense-agent (1)** in the **Agent name** field, and then select **Create (2)**.
+
+    ![](./Media/lab1-02-02.png)
 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
@@ -107,7 +111,11 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from `https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx` and save it locally. This document contains details of the expenses policy for the fictional Contoso corporation.
 
-1. Return to the browser tab where you have the playground open for your expense agent.
+1. Return to the browser tab where you have the **Microsoft Foundry** portal open.
+
+1. In the top navigation, select **Build (1)**, and then choose **expense-agent (2)** from the Agents list.
+
+    ![](./Media/lab1-02-03.png)
 
 1. In **Instructions (1)**, enter the provided prompt text
 

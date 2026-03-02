@@ -4,8 +4,6 @@
 
 ## Overview
 
-Here’s an overview for **Lab 11** in the style you want:
-
 In this lab, you will use the **Microsoft Foundry portal** to create an AI agent grounded in enterprise knowledge via **Foundry IQ**. You will configure the agent with product documents stored in Azure Blob Storage and an Azure AI Search resource, then test it in the Foundry playground to verify accurate, context-aware responses. Finally, you connect to the agent programmatically using a Python client to send queries, handle MCP approval requests, and retrieve knowledge-driven answers in an interactive conversation.
 
 > **Tip:** The code used in this exercise is based on the Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
