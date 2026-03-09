@@ -1,4 +1,4 @@
-# Lab 03: Develop an AI agent with VS Code extension (Ready-Only)
+# Lab 03: Develop an AI agent with VS Code extension (Read-Only)
 
 ### Estimated Duration: 45 Minutes
 
