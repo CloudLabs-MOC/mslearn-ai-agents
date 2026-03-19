@@ -27,10 +27,6 @@ By the end of this lab, you will be able to:
 * An active Azure subscription with access to **Microsoft Foundry**.
 
 
-![](../Media/ai-3026-arch.png)
-
-
-
 # Getting Started with lab
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’ve prepared an interactive environment to help you explore how to design, build, and deploy intelligent AI agents using Microsofts Foundry.
