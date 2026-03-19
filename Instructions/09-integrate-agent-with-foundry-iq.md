@@ -16,7 +16,7 @@ In this lab, you will use the **Microsoft Foundry portal** to create an AI agent
 
 - **Task 2:** Test the Agent in the playground
 
-- **Task 3:** Connect to Your Agent from a Client Application
+- **Task 3:** Connect to Your Agent from a Client Application (Optional)
 
 ## Task 1: Create and Configure Your Agent with Data and Foundry IQ
 
@@ -227,7 +227,7 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
 
       ![](./Media/lab2-s6.png)
 
-## Task 3: Connect to Your Agent from a Client Application
+## Task 3: Connect to Your Agent from a Client Application (Optional)
 
 Now you'll create a Python application to interact with your agent programmatically. Starter files have been provided in the GitHub repository to help you get started quickly.
 
