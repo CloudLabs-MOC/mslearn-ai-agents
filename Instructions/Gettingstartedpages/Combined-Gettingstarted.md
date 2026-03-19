@@ -2,7 +2,7 @@
 
 Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
-### Overall Estimated Duration: 6 Hours
+### Overall Estimated Duration: 3 Hours
 
 ## Overview
 
