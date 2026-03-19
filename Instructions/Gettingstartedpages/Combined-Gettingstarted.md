@@ -12,13 +12,13 @@ In this hands-on lab, you will build intelligent AI solutions using Microsoft Fo
 
 By the end of this lab, you will be able to:
 
-1. **Explore AI Agent development:** In this lab, you'll use the Microsoft Foundry portal to build an AI agent that helps employees with expense claims. You'll configure the agent with instructions, ground it in an expense policy document, and test it in the playground — including generating a downloadable expense claim file.
+1. **Explore AI Agent development:** In this hands-on lab, participants will use the Microsoft Foundry portal to build an AI agent for handling employee expense claims. They will configure agent instructions, ground the agent using an expense policy document, and test it in the playground, including generating a downloadable expense claim file.
 
-2. **Integrate an AI agent with Foundry IQ:** In this lab, you'll create an AI agent in Microsoft Foundry, grounded in enterprise knowledge via Foundry IQ. Configure it with product documents from Azure Blob Storage and Azure AI Search, test it in the playground, then connect via a Python client to send queries and retrieve knowledge-driven responses.
+2. **Integrate an AI agent with Foundry IQ:** In this hands-on lab, participants will create an AI agent in Microsoft Foundry and integrate it with Foundry IQ for enterprise knowledge grounding. They will configure the agent using product documents from Azure Blob Storage and Azure AI Search, test it in the playground, and connect it via a Python client to send queries and retrieve knowledge-driven responses.
 
-3. **Build a workflow in Microsoft Foundry:** In this lab, you'll use the Microsoft Foundry portal to build a sequential workflow for automated customer support ticket processing. You'll create AI agents to classify tickets, handle escalations, and generate responses — then connect the workflow to Python via the Azure AI Projects SDK to validate it programmatically.
+3. **Build a workflow in Microsoft Foundry:** In this hands-on lab, participants will design and implement a sequential workflow for automated customer support ticket processing. They will create AI agents to classify tickets, manage escalations, and generate responses, and then connect the workflow to Python using the Azure AI Projects SDK for programmatic validation.
 
-4. **Develop a multi-agent solution with Microsoft Agent Framework (Optional):** In this lab, you'll build a multi-agent solution using the Microsoft Agent Framework SDK, implementing a sequential orchestration pattern where agents work together in a pipeline to process input and generate meaningful outputs.
+4. **Develop a multi-agent solution with Microsoft Agent Framework (Optional):** In this hands-on lab, participants will build a multi-agent solution using the Microsoft Agent Framework SDK. They will implement a sequential orchestration pattern where multiple agents collaborate in a pipeline to process inputs and generate meaningful outputs.
 
 ## Pre-requisites
 
