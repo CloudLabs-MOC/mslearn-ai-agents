@@ -6,7 +6,8 @@ Welcome to your AI-3026: Develop AI Agents on Azure workshop! We’re excited to
 
 ## Overview
 
-In this hands-on lab, you will build intelligent AI solutions using Microsoft Foundry and Azure AI Agent Service. You will create Foundry projects, deploy foundation models such as GPT-4.1, and develop AI agents using the portal and Python SDK in Azure Cloud Shell. You will design conversational and tool-enabled agents capable of automating real-world tasks and workflows. The labs include grounding agents with enterprise data using Azure AI Search and Azure Blob Storage for accurate, context-aware responses. You will also integrate agents with external systems using the Model Context Protocol (MCP) and implement custom function tools for automation. Finally, you will build multi-agent and distributed solutions using orchestration patterns and the A2A protocol to enable collaboration between agents. By the end of this lab, you will understand how to design, integrate, and automate enterprise-grade AI workflows end to end.
+In this hands-on lab, you will build and configure AI agents using Microsoft Foundry to solve real-world business scenarios such as expense management and customer support. You will ground agents with enterprise data using Azure Blob Storage and Azure AI Search through Foundry IQ to enable accurate, context-aware responses. You will also design and implement agent-driven workflows and validate them programmatically using Python. Finally, you will explore multi-agent orchestration where multiple agents collaborate to process inputs and generate meaningful outputs.
+
 
 ## Objectives
 
