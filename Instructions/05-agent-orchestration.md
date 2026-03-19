@@ -1,4 +1,4 @@
-# Lab 06: Develop a multi-agent solution with Microsoft Agent Framework
+# Lab 03: Develop a multi-agent solution with Microsoft Agent Framework (Optional)
 
 ### Estimated Duration: 30 Minutes
 
