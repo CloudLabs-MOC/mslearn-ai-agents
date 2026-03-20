@@ -50,7 +50,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
      ![](./Media/lab1-s6.png)
 
-1. In the **Create a project** window, enter **Myprojects-<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+1. In the **Create a project** window, enter **Myprojects-<inject key="DeploymentID" enableCopy="false"/> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
 
     * **Subscription:** **Choose Default Subscription (3)**
     * **Resource group:** **AI-3026-RG (4)**
