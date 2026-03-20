@@ -93,7 +93,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
-    ![](./Media/lab2-s6.png)
+    ![](./Media/d2.png)
 
     > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming labs.
 
@@ -109,7 +109,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 In this task, you will configure your agent by adding instructions, uploading an expense policy document for grounding, and enabling the required tools.
 
-1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from `https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx` and save it locally. This document contains details of the expenses policy for the fictional Contoso corporation.
+1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from `https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx` then click on **Download file**. This document contains details of the expenses policy for the fictional Contoso corporation.
 
 1. Return to the browser tab where you have the **Microsoft Foundry** portal open.
 
@@ -125,9 +125,9 @@ In this task, you will configure your agent by adding instructions, uploading an
    If a user wants to submit an expense claim, you get their email address, a description of the claim, and the amount to be claimed and write the claim details to a text file that the user can download.
     ```
 
-1. Below the **Instructions**, expand the **Tools** section. Select **Upload files (2)**
+1. Below the **Instructions**, expand the **Tools** section. Under **Web search**, select **Upload files (2)**
 
-    ![](./Media/lab1-s10.png)
+    ![](./Media/d3.png)
 
 1. Keep the default values for the **Index option** and **Vector index name**.
 
@@ -143,15 +143,31 @@ In this task, you will configure your agent by adding instructions, uploading an
 
     ![](./Media/lab1-s13.png)
 
-1. In the **Tools** section, verify that a new **File search (1)** is listed and shown as containing 1 file.
+1. In the **Tools** section, verify that a new **File search** is listed and shown as containing 1 file.
 
-1. In the **Tools** section, select **Add (2)**.
+    ![](./Media/d6.png)
 
-    ![](./Media/lab1-02-6.png)
+     >**Note:** If you do not see the file, please do click on **+ Files**.
 
-1. In the **Select a tool** dialog box, select **Code interpreter (1)** and then select **Add tool (2)** (you do not need to upload any files for the code interpreter).
+      ![](./Media/d7.png)     
 
-    ![](./Media/lab1-s15.png)
+      - Select the **browse for files** option to upload the **Expenses_policy.docx** local file that you downloaded previously.
+
+        ![](./Media/lab1-s11.png)
+
+      - In the **Open dialog** box, select **Downloads (1)**, choose the **expenses_policy file (2)**, and then select **Open (3)** to upload the file.
+
+        ![](./Media/lab1-s12.png)
+
+      - When your file is successfully uploaded, select **Attach**.
+
+        ![](./Media/lab1-s13.png)
+
+      - Make sure the file is listed.  
+
+1. In the **Tools** section, select **Add (1)** drop down and then select **Code interpreter (2)**.
+
+    ![](./Media/d5.png)
 
     - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
 
@@ -180,6 +196,8 @@ In this task, you will test your configured agent in the playground by asking po
 1. Provide the agent with an email address; for example, `fred@contoso.com`. The agent should acknowledge the response and request the remaining information required for the expense claim (description and amount)
 
     ![](./Media/lab1-s19.png)
+
+     >**Note:** You may receive a response that is slightly different from the one shown in the screenshot. Please continue interacting with the agent based on the response you get.
 
 1. Submit a prompt that describes the claim and the amount; for example, `Breakfast cost me $20`.
 
