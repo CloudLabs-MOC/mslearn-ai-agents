@@ -46,25 +46,25 @@ Your virtual machine is your workhorse throughout the workshop. The lab guide is
  
 To get a better understanding of your lab resources and credentials, navigate to the **Environment** tab.
  
-![Explore Lab Resources](../Media/ai-3026-g1.png)
+![Explore Lab Resources](../Media/d18.png)
 
 ## Utilizing the Split Window Feature
  
 For convenience, you can open the lab guide in a separate window by selecting the **Split Window** button from the top right corner.
  
-![Use the Split Window Feature](../Media/ai-3026-g2.png)
+![Use the Split Window Feature](../Media/d19.png)
 
 ## Lab Guide Zoom In/Zoom Out
  
 To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
 
-![](../Media/labvm004.png)
+![](../Media/d22.png)
 
 ## Managing Your Virtual Machine
  
 Feel free to **Start, Restart, or Stop (2)** your virtual machine as needed from the **Resources (1)** tab. Your experience is in your hands!
  
-![Manage Your Virtual Machine](../Media/ai-3026-g4.png)
+![Manage Your Virtual Machine](../Media/d20.png)
 
 ## Let's Get Started with Azure Portal
  
