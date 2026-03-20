@@ -1,6 +1,6 @@
 # Develop agent systems using Microsoft Foundry and the Microsoft Agent Framework
 
-Welcome to yourDevelop agent systems using Microsoft Foundry and the Microsoft Agent Framework workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
+Welcome to your Develop agent systems using Microsoft Foundry and the Microsoft Agent Framework workshop! We’re excited to guide you through hands-on learning with Azure AI services using Microsoft Foundry and the Azure portal. In this workshop, you’ll build, configure, and test intelligent AI agents using Microsoft Foundry.
 
 ### Overall Estimated Duration: 2 Hour 30 mins
 
