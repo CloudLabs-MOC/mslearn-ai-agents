@@ -36,7 +36,7 @@ Welcome to your Develop agent systems using Microsoft Foundry and the Microsoft 
  
 Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
  
-![Access Your VM and Lab Guide](../Media/labvm-1.png)
+![Access Your VM and Lab Guide](../Media/labvm001.png)
 
 ### Virtual Machine & Lab Guide
  
