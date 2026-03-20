@@ -222,7 +222,11 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
 
       ![](./Media/lab9-s59.png)
 
-    - **Project endpoint:** In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page and Copy the **Project endpoint**.
+    - **Project endpoint:** In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
+    
+      ![](./Media/d9.png)    
+        
+    - Copy the **Project endpoint**.
 
       ![](./Media/d2.png)
 
