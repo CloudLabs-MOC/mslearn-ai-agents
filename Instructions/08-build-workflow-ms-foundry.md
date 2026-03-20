@@ -78,11 +78,11 @@ In this task, you will initialize a support ticket array variable in the workflo
 
 1. In the workflow visualizer, select the **+** (plus) **(1)** icon to add a new node.
 
-1. In the workflow actions menu, under **Data transformation**, select **Set variable (2)** to add a node that initializes an array of support tickets.
+    - In the workflow actions menu, under **Data transformation**, select **Set variable (2)** to add a node that initializes an array of support tickets.
 
-    ![](./Media/lab8-s5.png)
+      ![](./Media/lab8-s5.png)
 
-1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable** from the drop-down.
+1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable (2)** from the drop-down.
 
     ![](./Media/lab8-s6.png)
 
