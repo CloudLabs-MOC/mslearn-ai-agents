@@ -167,15 +167,15 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
     
     - **Chat completions model:** Select the available deployed model, likely **gpt-4.1 (9)**
 
-    - Select **Create (10)**.
+    - Select **Create (10)**
 
       ![](./Media/lab9-s24.png)
 
-1. On the knowledge base creation page, select the `gpt-4.1` **(1)** model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
-
-1. Select **Save knowledge base (2)**, and then refresh your browser to verify the knowledge source status is **active**. If it isn't yet, wait a minute and refresh your page until it is.
+1. On the knowledge base creation page, select the `gpt-4.1` **(1)** model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is. Select **Save knowledge base (2)**.
 
     ![](./Media/lab9-s25.png)
+
+1. Then refresh your browser to verify the knowledge source status is **active**. If it isn't yet, wait a minute and refresh your page until it is.    
 
     ![](./Media/lab9-s27.png)
 
