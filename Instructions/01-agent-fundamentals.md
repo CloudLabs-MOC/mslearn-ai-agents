@@ -235,3 +235,5 @@ After experimenting with your agent in the playground, you may want to integrate
 In this lab, you created a new project in the Microsoft Foundry portal and built an AI agent to assist with expense claims. You configured the agent with system instructions and added an expense policy document as grounding data. You also enabled the code interpreter tool so the agent could perform actions. Finally, you tested the agent in the playground by asking policy questions and generating an expense claim file to download and review.
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+
+![](./Media/d1.png)

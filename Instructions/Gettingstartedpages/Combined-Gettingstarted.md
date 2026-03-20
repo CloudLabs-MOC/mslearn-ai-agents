@@ -99,8 +99,8 @@ Learner Support Contacts:
 - Email Support: cloudlabs-support@spektrasystems.com
 - Live Chat Support: https://cloudlabs.ai/labs-support
 
-Click on **Next** from the lower right corner to move on to the next page.
+### Click on **Next** from the lower right corner to move on to the next page.
 
-   ![](../Media/ai-3026next1.png)
+![](../Media/d1.png)
 
 ## Happy Learning !!
