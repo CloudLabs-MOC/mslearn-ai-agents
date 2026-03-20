@@ -58,13 +58,7 @@ For convenience, you can open the lab guide in a separate window by selecting th
  
 To adjust the zoom level for the environment page, click the **A↕: 100%** icon located next to the timer in the lab environment.
 
-![](../Media/ai-3026-g5.png)
-
-## Lab Progress
-
-You can use the **Progress** tab to track your progress while working on the lab. A score will be provided after successful validation.
-
-![](../Media/ai-3026-g3.png)
+![](../Media/labvm004.png)
 
 ## Managing Your Virtual Machine
  
