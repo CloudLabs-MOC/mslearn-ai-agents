@@ -1,4 +1,4 @@
-# Lab 02: Build a workflow in Microsoft Foundry
+# Lab 03: Build a workflow in Microsoft Foundry
 
 ### Estimated Duration: 60 Minutes
 
