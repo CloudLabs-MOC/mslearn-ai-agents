@@ -23,7 +23,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
 1. In Microsoft Foundry portal, select **Agents (1)** from the left navigation pane, and then click **Create agent (2)**.
 
-    ![](./Media/lab1-02-25.png)
+    ![](./Media/d8.png)
 
 1. In the **Create an agent** pane, enter **product-expert-agent (1)** as the agent name, and then select **Create (2)**.
 
@@ -94,7 +94,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 1. Create a storage account with the following settings and click **Review + create (8)**
     - **Subscription:** Select default subscription **(1)**
     - **Resource group:** Select **AI-3026-RG (2)**
-    - **Storage account name:** **storage<inject key="DeploymentID"></inject> (3)**
+    - **Storage account name:** **storage<inject key="DeploymentID" enableCopy="false"/> (3)**
     - **Region:** Select **<inject key="Region"></inject> (4)**
     - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
     - **Performance:** Standard **(6)**
