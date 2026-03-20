@@ -228,6 +228,6 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
 
 ## Summary
 
-In this lab, you created an AI agent in the Microsoft Foundry portal, configured it with instructions for handling product queries, and connected it to enterprise knowledge using Foundry IQ. You set up an Azure AI Search resource, uploaded product documents to Azure Blob Storage, and grounded the agent in this knowledge. Finally, you tested the agent in the Foundry playground and programmatically accessed it via a Python client, verifying its ability to maintain context and provide accurate, knowledge-based responses.
+In this lab, you created an AI agent in Microsoft Foundry and configured it with instructions to handle product-related queries. You integrated the agent with Foundry IQ by connecting it to Azure AI Search and Azure Blob Storage to ground it in enterprise knowledge. You uploaded and indexed product documents to enable accurate, context-aware responses. Finally, you tested the agent in the Foundry playground to validate its ability to retrieve, cite, and respond with relevant information.
 
-### You have successfully completed the Hands-on Lab!
+### Click on Next from the page navigation bar at the end of the lab guide page to proceed to the next page.
