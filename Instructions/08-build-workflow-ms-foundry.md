@@ -46,11 +46,13 @@ In this lab, you will use the Microsoft Foundry portal to build a sequential wor
 
 In this task, you will create a sequential customer support triage workflow in Microsoft Foundry that uses AI agents to classify and respond to support tickets for ContosoPay.
 
-1. On the Foundry portal home page, select **Build (1)** from the toolbar menu.
+1. On the Foundry portal home page, select **Build** from the toolbar menu.
 
-1. On the left-hand menu, select **Workflows (2)**.
+     ![](./Media/d10.png)
 
-     ![](./Media/lab8-s2.png)
+1. Select **Workflows**.
+
+     ![](./Media/d11.png)
 
 1. In the upper right corner, select **Create (1)** > **Blank workflow (2)** to create a new blank workflow.
 
