@@ -134,9 +134,9 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/lab9-s57.png)
 
-1. Once your files are uploaded, close the Azure Portal tab and navigate back to the Foundry IQ page in Microsoft Foundry and refresh the page.
+1. Once your files are uploaded, close the Azure Portal tab and navigate back to the Foundry IQ page in Microsoft Foundry and **refresh** the page.
 
-1. In the **Ground your agent in enterprise knowledge** page, select the **Azure AI Search resource (1)**, and then click **Connect (2)**.
+1. In the **Ground your agent in enterprise knowledge** page, select the Azure AI Search resource **aiservice-<inject key="DeploymentID" enableCopy="false"/> (1)**, and then click **Connect (2)**.
 
     ![](./Media/lab9-s21.png)
 
@@ -153,7 +153,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     - **Description:** `Contoso product catalog items` **(2)**
 
-    - **Storage account name:** Select **storage<inject key="DeploymentID"></inject> (3)**
+    - **Storage account name:** Select **storage<inject key="DeploymentID" enableCopy="false"/> (3)**
     
     - **Container name:** Select `contosoproducts` **(4)**
     
@@ -167,9 +167,9 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
     
     - **Chat completions model:** Select the available deployed model, likely **gpt-4.1 (9)**
 
-1. Select **Create (10)**.
+    - Select **Create (10)**.
 
-    ![](./Media/lab9-s24.png)
+      ![](./Media/lab9-s24.png)
 
 1. On the knowledge base creation page, select the `gpt-4.1` **(1)** model from the **Chat completions model** dropdown, leaving the rest of the optional fields as is.
 
