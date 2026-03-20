@@ -367,6 +367,5 @@ In this task, you will run the multi-agent application in Azure Cloud Shell, pro
 
 In this lab, you built a multi-agent solution using the Microsoft Foundry Agents SDK and configured a client application in Azure Cloud Shell. You created specialized agents for priority assessment, team assignment, and effort estimation, and connected them through a primary triage agent to coordinate ticket processing. You then ran the application and validated how the agents collaborated to generate structured support ticket triage results.
 
-### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
+### You have successfully completed the lab.
 
-   ![](./Media/ai-3026next.png)
