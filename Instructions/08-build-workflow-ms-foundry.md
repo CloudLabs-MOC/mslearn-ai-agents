@@ -300,7 +300,7 @@ In this task, you will add routing logic to identify billing issues and escalate
 
 1.  In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
 
-   ![](./Media/labvm03addpath01.png)
+    ![](./Media/labvm03addpath01.png)
 
 1. Clear the current value in the condition field, then enter the **following expression in Condition (1)** field to check if the ticket category is **"Billing"**. After that, select **Done (2)** to save the node:
 
