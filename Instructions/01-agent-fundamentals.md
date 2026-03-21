@@ -87,7 +87,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
     ![](./Media/lab1-02-01.png)
 
-1. In the Create an agent pane, enter the following in the **Agent name** field (1) and select **Create** (2)  :
+1. In the Create an agent pane, enter the following in the **Agent name (1)** field and select **Create (2)**  :
 
    ```
    expense-agent
