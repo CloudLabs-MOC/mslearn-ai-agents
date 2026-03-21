@@ -446,6 +446,12 @@ In this task, you will prepare the environment in Microsoft Azure by setting up 
 
     ![](./Media/d13.png)
 
+1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+
+    ![](./Media/lab2-s9.png)
+
+    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
+
 1. Enter the below command to login to Azure **(1)**.
 
    ```
@@ -455,7 +461,7 @@ In this task, you will prepare the environment in Microsoft Azure by setting up 
    - Copy the device code **(2)**
    - Click on th device login link **(3)**
 
-     ![](./Media/d23.png)
+     ![](./Media/d-23.png)
     
 1. Enter the code **(1)** and **Next (2)**.
 
@@ -473,13 +479,7 @@ In this task, you will prepare the environment in Microsoft Azure by setting up 
 
     - Press **`Enter`** to accept the default.
 
-      ![](./Media/ag8.png)
-
-1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
-
-    ![](./Media/lab2-s9.png)
-
-    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
+      ![](./Media/ag8.png)    
 
 1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
 
@@ -685,4 +685,4 @@ In this lab, you created a sequential workflow in Microsoft Foundry to process c
 
 ### You have successfully completed the lab. Click on **Next >>** to proceed with the next Lab.
 
-   ![](./Media/ai-3026next1.png)
+![](./Media/d1.png)
