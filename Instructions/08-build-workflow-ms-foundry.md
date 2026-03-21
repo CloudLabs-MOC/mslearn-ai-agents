@@ -262,13 +262,11 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
    ![](./Media/lab03addpath01.png)
 
-1. Remove the existing **true** value from the condition field, and in the **Condition (2)** field, replace it with the following expression to verify whether the the confidence score is greater than 0.6:
+1. Remove the existing **true** value from the condition field, and in the **Condition (2)** field, replace it with the following expression to verify whether the the confidence score is greater than 0.6: Then Select **Done (3)** to save the node.
 
     ```output
    Local.TriageOutputJson.confidence > 0.6
     ```
-
-1. Select **Done (3)** to save the node.
 
     ![](./Media/labvm03addpath02.png)
 
