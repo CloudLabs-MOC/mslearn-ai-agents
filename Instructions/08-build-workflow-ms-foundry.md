@@ -438,6 +438,43 @@ In this task, you will prepare the environment in Microsoft Azure by setting up 
 
     ![](./Media/lab1-02-12.png)
 
+1. Select **Powershell**.
+
+    ![](./Media/d12.png)
+
+1. Select **No Storage acoount required (1)**, select your **Subscription (2)** and then **Apply (3)**.
+
+    ![](./Media/d13.png)
+
+1. Enter the below command to login to Azure **(1)**.
+
+   ```
+   az login
+   ```
+
+   - Copy the device code **(2)**
+   - Click on th device login link **(3)**
+
+     ![](./Media/d23.png)
+    
+1. Enter the code **(1)** and **Next (2)**.
+
+    ![](./Media/d15.png)
+
+1. Select your Username **<inject key="AzureAdUserEmail"></inject>**.
+
+    ![](./Media/d16.png)
+
+1. Click on **Continue** to **sign in to Microsoft Azure CLI**.
+
+    ![](./Media/d17.png)
+
+1. Return to Cloud Shell and select the subscription you want to use.
+
+    - Press **`Enter`** to accept the default.
+
+      ![](./Media/ag8.png)
+
 1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
 
     ![](./Media/lab2-s9.png)
