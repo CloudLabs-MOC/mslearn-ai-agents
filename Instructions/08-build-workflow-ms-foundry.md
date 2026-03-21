@@ -258,9 +258,11 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
     ![](./Media/lab8-n1.png)
 
-1. In the **If/Else** node editor, select the **If (1)** branch condition.
+1. In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
 
-1. Set the **Condition (2)** field to the following expression to check if the confidence score is above 0.6:
+   ![](./Media/lab03addpath01.png)
+
+1. Remove the existing **true** value from the condition field, and in the **Condition (2)** field, replace it with the following expression to verify whether the the confidence score is greater than 0.6:
 
     ```output
    Local.TriageOutputJson.confidence > 0.6
@@ -268,7 +270,7 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
 1. Select **Done (3)** to save the node.
 
-    ![](./Media/lab8-n2.png)
+    ![](./Media/labvm03addpath02.png)
 
 ## Task 1.5: Recommend additional info for low-confidence tickets
 
