@@ -262,7 +262,7 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
    ![](./Media/labvm03addpath01.png)
 
-1. Clear the current value in the condition field, then enter the **following expression in Condition (2)** field to check if the confidence score is above 0.6. After that, select **Done (3)** to save the node:
+1. Clear the current value in the condition field, then enter the **following expression in Condition (1)** field to check if the confidence score is above 0.6. After that, select **Done (2)** to save the node:
 
     ```output
    Local.TriageOutputJson.confidence > 0.6
@@ -298,13 +298,17 @@ In this task, you will add routing logic to identify billing issues and escalate
 
     ![](./Media/lab8-n5.png)
 
-1. In the **If/Else** node editor, select the **If (1)** branch, set the **Condition (2)** field to the following expression to check if the ticket category is "Billing", and then select **Done (3)**:
+1.  In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
+
+   ![](./Media/labvm03addpath01.png)
+
+1. Clear the current value in the condition field, then enter the **following expression in Condition (1)** field to check if the ticket category is **"Billing"**. After that, select **Done (2)** to save the node:
 
     ```output
     Local.TriageOutputJson.category = "Billing"
     ```
 
-    ![](./Media/lab8-n6.png)
+    ![](./Media/labvm03addpath03.png)
 
 1. Select the **+** (plus) **(1)** icon under the **If** branch of the **If/Else** node to add a new node that drafts a response.
 
