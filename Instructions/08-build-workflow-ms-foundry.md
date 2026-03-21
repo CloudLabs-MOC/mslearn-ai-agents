@@ -143,7 +143,7 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab1-02-22.png)
 
-1. In the **Create an agent** pane, enter the **following (2)** as the agent name, then select **Create (2)**.
+1. In the **Create an agent** pane, enter the **following (1)** as the agent name, then select **Create (2)**.
 
    ```
    Triage-Agent
