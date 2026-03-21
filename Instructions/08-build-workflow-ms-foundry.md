@@ -60,7 +60,11 @@ In this task, you will create a sequential customer support triage workflow in M
 
     - The type of workflow you'll create in this exercise is a sequential workflow. However, starting with a blank workflow will simplify the process of adding the necessary nodes.
 
-1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, enter a name for your workflow, such as **ContosoPay-Customer-Support-Triage (2)**, and then select **Save (3)**.
+1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, copy and use the **following name (2)**, then select **Save (3)**.
+
+    ```
+    ContosoPay-Customer-Support-Triage
+    ```
 
     ![](./Media/lab8-s4.png)
 
@@ -82,11 +86,15 @@ In this task, you will initialize a support ticket array variable in the workflo
 
       ![](./Media/lab8-s5.png)
 
-1. In the **Set variable** node editor, create a new variable by entering **SupportTickets (1)** and selecting **Create new variable (2)** from the drop-down.
+1. In the **Set variable** node editor, create a new variable by entering the **following name (1)**, then select **Create new variable (2)** from the drop-down.
+
+    ```
+    SupportTickets
+    ```
 
     ![](./Media/lab8-s6.png)
 
-    - The new variable should appear as `Local.SupportTickets`.
+    - The new variable should appear as **Local.SupportTickets**.
 
 1. In the **To value (1)** field, enter the following array that contains sample support tickets:
 
@@ -109,7 +117,11 @@ In this task, you will configure a for-each loop to iterate through each support
 
      ![](./Media/lab8-s8.png)
 
-1. In the **For each** node editor, set **Select the items to loop for each (1)** to `Local.SupportTickets`, enter **CurrentTicket (2)** in the **Loop Value Variable** field, and then select **Create new variable "CurrentTicket" (3)**.
+1. In the **For each** node editor, set **Select the items to loop for each (1)** to **Local.SupportTickets**, then enter the **following (2)** in the Loop Value Variable field and select **Create new variable "CurrentTicket" (3)**.
+
+    ```
+    CurrentTicket
+    ```
 
     ![](./Media/lab8-s9.png)
 
@@ -131,7 +143,11 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab1-02-22.png)
 
-1. In the **Create an agent** pane, enter **Triage-Agent (1)** as the agent name, and then select **Create (2)**.
+1. In the **Create an agent** pane, enter the **following (2)** as the agent name, then select **Create (2)**.
+
+   ```
+   Triage-Agent
+   ```
 
     ![](./Media/lab1-02-20.png)
 
@@ -202,15 +218,23 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 
     ![](./Media/lab8--s18.png)
 
-1. Set the **Input message** field to the  `Local.CurrentTicket` variable.
+1. Set the **Input message** field to the **Local.CurrentTicket** variable.
 
     ![](./Media/lab8--s19.png)
 
-1. Under **Save agent output message as**, create a new variable by entering `TriageOutputText` **(1)** and select **Create new variable (2)** from the drop down.
+1. Under **Save agent output message as**, create a new variable by entering the **following (1)**, then select **Create new variable (2)** from the drop-down.
+
+   ```
+   TriageOutputText
+   ```
 
     ![](./Media/lab8--s20.png)
 
-1. Under **Save the output json_object as**, create a new variable by entering `TriageOutputJson` **(1)** and select **Create new variable (2)** from the drop down.
+1. Under **Save the output json_object as**, create a new variable by entering the **following (1)**, then select **Create new variable (2)** from the drop-down.
+
+   ```
+   TriageOutputJson
+   ```
 
     ![](./Media/lab8--s21.png)
 
