@@ -22,7 +22,11 @@ In this lab, you'll perform the following tasks:
 
 In this task, you will sign in to the Microsoft Foundry portal, create a new Foundry project, and create an AI agent in the playground. By completing this task, you will have a ready-to-use project and agent with a deployed model available for configuration.
 
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+1. Open a new browser tab. Copy the link below and paste it into the address bar to access the **Microsoft Foundry portal**:
+
+   ```
+   https://ai.azure.com
+   ```
 
 1. Click on **Sign in**.
  
@@ -83,7 +87,11 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
     ![](./Media/lab1-02-01.png)
 
-1. In the **Create an agent** pane, enter **expense-agent (1)** in the **Agent name** field, and then select **Create (2)**.
+1. In the Create an agent pane, enter the following in the **Agent name** field (1) and select **Create** (2)  :
+
+   ```
+   expense-agent
+   ```
 
     ![](./Media/lab1-02-02.png)
 
