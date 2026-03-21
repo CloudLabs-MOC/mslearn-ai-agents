@@ -260,7 +260,7 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
 1. In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
 
-   ![](./Media/lab03addpath01.png)
+   ![](./Media/labvm03addpath01.png)
 
 1. Remove the existing **true** value from the condition field, and in the **Condition (2)** field, replace it with the following expression to verify whether the the confidence score is greater than 0.6: Then Select **Done (3)** to save the node.
 
