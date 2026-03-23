@@ -115,7 +115,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
-<validation step="87f3da8f-5149-49a6-9189-901881587c0c" />
+<validation step="7bd04721-81ce-4232-b683-83814545afbd" />
 
 ## Task 2: Configure your agent
 
