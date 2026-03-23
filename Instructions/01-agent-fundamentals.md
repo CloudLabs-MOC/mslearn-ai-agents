@@ -81,7 +81,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
 
-     ![](./Media/lab2-s3.png)
+     ![](./Media/gpt01.png)
 
 1. On the **gpt-4.1** model page, select **Deploy (1)**, and then choose **Custom settings (2)**.
 
@@ -93,7 +93,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. In the left navigation, select **Agents (1)**, and then choose **Create agent (2)** to create a new agent.
 
-    ![](./Media/lab1-02-01.png)
+    ![](./Media/createagents.png)
 
 1. In the Create an agent pane, enter the following in the **Agent name (1)** field and select **Create (2)**  :
 
@@ -105,7 +105,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
-     ![](./Media/lab1-02-5.png)
+     ![](./Media/foundryhome01.png)
 
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
@@ -125,7 +125,12 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 In this task, you will configure your agent by adding instructions, uploading an expense policy document for grounding, and enabling the required tools.
 
-1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from `https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx` then click on **Download file**. This document contains details of the expenses policy for the fictional Contoso corporation.
+1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) below then  click on **Download file**. This document contains details of the expenses policy for the fictional Contoso corporation
+
+```
+https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx
+```
+
 
 1. Return to the browser tab where you have the **Microsoft Foundry** portal open.
 
@@ -195,7 +200,11 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 In this task, you will test your configured agent in the playground by asking policy-related questions and submitting an expense claim to verify its responses and actions.
 
-1. In the **Playground** chat box, enter `What's the maximum I can claim for meals?` **(1)**, and then select **Send (2)**.
+1. In the **Playground** chat box, enter **following (1)**, and then select **Send (2)**.
+
+   ```
+   What's the maximum I can claim for meals?
+   ```
 
     ![](./Media/lab1-s17.png)
 
