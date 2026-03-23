@@ -380,7 +380,11 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 
     ![](./Media/lab8-n12.png)
 
-1. Under **Save agent output message as**, create a new variable by entering `ResolutionOutputText` **(1)** and select **Create new variable (2)** from the drop-down.
+1. Under **Save agent output message as**, create a new variable by entering ** following (1)** and select **Create new variable (2)** from the drop-down.
+
+   ```
+   ResolutionOutputText
+   ```
 
 1. Select **Done (3)** to save the node.
 
