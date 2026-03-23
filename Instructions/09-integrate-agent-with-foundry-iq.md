@@ -23,7 +23,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
 1. In Microsoft Foundry portal, select **Agents (1)** from the left navigation pane, and then click **Create agent (2)**.
 
-    ![](./agent2.png)
+    ![](./Media/agent2.png)
 
 1. In the **Create an agent** pane, enter **product-expert-agent (1)** as the agent name, and then select **Create (2)**.
 
