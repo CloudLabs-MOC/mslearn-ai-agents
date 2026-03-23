@@ -74,7 +74,7 @@ In this task, you will create a sequential customer support triage workflow in M
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
-<validation step="1f26d4d8-b25f-43cf-8f1c-49f7345160d6" />
+<validation step="5cb37aff-81cb-4ed5-b9d9-22a3780bb77d" />
 
 ### Task 1.1: Create a ticket array variable
 
@@ -248,7 +248,7 @@ In this task, you will invoke the Triage Agent to classify each support ticket i
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
-<validation step="3fa62825-2aad-4ec5-8512-a97c98d07032" />
+<validation step="c1f6d6d3-447c-4390-a3b7-817657397350" />
 
 ## Task 1.4: Handle low-confidence classifications
 
@@ -392,7 +392,7 @@ In this task, you will invoke the Resolution Agent to automatically generate a p
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
-<validation step="098c74c3-c5e2-4bfd-815b-f4941b9fb57a" />
+<validation step="f3cde0c2-f1e3-43b5-8e79-baa4e1a37e3d" />
 
 ### Task 1.8: Preview the workflow
 

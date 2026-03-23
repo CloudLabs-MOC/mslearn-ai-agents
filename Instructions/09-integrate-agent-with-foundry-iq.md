@@ -189,7 +189,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
-<validation step="f34afea2-6b4d-4f43-a03d-c4350902da6f" />
+<validation step="07470883-18a9-450b-b21d-3b35022e1ac9" />
 
 ## Task 2: Test the Agent in the playground
 
