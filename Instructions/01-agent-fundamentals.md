@@ -136,7 +136,7 @@ https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfi
 
 1. In the top navigation, select **Build (1)**, and then choose **expense-agent (2)** from the Agents list.
 
-    ![](./Media/lab1-02-03.png)
+    ![](./Media/build01.png)
 
 1. In **Instructions (1)**, enter the provided prompt text
 
