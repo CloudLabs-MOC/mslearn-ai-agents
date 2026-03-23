@@ -214,7 +214,11 @@ In this task, you will test your configured agent in the playground by asking po
 
     > **Note:** If the agent fails to respond because the rate limit is exceeded. Wait a few seconds and try again. If there is insufficient quota available in your subscription, the model may not be able to respond. If the problem persists, try to increase the quota for your model on the **Models** page.
 
-1. Try the following follow-up prompt: `I'd like to submit a claim for a meal.` and review the response. The agent should ask you for the required information to submit a claim.
+1. Try the **following follow-up prompt** and review the response. The agent should ask you for the required information to submit a claim.
+   
+   ```
+   I'd like to submit a claim for a meal.
+   ```
 
     ![](./Media/lab1-s18.png)
 
