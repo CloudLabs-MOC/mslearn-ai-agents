@@ -61,8 +61,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     ```
 
     ![](./Media/lab01createproject1.png)
-
-   
+  
 1. Fill in the following details, and then click **Create (5)**:
 
     * **Subscription:** **Choose Default Subscription (1)**
@@ -70,11 +69,9 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     * **Microsoft Foundry resource:** **Keep as Default (3)**
     * **Region:** **<inject key="Region"></inject> (4)**
 
-      ![](./Media/lab01createproject2.png)
-      
+      ![](./Media/lab01createproject2.png)   
 
       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
-
 
 1. Wait for your project created. It may take a few minutes.
 
