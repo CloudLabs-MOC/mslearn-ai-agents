@@ -77,7 +77,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
 
-     ![](./Media/lab2-s2.png)
+     ![](./Media/browsemodels1.png)
 
 1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
 
