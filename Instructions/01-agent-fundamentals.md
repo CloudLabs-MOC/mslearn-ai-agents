@@ -54,7 +54,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
      ![](./Media/lab1-s6.png)
 
-1. In the **Create a project** window, enter **following name (1)** as the project name and open the **Advanced options (2)** drop-down.
+1. In the **Create a project** window, enter the **following name (1)** as the project name and open the **Advanced options (2)** drop-down.
 
     ```
     Myprojects-<inject key="DeploymentID"/>
@@ -200,7 +200,7 @@ https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfi
 
 In this task, you will test your configured agent in the playground by asking policy-related questions and submitting an expense claim to verify its responses and actions.
 
-1. In the **Playground** chat box, enter **following (1)**, and then select **Send (2)**.
+1. In the **Playground** chat box, enter the **following (1)**, and then select **Send (2)**.
 
    ```
    What's the maximum I can claim for meals?
