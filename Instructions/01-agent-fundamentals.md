@@ -93,7 +93,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. In the left navigation, select **Agents (1)**, and then choose **Create agent (2)** to create a new agent.
 
-    ![](./Media/createagents.png)
+    ![](./Media/createagents01.png)
 
 1. In the Create an agent pane, enter the following in the **Agent name (1)** field and select **Create (2)**  :
 
