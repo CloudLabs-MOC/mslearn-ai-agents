@@ -57,7 +57,12 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 1. Create a search resource with the following settings and then click **Review + create (6)**
     - **Subscription:** Select default subscription **(1)**
     - **Resource group:** Select **AI-3026-RG (2)**
-    - **Service name:** Enter **aiservice-<inject key="DeploymentID" enableCopy="false"/> (3)**
+    - **Service name:** **use the following name (3)**
+      
+      ```
+      aiservice-<inject key="DeploymentID"/>
+      ```
+      
     - **Location:** Select **<inject key="Region"></inject> (4)**
     - **Pricing tier:** Select **Free** if available, otherwise choose **Basic** **(5)**
 
@@ -69,8 +74,12 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/lab1-02-30.png)
 
-1. Download the sample product information files by opening a new browser tab and navigating to `https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip`
+1. Download the sample product information files by opening a new browser tab and navigating to below:
 
+    ```
+    https://github.com/MicrosoftLearning/mslearn-ai-agents/raw/main/Labfiles/09-integrate-agent-with-foundry-iq/data/contoso-products.zip
+    ```
+    
 1. Select the **Downloads (1)** icon in the browser toolbar, and then choose **Open file (2)** for the downloaded `contoso-products.zip` file.
 
     ![](./Media/lab9-s52.png)
@@ -94,7 +103,12 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 1. Create a storage account with the following settings and click **Review + create (8)**
     - **Subscription:** Select default subscription **(1)**
     - **Resource group:** Select **AI-3026-RG (2)**
-    - **Storage account name:** **storage<inject key="DeploymentID" enableCopy="false"/> (3)**
+    - **Storage account name:** **use the following name (3)**
+
+      ```
+      storage-<inject key="DeploymentID"/>
+      ```
+
     - **Region:** Select **<inject key="Region"></inject> (4)**
     - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
     - **Performance:** Standard **(6)**
@@ -118,7 +132,11 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/lab9-s18.png)
 
-1. In the **New container** pane, enter `contosoproducts` in the **Name (1)** field, and then select **Ok (2)**.
+1. In the **New container** pane, enter the **following name** in the **Name (1)** field, and then select **Ok (2)**.
+
+   ```
+   contosoproducts
+   ```
 
     ![](./Media/lab9-s19.png)
 
@@ -149,11 +167,21 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
     ![](./Media/lab9-s23.png)
 
 1. Configure your knowledge source with the following settings:
-    - **Name:** `ks-contosoproducts` **(1)**
+   
+    - **Name:**  **use the following name (1)**
+      ```
+      ks-contosoproducts
+      ```
 
-    - **Description:** `Contoso product catalog items` **(2)**
+    - **Description:** **use the following description (2)**
+      ```
+      Contoso product catalog items
+      ```
 
-    - **Storage account name:** Select **storage<inject key="DeploymentID" enableCopy="false"/> (3)**
+    - **Storage account name:** Select **below (3)**
+      ```
+      storage<inject key="DeploymentID"/>
+      ```
     
     - **Container name:** Select `contosoproducts` **(4)**
     
@@ -195,7 +223,11 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
 In this task, you test the agent in the Microsoft Foundry playground to verify that it retrieves accurate product information from the connected knowledge base and maintains context during interactions.
 
-1. On the **Playground** tab, verify that your knowledge base is listed under **Knowledge**, enter `What types of tents does Contoso offer?` in the chat box, and then send the message.
+1. On the **Playground** tab, verify that your knowledge base is listed under **Knowledge**, enter **the following** in the chat box, and then send the message.
+
+   ```
+   What types of tents does Contoso offer?
+   ```
 
     ![](./Media/lab9-s31.png)
 
@@ -207,8 +239,13 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
 
 1. Try the following test queries to verify the agent can retrieve information from the knowledge base:
 
-    - `Tell me about which backpacks are available in XL.`
-    - `What camping accessories are available?`
+   ```
+   Tell me about which backpacks are available in XL.
+   ```
+
+   ```
+   What camping accessories are available?
+   ```
 
 1. Review the responses and notice:
     - The agent provides specific information from the knowledge base
