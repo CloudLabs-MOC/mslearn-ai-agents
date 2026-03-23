@@ -25,7 +25,11 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
     ![](./Media/agent2.png)
 
-1. In the **Create an agent** pane, enter **product-expert-agent (1)** as the agent name, and then select **Create (2)**.
+1. In the **Create an agent** pane, enter the **following name (1)** as the agent name, and then select **Create (2)**.
+
+   ```
+   product-expert-agent
+   ```
 
     ![](./Media/lab1-02-28.png)
 
