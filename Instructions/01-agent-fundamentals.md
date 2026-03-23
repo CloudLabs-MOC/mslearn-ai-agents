@@ -54,20 +54,27 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
      ![](./Media/lab1-s6.png)
 
-1. In the **Create a project** window, enter **following name (1)** as the project name and open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+1. In the **Create a project** window, enter **following name (1)** as the project name and open the **Advanced options (2)** drop-down.
 
     ```
     Myprojects-<inject key="DeploymentID"/>
     ```
 
-    * **Subscription:** **Choose Default Subscription (3)**
-    * **Resource group (Choose from the drown down):** **AI-3026-RG (4)**
-    * **Microsoft Foundry resource:** **Keep as Default (5)**
-    * **Region:** **<inject key="Region"></inject> (6)**
+    ![](./Media/lab01createproject1.png)
 
-      ![](./Media/lab1-02-1.png)
+   
+1. Fill in the following details, and then click **Create (5)**:
+
+    * **Subscription:** **Choose Default Subscription (1)**
+    * **Resource group (Choose from the drown down):** **AI-3026-RG (2)**
+    * **Microsoft Foundry resource:** **Keep as Default (3)**
+    * **Region:** **<inject key="Region"></inject> (4)**
+
+      ![](./Media/lab01createproject2.png)
+      
 
       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+
 
 1. Wait for your project created. It may take a few minutes.
 
