@@ -67,9 +67,9 @@ In this task, you will create a new project in the Microsoft Foundry portal, set
 
 1. Wait for your project created. It may take a few minutes.
 
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Find models (2)** from the drop-down menu.
 
-     ![](./Media/lab2-s2.png)
+     ![](./Media/lab9-03-1.png)
 
 1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
 
@@ -81,11 +81,11 @@ In this task, you will create a new project in the Microsoft Foundry portal, set
 
 1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
 
-     ![](./Media/lab2-s5.png)
+     ![](./Media/lab9-03-3.png)
 
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
-     ![](./Media/lab2-s6.png)
+     ![](./Media/lab9-03-4.png)
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >

@@ -63,7 +63,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. When your project is created, select **Start building (1)**, and select **Create agent (2)** from the drop-down menu.
 
-    ![](./Media/lab1-s8.png)
+    ![](./Media/lab8-03-1.png)
 
 1. On the **Create an agent** page, enter **expense-agent (1)** in the **Agent name** field, and then select **Create (2)**.
 
@@ -96,9 +96,9 @@ In this task, you will configure your agent by adding instructions, uploading an
    If a user wants to submit an expense claim, you get their email address, a description of the claim, and the amount to be claimed and write the claim details to a text file that the user can download.
     ```
 
-1. Below the **Instructions**, expand the **Tools** section. Select **Upload files**
+1. Below the **Instructions**, expand the **Tools** section. Select **Upload files (2)**
 
-    ![](./Media/lab1-s10.png)
+    ![](./Media/lab8-03-2.png)
 
 1. Keep the default values for the **Index option** and **Vector index name**.
 
@@ -114,17 +114,29 @@ In this task, you will configure your agent by adding instructions, uploading an
 
     ![](./Media/lab1-s13.png)
 
-1. In the **Tools** section, verify that a new **File search (1)** is listed and shown as containing 1 file.
+1. In the **Tools** section, verify that a new **File search** is listed and shown as containing 1 file.
 
-1. In the **Tools** section, select **Add (2)**.
+    ![](./Media/lab8-03-5.png)
 
-    ![](./Media/lab1-s14.png)
+    > **Note:** If **File search** is not listed in the Tools section, follow these steps:
 
-1. In the **Select a tool** dialog box, select **Code interpreter (1)** and then select **Add tool (2)** (you do not need to upload any files for the code interpreter).
+    1. In the **Tools** section, click on **+ Files**.
 
-    ![](./Media/lab1-s15.png)
+       ![](./Media/lab8-03-3.png)
+
+    1. In the **Attach files** window, ensure the default **Index option** is selected, verify that the **Expenses_Policy** file is uploaded (if not, upload it) and click **Attach**.
+
+        ![](./Media/lab8-03-4.png)
+
+1. In the **Tools** section, select **Add (1)** drop down, select **Code interpreter (2)**, and enable it.
+
+   ![](./Media/lab8-03-6.png)
 
     - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
+
+1. On the **expense-agent** page, select **Save**.
+
+    ![](./Media/lab8-03-7.png)
 
 ## Task 3: Test your agent
 
@@ -132,7 +144,7 @@ In this task, you will test your configured agent in the playground by asking po
 
 1. In the **Playground** chat box, enter `What's the maximum I can claim for meals?` **(1)**, and then select **Send (2)**.
 
-    ![](./Media/lab1-s17.png)
+    ![](./Media/lab8-03-8.png)
 
 1. Review the agent’s response and confirm it is based on the uploaded **Expenses_Policy.docx** knowledge source.
 
@@ -146,13 +158,13 @@ In this task, you will test your configured agent in the playground by asking po
 
 1. Provide the agent with an email address; for example, `fred@contoso.com`. The agent should acknowledge the response and request the remaining information required for the expense claim (description and amount)
 
-    ![](./Media/lab1-s19.png)
+    ![](./Media/lab8-03-9.png)
 
 1. Submit a prompt that describes the claim and the amount; for example, `Breakfast cost me $20`.
 
 1. The agent should use the code interpreter to prepare the expense claim text file, and provide a link so you can download it.
 
-    ![](./Media/lab1-s20.png)
+    ![](./Media/lab8-03-10.png)
 
 1. Download and open the text document to see the expense claim details.
 
@@ -162,7 +174,7 @@ After experimenting with your agent in the playground, you may want to integrate
 
 1. In the agent playground, select the **Code** tab to view the sample code.
 
-    ![](./Media/lab1-s21.png)
+    ![](./Media/lab8-03-11.png)
 
 1. Review the Python code. This code demonstrates how to:
     - Connect to your agent using the Azure AI Projects SDK
