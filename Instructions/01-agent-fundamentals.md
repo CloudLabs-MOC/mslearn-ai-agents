@@ -127,10 +127,9 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. Open another browser tab, and download [Expenses_policy.docx](https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx) from the **below** then click on **Download file**. This document contains details of the expenses policy for the fictional Contoso corporation
 
-```
-https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx
-```
-
+    ```
+    https://raw.githubusercontent.com/MicrosoftLearning/mslearn-ai-agents/main/Labfiles/01-agent-fundamentals/Expenses_Policy.docx
+    ```
 
 1. Return to the browser tab where you have the **Microsoft Foundry** portal open.
 
