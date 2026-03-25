@@ -110,7 +110,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
     - **Storage account name:** **use the following name (3)**
 
       ```
-      storage-<inject key="DeploymentID"/>
+      storage<inject key="DeploymentID"/>
       ```
 
     - **Region:** Select **<inject key="Region"></inject> (4)**
