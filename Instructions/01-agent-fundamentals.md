@@ -165,11 +165,11 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. When your file is successfully uploaded, select **Attach**.
 
-    ![](./Media/lab1-s13.png)
+    ![](./Media/uploadedfile01.png)
 
 1. In the **Tools** section, verify that a new **File search** is listed and shown as containing 1 file.
 
-    ![](./Media/d6.png)
+    ![](./Media/uploadedfile01.png)
 
      >**Please Note:** If you do not see the file here, then please click on **+ Files**.
 
@@ -191,13 +191,13 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. In the **Tools** section, select **Add (1)** drop down and then select **Code interpreter (2)**.
 
-    ![](./Media/uploadedfile01.png)
+    ![](./Media/codeinterpreter01.png)
 
     - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
 
 1. On the **expense-agent** page, select **Save**.
 
-    ![](./Media/lab1-02-7.png)
+    ![](./Media/codeinterpreter02.png)
 
 ## Task 3: Test your agent
 
