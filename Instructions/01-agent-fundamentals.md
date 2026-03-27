@@ -60,7 +60,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     Myproject-<inject key="DeploymentID"/>
     ```
 
-    ![](./Media/lab01createproject1.png)
+    ![](./Media/myproject01.png)
   
 1. Fill in the following details, and then click **Create (5)**:
 
@@ -75,11 +75,15 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. Wait for your project created. It may take a few minutes. Close the “Welcome to the new Microsoft Foundry” pop-up if it appears. 
 
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Find models (2)** from the drop-down menu.
 
-     ![](./Media/browsemodels1.png)
+     ![](./Media/findmodels01.png)
 
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+1. On the **Models** page, search for the **following model (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results:
+
+   ```
+   gpt-4.1
+   ```
 
      ![](./Media/gpt01.png)
 
