@@ -165,7 +165,7 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. When your file is successfully uploaded, select **Attach**.
 
-    ![](./Media/uploadedfile01.png)
+    ![](./Media/lab1-s13.png)
 
 1. In the **Tools** section, verify that a new **File search** is listed and shown as containing 1 file.
 
