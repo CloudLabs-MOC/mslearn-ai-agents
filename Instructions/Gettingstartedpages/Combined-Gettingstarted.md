@@ -15,7 +15,7 @@ By the end of this lab, you will be able to:
 
 1. **Explore AI Agent development:** In this hands-on lab, participants will use the Microsoft Foundry portal to build an AI agent for handling employee expense claims. They will configure agent instructions, ground the agent using an expense policy document, and test it in the playground, including generating a downloadable expense claim file.
 
-2. **Integrate an AI agent with Foundry IQ:** In this hands-on lab, participants will create an AI agent in Microsoft Foundry and integrate it with Foundry IQ for enterprise knowledge grounding. They will configure the agent using product documents from Azure Blob Storage and Azure AI Search, test it in the playground, and connect it via a Python client to send queries and retrieve knowledge-driven responses.
+2. **Integrate an AI agent with Foundry IQ:** In this hands-on lab, participants will create an AI agent in Microsoft Foundry and integrate it with Foundry IQ for enterprise knowledge grounding. They will configure the agent using product documents from Azure Blob Storage and Azure AI Search, test it in the playground.
 
 3. **Build a workflow in Microsoft Foundry:** In this hands-on lab, participants will design and implement a sequential workflow for automated customer support ticket processing. They will create AI agents to classify tickets, manage escalations, and generate responses, and then connect the workflow to Python using the Azure AI Projects SDK for programmatic validation.
 
