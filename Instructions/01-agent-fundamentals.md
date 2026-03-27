@@ -57,7 +57,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 1. In the **Create a project** window, enter the **following name (1)** as the project name and open the **Advanced options (2)** drop-down.
 
     ```
-    Myprojects-<inject key="DeploymentID"/>
+    Myproject-<inject key="DeploymentID"/>
     ```
 
     ![](./Media/lab01createproject1.png)
