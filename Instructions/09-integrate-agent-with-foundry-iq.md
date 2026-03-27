@@ -239,7 +239,7 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
 
      ![](./Media/lab9-s58.png)
 
-     > **Note:** If prompted to approve the knowledge base tool, select **Approve**, and then choose any appropriate approval option.
+     > **Please Note:** If prompted to approve the knowledge base tool, **select** **Approve**, and then choose any appropriate approval option.
 
 1. Try the following test queries to verify the agent can retrieve information from the knowledge base:
 
@@ -269,7 +269,7 @@ In this task, you test the agent in the Microsoft Foundry playground to verify t
         
     - Copy the **Project endpoint**.
 
-      ![](./Media/d2.png)
+      ![](./Media/projecturl.png)
 
 ## Summary
 
