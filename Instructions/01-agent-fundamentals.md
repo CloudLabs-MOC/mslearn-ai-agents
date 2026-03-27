@@ -113,7 +113,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
 
-    ![](./Media/d2.png)
+    ![](./Media/projecturl.png)
 
     > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming labs.
 
