@@ -171,7 +171,7 @@ In this task, you will configure your agent by adding instructions, uploading an
 
     ![](./Media/d6.png)
 
-     >**Note:** If you do not see the file, please do click on **+ Files**.
+     >**Please Note:** If you do not see the file here, then please click on **+ Files**.
 
       ![](./Media/d7.png)     
 
@@ -191,7 +191,7 @@ In this task, you will configure your agent by adding instructions, uploading an
 
 1. In the **Tools** section, select **Add (1)** drop down and then select **Code interpreter (2)**.
 
-    ![](./Media/d5.png)
+    ![](./Media/uploadedfile01.png)
 
     - Your agent will use the document you uploaded as its knowledge source to *ground* its responses (in other words, it will answer questions based on the contents of this document). It will use the code interpreter tool as required to perform actions by generating and running its own Python code.
 
