@@ -75,7 +75,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. Wait for your project created. It may take a few minutes. Close the “Welcome to the new Microsoft Foundry” pop-up if it appears. 
 
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Find models (2)** from the drop-down menu.
+1. On the **Microsoft Foundry** home page, select **Find models (2)**.
 
      ![](./Media/findmodels01.png)
 
