@@ -60,14 +60,14 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
 1. Create a search resource with the following settings and then click **Review + create (6)**
     - **Subscription:** Select default subscription **(1)**
-    - **Resource group:** Select **AI-3026-RG (2)**
+    - **Resource group:** Select **AI-3026-RG (2)** from the drop down
     - **Service name:** **use the following name (3)**
       
       ```
       aiservice-<inject key="DeploymentID"/>
       ```
       
-    - **Location:** Select **<inject key="Region"></inject> (4)**
+    - **Location:** **<inject key="Region" enableCopy="false"/> (4)** (select from the drop-down)
     - **Pricing tier:** Select **Free** if available, otherwise choose **Basic** **(5)**
 
       ![](./Media/lab1-02-29.png)
