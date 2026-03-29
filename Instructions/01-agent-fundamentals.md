@@ -22,7 +22,7 @@ In this lab, you'll perform the following tasks:
 
 In this task, you will sign in to the Microsoft Foundry portal, create a new Foundry project, and create an AI agent in the playground. By completing this task, you will have a ready-to-use project and agent with a deployed model available for configuration.
 
-1. Open a new browser tab. Copy the link below and paste it into the address bar to access the **Microsoft Foundry portal**:
+1. Open Microsoft Edge (if it’s not already open), then open a new tab. Copy the link **below** and paste it into the address bar to access the **Microsoft Foundry portal**:
 
    ```
    https://ai.azure.com
