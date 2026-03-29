@@ -50,7 +50,7 @@ In this task, you will create a sequential customer support triage workflow in M
 
      ![](./Media/d10.png)
 
-1. Select **Workflows**.
+1. Select **Workflows** Preview
 
      ![](./Media/d11.png)
 
