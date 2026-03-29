@@ -68,7 +68,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
       aiservice-<inject key="DeploymentID"/>
       ```
       
-    - **Location:** **<inject key="Region" enableCopy="false"/> (4)** (select from the drop-down)
+    - **Location:** Select **<inject key="Region" enableCopy="false"/> (4)** from the drop-down
     - **Pricing tier:** Select **Free** if available, otherwise choose **Basic** **(5)**
 
       ![](./Media/lab1-02-29.png)
@@ -107,14 +107,14 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
 
 1. Create a storage account with the following settings and click **Review + create (8)**
     - **Subscription:** Select default subscription **(1)**
-    - **Resource group:** Select **AI-3026-RG (2)**
+    - **Resource group:** Select **AI-3026-RG (2)** from the drop-down
     - **Storage account name:** **use the following name (3)**
 
       ```
       storage<inject key="DeploymentID"/>
       ```
 
-    - **Region:** **<inject key="Region" enableCopy="false"/> (4)** (select from the drop-down)
+    - **Region:** Select **<inject key="Region" enableCopy="false"/> (4)** from the drop-down
     - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
     - **Performance:** Standard **(6)**
     - **Redundancy:** Locally-redundant storage (LRS) **(7)**
