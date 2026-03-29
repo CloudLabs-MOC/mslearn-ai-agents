@@ -67,7 +67,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     * **Subscription:** **Choose Default Subscription (1)**
     * **Resource group (Choose from the drown down):** **AI-3026-RG (2)**
     * **Microsoft Foundry resource:** **Keep as Default (3)**
-    * **Region:** **<inject key="Region"></inject> (4)**
+    * **Region:** **<inject key="Region" enableCopy="false"/> (4)**
 
       ![](./Media/lab01createproject2.png)   
 
