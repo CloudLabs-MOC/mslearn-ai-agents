@@ -113,7 +113,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
       storage<inject key="DeploymentID"/>
       ```
 
-    - **Region:** Select **<inject key="Region"></inject> (4)**
+    - **Region:** **<inject key="Region" enableCopy="false"/> (4)** (select from the drop-down)
     - **Preferred storage type:** Azure Blob Storage or Azure Data Lake Storage Gen 2 **(5)**
     - **Performance:** Standard **(6)**
     - **Redundancy:** Locally-redundant storage (LRS) **(7)**
