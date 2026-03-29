@@ -77,7 +77,14 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
 1. On the **Microsoft Foundry** home page, select **Find models** to deploy a GPT model.
 
-     ![](./Media/findmodels01.png)
+   >**Note**: ***The UI may vary, so you may see the option in one of the following ways:***
+      * Option 1: Click the **Start building (1)** drop-down, then select **Find Models (2)**
+
+         ![](./Media/findmodeluiv2.png)
+         
+      * **OR** Option 2: Select the **Find models** option directly available on the home page.
+   
+        ![](./Media/findmodels01.png)
 
 1. On the **Models** page, search for the **following model (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results:
 
