@@ -38,7 +38,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
     
      ![](./Media/lab1-s3.png)
 
-   - **Password:** <inject key="AzureAdUserPassword"></inject>
+   - **Temporary Access Pass:** <inject key="AzureAdUserPassword"></inject>
     
      ![](./Media/lab1-s4.png)
 
@@ -73,7 +73,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
 
       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
 
-1. Wait for your project created. It may take a few minutes. Close the “Welcome to the new Microsoft Foundry” pop-up if it appears. 
+1. Wait for your project created. It may take a few minutes. **Close** the **“Welcome to the new Microsoft Foundry”** pop-up if it appears. 
 
 1. On the **Microsoft Foundry** home page, select **Find models** to deploy a GPT model.
 
