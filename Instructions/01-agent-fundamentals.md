@@ -32,7 +32,7 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new Fou
  
     ![](./Media/lab1-s2.png)
 
-1. If prompted, provide the credentials below:
+1. When prompted, provide the credentials below:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
