@@ -182,11 +182,7 @@ In this task, you will create and configure an AI agent in Microsoft Foundry and
       Contoso product catalog items
       ```
 
-    - **Storage account name:** Select storage<inject key="DeploymentID"/> **below (3)**
-
-      ```
-      storage<inject key="DeploymentID"/>
-      ```
+    - **Storage account name:** Select ***storage<inject key="DeploymentID"enablecopy="false"/> **below (3)**
     
     - **Container name:** Select **contosoproducts` (4)**
     
