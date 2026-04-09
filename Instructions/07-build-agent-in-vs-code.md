@@ -195,30 +195,45 @@ You'll now add a Model Context Protocol (MCP) server tool that allows your agent
 
 1. Review the agent's response and note how it uses the MCP server tool to retrieve external information.
 
+   ![](./Media/lab09-ai-3.png)
+
 1. Check the **Agent Annotations** section to see the sources of information used by the agent.
 
 ### Task 5.1: Generate sample code for your agent
 
-1. Right-click on your deployed agent and select **Open Code File**, or select the **Open Code File** button in the Agent Preferences page.
+1. Right-click on **data-research-agent (1)** and select **View Code** button in the Agent Preferences page.
 
-1. Choose your preferred SDK from the dropdown (Python, .NET, JavaScript, or Java).
+    ![](./Media/lab09-ai-4.png)
 
-1. Select your preferred programming language.
+1. In the **Choose your preferred SDK** dropdown, select **Microsoft Foundry Projects client library**.
 
-1. Choose your preferred authentication method.
+    ![](./Media/lab09-ai-5.png)
+
+1. Select your preferred programming language (eg. Python).
+
+    ![](./Media/lab09-ai-6.png)
+
+1. In the **Choose an auth method** dropdown, select **EntraID (default)**.
+
+    ![](./Media/lab09-ai-7.png)
 
 1. Review the generated sample code that demonstrates how to interact with your agent programmatically.
 
-You can use this code as a starting point for building applications that leverage your AI agent.
+    ![](./Media/lab09-ai-8.png)
+
+    - You can use this code as a starting point for building applications that leverage your AI agent.
 
 ### Task 5.2: View conversation history and threads
 
-1. In the **Azure Resources** view, expand the **Threads** subsection to see conversations created during your agent interactions.
+1. In the **Azure Resources** view, expand the **Threads (1)** subsection to see conversations created during your agent interactions.
 
-1. Select a thread to view the **Thread Details** page, which shows:
-   - Individual messages in the conversation
-   - Run information and execution details
-   - Agent responses and tool usage
+1. Select a thread to view the **Thread Details (2)** page, which shows:
+   
+    - Individual messages in the conversation
+    - Run information and execution details
+    - Agent responses and tool usage
+
+      ![](./Media/lab09-ai-9.png)
 
 1. Select **View run info** to see detailed JSON information about each run.
 
