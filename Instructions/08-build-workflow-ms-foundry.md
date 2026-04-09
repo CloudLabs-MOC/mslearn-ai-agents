@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you will build an intelligent customer support workflow using Microsoft Foundry and Microsoft Azure. You will create a project, deploy the GPT-4.1 model, and configure AI agents to classify and respond to support tickets. The workflow will use conditional logic to handle low-confidence cases, escalate billing issues, and automate responses for technical and general queries. Finally, you will integrate and run the workflow programmatically using Python to understand real-world AI automation scenarios.
+In this lab, you will build a customer support triage workflow using Microsoft Foundry. You will create a sequential workflow that processes support tickets, classifies them using an AI agent, and applies conditional logic based on confidence scores and categories. The workflow routes billing issues for escalation and generates automated responses for other cases. Finally, you will integrate and run the workflow using a Python client application to validate end-to-end execution.
 
 **Workflow overview**
 
@@ -41,7 +41,15 @@ In this lab, you will build an intelligent customer support workflow using Micro
 
 - **Task 2:** Create a customer support triage workflow
 
-- **Task 3:** Use your workflow in code
+- **Task 3:** Install the Microsoft Foundry VS Code extension
+
+- **Task 4:** Sign in to Azure and set the Foundry project
+
+- **Task 5:** Clone the starter code repository
+
+- **Task 6:** Connect to the workflow and run it
+
+- **Task 7:** Sign into Azure and run the app
 
 ## Task 1: Create a Foundry project
 
@@ -131,23 +139,23 @@ In this task, you will sign in to the Microsoft Foundry portal and create a new 
 
 In this task, you will create a sequential customer support triage workflow in Microsoft Foundry that uses AI agents to classify and respond to support tickets for ContosoPay.
 
-1. On the Foundry portal home page, select **Build (1)** from the toolbar menu.
+1. On the Foundry portal home page, select **Build** from the toolbar menu.
 
-1. On the left-hand menu, select **Workflows (2)**.
+     ![](./Media/lab16-03-1.png)
 
-     ![](./Media/lab8-s2.png)
+1. In the **Agents** page, select **Workflows (1)**, then choose **Create (2)** > **Blank workflow (3)** to create a new blank workflow.
 
-1. In the upper right corner, select **Create (1)** > **Blank workflow (2)** to create a new blank workflow.
-
-    ![](./Media/lab8-s3.png)
+    ![](./Media/lab16-03-2.png)
 
     - The type of workflow you'll create in this exercise is a sequential workflow. However, starting with a blank workflow will simplify the process of adding the necessary nodes.
 
-1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, enter a name for your workflow, such as **ContosoPay-Customer-Support-Triage (2)**, and then select **Save (3)**.
+1. Select **Save (1)** in the visualizer to save your new workflow. In the dialog box, copy and use the **following name (2)**, then select **Save (3)**.
 
-    ![](./Media/lab8-s4.png)
+    ```
+    ContosoPay-Customer-Support-Triage
+    ```
 
-
+    ![](./Media/lab16-03-4.png)
 
 ### Task 2.1: Create a ticket array variable
 
@@ -303,17 +311,17 @@ In this task, you will add conditional logic to evaluate the confidence score an
 
     ![](./Media/lab8-n1.png)
 
-1. In the **If/Else** node editor, select the **If (1)** branch condition.
+1. In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
 
-1. Set the **Condition (2)** field to the following expression to check if the confidence score is above 0.6:
+    ![](./Media/lab16-03-6.png)
+
+1. Clear the current value in the condition field, then enter the **following expression in Condition (1)** field to check if the confidence score is above 0.6. After that, select **Done (2)** to save the node:
 
     ```output
    Local.TriageOutputJson.confidence > 0.6
     ```
 
-1. Select **Done (3)** to save the node.
-
-    ![](./Media/lab8-n2.png)
+    ![](./Media/lab16-03-7.png)
 
 ## Task 2.5: Recommend additional info for low-confidence tickets
 
@@ -343,13 +351,17 @@ In this task, you will add routing logic to identify billing issues and escalate
 
     ![](./Media/lab8-n5.png)
 
-1. In the **If/Else** node editor, select the **If (1)** branch, set the **Condition (2)** field to the following expression to check if the ticket category is "Billing", and then select **Done (3)**:
+1. In the **If/Else** node editor, select **+ Add a path (1**), then click the **Edit (2)** (pencil) icon.
+
+    ![](./Media/lab16-03-6.png)
+
+1. Clear the current value in the condition field, then enter the **following expression in Condition (1)** field to check if the ticket category is **"Billing"**. After that, select **Done (2)** to save the node:
 
     ```output
     Local.TriageOutputJson.category = "Billing"
     ```
 
-    ![](./Media/lab8-n6.png)
+    ![](./Media/lab16-03-8.png)
 
 1. Select the **+** (plus) **(1)** icon under the **If** branch of the **If/Else** node to add a new node that drafts a response for non-billing tickets.
 
@@ -456,104 +468,123 @@ In this task, you will test and validate the workflow by running a preview to ob
 
     ![](./Media/lab8-n22.png)
 
-## Task 3: Use your workflow in code
+## Task 3: Install the Microsoft Foundry VS Code extension
 
-Now that you've built and tested your workflow in the Foundry portal, you can also invoke it from your own code using the Azure AI Projects SDK. This allows you to integrate the workflow into your applications or automate its execution.
+In this task, you'll install and verify the Microsoft Foundry extension in Visual Studio Code, enabling you to create, manage, and interact with Foundry projects and agents directly within the VS Code environment.
 
-### Task 3.1: Prepare the environment
+1. Open the **Visual Studio Code** from the desktop.
 
-In this task, you will prepare the environment in Microsoft Azure by setting up Cloud Shell, cloning the repository, and accessing the Python files required to invoke the workflow programmatically.
+    ![](./Media/lab9-p2t1p1.png)
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
 
-1. If prompted, provide the credentials below:
+    ![](./Media/lab7-s1.png)
 
+1. After installation is complete, verify the extension appears in the primary navigation bar on the left side of Visual Studio Code.
+
+    ![](./Media/lab9-p2t1p2.png)
+
+    > **Note:** If you already have the extension installed, make sure the version is at least **v0.16.0** to follow along with the instructions in this exercise.
+
+## Task 4: Sign in to Azure and set the Foundry project
+
+In this task, you will sign in to Azure using the Microsoft Foundry extension in Visual Studio Code and set your project as the default for development.
+
+1. In the VS Code sidebar, select the **Microsoft Foundry (1)** extension icon.
+
+1. In the Resources view, choose **Set Default Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
+
+    ![](./Media/lab16-03-11.1.png)
+
+1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
+
+    ![](./Media/lab7-s5.png)
+
+1. On the **Sign in** page, provide the credentials below:
+ 
     - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    
+      ![](./Media/lab7-s6.png)
 
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
+    - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+      ![](./Media/lab7-s7.png)
 
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
+1. On the **Sign in to all apps, websites, and services on this device?** page, select **Yes**.
 
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
+    ![](./Media/lab7-s8.png)
 
-    ![](./Media/lab2-s7.png)
+1. On the **Account added to this device** page, select **Done**.
 
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    ![](./Media/lab7-s9.png)
 
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+1. In the **Pick a project** dialog, select **Myproject<inject key="DeploymentID" enableCopy="false"/>**.
 
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+    ![](./Media/lab7-s11.png)
 
-    ![](./Media/lab2-s8.png)
+1. In the VS Code Activity Bar, under the **Resources** section expand and right-click your project **Myproject (2)**, and choose **Copy Project Endpoint (3)** to copy the endpoint.
 
-1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+    ![](./Media/lab16-03-14.png)
 
-    ![](./Media/lab2-s9.png)
+    > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming task.
 
-    >**Note:** **Ensure you've switched to the classic version of the cloud shell before continuing.**
+## Task 5: Clone the starter code repository
 
-1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
+In this task, you'll clone the provided GitHub repository, set up a Python virtual environment, install required dependencies, and configure environment variables to prepare your local development setup.
 
-    ```
-   rm -r ai-agents -f
-   git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
-    ```
+1. Navigate to the **Welcome** page in VS Code by selecting the ellipsis **(...) (1)** from the top bar, then **Help (2)**, and finally **Welcome (3)**.
 
-    ![](./Media/lab8--s41.png)
+    ![](./Media/lab9-p2t4p1.png)
 
-    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
+1. On the **Get Started** page, select **Mark Done (1)** to complete this step and proceed.
 
-1. When the repo has been cloned, enter the following command to change the working directory to the folder containing the code files and list them all.
+    ![](./Media/lab9-p2t4p2.png)
 
-    ```
-   cd ai-agents/Labfiles/08-build-workflow-ms-foundry/Python
-   ls -a -l
-    ```
+1. Select **Clone Git Repository... (1)**, paste the repository URL **(2)** `https://github.com/MicrosoftLearning/mslearn-ai-agents.git`, and then choose **Clone from URL (3)** to proceed.
 
-    ![](./Media/lab8--s42.png)
+    ![](./Media/lab9-p2t4p3.png)
 
-    - The provided files include application code and a file for configuration settings.
+1. Select the destination folder **C:\LabFiles (1)** and click **Select as Repository Destination (2)** to proceed.
 
-### Task 3.2: Configure the application settings
+    ![](./Media/lab9-p2t4p4.png)
 
-In this task, you will configure the application settings by installing dependencies and updating the project endpoint and model deployment details to connect your code with Microsoft Foundry.
+1. When prompted, select **Open (1)** to open the cloned repository.
 
-1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
+    ![](./Media/lab9-p2t4p5.png)
 
-    ```
-   python -m venv labenv
-   ./labenv/bin/Activate.ps1
-   pip install -r requirements.txt
-    ```
+1. In the trust prompt, select **Yes, I trust the authors (1)** to continue.
 
-1. Enter the following command to edit the configuration file that is provided:
+    ![](./Media/lab9-p2t4p6.png)
 
-    ```
-   code .env
-    ```
+1. In the Explorer view, navigate to the **Labfiles (1)** and then select **08-build-workflow-ms-foundry/Python (2)** folder to find the starter code for this exercise.
 
-1. In the code file, replace the placeholder values with the correct details for your project:
+    ![](./Media/lab16-03-15.png)
 
-    * PROJECT\_ENDPOINT : **Foundry project endpoint (1)**
-    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1 (2)**
+1. Right-click on the **requirements.txt (1)** file and select **Open in Integrated Terminal (2)**.
 
-         ![](./Media/lab8--s43.png)
+    ![](./Media/lab16-03-16.png)
 
-         > **Note:** Paste the project endpoint you copied in the previous task.
-
-1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
-
-### Task 3.3: Connect to the workflow and run it
-
-In this task, you will connect your Python application to the workflow and run it programmatically using the Azure AI Projects SDK to automate customer support processing.
-
-1. Enter the following command to edit the **workflow.py** file:
+1. In the terminal, enter the following command to install the required Python packages in a virtual environment:
 
     ```
-   code workflow.py
+    python -m venv labenv
+    .\labenv\Scripts\Activate.ps1
+    pip install -r requirements.txt
     ```
 
-    ![](./Media/lab8--s44.png)
+1. From the left navigation menu, under **08-build-workflow-ms-foundry/Python** folder, open the **.env (1)** file. Paste the copied project endpoint into the **PROJECT_ENDPOINT (2)** field, and verify that the **MODEL_DEPLOYMENT_NAME (3)** is set to `gpt-4.1` (or the name of your deployed model). Once done, press **Ctrl+S** to save the changes.
+
+    ![](./Media/lab16-03-17.png)
+
+## Task 6: Connect to the workflow and run it
+
+In this task, you will connect to the created workflow using a Python application and execute it to process support tickets and observe the workflow output.
+
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
+
+1. Open the **workflow.py** file in the code editor.
+
+    ![](./Media/lab16-03-18.png)
 
 1. Review the code in the file, noting that it contains strings for each agent name and instructions.
 
@@ -561,31 +592,31 @@ In this task, you will connect your Python application to the workflow and run i
 
     ```python
    # Add references
-   from azure.identity import AzureCliCredential
+   from azure.identity import DefaultAzureCredential
    from azure.ai.projects import AIProjectClient
    from azure.ai.projects.models import ItemType
     ```
 
-    ![](./Media/lab8-n18.png)
+    ![](./Media/lab16-03-19.png)
 
 1. Note that code to load the project endpoint and model name from your environment variables has been provided.
 
 1. Find the comment **Connect to the agents client**, and add the following code to create an AgentsClient connected to your project:
 
-    > **Tip:** When adding subsequent code, be sure to maintain the right level of indentation.
-
     ```python
    # Connect to the AI Project client
    with (
-       AzureCliCredential() as credential,
+       DefaultAzureCredential() as credential,
        AIProjectClient(endpoint=endpoint, credential=credential) as project_client,
        project_client.get_openai_client() as openai_client,
    ):
     ```
 
-    ![](./Media/lab8-n19.png)
+    ![](./Media/lab16-03-20.png)
 
-    - Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
+    Now you'll add code that uses the AgentsClient to create multiple agents, each with a specific role to play in processing a support ticket.
+
+    > **Tip:** When adding subsequent code, be sure to maintain the right level of indentation.
 
 1. Find the comment **Specify the workflow** and the following code:
 
@@ -597,9 +628,9 @@ In this task, you will connect your Python application to the workflow and run i
     }
     ```
 
-    ![](./Media/lab8--s47.png)
+    ![](./Media/lab16-03-21.png)
 
-    - Be sure to use the name and version of the workflow you created in the Foundry portal.
+    Be sure to use the name and version of the workflow you created in the Foundry portal.
 
 1. Find the comment **Create a conversation and run the workflow**, and add the following code to create a conversation and invoke your workflow:
 
@@ -617,9 +648,9 @@ In this task, you will connect your Python application to the workflow and run i
     )
     ```
 
-    ![](./Media/lab8--s48.png)
+    ![](./Media/lab16-03-22.png)
 
-    - This code will stream the output of the workflow execution to the console, allowing you to see the flow of messages as the workflow processes each ticket.
+    This code will stream the output of the workflow execution to the console, allowing you to see the flow of messages as the workflow processes each ticket.
 
 1. Find the comment **Process events from the workflow run**, and add the following code to process the streamed output and print messages to the console:
 
@@ -637,7 +668,7 @@ In this task, you will connect your Python application to the workflow and run i
             print(f"item action ID '{event.item.action_id}' is '{event.item.status}' (previous action ID: '{event.item.previous_action_id}')")
     ```
 
-    ![](./Media/lab8--s49.png)
+    ![](./Media/lab16-03-23.png)
 
 1. Find the comment **Clean up resources**, and enter the following code to delete the conversation when it is longer required:
 
@@ -647,41 +678,29 @@ In this task, you will connect your Python application to the workflow and run i
    print("\nConversation deleted")
     ```
 
-    ![](./Media/lab8--s50.png)
+    ![](./Media/lab16-03-24.png)
 
-1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
+1. Use the **CTRL+S** command to save your changes to the code file.
 
-### Task 3.4: Sign into Azure and run the app
+## Task 7: Sign into Azure and run the app
 
-In this task, you will authenticate with Microsoft Azure and execute the Python application to run and validate the AI-powered workflow end-to-end.
+In this task, you will authenticate to Azure and run the Python application to execute the workflow and validate the end-to-end processing of support tickets.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
+1. In the terminal, run `Connect-AzAccount` to initiate the Azure sign-in process.
 
-    ![](./Media/lab8--s51.png)
+    ![](./Media/lab16-03-25.png)
 
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+    >**Note:** If you have closed the terminal, right-click on the **08-build-workflow-ms-foundry \ Python** folder and select **Open in Integrated Terminal**. Then run the command `.\labenv\Scripts\Activate.ps1` to activate the virtual environment before proceeding.
 
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+1. In the sign-in window, select your account **<inject key="AzureAdUserEmail"></inject> (1)** and click **Continue (2)** to proceed with authentication.
 
-    ![](./Media/lab3-s19.png)
+    ![](./Media/lab9-p2t9p2.png)
 
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+1. After successful sign-in, wait for the subscriptions to load and verify that your subscription is listed in the terminal.
 
-    ![](./Media/lab2-s34.png)
+    ![](./Media/lab12-03-18.png)
 
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab8--s52.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the integrated terminal, enter the following command to run the application:
 
     ```
    python workflow.py
@@ -705,11 +724,16 @@ In this task, you will authenticate with Microsoft Azure and execute the Python 
     {"customer_issue":"I was charged twice for the same invoice last Friday and my customer is also seeing two receipts. Can someone fix this?","category":"Billing","confidence":1}
     Escalation required
     ```
-    
-    ![](./Media/lab8-n20.png)
+
+    ![](./Media/lab16-03-26.png)
+
+    In the output, you can see the how the workflow completes each step, including the classification of each ticket and the recommended response or escalation. Great work!
+
+1. When you're finished, enter `deactivate` in the terminal to exit the Python virtual environment.
+
 
 ## Summary
 
-In this lab, you created a sequential workflow in Microsoft Foundry to process customer support tickets. You implemented conditional logic and configured AI agents to generate structured, JSON-formatted outputs. The workflow classified each ticket using an AI agent, handled low-confidence classifications by requesting additional information, and generated recommended responses for non-billing issues. Finally, you validated the workflow to ensure it correctly processed and responded to support requests.
+In this lab, you created a sequential workflow in Microsoft Foundry that processes customer support tickets. You used conditional logic and configured AI agents to produce JSON-formatted outputs. Your workflow classified each ticket using an AI agent, handled low-confidence classifications with conditional logic, and generated recommended responses for non-billing issues. Great job!
 
 ### You have successfully completed the Hands-on Lab!

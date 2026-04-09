@@ -36,7 +36,7 @@ In this task, you will create a new project in the Microsoft Foundry portal, set
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
-     ![](./Media/lab1-s3.png)
+     ![](./Media/sigin-1.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
     

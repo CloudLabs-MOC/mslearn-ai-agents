@@ -4,7 +4,7 @@
 
 ## Overview
 
-In this lab, you use Microsoft Azure AI Foundry to build an intelligent agent integrated with Foundry IQ for enterprise knowledge retrieval. You create and deploy a gpt-4.1 based agent, connect it to an Azure AI Search–powered knowledge base, and ground it with product documents stored in Azure Blob Storage. You then test the agent in the Foundry playground and connect to it programmatically using the Python SDK from Azure Cloud Shell. This lab demonstrates how to build conversational AI solutions that can search and retrieve enterprise knowledge while maintaining context.
+In this lab, you use Microsoft Foundry to build an intelligent agent integrated with Foundry IQ for enterprise knowledge retrieval. You create and deploy a gpt-4.1 based agent, connect it to an Azure AI Search–powered knowledge base, and ground it with product documents stored in Azure Blob Storage. You then test the agent in the Foundry playground and connect to it programmatically using the Python SDK from Azure Cloud Shell. This lab demonstrates how to build conversational AI solutions that can search and retrieve enterprise knowledge while maintaining context.
 
 > **Tip:** The code used in this exercise is based on the Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
 
@@ -22,7 +22,7 @@ In this lab, you use Microsoft Azure AI Foundry to build an intelligent agent in
 
 ## Task1: Create a Foundry project
 
-In this task, you create a new project in Microsoft Azure AI Foundry, deploy the gpt-4.1 model, and save it as an agent for further configuration.
+In this task, you create a new project in Microsoft Microsoft Foundry, deploy the gpt-4.1 model, and save it as an agent for further configuration.
 
 1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
 
@@ -34,7 +34,7 @@ In this task, you create a new project in Microsoft Azure AI Foundry, deploy the
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
-     ![](./Media/lab1-s3.png)
+     ![](./Media/sigin-1.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
     
@@ -93,7 +93,7 @@ In this task, you create a new project in Microsoft Azure AI Foundry, deploy the
 
 ## Task 2: Configure your data and Foundry IQ
 
-In this task, you will configure the agent in Microsoft Azure AI Foundry to use Foundry IQ by connecting it to an Azure AI Search resource. You also create a knowledge base using product documents stored in Azure Blob Storage to enable accurate and grounded responses.
+In this task, you will configure the agent in Microsoft Microsoft Foundry to use Foundry IQ by connecting it to an Azure AI Search resource. You also create a knowledge base using product documents stored in Azure Blob Storage to enable accurate and grounded responses.
 
 1. In the **Instructions (1)** section, update the following instructions.
     
@@ -250,7 +250,7 @@ In this task, you will configure the agent in Microsoft Azure AI Foundry to use 
 
 ## Task 3: Test the Agent in the playground
 
-In this task, you test the agent in the Microsoft Azure AI Foundry playground to verify that it retrieves accurate product information from the connected knowledge base and maintains context during interactions.
+In this task, you test the agent in the Microsoft Microsoft Foundry playground to verify that it retrieves accurate product information from the connected knowledge base and maintains context during interactions.
 
 1. On the **Playground** tab, verify that your knowledge base is listed under **Knowledge**, enter `What types of tents does Contoso offer?` in the chat box, and then send the message.
 
@@ -611,6 +611,6 @@ In this task, you sign in to Azure, run the client application, and test the age
 
 ## Summary
 
-In this lab, you created a project in Microsoft Azure AI Foundry and deployed a GPT-4.1–based agent. You configured Foundry IQ by connecting the agent to an Azure AI Search knowledge base grounded with product documents stored in Azure Blob Storage. Finally, you tested the agent in the playground and integrated it with a Python client application to programmatically retrieve and use enterprise knowledge.
+In this lab, you created a project in Microsoft Microsoft Foundry and deployed a GPT-4.1–based agent. You configured Foundry IQ by connecting the agent to an Azure AI Search knowledge base grounded with product documents stored in Azure Blob Storage. Finally, you tested the agent in the playground and integrated it with a Python client application to programmatically retrieve and use enterprise knowledge.
 
 ### You have successfully completed the Hands-on Lab!
