@@ -1,91 +1,124 @@
 # Lab 07: Develop an Azure AI chat agent with the Microsoft Agent Framework SDK
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 45 Minutes
 
-## Overview
+## Lab Overview
 
-In this lab, you'll use the Microsoft Agent Framework SDK and Azure AI Agent Service to create an AI agent that processes expense claims. You will deploy a model in a Microsoft Foundry project, develop a client app, configure the application, define a custom tool for sending emails, and run the agent to handle expense claim requests.
+In this lab, you will create and configure an AI chat agent using the Microsoft Agent Framework SDK in Visual Studio Code and deploy a model in an Foundry project. You will set up the development environment, implement a custom tool to process expense data, and integrate it with the agent. Finally, you will run and validate the application to ensure the agent can generate responses and simulate expense claim submissions.
 
 ## Lab Objectives
 
-- **Task 1:** Deploy a model in a Microsoft Foundry project
+In this lab, you'll perform the following tasks:
 
-- **Task 2:** Create an agent client app
+- **Task 1:** Install the Microsoft Foundry VS Code extension
 
-- **Task 3:** Configure the application settings
+- **Task 2:** Sign in to Azure and create a project
 
-- **Task 4:** Write code for an agent app
+- **Task 3:** Deploy a model
 
-- **Task 5:** Sign into Azure and run the app
+- **Task 4:** Clone the starter code repository
 
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+- **Task 5:** Write code for an agent app
 
-## Task 1: Deploy a model in a Microsoft Foundry project
+- **Task 6:** Run the app
 
-In this task, you will sign in to the Microsoft Foundry portal, create a new project, and deploy the gpt-4.1 model for use in your agent application.
+## Task 1: Install the Microsoft Foundry VS Code extension
 
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+In this task, you'll install and verify the Microsoft Foundry extension in Visual Studio Code, enabling you to create, manage, and interact with Azure AI projects and agents directly within the VS Code environment.
 
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
+1. Open the **Visual Studio Code** from the desktop.
 
-1. If prompted, provide the credentials below:
+    ![](./Media/lab9-p2t1p1.png)
+
+1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
+
+   ![](./Media/lab7-s1.png)
+
+1. After installation is complete, verify the extension appears in the primary navigation bar on the left side of Visual Studio Code.
+
+   ![](./Media/lab9-p2t1p2.png)
+
+   > **Note:** If you already have the extension installed, make sure the version is at least **v0.16.0** to follow along with the instructions in this exercise.
+
+## Task 2: Sign in to Azure and create a project
+
+In this task, you'll authenticate with your Azure account and create a new Microsoft Foundry project, which will serve as the workspace for deploying models and building AI-powered agent solutions.
+
+1. In the VS Code sidebar, select the **Microsoft Foundry (1)** extension icon.
+
+1. In the Resources view, choose **Create Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
+
+   ![](./Media/lab7-s4.png)
+
+1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
+
+   ![](./Media/lab7-s5.png)
+
+1. On the **Sign in** page, provide the credentials below:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
-     ![](./Media/lab1-s3.png)
+     ![](./Media/lab7-s6.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
     
-     ![](./Media/lab1-s4.png)
+     ![](./Media/lab7-s7.png)
 
-1. When the **Stay signed in?** window appears, select **No**.
+1. On the **Sign in to all apps, websites, and services on this device?** page, select **Yes**.
 
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
+   ![](./Media/lab7-s8.png)
 
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
+1. On the **Account added to this device** page, select **Done**.
 
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
+   ![](./Media/lab7-s9.png)
 
-     ![](./Media/lab1-s6.png)
+1. In the **Choose a resource group** dialog, select **AI-102-RG11** from the list.
 
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+   ![](./Media/lab13-03-1.png)
 
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG11 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
+1. In the **Enter project name** dialog, enter **Myproject<inject key="DeploymentID" enableCopy="false"/>**, and then press **Enter** to confirm.
 
-      ![](./Media/lab4-s1.png)
+   ![](./Media/lab7-s11.png)
 
-      >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+1. Wait for the project deployment to complete. A popup will appear with the message "Project deployed successfully."
 
-1. Wait for your project created. It may take a few minutes.
+    ![](./Media/lab09-ai-1.png)
 
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+## Task 3: Deploy a model
 
-     ![](./Media/lab2-s2.png)
+In this task, you'll deploy the gpt-4.1 model (or an equivalent) in your Foundry project, making it available for your agent to process prompts and generate intelligent responses.
 
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+1. In the **RESOURCES** pane, select **Models**, and then select the **+** icon to add a new model deployment.
 
-     ![](./Media/lab2-s3.png)
+   ![](./Media/lab9-p2t3p1.png)
 
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+   > **Tip:** You can also access the Model Catalog pressing **F1** and running the command **Microsoft Foundry: Open Model Catalog**.
 
-    ![](./Media/lab2-s4.png)
+1. In the Model Catalog, scroll down, search for **gpt-4.1 (1)** in the search bar, and then select **Deploy (2)** under **OpenAI GPT-4.1**.
 
-    - After the model is deployed, the playground for the model is displayed.
+   ![](./Media/lab7-s13.png)
 
-1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
+1. Configure the deployment settings:
+   
+    - **Deployment name:** Enter a name like **gpt-4.1 (1)**
+    - **Deployment type:** Select **Global Standard** (or **Standard** if Global Standard is not available) **(2)**
+    - **Model version:** Leave as default
+    - **Tokens per minute:** `50K` **(3)**
+    - Select **Deploy in Microsoft Foundry (4)** in the bottom-left corner.
 
-     ![](./Media/lab2-s5.png)
+        ![](./Media/lab12-03-2.png)
 
-1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
+1. If the confirmation dialog appears, select **Deploy** to deploy the model.
 
-    ![](./Media/lab2-s6.png)
+1. Wait for the deployment to complete. Your deployed model will appear under the **Models** section in the Resources view.
+
+    ![](./Media/lab9-p2t3p3.png)
+
+1. In the VS Code Activity Bar, under the **Resources** section expand and right-click your project **Myproject (2)**, and choose **Copy Project Endpoint (3)** to copy the endpoint.
+
+    ![](./Media/lab12-03-3.png)
+
+    > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming task.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >
@@ -94,117 +127,73 @@ In this task, you will sign in to the Microsoft Foundry portal, create a new pro
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
 <validation step="412da72d-9077-4bed-899e-d2e2c021cd43" />
- 
----  
 
-## Task 2: Create an agent client app
+## Task 4: Clone the starter code repository
 
-In this task, you will set up a client app in Azure Cloud Shell, clone the provided GitHub repository, and prepare the code files for creating your agent.
+In this task, you'll clone the provided GitHub repository, set up a Python virtual environment, install required dependencies, and configure environment variables to prepare your local development setup.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. Navigate to the **Welcome** page in VS Code by selecting the ellipsis **(...) (1)** from the top bar, then **Help (2)**, and finally **Welcome (3)**.
 
-1. If prompted, provide the credentials below:
+    ![](./Media/lab9-p2t4p1.png)
 
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+1. On the **Get Started** page, select **Mark Done (1)** to complete this step and proceed.
 
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
+    ![](./Media/lab9-p2t4p2.png)
 
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
+1. Select **Clone Git Repository... (1)**, paste the repository URL **(2)** `https://github.com/MicrosoftLearning/mslearn-ai-agents.git`, and then choose **Clone from URL (3)** to proceed.
 
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
+    ![](./Media/lab9-p2t4p3.png)
 
-    ![](./Media/lab2-s7.png)
+1. Select the destination folder **C:\LabFiles (1)** and click **Select as Repository Destination (2)** to proceed.
 
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    ![](./Media/lab9-p2t4p4.png)
 
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+1. When prompted, select **Open (1)** to open the cloned repository.
 
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+    ![](./Media/lab9-p2t4p5.png)
 
-    ![](./Media/lab2-s8.png)
+1. In the trust prompt, select **Yes, I trust the authors (1)** to continue.
 
-1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+    ![](./Media/lab9-p2t4p6.png)
 
-    ![](./Media/lab2-s9.png)
+1. In the Explorer view, navigate to the **Labfiles (1)** and then select **07-agent-framework/Python (2)** folder to find the starter code for this exercise.
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+    ![](./Media/lab13-03-2.png)
 
-1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
+1. Right-click on the **requirements.txt (1)** file and select **Open in Integrated Terminal (2)**.
 
-    ```
-   rm -r ai-agents -f
-   git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
-    ```
+    ![](./Media/lab13-03-3.png)
 
-    ![](./Media/lab4-s2.png)
-
-    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
-
-1. When the repo has been cloned, enter the following command to change the working directory to the folder containing the code files and list them all.
+1. In the terminal, enter the following command to install the required Python packages in a virtual environment:
 
     ```
-   cd ai-agents/Labfiles/04-agent-framework/python
-   ls -a -l
+    python -m venv labenv
+    .\labenv\Scripts\Activate.ps1
+    pip install -r requirements.txt
     ```
 
-    ![](./Media/lab4-s3.png)
+1. From the left navigation menu, under **07-agent-framework/Python** folder, open the **.env (1)** file. Paste the copied project endpoint into the **PROJECT_ENDPOINT (2)** field, and verify that the **MODEL_DEPLOYMENT_NAME (3)** is set to `gpt-4.1` (or the name of your deployed model). Once done, press **Ctrl+S** to save the changes.
 
-    - The provided files include application code a file for configuration settings, and a file containing expenses data.
+    ![](./Media/lab13-03-4.png)
 
-## Task 3: Configure the application settings
+    - Now you're ready to create an AI agent that uses a custom tool to process expenses data.
 
-In this task, you will install required libraries and configure the .env file with your Foundry project details.
+## Task 5: Write code for an agent app
 
-1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
-
-    ```
-   python -m venv labenv
-   ./labenv/bin/Activate.ps1
-   pip install agent-framework==1.0.0b260212 --pre
-    ```
-
-1. In the Cloud Shell command-line pane, enter the following command to install the required package version:
-
-   ```
-   pip install opentelemetry-semantic-conventions-ai==0.4.13
-   ```
-
-   ![](./Media/lab4-s14.png)
-
-1. Enter the following command to edit the configuration file that has been provided:
-
-    ```
-   code .env
-    ```
-
-1. In the code file, replace the placeholder values with the correct details for your project:
-
-    * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1**
-
-      ![](./Media/lab4-s4.png)
-
-      > **Note:** Paste the project endpoint you copied in the previous task.
-
-1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
-
-## Task 4: Write code for an agent app
-
-In this task, you will edit the agent code to add references, define a custom email tool, initialize the agent with instructions, and configure it to process expenses data.
+In this task, you'll create and configure an AI agent using the Microsoft Agent Framework SDK and define a custom tool for processing expense claims. You will integrate the tool with the agent to handle user prompts and perform actions.
 
 > **Tip:** As you add code, be sure to maintain the correct indentation. Use the existing comments as a guide, entering the new code at the same level of indentation.
 
-1. Enter the following command to edit the agent code file that has been provided:
+1. Open the **agent-framework.py** file in the code editor.
 
-    ```
-   code agent-framework.py
-    ```
-
-    ![](./Media/lab4-s5.png)
+    ![](./Media/lab13-03-5.png)
 
 1. Review the code in the file. It contains:
+    
     - Some **import** statements to add references to commonly used namespaces
-    - A **main** function that loads a file containing expenses data, asks the user for instructions, and and then calls...
+    
+    - A *main* function that loads a file containing expenses data, asks the user for instructions, and and then calls...
+    
     - A **process_expenses_data** function in which the code to create and use your agent must be added
 
 1. At the top of the file, after the existing **import** statement, find the comment **Add references**, and add the following code to reference the namespaces in the libraries you'll need to implement your agent:
@@ -213,30 +202,30 @@ In this task, you will edit the agent code to add references, define a custom em
    # Add references
    from agent_framework import tool, Agent
    from agent_framework.azure import AzureOpenAIResponsesClient
-   from azure.identity.aio import AzureCliCredential
+   from azure.identity import AzureCliCredential
    from pydantic import Field
    from typing import Annotated
     ```
 
-    ![](./Media/lab4-s12.png)
+    ![](./Media/lab13-03-6.png)
 
 1. Near the bottom of the file, find the comment **Create a tool function for the email functionality**, and add the following code to define a function that your agent will use to send email (tools are a way to add custom functionality to agents)
 
     ```python
    # Create a tool function for the email functionality
    @tool(approval_mode="never_require")
-   def send_email(
-    to: Annotated[str, Field(description="Who to send the email to")],
-    subject: Annotated[str, Field(description="The subject of the email.")],
-    body: Annotated[str, Field(description="The text body of the email.")]):
-        print("\nTo:", to)
-        print("Subject:", subject)
-        print(body, "\n")
+   def submit_claim(
+       to: Annotated[str, Field(description="Who to send the email to")],
+       subject: Annotated[str, Field(description="The subject of the email.")],
+       body: Annotated[str, Field(description="The text body of the email.")]):
+           print("\nTo:", to)
+           print("Subject:", subject)
+           print(body, "\n")
     ```
 
-     ![](./Media/lab4-s7.png)
+    ![](./Media/lab13-03-7.png)
 
-     > **Note:** The function *simulates* sending an email by printing it to the console. In a real application, you'd use an SMTP service or similar to actually send the email!
+    > **Note:** The function *simulates* sending an email by printing it to the console. In a real application, you'd use an SMTP service or similar to actually send the email!
 
 1. Back up above the **send_email** code, in the **process_expenses_data** function, find the comment **Create a client and initialize an agent with the tool and instructions**, and add the following code:
 
@@ -244,8 +233,8 @@ In this task, you will edit the agent code to add references, define a custom em
 
     ```python
    # Create a client and initialize an agent with the tool and instructions
+   credential = AzureCliCredential()
    async with (
-        AzureCliCredential() as credential,
         Agent(
             client=AzureOpenAIResponsesClient(
                 credential=credential,
@@ -255,18 +244,16 @@ In this task, you will edit the agent code to add references, define a custom em
             instructions="""You are an AI assistant for expense claim submission.
                         At the user's request, create an expense claim and use the plug-in function to send an email to expenses@contoso.com with the subject 'Expense Claim`and a body that contains itemized expenses with a total.
                         Then confirm to the user that you've done so. Don't ask for any more information from the user, just use the data provided to create the email.""",
-            tools=[send_email],
+            tools=[submit_claim],
         ) as agent,
     ):
     ```
 
-    ![](./Media/lab4-s13.png)
+    ![](./Media/lab13-03-8.png)
 
     - Note that the **AzureCliCredential** object will allow your code to authenticate to your Azure account. The **AzureOpenAIResponsesClient** object includes the Foundry project settings from the .env configuration. The **Agent** object is initialized with the client, instructions for the agent, and the tool function you defined to send emails.
 
 1. Find the comment **Use the agent to process the expenses data**, and add the following code to create a thread for your agent to run on, and then invoke it with a chat message.
-
-    (Be sure to maintain the indentation level):
 
     ```python
    # Use the agent to process the expenses data
@@ -282,72 +269,54 @@ In this task, you will edit the agent code to add references, define a custom em
        print (e)
     ```
 
-    ![](./Media/lab4-s9.png)
+    > **Note:** While adding code under **Use the agent to process the expenses data**, make sure the `try` block and all its statements are properly indented inside the `async with` block created in the previous step.
+
+    ![](./Media/lab13-03-10.png)
 
 1. Review that the completed code for your agent, using the comments to help you understand what each block of code does, and then save your code changes **CTRL+S**.
 
-1. Keep the code editor open in case you need to correct any typo's in the code, but resize the panes so you can see more of the command line console.
+## Task 6: Run the app
 
-## Task 5: Sign into Azure and run the app
+In this task, you'll run the Python application and interact with the agent using prompts. You will verify that the agent processes expense data and generates the expected output.
 
-In this task, you signed into Azure using the CLI, authenticated your session, and ran the agent application. You then tested the agent by submitting an expense claim and verified that it generated the expected email output.
+1. In the terminal, run `az login` to initiate the Azure sign-in process.
 
-1. In the cloud shell command-line pane beneath the code editor, enter the following command to sign into Azure **(1)**. Copy and paste the Sign in URL in the web browser **(2)**. Copy the device code as well to authenticate **(3)**.
+    ![](./Media/lab13-03-11.png)
 
-    ```
-    az login
-    ```
+    >**Note:** If you have closed the terminal, right-click on the **07-agent-framework \ Python** folder and select **Open in Integrated Terminal**. Then run the command `.\labenv\Scripts\Activate.ps1` to activate the virtual environment before proceeding.
 
-    ![](./Media/lab4-s10.png)
+1. In the sign-in window, select your account **<inject key="AzureAdUserEmail"></inject> (1)** and click **Continue (2)** to proceed with authentication.
 
-    >**Note:** You must sign into Azure - even though the cloud shell session is already authenticated
+    ![](./Media/lab9-p2t9p2.png)
 
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+1. After successful sign-in, wait for the subscriptions to load and press **Enter** to select the only available subscription.
 
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+    ![](./Media/lab13-03-12.png)
 
-    ![](./Media/lab2-s33.png)
-
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
-
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab4-s11.png)
-
-1. After you have signed in, enter the following command to run the application:  
+1. In the integrated terminal, enter the following command to run the application:
 
     ```
    python agent-framework.py
     ```
-    
-    - The application runs using the credentials for your authenticated Azure session to connect to your project and create and run the agent.
 
-1. When asked **What would you like me to do with it?** expenses data, enter the following prompt:
+1. When asked what to do with the expenses data, enter the following prompt:
 
     ```
    Submit an expense claim
     ```
 
-    ![](./Media/lab4-s15.png)
+    ![](./Media/lab13-03-13.png)
 
 1. When the application has finished, review the output. The agent should have composed an email for an expenses claim based on the data that was provided.
 
-    ![](./Media/lab4-s16.png)
+    ![](./Media/lab13-03-14.png)
 
     > **Tip:** If the app fails because the rate limit is exceeded. Wait a few seconds and try again. If there is insufficient quota available in your subscription, the model may not be able to respond.
 
+1. When you're finished, enter `deactivate` in the terminal to exit the Python virtual environment.
+
 ## Summary
 
-In this lab, you used the Microsoft Agent Framework SDK to build an AI agent for expense claim processing. You created a custom tool to simulate sending emails, configured the agent with system instructions, and connected it to a Foundry project. Finally, you ran and tested the agent, verifying that it processed expenses data and generated the expected email output.
+In this lab, you used the Microsoft Agent Framework SDK to build and configure an AI chat agent in an Microsoft Foundry project. You implemented a custom tool to process expense data and integrated it with the agent to handle user requests. Finally, you ran and tested the application to validate the agent’s ability to generate responses and simulate expense claim submissions.
 
-### You have successfully completed the Hands-on Lab!
+## You have successfully completed the Hands-on Lab!

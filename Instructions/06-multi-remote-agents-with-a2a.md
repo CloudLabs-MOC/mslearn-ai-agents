@@ -1,94 +1,122 @@
 # Lab 09 Connect to remote agents with A2A protocol
-   
-### Estimated Duration: 30 Minutes
 
-## Overview
-
-In this lab, you'll use Azure AI Agent Service with the A2A protocol to create remote agents that communicate with each other. You will build a title agent to generate article headlines and an outline agent to create structured outlines from the titles. A routing agent will orchestrate communication between them, allowing you to test multi-agent collaboration through a client application.
-
-> **Tip:** The code used in this exercise is based on the for Microsoft Foundry SDK for Python. You can develop similar solutions using the SDKs for Microsoft .NET, JavaScript, and Java. Refer to [Microsoft Foundry SDK client libraries](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/sdk-overview) for details.
-
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+### Estimated Duration: 60 Minutes
 
 ## Lab Objectives
 
-- **Task 1:** Create a Foundry project
+- **Task 1:** Install the Microsoft Foundry VS Code extension
 
-- **Task 2:** Create an A2A application
+- **Task 2:** Sign in to Azure and create a project
 
-## Task 1: Create a Foundry project
+- **Task 3:** Deploy a model
 
-In this task, you will create a new project in the Microsoft Foundry portal, configure it with a resource group and region, and deploy the gpt-4.1 model. You will also locate and copy the project endpoint to use in your client application.
+- **Task 4:** Clone the starter code repository
 
-1. Open a new tab in the browser, right-click on the following link [Microsoft Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+- **Task 5:** Create an A2A application
 
-1. Click on **Sign in**.
+- **Task 6:** Run the application
 
-   ![](./Media/lab1-s2.png)
+## Overview
 
-1. If prompted, provide the credentials below:
+In this lab, you will build a multi-agent application using the Azure AI Agent Service and the Agent-to-Agent (A2A) protocol in Microsoft Foundry. You will create and configure multiple agents, including a routing agent and remote agents, and enable communication between them using A2A messaging. You will define agent skills, implement an agent executor, and make agents discoverable through agent cards. Finally, you will run and validate the application to ensure agents collaborate effectively to process user requests.
 
+## Task 1: Install the Microsoft Foundry VS Code extension
+
+In this task, you'll install and verify the Microsoft Foundry extension in Visual Studio Code, enabling you to create, manage, and interact with Azure AI projects and agents directly within the VS Code environment.
+
+1. Open the **Visual Studio Code** from the desktop.
+
+    ![](./Media/lab9-p2t1p1.png)
+
+1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
+
+   ![](./Media/lab7-s1.png)
+
+1. After installation is complete, verify the extension appears in the primary navigation bar on the left side of Visual Studio Code.
+
+   ![](./Media/lab9-p2t1p2.png)
+
+   > **Note:** If you already have the extension installed, make sure the version is at least **v0.16.0** to follow along with the instructions in this exercise.
+
+## Task 2: Sign in to Azure and create a project
+
+In this task, you'll authenticate with your Azure account and create a new Microsoft Foundry project, which will serve as the workspace for deploying models and building AI-powered agent solutions.
+
+1. In the VS Code sidebar, select the **Microsoft Foundry (1)** extension icon.
+
+1. In the Resources view, choose **Create Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
+
+   ![](./Media/lab7-s4.png)
+
+1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
+
+   ![](./Media/lab7-s5.png)
+
+1. On the **Sign in** page, provide the credentials below:
+ 
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
-
-     ![](./Media/lab1-s3.png)
+    
+     ![](./Media/lab7-s6.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
+    
+     ![](./Media/lab7-s7.png)
 
-      ![](./Media/lab1-s4.png)
+1. On the **Sign in to all apps, websites, and services on this device?** page, select **Yes**.
 
-1. When the **Stay signed in?** window appears, select **No**.
+   ![](./Media/lab7-s8.png)
 
-    ![](./Media/lab1-s5.png)
+1. On the **Account added to this device** page, select **Done**.
 
-     > **Important:** Make sure the **New Foundry** toggle is **Off** for this lab.
+   ![](./Media/lab7-s9.png)
 
-1. In the home page, select **Create an agent**.   
+1. In the **Choose a resource group** dialog, select **AI-102-RG13** from the list.
 
-    ![](./Media/lab6-s1.png)
+   ![](./Media/lab15-03-1.png)
 
-1. In the **Create a new project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+1. In the **Enter project name** dialog, enter **Myproject<inject key="DeploymentID" enableCopy="false"/>**, and then press **Enter** to confirm.
 
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG13 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
+   ![](./Media/lab7-s11.png)
 
-      ![](./Media/lab6-s2.png)
+1. Wait for the project deployment to complete. A popup will appear with the message "Project deployed successfully."
 
-       >**Note:** Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.       
+    ![](./Media/lab09-ai-1.png)
 
-1. Wait for your project to be created.      
+## Task 3: Deploy a model
 
-    >**Note:** In some cases, Microsoft Foundry will automatically deploy a default model usually **gpt-4o**. If this happens, follow the below step and deploy gpt-4.1 model.
+In this task, you'll deploy the gpt-4.1 model (or an equivalent) in your Foundry project, making it available for your agent to process prompts and generate intelligent responses.
 
-    1. In the left-hand menu, select **Models + endpoints**, then select **+ Deploy model** and choose **Deploy base model** from the drop-down list.
+1. In the **RESOURCES** pane, select **Models**, and then select the **+** icon to add a new model deployment.
 
-       ![](./Media/lab6-s4.png)
+   ![](./Media/lab9-p2t3p1.png)
 
-1. When prompted, search for `gpt-4.1` **(1)**, then select **gpt-4.1 (2)** model and then **Confirm (3)**.
+   > **Tip:** You can also access the Model Catalog pressing **F1** and running the command **Microsoft Foundry: Open Model Catalog**.
 
-    ![](./Media/lab6-s5.png)
+1. In the Model Catalog, scroll down, search for **gpt-4.1 (1)** in the search bar, and then select **Deploy (2)** under **OpenAI GPT-4.1**.
 
-1. On the **Deploy gpt-4.1** page, select **Global Standard (1)** as the Deployment type and then click on **Customize (2)**.
+   ![](./Media/lab7-s13.png)
 
-   ![](./Media/lab6-s5.1.png)
+1. Configure the deployment settings:
+   
+    - **Deployment name:** Enter a name like **gpt-4.1 (1)**
+    - **Deployment type:** Select **Global Standard** (or **Standard** if Global Standard is not available) **(2)**
+    - **Model version:** Leave as default
+    - **Tokens per minute:** `50K` **(3)**
+    - Select **Deploy in Microsoft Foundry (4)** in the bottom-left corner.
 
-1. On the **Deploy gpt-4.1** page,
+        ![](./Media/lab12-03-2.png)
 
-    - Tokens per Minute Rate Limit (thousands): `60K` **(1)** (or the maximum available in your subscription if less than 50K)
-    - Then select **Deploy (2)**
+1. If the confirmation dialog appears, select **Deploy** to deploy the model.
 
-      ![](./Media/lab6-s5.2.png)
+1. Wait for the deployment to complete. Your deployed model will appear under the **Models** section in the Resources view.
 
-1. From the left navigation pane, select **Playgrounds (1)**, then in the **Agents playground** verify that **gpt-4.1 (2)** is selected under *Deployment*; if not, choose **gpt-4.1** from the drop-down.
+    ![](./Media/lab9-p2t3p3.png)
 
-    ![](./Media/lab6-s6.png)
+1. In the VS Code Activity Bar, under the **Resources** section expand and right-click your project **Myproject (2)**, and choose **Copy Project Endpoint (3)** to copy the endpoint.
 
-    > **Note:** After selecting **Playgrounds**, if the welcome page appears with the **Let’s go** button, select **Let’s go** to open the **Agents playground**, and then verify that **gpt-4.1** is selected under *Deployment*.
+    ![](./Media/lab12-03-3.png)
 
-1. In the navigation pane on the left, select **Overview (1)** to see the main page for your project. Copy the **Microsoft Foundry project endpoint (2)** values to a notepad, as you'll use them to connect to your project in a client application.
-
-    ![](./Media/lab6-s7.png)
+    > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming task.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >
@@ -97,67 +125,41 @@ In this task, you will create a new project in the Microsoft Foundry portal, con
 > - If you need any assistance, please contact us at cloudlabs-support@spektrasystems.com. We are available 24/7 to help.
  
 <validation step="c1fb6715-624a-418f-b152-45427c8de4d8" />
- 
----     
 
-## Task 2: Create an A2A application
+## Task 4: Clone the starter code repository
 
-Now you're ready to create a client app that uses an agent. Some code has been provided for you in a GitHub repository.
+In this task, you'll clone the provided GitHub repository, set up a Python virtual environment, install required dependencies, and configure environment variables to prepare your local development setup.
 
-### Task 2.1: Clone the repo containing the application code
+1. Navigate to the **Welcome** page in VS Code by selecting the ellipsis **(...) (1)** from the top bar, then **Help (2)**, and finally **Welcome (3)**.
 
-In this task, you will set up a client application by cloning the provided GitHub repository containing the code for the title, outline, and routing agents, and prepare the environment for running the multi-agent A2A application.
+    ![](./Media/lab9-p2t4p1.png)
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+1. On the **Get Started** page, select **Mark Done** to complete this step and proceed.
 
-1. If prompted, provide the credentials below:
+    ![](./Media/lab9-p2t4p2.png)
 
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+1. Select **Clone Git Repository... (1)**, paste the repository URL **(2)** `https://github.com/MicrosoftLearning/mslearn-ai-agents.git`, and then choose **Clone from URL (3)** to proceed.
 
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
+    ![](./Media/lab9-p2t4p3.png)
 
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
+1. Select the destination folder **C:\LabFiles (1)** and click **Select as Repository Destination (2)** to proceed.
 
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
+    ![](./Media/lab9-p2t4p4.png)
 
-    ![](./Media/lab2-s7.png)
+1. When prompted, select **Open (1)** to open the cloned repository.
 
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+    ![](./Media/lab9-p2t4p5.png)
 
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+1. In the trust prompt, select **Yes, I trust the authors (1)** to continue.
 
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+    ![](./Media/lab9-p2t4p6.png)
 
-    ![](./Media/lab2-s8.png)
+1. In the Explorer view, navigate to the **Labfiles (1)** and then select **06-build-remote-agents-with-a2a/Python (2)** folder to find the starter code for this exercise.
 
-1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
-
-    ![](./Media/lab2-s9.png)
-
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
-
-1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
-
-    ```
-   rm -r ai-agents -f
-   git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
-    ```
-
-    ![](./Media/lab6-s8.png)
-
-    > **Tip:** As you enter commands into the cloudshell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
-
-1. Enter the following command to change the working directory to the folder containing the code files and list them all.
-
-    ```
-   cd ai-agents/Labfiles/06-build-remote-agents-with-a2a/python
-   ls -a -l
-    ```
-
-    ![](./Media/lab6-s9.png)
+    ![](./Media/lab15-03-2.png)
 
     The provided files include:
-    
+
     ```output
     python
     ├── outline_agent/
@@ -175,60 +177,37 @@ In this task, you will set up a client application by cloning the provided GitHu
     └── run_all.py
     ```
 
-    - Each agent folder contains the Azure AI agent code and a server to host the agent. The **routing agen**t is responsible for discovering and communicating with the **title** and **outline** agents. The **client** allows users to submit prompts to the routing agent. `run_all.py` launches all the servers and runs the client.
+    Each agent folder contains the Azure AI agent code and a server to host the agent. The **routing agent** is responsible for discovering and communicating with the **title** and **outline** agents. The **client** allows users to submit prompts to the routing agent. `run_all.py` launches all the servers and runs the client.
 
-### Task 2.2: Configure the application settings
+1. Right-click on the **requirements.txt (1)** file and select **Open in Integrated Terminal (2)**.
 
-In this task, you will configure the application by installing required libraries and updating the .env file with your Foundry project endpoint and model deployment details.
+    ![](./Media/lab15-03-3.png)
 
-1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
-
-    ```
-   python -m venv labenv
-   ./labenv/bin/Activate.ps1
-   pip install -r requirements.txt azure-ai-projects azure-ai-agents a2a-sdk
-    ```
-
-1. Enter the following command to edit the configuration file that has been provided:
+1. In the terminal, enter the following command to install the required Python packages in a virtual environment:
 
     ```
-   code .env
+    python -m venv labenv
+    .\labenv\Scripts\Activate.ps1
+    pip install -r requirements.txt
     ```
 
-    ![](./Media/lab6-s10.png)
+1. From the left navigation menu, under **07-agent-framework/Python** folder, open the **.env (1)** file. Paste the copied project endpoint into the **PROJECT_ENDPOINT (2)** field, and verify that the **MODEL_DEPLOYMENT_NAME (3)** is set to `gpt-4.1` (or the name of your deployed model). Once done, press **Ctrl+S** to save the changes.
 
-    - The file is opened in a code editor.
+    ![](./Media/lab15-03-4.png)
 
-1. In the code file, replace the placeholder values with the correct details for your project:
+## Task 5: Create an A2A application
 
-    * PROJECT\_ENDPOINT : **Microsoft Foundry project endpoint (1)**
-    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1 (2)**
+In this task, you will create an A2A-based application by developing a discoverable agent and defining its skills and agent card. You will also enable communication between agents by implementing message routing and processing using the A2A protocol.
 
-    ![](./Media/lab6-s11.png)
-
-    > **Note:** Paste the project endpoint you copied in the previous task.
-
-1. After you've replaced the placeholder, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
-
-### Task 2.3: Create a discoverable agent
+### Task 5.1: Create a discoverable agent
 
 In this task, you create the title agent that helps writers create trendy headlines for their articles. You also define the agent's skills and card required by the A2A protocol to make the agent discoverable.
 
-1. Navigate to the `title_agent` directory:
+> **Tip:** As you add code, be sure to maintain the correct indentation. Use the existing comments as a guide, entering the new code at the same level of indentation.
 
-    ```
-   cd title_agent
-    ```
+1. In the **Explorer**, expand **title_agent (1)** and select **agent.py (2)**.
 
-    > **Tip:** As you add code, be sure to maintain the correct indentation. Use the comment indentation levels as a guide.
-
-1. Enter the following command to edit the code file that has been provided:
-
-    ```
-   code agent.py
-    ```
-
-    ![](./Media/lab6-s12.png)
+    ![](./Media/lab15-03-5.png)
 
 1. Find the comment **Create the agents client** and add the following code to connect to the Azure AI project:
 
@@ -245,7 +224,7 @@ In this task, you create the title agent that helps writers create trendy headli
    )
     ```
 
-    ![](./Media/lab6-s13.png)
+    ![](./Media/lab15-03-6.png)
 
 1. Find the comment **Create the title agent** and add the following code to create the agent:
 
@@ -261,7 +240,7 @@ In this task, you create the title agent that helps writers create trendy headli
    )
     ```
 
-    ![](./Media/lab6-s14.png)
+    ![](./Media/lab15-03-7.png)
 
 1. Find the comment **Create a thread for the chat session** and add the following code to create the chat thread:
 
@@ -270,12 +249,16 @@ In this task, you create the title agent that helps writers create trendy headli
    thread = self.client.threads.create()
     ```
 
+    ![](./Media/lab15-03-8.png)
+
 1. Locate the comment **Send user message** and add this code to submit the user's prompt:
 
     ```python
    # Send user message
    self.client.messages.create(thread_id=thread.id, role=MessageRole.USER, content=user_message)
     ```
+
+    ![](./Media/lab15-03-9.png)
 
 1. Under the comment **Create and run the agent**, add the following code to initiate the agent's response generation:
 
@@ -284,19 +267,15 @@ In this task, you create the title agent that helps writers create trendy headli
    run = self.client.runs.create_and_process(thread_id=thread.id, agent_id=self.agent.id)
     ```
 
-    ![](./Media/lab6-s15.png)
+    ![](./Media/lab15-03-10.png)
 
-    - The code provided in the rest of the file will process and return the agent's response. 
+    The code provided in the rest of the file will process and return the agent's response.
 
-1. Save the code file **CTRL+S**. Now you're ready to share the agent's skills and card with the A2A protocol. 
+1. Save the code file **CTRL+S**. Now you're ready to share the agent's skills and card with the A2A protocol.
 
-1. Enter the following command to edit the title agent's `server.py` file  
+1. Open the **title_agent/server.py** file in the code editor.
 
-    ```
-   code server.py
-    ```
-
-    ![](./Media/lab6-s15.1.png)
+    ![](./Media/lab15-03-11.png)
 
 1. Find the comment **Define agent skills** and add the following code to specify the agent’s functionality:
 
@@ -315,14 +294,14 @@ In this task, you create the title agent that helps writers create trendy headli
    ]
     ```
 
-    ![](./Media/lab6-s16.png)
+    ![](./Media/lab15-03-12.png)
 
 1. Find the comment **Create agent card** and add this code to define the metadata that makes the agent discoverable:
 
     ```python
    # Create agent card
    agent_card = AgentCard(
-       name='AI Foundry Title Agent',
+       name='Microsoft Foundry Title Agent',
        description='An intelligent title generator agent powered by Foundry. '
        'I can help you generate catchy titles for your articles.',
        url=f'http://{host}:{port}/',
@@ -334,7 +313,7 @@ In this task, you create the title agent that helps writers create trendy headli
    )
     ```
 
-    ![](./Media/lab6-s17.png)
+    ![](./Media/lab15-03-14.png)
 
 1. Locate the comment **Create agent executor** and add the following code to initialize the agent executor using the agent card:
 
@@ -343,7 +322,9 @@ In this task, you create the title agent that helps writers create trendy headli
    agent_executor = create_foundry_agent_executor(agent_card)
     ```
 
-    - The agent executor will act as a wrapper for the title agent you created.
+    ![](./Media/lab15-03-15.png)
+
+    The agent executor will act as a wrapper for the title agent you created.
 
 1. Find the comment **Create request handler** and add the following to handle incoming requests using the executor:
 
@@ -354,6 +335,8 @@ In this task, you create the title agent that helps writers create trendy headli
    )
     ```
 
+    ![](./Media/lab15-03-16.png)
+
 1. Under the comment **Create A2A application**, add this code to create the A2A-compatible application instance:
 
     ```python
@@ -362,30 +345,20 @@ In this task, you create the title agent that helps writers create trendy headli
        agent_card=agent_card, http_handler=request_handler
    )
     ```
-    
-    ![](./Media/lab6-s18.png)
 
-    - This code creates an A2A server that will share the title agent's information and handle incoming requests for this agent using the title agent executor.
+    ![](./Media/lab15-03-17.png)
+
+    This code creates an A2A server that will share the title agent's information and handle incoming requests for this agent using the title agent executor.
 
 1. Save the code file **CTRL+S** when you have finished.
 
-### Task 2.4: Enable messages between the agents
+### Task 5.2: Enable messages between the agents
 
 In this task, you use the A2A protocol to enable the routing agent to send messages to the other agents. You also allow the title agent to receive messages by implementing the agent executor class.
 
-1. Navigate to the `routing_agent` directory:
+1. In the **Explorer**, expand **routing_agent (1)** and select **agent.py (2)** file to open in the code editor..
 
-    ```
-   cd ../routing_agent
-    ```
-
-1. Enter the following command to edit the code file that has been provided:
-
-    ```
-   code agent.py
-    ```
-
-    ![](./Media/lab6-s19.png)
+    ![](./Media/lab15-03-18.png)
 
     The routing agent acts as an orchestrator that handles user messages and determines which remote agent should process the request.
 
@@ -406,7 +379,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    client = self.remote_agent_connections[agent_name]
     ```
 
-    ![](./Media/lab6-s20.png)
+    ![](./Media/lab15-03-19.png)
 
 1. Locate the comment **Construct the payload to send to the remote agent** and add the following code:
 
@@ -421,7 +394,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    }
     ```
 
-    ![](./Media/lab6-s21.png)
+    ![](./Media/lab15-03-20.png)
 
 1. Find the comment **Wrap the payload in a SendMessageRequest object** and add the following code:
 
@@ -430,6 +403,8 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    message_request = SendMessageRequest(id=message_id, params=MessageSendParams.model_validate(payload))
     ```
 
+    ![](./Media/lab15-03-21.png)
+
 1. Add the following code under the comment **Send the message to the remote agent client and await the response**:
 
     ```python
@@ -437,25 +412,15 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    send_response: SendMessageResponse = await client.send_message(message_request=message_request)
     ```
 
-    ![](./Media/lab6-s22.png)
+    ![](./Media/lab15-03-22.png)
 
 1. Save the code file **CTRL+S** when you have finished. Now the routing agent is able to discover and send messages to the title agent. Let's create the agent executor code to handle those incoming messages from the routing agent.
 
-1. Navigate to the `title_agent` directory:
+1. In the **Explorer**, expand **title_agent (1)** and select **agent_executor.py (2)** file to open in the code editor.
 
-    ```
-   cd ../title_agent
-    ```
+    ![](./Media/lab15-03-23.png)
 
-1. Enter the following command to edit the code file that has been provided:
-
-    ```
-   code agent_executor.py
-    ```
-
-    ![](./Media/lab6-s23.png)
-
-    - The `AgentExecutor` class implemenation must contain the methods `execute` and `cancel`. The cancel method has been provided for you. The `execute` method includes a `TaskUpdater` object that manages events and signals to the caller when the task is complete. Let's add the logic for task execution.
+    The `AgentExecutor` class implemenation must contain the methods `execute` and `cancel`. The cancel method has been provided for you. The `execute` method includes a `TaskUpdater` object that manages events and signals to the caller when the task is complete. Let's add the logic for task execution.
 
 1. In the `execute` method, add the following code under the comment **Process the request**:
 
@@ -464,7 +429,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    await self._process_request(context.message.parts, context.context_id, updater)
     ```
 
-    ![](./Media/lab6-s24.png)
+    ![](./Media/lab15-03-24.png)
 
 1. In the `_process_request` method, add the following code under the comment **Get the title agent**:
 
@@ -472,6 +437,8 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    # Get the title agent
    agent = await self._get_or_create_agent()
     ```
+
+    ![](./Media/lab15-03-25.png)
 
 1. Add the following code under the comment **Update the task status**:
 
@@ -483,7 +450,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    )
     ```
 
-    ![](./Media/lab6-s25.png)
+    ![](./Media/lab15-03-26.png)
 
 1. Find the comment **Run the agent conversation** and add the following code:
 
@@ -491,6 +458,8 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    # Run the agent conversation
    responses = await agent.run_conversation(user_message)
     ```
+
+    ![](./Media/lab15-03-27.png)
 
 1. Find the comment **Update the task with the responses** and add the following code:
 
@@ -503,7 +472,7 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
        )
     ```
 
-    ![](./Media/lab6-s26.png)
+    ![](./Media/lab15-03-28.png)
 
 1. Find the comment **Mark the task as complete** and add the following code:
 
@@ -515,54 +484,37 @@ In this task, you use the A2A protocol to enable the routing agent to send messa
    )
     ```
 
-    ![](./Media/lab6-s27.png)
+    ![](./Media/lab15-03-29.png)
 
-    - Now your title agent has been wrapped with an agent executor that the A2A protocol will use to handle messages. Great work!
+    Now your title agent has been wrapped with an agent executor that the A2A protocol will use to handle messages. Great work!
 
-### Task 2.5: Sign into Azure and run the app
+## Task 6: Run the application
 
-In this task, you will sign into Azure, run the multi-agent application, and interact with the agents to generate outputs such as article titles and outlines.
+In this task, you will run the multi-agent application and authenticate with Azure to initiate the services. You will test and validate the interaction between agents by sending user prompts and reviewing the generated responses.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
+1. In the terminal, run `Connect-AzAccount` to initiate the Azure sign-in process.
 
-    ```
-    az login
-    ```
+    ![](./Media/lab15-03-30.png)
 
-    ![](./Media/lab6-s27.1.png)
+    >**Note:** If you have closed the terminal, right-click on the **06-build-remote-agents-with-a2a\Python** folder and select **Open in Integrated Terminal**. Then run the command `.\labenv\Scripts\Activate.ps1` to activate the virtual environment before proceeding.
 
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+1. In the sign-in window, select your account **<inject key="AzureAdUserEmail"></inject> (1)** and click **Continue (2)** to proceed with authentication.
 
-1. In the new browser tab, when the **Enter code to allow access (1)** window appears, paste the copied code and select **Next (2)**.
+    ![](./Media/lab9-p2t9p2.png)
 
-    ![](./Media/lab6-s27.2.png)
+1. After successful sign-in, wait for the subscriptions to load and verify that your subscription is listed in the terminal.
 
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+    ![](./Media/lab9-p2t9p3.png)
 
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab5-s12.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the integrated terminal, enter the following command to run the application:
 
     ```
-    cd ..
     python run_all.py
     ```
-    
-    ![](./Media/lab6-s28.png)
 
-    - The application runs using the credentials for your authenticated Azure session to connect to your project and create and run the agent. You should see some output from each server as it starts.
+    ![](./Media/lab15-03-31.png)
+
+    You should see some output from each server as it starts.
 
 1. Wait until the prompt for input appears, then enter a prompt such as:
 
@@ -570,16 +522,18 @@ In this task, you will sign into Azure, run the multi-agent application, and int
    Create a title and outline for an article about React programming.
     ```
 
-    ![](./Media/lab6-s29.png)
+    ![](./Media/lab15-03-32.png)
 
 1. After a few moments, you should see a response from the agent with the results.
 
-    ![](./Media/lab6-s30.png)
+    ![](./Media/lab15-03-33.png)
 
 1. Enter `quit` to exit the program and stop the servers.
-    
+
+    You can also use `deactivate` to exit the Python virtual environment in the terminal.
+
 ## Summary
 
 In this lab, you used the Azure AI Agent Service SDK and the A2A Python SDK to create a remote multi-agent solution. You created a discoverable A2A-compatible agent and set up a routing agent to access the agent's skills. You also implemented an agent executor to process incoming A2A messages and manage tasks. Great work!
 
-### You have successfully completed the Hands-on Lab!
+## You have successfully completed the Hands-on Lab!

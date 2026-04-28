@@ -1,97 +1,126 @@
 # Lab 08: Develop a multi-agent solution with Microsoft Agent Framework
 
-### Estimated Duration: 30 Minutes
+### Estimated Duration: 60 Minutes
 
-## Overview
+## Lab Overview
 
-In this lab, you'll learn how to build a multi-agent solution using the Microsoft Agent Framework SDK. You'll implement the sequential orchestration pattern, where multiple agents work together in a pipeline to process input and generate meaningful outputs. You'll create the following agents:
-
-- The Summarizer agent will condense raw feedback into a short, neutral sentence.
-- The Classifier agent will categorize the feedback as Positive, Negative, or a Feature request.
-- Finally, the Recommended Action agent will recommend an appropriate follow-up step.
-
-> **Note:** Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+In this lab, you will develop a multi-agent solution using the Microsoft Agent Framework SDK in Visual Studio Code and Azure AI Foundry. You will create multiple specialized AI agents, configure a sequential orchestration workflow, and set up a Python-based client application. Finally, you will run and validate the solution to observe how the agents collaborate to process input and generate structured outputs.
 
 ## Lab Objectives
 
-- **Task 1:** Deploy a model in a Microsoft Foundry project
+In this lab, you'll perform the following tasks:
 
-- **Task 2:** Create an AI Agent client app
+- **Task 1:** Install the Microsoft Foundry VS Code extension
 
-- **Task 3:** Configure the application settings
+- **Task 2:** Sign in to Azure and create a project
 
-- **Task 4:** Create AI agents
+- **Task 3:** Deploy a model
 
-- **Task 5:** Create a sequential orchestration
+- **Task 4:** Clone the starter code repository
 
-- **Task 6:** Sign into Azure and run the app
+- **Task 5:** Create AI agents
 
-## Task 1: Deploy a model in a Microsoft Foundry project
+- **Task 6:** Create a sequential orchestration
 
-In this task, you will create a new Microsoft Foundry project, deploy the gpt-4.1 model, and copy the project endpoint to use in your client application.
+- **Task 7:** Run the app
 
-1. Open a new tab in the browser, right-click on the following link [Foundry portal](https://ai.azure.com), then **Copy link** and paste it in a browser tab to log in to **Microsoft Foundry portal**.
+## Task 1: Install the Microsoft Foundry VS Code extension
 
-1. Click on **Sign in**.
- 
-    ![](./Media/lab1-s2.png)
+In this task, you'll install and verify the Microsoft Foundry extension in Visual Studio Code, enabling you to create, manage, and interact with Azure AI projects and agents directly within the VS Code environment.
 
-1. If prompted, provide the credentials below:
+1. Open the **Visual Studio Code** from the desktop.
+
+    ![](./Media/lab9-p2t1p1.png)
+
+1. In Visual Studio Code, select **Extensions (1)** from the left pane, search for **Microsoft Foundry (2)**, choose the **Microsoft Foundry (3)** extension by Microsoft, and then click **Install (4)**.
+
+   ![](./Media/lab7-s1.png)
+
+1. After installation is complete, verify the extension appears in the primary navigation bar on the left side of Visual Studio Code.
+
+   ![](./Media/lab9-p2t1p2.png)
+
+   > **Note:** If you already have the extension installed, make sure the version is at least **v0.16.0** to follow along with the instructions in this exercise.
+
+## Task 2: Sign in to Azure and create a project
+
+In this task, you'll authenticate with your Azure account and create a new Microsoft Foundry project, which will serve as the workspace for deploying models and building AI-powered agent solutions.
+
+1. In the VS Code sidebar, select the **Microsoft Foundry (1)** extension icon.
+
+1. In the Resources view, choose **Create Project (2)**, and when prompted, select **Sign in to Azure (3)** to authenticate.
+
+   ![](./Media/lab7-s4.png)
+
+1. In the **Azure Resources wants to sign in using Microsoft** dialog, select **Allow**.
+
+   ![](./Media/lab7-s5.png)
+
+1. On the **Sign in** page, provide the credentials below:
  
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
     
-     ![](./Media/lab1-s3.png)
+     ![](./Media/lab7-s6.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
     
-     ![](./Media/lab1-s4.png)
+     ![](./Media/lab7-s7.png)
 
-1. When the **Stay signed in?** window appears, select **No**.
+1. On the **Sign in to all apps, websites, and services on this device?** page, select **Yes**.
 
-    ![](./Media/lab1-s5.png)
-    
-    >**Note:** Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the **Foundry** logo at the top left to navigate to the home page, which looks similar to the following image (close the **Help** pane if it's open):
+   ![](./Media/lab7-s8.png)
 
-1. At the top of the **Microsoft Foundry** portal, enable the **New Foundry toggle (1)** to switch to the latest Foundry user interface.
+1. On the **Account added to this device** page, select **Done**.
 
-1. From the **Select a project to continue** dialog, click the drop-down under **Select or search for a project**, and then select **Create a new project (2)**.
+   ![](./Media/lab7-s9.png)
 
-     ![](./Media/lab1-s6.png)
+1. In the **Choose a resource group** dialog, select **AI-102-RG12** from the list.
 
-1. In the **Create a project** window, enter **Myproject<inject key="DeploymentID"></inject> (1)** as the project name. Open the **Advanced options (2)** drop-down, fill in the following details, and then click **Create (7)**:
+   ![](./Media/lab14-03-1.png)
 
-    * Subscription: **Choose Default Subscription (3)**
-    * Resource group: **AI-102-RG12 (4)**
-    * Microsoft Foundry resource: **Keep as Default (5)**
-    * Region: **<inject key="Region"></inject> (6)**
+1. In the **Enter project name** dialog, enter **Myproject<inject key="DeploymentID" enableCopy="false"/>**, and then press **Enter** to confirm.
 
-      ![](./Media/lab5-s1.png)
+   ![](./Media/lab7-s11.png)
 
-      >**Note:**  Some Azure AI resources are constrained by regional model quotas. In the event of a quota limit being exceeded later in the exercise, there's a possibility you may need to create another resource in a different region.
+1. Wait for the project deployment to complete. A popup will appear with the message "Project deployed successfully."
 
-1. Wait for your project created. It may take a few minutes.
+    ![](./Media/lab09-ai-1.png)
 
-1. On the **Microsoft Foundry** home page, click **Start building (1)**, and then select **Browse models (2)** from the drop-down menu.
+## Task 3: Deploy a model
 
-     ![](./Media/lab2-s2.png)
+In this task, you'll deploy the gpt-4.1 model (or an equivalent) in your Foundry project, making it available for your agent to process prompts and generate intelligent responses.
 
-1. On the **Models** page, search for **gpt-4.1 (1)** in the search bar, and then select the **gpt-4.1 (2)** model from the search results.
+1. In the **RESOURCES** pane, select **Models**, and then select the **+** icon to add a new model deployment.
 
-     ![](./Media/lab2-s3.png)
+   ![](./Media/lab9-p2t3p1.png)
 
-1. On the **gpt-4.1** model details page, click **Deploy (1)**, and then select **Default settings (2)** to deploy the model using the standard configuration.
+   > **Tip:** You can also access the Model Catalog pressing **F1** and running the command **Microsoft Foundry: Open Model Catalog**.
 
-    ![](./Media/lab2-s4.png)
+1. In the Model Catalog, scroll down, search for **gpt-4.1 (1)** in the search bar, and then select **Deploy (2)** under **OpenAI GPT-4.1**.
 
-    - After the model is deployed, the playground for the model is displayed.
+   ![](./Media/lab7-s13.png)
 
-1. In the navigation bar on the left, select **Microsoft Foundry** to return to the Foundry home page.
+1. Configure the deployment settings:
+   
+    - **Deployment name:** Enter a name like **gpt-4.1 (1)**
+    - **Deployment type:** Select **Global Standard** (or **Standard** if Global Standard is not available) **(2)**
+    - **Model version:** Leave as default
+    - **Tokens per minute:** `50K` **(3)**
+    - Select **Deploy in Microsoft Foundry (4)** in the bottom-left corner.
 
-     ![](./Media/lab2-s5.png)
+        ![](./Media/lab12-03-2.png)
 
-1. Copy the **Project endpoint** value to a notepad, as you'll use them to connect to your project in a client application.
+1. If the confirmation dialog appears, select **Deploy** to deploy the model.
 
-    ![](./Media/lab2-s6.png)
+1. Wait for the deployment to complete. Your deployed model will appear under the **Models** section in the Resources view.
+
+    ![](./Media/lab9-p2t3p3.png)
+
+1. In the VS Code Activity Bar, under the **Resources** section expand and right-click your project **Myproject (2)**, and choose **Copy Project Endpoint (3)** to copy the endpoint.
+
+    ![](./Media/lab12-03-3.png)
+
+    > **Note:** Copy and save the **Project endpoint** in a notepad, as it will be required in upcoming task.
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 >
@@ -101,188 +130,146 @@ In this task, you will create a new Microsoft Foundry project, deploy the gpt-4.
  
 <validation step="5067f59b-415f-4007-9926-ff36dcc942d8" />
 
+## Task 4: Clone the starter code repository
 
-## Task 2: Create an AI Agent client app
+In this task, you'll clone the provided GitHub repository, set up a Python virtual environment, install required dependencies, and configure environment variables to prepare your local development setup.
 
-In this task, you will set up the client environment by opening Azure Cloud Shell and cloning the GitHub repo. This prepares your system to configure and run the multi-agent solution.
+1. Navigate to the **Welcome** page in VS Code by selecting the ellipsis **(...) (1)** from the top bar, then **Help (2)**, and finally **Welcome (3)**.
 
-1. Open a new browser tab (keeping the Microsoft Foundry portal open in the existing tab). Then in the new tab, browse to the [Azure portal](https://portal.azure.com) at `https://portal.azure.com`.
+    ![](./Media/lab9-p2t4p1.png)
 
-1. If prompted, provide the credentials below:
+1. On the **Get Started** page, select **Mark Done (1)** to complete this step and proceed.
 
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
+    ![](./Media/lab9-p2t4p2.png)
 
-    - **Password:** <inject key="AzureAdUserPassword"></inject> 
+1. Select **Clone Git Repository... (1)**, paste the repository URL **(2)** `https://github.com/MicrosoftLearning/mslearn-ai-agents.git`, and then choose **Clone from URL (3)** to proceed.
 
-      >**Note:** Close any welcome notifications to see the Azure portal home page.
+    ![](./Media/lab9-p2t4p3.png)
 
-1. On the **Azure portal** homepage, click the **\[>\_] Cloud Shell (1)** button located to the right of the **Copilot** tab at the top. This opens a new Cloud Shell session. In the **Welcome to Azure Cloud Shell** window, choose **PowerShell (2)**.
+1. Select the destination folder **C:\LabFiles (1)** and click **Select as Repository Destination (2)** to proceed.
 
-    ![](./Media/lab2-s7.png)
+    ![](./Media/lab9-p2t4p4.png)
 
-    >**Note:** The cloud shell provides a command-line interface in a pane at the bottom of the Azure portal. You can resize or maximize this pane to make it easier to work in.
+1. When prompted, select **Open (1)** to open the cloned repository.
 
-    > **Note:** If you have previously created a cloud shell that uses a **Bash** environment, switch it to **PowerShell**.
+    ![](./Media/lab9-p2t4p5.png)
 
-1. In the **Getting started** window, ensure **No storage account required (1)** is selected. From the **Subscription** drop-down, choose **Default subscription (2)**, then click **Apply (3)**.
+1. In the trust prompt, select **Yes, I trust the authors (1)** to continue.
 
-    ![](./Media/lab2-s8.png)
+    ![](./Media/lab9-p2t4p6.png)
 
-1. In the Cloud Shell toolbar, open the **Settings (1)** menu and choose **Go to Classic version (2)** from the drop-down.
+1. In the Explorer view, navigate to the **Labfiles (1)** and then select **05-agent-orchestration/Python (2)** folder to find the starter code for this exercise.
 
-    ![](./Media/lab2-s9.png)
+    ![](./Media/lab14-03-3.png)
 
-    >**Note:** **<font color="red">Ensure you've switched to the classic version of the cloud shell before continuing.</font>**
+1. Right-click on the **requirements.txt (1)** file and select **Open in Integrated Terminal (2)**.
 
-1. In the cloud shell pane, enter the following commands to clone the GitHub repo containing the code files for this exercise (type the command, or copy it to the clipboard and then right-click in the command line and paste as plain text):
+    ![](./Media/lab14-03-4.png)
 
-    ```
-   rm -r ai-agents -f
-   git clone https://github.com/MicrosoftLearning/mslearn-ai-agents ai-agents
-    ```
-
-    ![](./Media/lab5-s2.png)
-
-    > **Tip:** As you enter commands into the cloud shell, the output may take up a large amount of the screen buffer and the cursor on the current line may be obscured. You can clear the screen by entering the `cls` command to make it easier to focus on each task.
-
-1. When the repo has been cloned, enter the following command to change the working directory to the folder containing the code files and list them all.
+1. In the terminal, enter the following command to install the required Python packages in a virtual environment:
 
     ```
-   cd ai-agents/Labfiles/05-agent-orchestration/Python
-   ls -a -l
+    python -m venv labenv
+    .\labenv\Scripts\Activate.ps1
+    pip install -r requirements.txt
     ```
 
-    ![](./Media/lab5-s3.png)
+1. From the left navigation menu, under **05-agent-orchestration/Python** folder, open the **.env (1)** file. Paste the copied project endpoint into the **PROJECT_ENDPOINT (2)** field, and verify that the **MODEL_DEPLOYMENT_NAME (3)** is set to `gpt-4.1` (or the name of your deployed model). Once done, press **Ctrl+S** to save the changes.
 
-    - The provided files include application code and a file for configuration settings.
+    ![](./Media/lab14-03-5.png)
 
-## Task 3: Configure the application settings
+## Task 5: Create AI agents
 
-In this task, you will install required Python libraries and configure the .env file with your Foundry project details to enable agent connectivity.
+In this task, you'll configure and initialize multiple AI agents with specific roles using the Microsoft Agent Framework SDK for use in the orchestration workflow.
 
-1. In the cloud shell command-line pane, enter the following command to install the libraries you'll use:
+1. Open the **agents.py** file in the code editor.
 
-    ```
-   python -m venv labenv
-   ./labenv/bin/Activate.ps1
-   pip install agent-framework==1.0.0b260128 --pre
-    ```
-
-1. In the Cloud Shell command-line pane, enter the following command to install the required package version:
-
-   ```
-   pip install opentelemetry-semantic-conventions-ai==0.4.13
-   ```
-
-    ![](./Media/lab5-s14.png)
-
-1. Enter the following command to edit the configuration file that is provided:
-
-    ```
-   code .env
-    ```
-
-1. In the code file, replace the placeholder values with the correct details for your project:
-
-    * PROJECT\_ENDPOINT : **Foundry project endpoint**
-    * MODEL\_DEPLOYMENT\_NAME : **gpt-4.1**
-
-        ![](./Media/lab5-s4.png)
-
-        > **Note:** Paste the project endpoint you copied in the previous task.
-
-1. After you've replaced the placeholders, use the **CTRL+S** command to save your changes and then use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
-
-## Task 4: Create AI agents
-
-In this task, you will define and initialize the summarizer, classifier, and action agents to form the core of your multi-agent workflow.
-
-1. Enter the following command to edit the **agents.py** file:
-
-    ```
-   code agents.py
-    ```
-
-    ![](./Media/lab5-s5.png)
+    ![](./Media/lab14-03-6.png)
 
 1. At the top of the file under the comment **Add references**, and add the following code to reference the namespaces in the libraries you'll need to implement your agent:
 
     ```python
-   # Add references
-   import asyncio
-   from typing import cast
-   from agent_framework import ChatMessage, Role, SequentialBuilder, WorkflowOutputEvent
-   from agent_framework.azure import AzureAIAgentClient
-   from azure.identity import AzureCliCredential
+    # Add references
+    import asyncio
+    from typing import cast
+    from dotenv import load_dotenv
+    from agent_framework import Message
+    from agent_framework.azure import AzureAIAgentClient
+    from agent_framework.orchestrations import SequentialBuilder
+    from azure.identity import AzureCliCredential
+
+    load_dotenv()
     ```
 
-    ![](./Media/lab5-s6.png)
+     ![](./Media/lab14-03-7.png)
 
 1. In the **main** function, take a moment to review the agent instructions. These instructions define the behavior of each agent in the orchestration.
 
 1. Add the following code under the comment **Create the chat client**:
 
     ```python
-   # Create the chat client
-   credential = AzureCliCredential()
-   async with (
-       AzureAIAgentClient(credential=credential) as chat_client,
-   ):
+    # Create the chat client
+    credential = AzureCliCredential()
+    async with (
+        AzureAIAgentClient(credential=credential) as chat_client,
+    ):
     ```
 
-    ![](./Media/lab5-s7.png)
+     ![](./Media/lab14-03-8.png)
 
-    - Note that the **AzureCliCredential** object will allow your code to authenticate to your Azure account. The **AzureAIAgentClient** object will automatically include the Foundry project settings from the .env configuration.
+     Note that the **AzureCliCredential** object will allow your code to authenticate to your Azure account. The **AzureAIAgentClient** object will automatically include the Foundry project settings from the .env configuration.
 
 1. Add the following code under the comment **Create agents**:
 
     (Be sure to maintain the indentation level)
 
     ```python
-   # Create agents
-   summarizer = chat_client.as_agent(
-       instructions=summarizer_instructions,
-       name="summarizer",
-   )
+    # Create agents
+    summarizer = chat_client.as_agent(
+        instructions=summarizer_instructions,
+        name="summarizer",
+    )
 
-   classifier = chat_client.as_agent(
-       instructions=classifier_instructions,
-       name="classifier",
-   )
+    classifier = chat_client.as_agent(
+        instructions=classifier_instructions,
+        name="classifier",
+    )
 
-   action = chat_client.as_agent(
-       instructions=action_instructions,
-       name="action",
-   )
+    action = chat_client.as_agent(
+        instructions=action_instructions,
+        name="action",
+    )
     ```
 
-    ![](./Media/lab5-s8.png)
+     ![](./Media/lab14-03-9.png)
 
-## Task 5: Create a sequential orchestration
+## Task 6: Create a sequential orchestration
 
-In this task, you will build a sequential workflow to process customer feedback through the summarizer, classifier, and action agents, then collect and display their outputs.
+In this task, you'll build a sequential orchestration by combining multiple agents into a workflow. You will run the orchestration and capture outputs generated by each agent in sequence.
 
 1. In the **main** function, find the comment **Initialize the current feedback** and add the following code:
-    
+
     (Be sure to maintain the indentation level)
 
     ```python
-   # Initialize the current feedback
-   feedback="""
-   I use the dashboard every day to monitor metrics, and it works well overall. 
-   But when I'm working late at night, the bright screen is really harsh on my eyes. 
-   If you added a dark mode option, it would make the experience much more comfortable.
-   """
+    # Initialize the current feedback
+    feedback="""
+    I use the dashboard every day to monitor metrics, and it works well overall. 
+    But when I'm working late at night, the bright screen is really harsh on my eyes. 
+    If you added a dark mode option, it would make the experience much more comfortable.
+    """
     ```
 
-    ![](./Media/lab5-s9.1.png)
+     ![](./Media/lab14-03-10.png)
 
 1. Under the comment **Build a sequential orchestration**, add the following code to define a sequential orchestration with the agents you defined:
 
     ```python
    # Build sequential orchestration
-   workflow = SequentialBuilder().participants([summarizer, classifier, action]).build()
+   workflow = SequentialBuilder(participants=[summarizer, classifier, action]).build()
     ```
+
+    ![](./Media/lab14-03-11.png)
 
     - The agents will process the feedback in the order they are added to the orchestration.
 
@@ -290,15 +277,15 @@ In this task, you will build a sequential workflow to process customer feedback 
 
     ```python
    # Run and collect outputs
-   outputs: list[list[ChatMessage]] = []
-   async for event in workflow.run_stream(f"Customer feedback: {feedback}"):
-       if isinstance(event, WorkflowOutputEvent):
-           outputs.append(cast(list[ChatMessage], event.data))
+   outputs: list[list[Message]] = []
+   async for event in workflow.run(f"Customer feedback: {feedback}", stream=True):
+       if event.type == "output":
+           outputs.append(cast(list[Message], event.data))
     ```
 
-    ![](./Media/lab5-s9.2.png)
+    ![](./Media/lab14-03-12.png)
 
-    - This code runs the orchestration and collects the output from each of the participating agents.
+    This code runs the orchestration and collects the output from each of the participating agents.
 
 1. Add the following code under the comment **Display outputs**:
 
@@ -306,57 +293,41 @@ In this task, you will build a sequential workflow to process customer feedback 
    # Display outputs
    if outputs:
        for i, msg in enumerate(outputs[-1], start=1):
-           name = msg.author_name or ("assistant" if msg.role == Role.ASSISTANT else "user")
+           name = msg.author_name or ("assistant" if msg.role == "assistant" else "user")
            print(f"{'-' * 60}\n{i:02d} [{name}]\n{msg.text}")
     ```
 
-    ![](./Media/lab5-s9.png)
+    ![](./Media/lab14-03-13.png)
 
-    - This code formats and displays the messages from the workflow outputs you collected from the orchestration.
+    This code formats and displays the messages from the workflow outputs you collected from the orchestration.
 
-1. Use the **CTRL+S** command to save your changes to the code file. You can keep it open (in case you need to edit the code to fix any errors) or use the **CTRL+Q** command to close the code editor while keeping the cloud shell command line open.
+1. Use the **CTRL+S** command to save your changes to the code file.
 
-## Task 6: Sign into Azure and run the app
+## Task 7: Run the app
 
-In this task, you will sign into Azure, run your multi-agent application, and observe how the agents process and respond to customer feedback.
+In this task, you'll execute the Python application and provide input to the multi-agent system. You will validate how the agents collaborate and generate structured responses.
 
-1. In the cloud shell command-line pane, enter the following command to sign into Azure. Click on the **Link (1)** and copy the **code (2)** provided.
+1. In the terminal, run `az login` to initiate the Azure sign-in process.
 
-    ```
-    az login
-    ```
+    ![](./Media/lab14-03-14.png)
 
-    ![](./Media/lab5-s10.png)
+    >**Note:** If you have closed the terminal, right-click on the **05-agent-orchestration\Python** folder and select **Open in Integrated Terminal**. Then run the command `.\labenv\Scripts\Activate.ps1` to activate the virtual environment before proceeding.
 
-    > **Note:** In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+1. In the sign-in window, select your account **<inject key="AzureAdUserEmail"></inject> (1)** and click **Continue (2)** to proceed with authentication.
 
-1. In the new browser tab, when the **Enter code to allow access** window appears, paste the copied code and select **Next**.
+    ![](./Media/lab9-p2t9p2.png)
 
-    ![](./Media/lab5-s11.png)
+1. After successful sign-in, wait for the subscriptions to load and press **Enter** to select the only available subscription.
 
-1. In the **Pick an account** dialog box, choose **ODL_User<inject key="DeploymentID"></inject>**. 
+    ![](./Media/lab13-03-12.png)
 
-    ![](./Media/lab2-s34.png)
-
-1. In the **Are you trying to sign in to Microsoft Azure CLI?** dialog box, click **Continue**.
-
-    ![](./Media/lab2-s35.png)
-
-1. When the **Microsoft Azure Cross-platform Command Line Interface** window pops up, return to the browser tab with Cloud Shell open. 
-
-    ![](./Media/lab2-s36.png)
-
-1. In the Cloud Shell console, press **Enter** to select the only available subscription.
-
-    ![](./Media/lab5-s12.png)
-
-1. After you have signed in, enter the following command to run the application:
+1. In the integrated terminal, enter the following command to run the application:
 
     ```
    python agents.py
     ```
 
-    You should see some output similar to the following:
+1. You should see some output similar to the following:
 
     ```output
     ------------------------------------------------------------
@@ -377,32 +348,28 @@ In this task, you will sign into Azure, run your multi-agent application, and ob
     Log as enhancement request for product backlog.
     ```
 
-    ![](./Media/lab5-s16.png)
+    ![](./Media/lab14-03-15.png)
 
 1. Optionally, you can try running the code using different feedback inputs, such as:
 
-1. Enter the following command **(1)** to edit the **agents.py** file:
-
-    ```
-   code agents.py
+    ```output
+    I use the dashboard every day to monitor metrics, and it works well overall. But when I'm working late at night, the bright screen is really harsh on my eyes. If you added a dark mode option, it would make the experience much more comfortable.
     ```
 
-1. Locate the section under the comment **# Initialize the current feedback** and replace the existing feedback text with the following **(2)**:
+    ![](./Media/lab14-03-16.png)
+
+    ![](./Media/lab14-03-17.png)
+
+1. You can also try running the code using the task inputs given below:
 
     ```output
     I reached out to your customer support yesterday because I couldn't access my account. The representative responded almost immediately, was polite and professional, and fixed the issue within minutes. Honestly, it was one of the best support experiences I've ever had.
     ```
 
-     ![](./Media/lab5-s18.png)
-
-1. Save your changes by pressing **CTRL+S**, then run the application with the following command and review the output:
-
-    ```
-    python agents.py
-    ```
+1. When you're finished, enter `deactivate` in the terminal to exit the Python virtual environment.
 
 ## Summary
 
-In this lab, you created a new project in the Microsoft Foundry portal and built a multi-agent solution using the Microsoft Agent Framework. You configured the agents with instructions, created a sequential orchestration, and tested the workflow by processing customer feedback to generate summaries, classifications, and recommended actions.
+In this lab, you created and configured a multi-agent solution using the Microsoft Agent Framework SDK in an Microsoft Foundry project. You defined multiple specialized agents and combined them using a sequential orchestration workflow. Finally, you ran and tested the application to observe how the agents collaborate to process input and generate structured outputs.
 
-### You have successfully completed the Hands-on Lab!
+## You have successfully completed the Hands-on Lab!
