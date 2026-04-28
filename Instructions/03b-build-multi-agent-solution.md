@@ -30,7 +30,7 @@ In this task, you will sign in to the Microsoft Foundry portal and create a new 
 
    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-     ![](./Media/lab1-s3.png)
+     ![](./Media/sigin-1.png)
 
    - **Password:** <inject key="AzureAdUserPassword"></inject>
 
@@ -389,7 +389,7 @@ In this task, you will modify the Python application to create multiple AI agent
    
     ```
 
-    ![](./Media/lab3b-s17.1.png)
+    ![](./Media/lab6-s17.1.png)
 
 1. Find the comment **Clean up**, and enter the following code to delete the agents when they are no longer required:
 
